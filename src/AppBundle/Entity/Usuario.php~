@@ -1,0 +1,342 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuario
+ *
+ * @ORM\Table(name="usuario")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UsuarioRepository")
+ */
+class Usuario
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_usuario_pk", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $codigoUsuarioPk;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_rol_fk", type="integer")
+     */
+    private $codigoRolFk;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_cliente_fk", type="integer")
+     */
+    private $codigoClienteFk;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=50)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=50)
+     */
+    private $password;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellido", type="string", length=50)
+     */
+    private $apellido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50)
+     */
+    private $email;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="telefono", type="integer", nullable=true)
+     */
+    private $telefono;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Rol", inversedBy="usuariosRolRel")
+     * @ORM\JoinColumn(name="codigo_rol_fk", referencedColumnName="codigo_rol_pk")
+     */
+    protected $rolRel;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="usuariosClienteRel")
+     * @ORM\JoinColumn(name="codigo_cliente_fk", referencedColumnName="codigo_cliente_pk")
+     */
+    protected $clienteRel;
+    
+
+    /**
+     * Get codigoUsuarioPk
+     *
+     * @return integer
+     */
+    public function getCodigoUsuarioPk()
+    {
+        return $this->codigoUsuarioPk;
+    }
+
+    /**
+     * Set codigoRolFk
+     *
+     * @param integer $codigoRolFk
+     *
+     * @return Usuario
+     */
+    public function setCodigoRolFk($codigoRolFk)
+    {
+        $this->codigoRolFk = $codigoRolFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoRolFk
+     *
+     * @return integer
+     */
+    public function getCodigoRolFk()
+    {
+        return $this->codigoRolFk;
+    }
+
+    /**
+     * Set codigoClienteFk
+     *
+     * @param integer $codigoClienteFk
+     *
+     * @return Usuario
+     */
+    public function setCodigoClienteFk($codigoClienteFk)
+    {
+        $this->codigoClienteFk = $codigoClienteFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoClienteFk
+     *
+     * @return integer
+     */
+    public function getCodigoClienteFk()
+    {
+        return $this->codigoClienteFk;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     *
+     * @return Usuario
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return Usuario
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Usuario
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set apellido
+     *
+     * @param string $apellido
+     *
+     * @return Usuario
+     */
+    public function setApellido($apellido)
+    {
+        $this->apellido = $apellido;
+
+        return $this;
+    }
+
+    /**
+     * Get apellido
+     *
+     * @return string
+     */
+    public function getApellido()
+    {
+        return $this->apellido;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Usuario
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param integer $telefono
+     *
+     * @return Usuario
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return integer
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set rolRel
+     *
+     * @param \AppBundle\Entity\Rol $rolRel
+     *
+     * @return Usuario
+     */
+    public function setRolRel(\AppBundle\Entity\Rol $rolRel = null)
+    {
+        $this->rolRel = $rolRel;
+
+        return $this;
+    }
+
+    /**
+     * Get rolRel
+     *
+     * @return \AppBundle\Entity\Rol
+     */
+    public function getRolRel()
+    {
+        return $this->rolRel;
+    }
+
+    /**
+     * Set clienteRel
+     *
+     * @param \AppBundle\Entity\Cliente $clienteRel
+     *
+     * @return Usuario
+     */
+    public function setClienteRel(\AppBundle\Entity\Cliente $clienteRel = null)
+    {
+        $this->clienteRel = $clienteRel;
+
+        return $this;
+    }
+
+    /**
+     * Get clienteRel
+     *
+     * @return \AppBundle\Entity\Cliente
+     */
+    public function getClienteRel()
+    {
+        return $this->clienteRel;
+    }
+}

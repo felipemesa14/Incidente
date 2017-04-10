@@ -1,0 +1,98 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Detalle incidencia</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="box-body table-responsive no-padding">
+                                <table width="100%" class="table table-condensed table-bordered">
+                                    <tbody><tr>
+                                            <td><strong>N° incidencia:</strong></td>
+                                            <td>{{arIncidencia.codigoIncidenciaPk}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Titulo:</strong></td>
+                                            <td>{{arIncidencia.titulo}}</td>
+                                        </tr> 
+                                        <tr>
+                                            <td><strong>Categoria:</strong></td>
+                                            <td>{{arIncidencia.categoriaRel.nombre}}</td>
+                                        </tr>                     
+                                        <tr>
+                                            <td><strong>Prioridad:</strong></td>
+                                            <td>{{arIncidencia.prioridadRel.nombre}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Cliente:</strong></td>
+                                            <td>{{arIncidencia.clienteRel.nombre}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Fecha registro:</strong></td>
+                                            <td>{{arIncidencia.fechaRegistro | date('d/m/Y H:i')}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Descripci&oacute;n:</strong></td>
+                                            <td>{{arIncidencia.descripcion}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Fecha soluci&oacute;n:</strong></td>
+                                            <td>{{arIncidencia.fechaSolucion | date('d/m/Y H:i')}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Soluci&oacute;n:</strong></td>
+                                            <td>{{arIncidencia.solucion}}</td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Comentarios</div>
+                    <div class="panel-body">
+                        <div class="box-body table-responsive no-padding">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Usuario</th>
+                                        <th>Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for arDetalleComentario in arDetalleComentario %}
+                                        <tr>
+                                            <td>{{arDetalleComentario.fechaRegistro| date('Y/m/d H:i')}}</td>
+                                            <td>{{arDetalleComentario.username}}</td>
+                                            <td>{{arDetalleComentario.comentario}}</td>
+                                        </tr>
+                                    {% endfor %}     
+                                </tbody>
+                            </table>
+                        </div>
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label class="control-label">{{ form_label(form.comentario)}}</label>
+                                {{ form_widget(form.comentario,{'attr':{'class':'form-control','placeholder':'Registrar su comentario'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
+                                <a href="{{path('caso_lista')}}">
+                                    <button type="button" class="btn btn-default">Volver</button>
+                                </a>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
