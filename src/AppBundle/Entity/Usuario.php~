@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Usuario
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuario")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UsuarioRepository")
  */
-class Usuario
-{
+class Usuario {
+
     /**
      * @var int
      *
@@ -20,21 +21,21 @@ class Usuario
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $codigoUsuarioPk;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="codigo_rol_fk", type="integer")
      */
     private $codigoRolFk;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="codigo_cliente_fk", type="integer")
      */
     private $codigoClienteFk;
-    
+
     /**
      * @var string
      *
@@ -43,12 +44,18 @@ class Usuario
     private $username;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=50)
+     * @ORM\Column(name="password", type="string", length=64)
      */
     private $password;
-    
+
     /**
      * @var string
      *
@@ -76,19 +83,19 @@ class Usuario
      * @ORM\Column(name="telefono", type="integer", nullable=true)
      */
     private $telefono;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Rol", inversedBy="usuariosRolRel")
      * @ORM\JoinColumn(name="codigo_rol_fk", referencedColumnName="codigo_rol_pk")
      */
     protected $rolRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="usuariosClienteRel")
      * @ORM\JoinColumn(name="codigo_cliente_fk", referencedColumnName="codigo_cliente_pk")
      */
     protected $clienteRel;
-    
+
 
     /**
      * Get codigoUsuarioPk
@@ -170,6 +177,16 @@ class Usuario
     public function getUsername()
     {
         return $this->username;
+    }
+    
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
     }
 
     /**
@@ -291,6 +308,29 @@ class Usuario
     {
         return $this->telefono;
     }
+    
+     /** @see \Serializable::serialize() */
+    public function serialize() {
+        return serialize(array(
+            $this->codigo_empleado_pk,
+            $this->username,
+            $this->password,
+                // see section on salt below
+                // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized) {
+        list (
+                $this->codigo_empleado_pk,
+                $this->username,
+                $this->password,
+                // see section on salt below
+                // $this->salt
+                ) = unserialize($serialized);
+    }
+    
 
     /**
      * Set rolRel
@@ -338,5 +378,12 @@ class Usuario
     public function getClienteRel()
     {
         return $this->clienteRel;
+    }
+    
+    public function getSalt()
+    {
+        // The bcrypt algorithm doesn't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
     }
 }

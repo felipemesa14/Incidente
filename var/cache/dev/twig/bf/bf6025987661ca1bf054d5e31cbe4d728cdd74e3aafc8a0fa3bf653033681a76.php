@@ -1,6 +1,6 @@
 <?php
 
-/* @WebProfiler/Profiler/profiler.css.twig */
+/* WebProfilerBundle:Profiler:profiler.css.twig */
 class __TwigTemplate_57a72207b3df4da756c17773631b84d32409ff6e4dba332ec9277bc407c8c97d extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -15,11 +15,11 @@ class __TwigTemplate_57a72207b3df4da756c17773631b84d32409ff6e4dba332ec9277bc407c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_c5e330617a89f896433c7fd55a3ec6364ad17cc6ca267f7a90398850365db591 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_c5e330617a89f896433c7fd55a3ec6364ad17cc6ca267f7a90398850365db591->enter($__internal_c5e330617a89f896433c7fd55a3ec6364ad17cc6ca267f7a90398850365db591_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/profiler.css.twig"));
+        $__internal_a13fcb806aa2ed30a6b13d676a21580c58b69e83919702e87ecb64910f992625 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a13fcb806aa2ed30a6b13d676a21580c58b69e83919702e87ecb64910f992625->enter($__internal_a13fcb806aa2ed30a6b13d676a21580c58b69e83919702e87ecb64910f992625_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:profiler.css.twig"));
 
-        $__internal_33acb49249601a124e1fd426e5ffad010495273465c11491fc09cb370ddbfe35 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_33acb49249601a124e1fd426e5ffad010495273465c11491fc09cb370ddbfe35->enter($__internal_33acb49249601a124e1fd426e5ffad010495273465c11491fc09cb370ddbfe35_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/profiler.css.twig"));
+        $__internal_aa8fcf4dc2b0a28d67e625c9608a5b24bf7d0b80b65011565adfe737ff4af7ae = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_aa8fcf4dc2b0a28d67e625c9608a5b24bf7d0b80b65011565adfe737ff4af7ae->enter($__internal_aa8fcf4dc2b0a28d67e625c9608a5b24bf7d0b80b65011565adfe737ff4af7ae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:profiler.css.twig"));
 
         // line 3
         $context["mixins"] = array("break_long_words" => "-ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto;", "monospace_font" => "font-family: monospace; font-size: 13px; font-size-adjust: 0.5;", "sans_serif_font" => "font-family: Helvetica, Arial, sans-serif;", "subtle_border_and_shadow" => "background: #FFF; border: 1px solid #E0E0E0; box-shadow: 0px 0px 1px rgba(128, 128, 128, .2);");
@@ -237,13 +237,16 @@ table tbody ul {
 .nowrap {
     white-space: pre;
 }
+.prewrap {
+    white-space: pre-wrap;
+}
 .newline {
     display: block;
 }
 .break-long-words {
     ";
-        // line 207
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 207, $this->getSourceContext()); })()), "break_long_words", array());
+        // line 210
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 210, $this->getSourceContext()); })()), "break_long_words", array());
         echo "
 }
 .text-small {
@@ -263,8 +266,8 @@ table tbody ul {
 }
 .font-normal {
     ";
-        // line 225
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 225, $this->getSourceContext()); })()), "sans_serif_font", array());
+        // line 228
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 228, $this->getSourceContext()); })()), "sans_serif_font", array());
         echo "
     font-size: 14px;
 }
@@ -294,20 +297,20 @@ table tbody ul {
     text-align: center;
 }
 .label.status-success { background: ";
-        // line 253
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 253, $this->getSourceContext()); })()), "success", array());
+        // line 256
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 256, $this->getSourceContext()); })()), "success", array());
         echo "; color: #FFF; }
 .label.status-warning { background: ";
-        // line 254
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 254, $this->getSourceContext()); })()), "warning", array());
+        // line 257
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 257, $this->getSourceContext()); })()), "warning", array());
         echo "; color: #FFF; }
 .label.status-error   { background: ";
-        // line 255
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 255, $this->getSourceContext()); })()), "error", array());
+        // line 258
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 258, $this->getSourceContext()); })()), "error", array());
         echo "; color: #FFF; }
 
 ";
-        // line 259
+        // line 262
         echo ".metrics {
     margin: 1em 0 0;
     overflow: auto;
@@ -319,8 +322,8 @@ table tbody ul {
 
 .metric {
     ";
-        // line 269
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 269, $this->getSourceContext()); })()), "subtle_border_and_shadow", array());
+        // line 272
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 272, $this->getSourceContext()); })()), "subtle_border_and_shadow", array());
         echo ";
     min-width: 100px;
     min-height: 70px;
@@ -376,15 +379,15 @@ table tbody ul {
     float: left;
     margin: 0 1em;
     min-height: 1px; ";
-        // line 324
+        // line 327
         echo "}
 
 ";
-        // line 328
+        // line 331
         echo ".card {
     ";
-        // line 329
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 329, $this->getSourceContext()); })()), "subtle_border_and_shadow", array());
+        // line 332
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 332, $this->getSourceContext()); })()), "subtle_border_and_shadow", array());
         echo ";
     margin: 1em 0;
     padding: 10px;
@@ -403,7 +406,7 @@ table tbody ul {
 }
 
 ";
-        // line 348
+        // line 351
         echo ".status-success {
     background: rgba(94, 151, 110, 0.3);
 }
@@ -426,19 +429,19 @@ tr.status-warning td {
 
 .status-warning .colored {
     color: ";
-        // line 369
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 369, $this->getSourceContext()); })()), "warning", array());
+        // line 372
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 372, $this->getSourceContext()); })()), "warning", array());
         echo ";
 }
 .status-error .colored  {
     color: ";
-        // line 372
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 372, $this->getSourceContext()); })()), "error", array());
+        // line 375
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 375, $this->getSourceContext()); })()), "error", array());
         echo ";
 }
 
 ";
-        // line 377
+        // line 380
         echo ".highlight pre {
     margin: 0;
     white-space: pre-wrap;
@@ -455,7 +458,7 @@ tr.status-warning td {
 .highlight .error     { color: #C82829; }
 
 ";
-        // line 394
+        // line 397
         echo ".sf-icon {
     vertical-align: middle;
     background-repeat: no-repeat;
@@ -481,7 +484,7 @@ tr.status-warning td {
 
 
 ";
-        // line 420
+        // line 423
         echo ".container {
     max-width: 1300px;
     padding-right: 15px;
@@ -522,7 +525,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 461
+        // line 464
         echo "#header {
     background-color: #222;
     overflow: hidden;
@@ -557,7 +560,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 496
+        // line 499
         echo "#summary .status {
     background: #E0E0E0;
     border: solid rgba(0, 0, 0, 0.1);
@@ -576,16 +579,16 @@ tr.status-warning td {
 }
 
 #summary .status-success { background: ";
-        // line 513
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 513, $this->getSourceContext()); })()), "success", array());
+        // line 516
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 516, $this->getSourceContext()); })()), "success", array());
         echo "; }
 #summary .status-warning { background: ";
-        // line 514
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 514, $this->getSourceContext()); })()), "warning", array());
+        // line 517
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 517, $this->getSourceContext()); })()), "warning", array());
         echo "; }
 #summary .status-error   { background: ";
-        // line 515
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 515, $this->getSourceContext()); })()), "error", array());
+        // line 518
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 518, $this->getSourceContext()); })()), "error", array());
         echo ";   }
 
 #summary .status-success h2,
@@ -621,7 +624,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 551
+        // line 554
         echo "#sidebar {
     background: #444;
     color: #CCC;
@@ -636,7 +639,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 566
+        // line 569
         echo "#sidebar #sidebar-shortcuts {
     background: #333;
     width: 220px;
@@ -663,7 +666,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 593
+        // line 596
         echo "#sidebar-search .form-group:first-of-type {
     padding-top: 20px;
 }
@@ -699,7 +702,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 629
+        // line 632
         echo "#menu-profiler {
     margin: 0;
     padding: 0;
@@ -794,19 +797,19 @@ tr.status-warning td {
 
 #menu-profiler .label-status-warning .count {
     background: ";
-        // line 722
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 722, $this->getSourceContext()); })()), "warning", array());
+        // line 725
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 725, $this->getSourceContext()); })()), "warning", array());
         echo ";
 }
 #menu-profiler .label-status-error .count {
     background: ";
-        // line 725
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 725, $this->getSourceContext()); })()), "error", array());
+        // line 728
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 728, $this->getSourceContext()); })()), "error", array());
         echo ";
 }
 
 ";
-        // line 730
+        // line 733
         echo "#timeline-control {
     background: #FFF;
     margin: 1em 0;
@@ -844,7 +847,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 768
+        // line 771
         echo ".tab-navigation {
     margin: 0 0 1em 0;
     padding: 0;
@@ -897,16 +900,16 @@ tr.status-warning td {
     margin-top: 0;
 }
 .tab-navigation li .badge.status-warning { background: ";
-        // line 819
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 819, $this->getSourceContext()); })()), "warning", array());
+        // line 822
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 822, $this->getSourceContext()); })()), "warning", array());
         echo "; color: #FFF; }
 .tab-navigation li .badge.status-error { background: ";
-        // line 820
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 820, $this->getSourceContext()); })()), "error", array());
+        // line 823
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["colors"]) || array_key_exists("colors", $context) ? $context["colors"] : (function () { throw new Twig_Error_Runtime('Variable "colors" does not exist.', 823, $this->getSourceContext()); })()), "error", array());
         echo "; color: #FFF; }
 
 ";
-        // line 824
+        // line 827
         echo ".sf-toggle-content {
     -moz-transition: display .25s ease;
     -webkit-transition: display .25s ease;
@@ -920,7 +923,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 838
+        // line 841
         echo "#twig-dump pre {
     font-size: 12px;
     line-height: 1.7;
@@ -934,14 +937,14 @@ tr.status-warning td {
 #twig-dump .status-success { background: rgba(100, 189, 99, 0.2);     }
 
 ";
-        // line 852
+        // line 855
         echo "table.logs .metadata {
     display: block;
     font-size: 12px;
 }
 
 ";
-        // line 859
+        // line 862
         echo ".sql-runnable {
     background: #F5F5F5;
     margin: .5em 0;
@@ -949,15 +952,15 @@ tr.status-warning td {
 }
 .queries-table pre {
     ";
-        // line 865
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 865, $this->getSourceContext()); })()), "break_long_words", array());
+        // line 868
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 868, $this->getSourceContext()); })()), "break_long_words", array());
         echo "
     margin: 0;
     white-space: pre-wrap;
 }
 
 ";
-        // line 872
+        // line 875
         echo "#collector-content .sf-dump {
     margin-bottom: 2em;
 }
@@ -965,8 +968,8 @@ tr.status-warning td {
 #collector-content .sf-dump code,
 #collector-content .sf-dump samp {
     ";
-        // line 878
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 878, $this->getSourceContext()); })()), "monospace_font", array());
+        // line 881
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 881, $this->getSourceContext()); })()), "monospace_font", array());
         echo "
 }
 #collector-content .sf-dump a {
@@ -1019,11 +1022,11 @@ tr.status-warning td {
 }
 
 ";
-        // line 931
+        // line 934
         echo "#search-results td {
     ";
-        // line 932
-        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 932, $this->getSourceContext()); })()), "sans_serif_font", array());
+        // line 935
+        echo twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["mixins"]) || array_key_exists("mixins", $context) ? $context["mixins"] : (function () { throw new Twig_Error_Runtime('Variable "mixins" does not exist.', 935, $this->getSourceContext()); })()), "sans_serif_font", array());
         echo "
     vertical-align: middle;
 }
@@ -1037,7 +1040,7 @@ tr.status-warning td {
 }
 
 ";
-        // line 946
+        // line 949
         echo "
 .visible-small {
     display: none;
@@ -1083,16 +1086,16 @@ tr.status-warning td {
 }
 ";
         
-        $__internal_c5e330617a89f896433c7fd55a3ec6364ad17cc6ca267f7a90398850365db591->leave($__internal_c5e330617a89f896433c7fd55a3ec6364ad17cc6ca267f7a90398850365db591_prof);
+        $__internal_a13fcb806aa2ed30a6b13d676a21580c58b69e83919702e87ecb64910f992625->leave($__internal_a13fcb806aa2ed30a6b13d676a21580c58b69e83919702e87ecb64910f992625_prof);
 
         
-        $__internal_33acb49249601a124e1fd426e5ffad010495273465c11491fc09cb370ddbfe35->leave($__internal_33acb49249601a124e1fd426e5ffad010495273465c11491fc09cb370ddbfe35_prof);
+        $__internal_aa8fcf4dc2b0a28d67e625c9608a5b24bf7d0b80b65011565adfe737ff4af7ae->leave($__internal_aa8fcf4dc2b0a28d67e625c9608a5b24bf7d0b80b65011565adfe737ff4af7ae_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Profiler/profiler.css.twig";
+        return "WebProfilerBundle:Profiler:profiler.css.twig";
     }
 
     public function isTraitable()
@@ -1102,7 +1105,7 @@ tr.status-warning td {
 
     public function getDebugInfo()
     {
-        return array (  1041 => 946,  1026 => 932,  1023 => 931,  969 => 878,  961 => 872,  953 => 865,  945 => 859,  938 => 852,  924 => 838,  910 => 824,  905 => 820,  901 => 819,  848 => 768,  810 => 730,  804 => 725,  798 => 722,  703 => 629,  667 => 593,  640 => 566,  625 => 551,  588 => 515,  584 => 514,  580 => 513,  561 => 496,  526 => 461,  485 => 420,  459 => 394,  442 => 377,  436 => 372,  430 => 369,  407 => 348,  387 => 329,  384 => 328,  380 => 324,  323 => 269,  311 => 259,  306 => 255,  302 => 254,  298 => 253,  267 => 225,  246 => 207,  228 => 191,  214 => 178,  205 => 172,  180 => 150,  171 => 143,  132 => 105,  129 => 104,  123 => 99,  50 => 29,  39 => 20,  35 => 16,  32 => 12,  30 => 11,  27 => 9,  25 => 3,);
+        return array (  1044 => 949,  1029 => 935,  1026 => 934,  972 => 881,  964 => 875,  956 => 868,  948 => 862,  941 => 855,  927 => 841,  913 => 827,  908 => 823,  904 => 822,  851 => 771,  813 => 733,  807 => 728,  801 => 725,  706 => 632,  670 => 596,  643 => 569,  628 => 554,  591 => 518,  587 => 517,  583 => 516,  564 => 499,  529 => 464,  488 => 423,  462 => 397,  445 => 380,  439 => 375,  433 => 372,  410 => 351,  390 => 332,  387 => 331,  383 => 327,  326 => 272,  314 => 262,  309 => 258,  305 => 257,  301 => 256,  270 => 228,  249 => 210,  228 => 191,  214 => 178,  205 => 172,  180 => 150,  171 => 143,  132 => 105,  129 => 104,  123 => 99,  50 => 29,  39 => 20,  35 => 16,  32 => 12,  30 => 11,  27 => 9,  25 => 3,);
     }
 
     public function getSourceContext()
@@ -1308,6 +1311,9 @@ table tbody ul {
 }
 .nowrap {
     white-space: pre;
+}
+.prewrap {
+    white-space: pre-wrap;
 }
 .newline {
     display: block;
@@ -2095,6 +2101,6 @@ table.logs .metadata {
         margin-left: 2px;
     }
 }
-", "@WebProfiler/Profiler/profiler.css.twig", "/var/www/html/incidente/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/profiler.css.twig");
+", "WebProfilerBundle:Profiler:profiler.css.twig", "/var/www/html/incidente/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/profiler.css.twig");
     }
 }

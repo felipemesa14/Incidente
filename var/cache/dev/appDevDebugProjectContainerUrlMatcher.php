@@ -110,6 +110,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\Autenticacion\\LoginController::indexAction',  '_route' => 'login',);
         }
 
+        // registrar
+        if ($pathinfo === '/registrar') {
+            return array (  '_controller' => 'AppBundle\\Controller\\Autenticacion\\LoginController::registrarAction',  '_route' => 'registrar',);
+        }
+
         // caso_lista
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
@@ -121,8 +126,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/caso')) {
             // caso_nuevo
-            if ($pathinfo === '/caso/nuevo') {
-                return array (  '_controller' => 'AppBundle\\Controller\\CasoController::nuevoAction',  '_route' => 'caso_nuevo',);
+            if (0 === strpos($pathinfo, '/caso/nuevo') && preg_match('#^/caso/nuevo/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_nuevo')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::nuevoAction',));
             }
 
             // caso_detalle
@@ -130,6 +135,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_detalle')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::detalleAction',));
             }
 
+            // caso_eliminar
+            if (0 === strpos($pathinfo, '/caso/eliminar') && preg_match('#^/caso/eliminar/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_eliminar')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::eliminarAction',));
+            }
+
+        }
+
+        // logout
+        if ($pathinfo === '/logout') {
+            return array('_route' => 'logout');
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

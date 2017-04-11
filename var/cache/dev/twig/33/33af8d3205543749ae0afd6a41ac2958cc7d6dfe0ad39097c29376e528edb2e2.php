@@ -21,29 +21,29 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1a510bfc7f15f971fb58542138e4ad00f68d5cb5e5daf5bc8d520272173386ee = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1a510bfc7f15f971fb58542138e4ad00f68d5cb5e5daf5bc8d520272173386ee->enter($__internal_1a510bfc7f15f971fb58542138e4ad00f68d5cb5e5daf5bc8d520272173386ee_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
+        $__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412->enter($__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
 
-        $__internal_349374b85e848c86ab237e718c150e67cc8afb0abafebca68b8f4f7e0e21430e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_349374b85e848c86ab237e718c150e67cc8afb0abafebca68b8f4f7e0e21430e->enter($__internal_349374b85e848c86ab237e718c150e67cc8afb0abafebca68b8f4f7e0e21430e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
+        $__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad->enter($__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_1a510bfc7f15f971fb58542138e4ad00f68d5cb5e5daf5bc8d520272173386ee->leave($__internal_1a510bfc7f15f971fb58542138e4ad00f68d5cb5e5daf5bc8d520272173386ee_prof);
+        $__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412->leave($__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412_prof);
 
         
-        $__internal_349374b85e848c86ab237e718c150e67cc8afb0abafebca68b8f4f7e0e21430e->leave($__internal_349374b85e848c86ab237e718c150e67cc8afb0abafebca68b8f4f7e0e21430e_prof);
+        $__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad->leave($__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_4ac78178c023b25ce109840025e2c8f720d75c9defcc9c39bb0ace208441658b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_4ac78178c023b25ce109840025e2c8f720d75c9defcc9c39bb0ace208441658b->enter($__internal_4ac78178c023b25ce109840025e2c8f720d75c9defcc9c39bb0ace208441658b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b->enter($__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_8eb128c75f8f695c1ee8c32879ad59a7cff5e2aa7f44a900916ddbabd5a7240e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8eb128c75f8f695c1ee8c32879ad59a7cff5e2aa7f44a900916ddbabd5a7240e->enter($__internal_8eb128c75f8f695c1ee8c32879ad59a7cff5e2aa7f44a900916ddbabd5a7240e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6->enter($__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\">
@@ -193,7 +193,7 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
         // line 87
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
         echo "\">
-                                    <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                                <button type=\"button\" class=\"btn btn-default\">Volver</button>
                                 </a>
                             </div>
                         </div>
@@ -203,14 +203,23 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
         echo "
                     </div>
                 </div>
+                <div class=\"form-group\">
+                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                        <a href=\"";
+        // line 97
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
+        echo "\">
+                            <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    ";
+        ";
         
-        $__internal_8eb128c75f8f695c1ee8c32879ad59a7cff5e2aa7f44a900916ddbabd5a7240e->leave($__internal_8eb128c75f8f695c1ee8c32879ad59a7cff5e2aa7f44a900916ddbabd5a7240e_prof);
+        $__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6->leave($__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6_prof);
 
         
-        $__internal_4ac78178c023b25ce109840025e2c8f720d75c9defcc9c39bb0ace208441658b->leave($__internal_4ac78178c023b25ce109840025e2c8f720d75c9defcc9c39bb0ace208441658b_prof);
+        $__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b->leave($__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b_prof);
 
     }
 
@@ -226,7 +235,7 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
 
     public function getDebugInfo()
     {
-        return array (  202 => 92,  194 => 87,  190 => 86,  182 => 81,  178 => 80,  172 => 77,  166 => 73,  157 => 71,  153 => 70,  149 => 69,  146 => 68,  142 => 67,  118 => 46,  111 => 42,  104 => 38,  97 => 34,  90 => 30,  83 => 26,  76 => 22,  69 => 18,  62 => 14,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  210 => 97,  202 => 92,  194 => 87,  190 => 86,  182 => 81,  178 => 80,  172 => 77,  166 => 73,  157 => 71,  153 => 70,  149 => 69,  146 => 68,  142 => 67,  118 => 46,  111 => 42,  104 => 38,  97 => 34,  90 => 30,  83 => 26,  76 => 22,  69 => 18,  62 => 14,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -318,16 +327,22 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                             <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                                 {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
                                 <a href=\"{{path('caso_lista')}}\">
-                                    <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                                <button type=\"button\" class=\"btn btn-default\">Volver</button>
                                 </a>
                             </div>
                         </div>
                         {{ form_end(form) }}
                     </div>
                 </div>
+                <div class=\"form-group\">
+                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                        <a href=\"{{path('caso_lista')}}\">
+                            <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    {% endblock %}
+        {% endblock %}
 
 ", "AppBundle:Caso:detalle.html.twig", "/var/www/html/incidente/src/AppBundle/Resources/views/Caso/detalle.html.twig");
     }

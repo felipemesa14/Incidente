@@ -21,29 +21,29 @@ class __TwigTemplate_1269fa995f080c822b662995766ffc4b2946a9a2436e4ac77f6546060e8
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_3e66ee9aab9c591670a73a7ca20a1c674d50a59684639200193365ea39fcab41 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_3e66ee9aab9c591670a73a7ca20a1c674d50a59684639200193365ea39fcab41->enter($__internal_3e66ee9aab9c591670a73a7ca20a1c674d50a59684639200193365ea39fcab41_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:nuevo.html.twig"));
+        $__internal_52b6dfd8bc0d5be7a30fb266ef8b42fb2585ec1ee8652609c11852802ef9a5a2 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_52b6dfd8bc0d5be7a30fb266ef8b42fb2585ec1ee8652609c11852802ef9a5a2->enter($__internal_52b6dfd8bc0d5be7a30fb266ef8b42fb2585ec1ee8652609c11852802ef9a5a2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:nuevo.html.twig"));
 
-        $__internal_89074d3e99d8347bfd6b9edf19504694cf028c2a7bf87fb078c13321906957e0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_89074d3e99d8347bfd6b9edf19504694cf028c2a7bf87fb078c13321906957e0->enter($__internal_89074d3e99d8347bfd6b9edf19504694cf028c2a7bf87fb078c13321906957e0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:nuevo.html.twig"));
+        $__internal_824859799ca9446846d13aaf03ce78dabd1968cfcf1e2b3a6e86b067d261e23c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_824859799ca9446846d13aaf03ce78dabd1968cfcf1e2b3a6e86b067d261e23c->enter($__internal_824859799ca9446846d13aaf03ce78dabd1968cfcf1e2b3a6e86b067d261e23c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:nuevo.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_3e66ee9aab9c591670a73a7ca20a1c674d50a59684639200193365ea39fcab41->leave($__internal_3e66ee9aab9c591670a73a7ca20a1c674d50a59684639200193365ea39fcab41_prof);
+        $__internal_52b6dfd8bc0d5be7a30fb266ef8b42fb2585ec1ee8652609c11852802ef9a5a2->leave($__internal_52b6dfd8bc0d5be7a30fb266ef8b42fb2585ec1ee8652609c11852802ef9a5a2_prof);
 
         
-        $__internal_89074d3e99d8347bfd6b9edf19504694cf028c2a7bf87fb078c13321906957e0->leave($__internal_89074d3e99d8347bfd6b9edf19504694cf028c2a7bf87fb078c13321906957e0_prof);
+        $__internal_824859799ca9446846d13aaf03ce78dabd1968cfcf1e2b3a6e86b067d261e23c->leave($__internal_824859799ca9446846d13aaf03ce78dabd1968cfcf1e2b3a6e86b067d261e23c_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_82a3ae1a390d054c5e757b69283e36aef9497a85adffb916a9bab3f66b220275 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_82a3ae1a390d054c5e757b69283e36aef9497a85adffb916a9bab3f66b220275->enter($__internal_82a3ae1a390d054c5e757b69283e36aef9497a85adffb916a9bab3f66b220275_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_ed6a60c6754c14c63a3baf67d22bde093afb0ab46ba13da1f895bd54984e974f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_ed6a60c6754c14c63a3baf67d22bde093afb0ab46ba13da1f895bd54984e974f->enter($__internal_ed6a60c6754c14c63a3baf67d22bde093afb0ab46ba13da1f895bd54984e974f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_a7e54d3d1766cb20bd6b54836c4e61078e8fb83df93977da68d1b6263a2f3cbf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a7e54d3d1766cb20bd6b54836c4e61078e8fb83df93977da68d1b6263a2f3cbf->enter($__internal_a7e54d3d1766cb20bd6b54836c4e61078e8fb83df93977da68d1b6263a2f3cbf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_990f20486578a9d6f07e46cc2ce4f61dcd258fdb615edbc123a5b4a245820696 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_990f20486578a9d6f07e46cc2ce4f61dcd258fdb615edbc123a5b4a245820696->enter($__internal_990f20486578a9d6f07e46cc2ce4f61dcd258fdb615edbc123a5b4a245820696_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\">
@@ -52,93 +52,128 @@ class __TwigTemplate_1269fa995f080c822b662995766ffc4b2946a9a2436e4ac77f6546060e8
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Crear incidencia</div>
                     <div class=\"panel-body\">
-                        <div class=\"row\">
-                            <div class=\"form-group\">
-                                ";
-        // line 11
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 11, $this->getSourceContext()); })()), 'form_start');
+                        <div class=\"row form-group\">
+                            ";
+        // line 10
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 10, $this->getSourceContext()); })()), 'form_start');
         echo "
-                                <div class=\"form-group\" >
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            ";
+                            <div class=\"form-group\" >
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        ";
+        // line 14
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 14, $this->getSourceContext()); })()), "titulo", array()), 'label');
+        echo "
+                                        ";
         // line 15
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 15, $this->getSourceContext()); })()), "titulo", array()), 'label');
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 15, $this->getSourceContext()); })()), "titulo", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Titulo del caso")));
         echo "
-                                            ";
-        // line 16
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 16, $this->getSourceContext()); })()), "titulo", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Titulo del caso")));
-        echo "
-                                        </div>
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Priodad</label>
-                                            ";
-        // line 20
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 20, $this->getSourceContext()); })()), "prioridadRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => ".:Seleccione:.")));
-        echo "
-                                        </div>
                                     </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Categoria</label>
-                                            ";
-        // line 26
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 26, $this->getSourceContext()); })()), "categoriaRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Categoria")));
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label class=\"control-label\">Priodad</label>
+                                        ";
+        // line 19
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 19, $this->getSourceContext()); })()), "prioridadRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => ".:Seleccione:.")));
         echo "
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Grupo</label>
-                                            ";
-        // line 32
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 32, $this->getSourceContext()); })()), "grupoRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Cliente")));
-        echo "
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label for=\"adjunto\">Adjuntos</label>
-                                            <input type=\"file\" name=\"adjunto[]\" id=\"adjunto\" multiple />
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                                            ";
-        // line 43
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 43, $this->getSourceContext()); })()), "descripcion", array()), 'label');
-        echo "
-                                            ";
-        // line 44
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 44, $this->getSourceContext()); })()), "descripcion", array()), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" aling =\"left\">
-                                            <br>
-                                            ";
-        // line 50
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 50, $this->getSourceContext()); })()), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
-        echo "
-                                            <a href=\"";
-        // line 51
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
-        echo "\">
-                                                <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
-                                <div class=\"text-danger\">";
-        // line 57
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 57, $this->getSourceContext()); })()), 'errors');
-        echo "</div>
-                                ";
-        // line 58
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 58, $this->getSourceContext()); })()), 'form_end');
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label class=\"control-label\">Categoria</label>
+                                        ";
+        // line 25
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 25, $this->getSourceContext()); })()), "categoriaRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Categoria")));
         echo "
+                                    </div>
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label class=\"control-label\">Grupo</label>
+                                        ";
+        // line 29
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 29, $this->getSourceContext()); })()), "grupoRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Cliente")));
+        echo "
+                                    </div>
+                                </div>
+                                ";
+        // line 32
+        if ((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 32, $this->getSourceContext()); })()), "user", array()), "codigoRolFk", array()) == 1)) {
+            // line 33
+            echo "                                    <div class=\"form-group\">
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Asignar a</label>
+                                            ";
+            // line 36
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 36, $this->getSourceContext()); })()), "usuarioAsignado", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "estado")));
+            echo "
+                                        </div>
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Estado</label>
+                                            ";
+            // line 40
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 40, $this->getSourceContext()); })()), "estadoSolucionado", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "estado")));
+            echo "
+                                        </div>
+                                    </div>
+                                    <div class=\"form-group\">
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Estado solucionado</label>
+                                            ";
+            // line 46
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 46, $this->getSourceContext()); })()), "estadoAtendido", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "estado")));
+            echo "
+                                        </div>                                        
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Estado atendido</label>
+                                            ";
+            // line 50
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 50, $this->getSourceContext()); })()), "solucion", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "solucion")));
+            echo "
+                                        </div>
+                                    </div>
+                                ";
+        }
+        // line 54
+        echo "                                <div class=\"form-group\">
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label for=\"adjunto\">Adjuntos</label>
+                                        <input type=\"file\" name=\"adjunto[]\" id=\"adjunto\" multiple />
+                                    </div>
+                                </div>
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                        ";
+        // line 62
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 62, $this->getSourceContext()); })()), "descripcion", array()), 'label');
+        echo "
+                                        ";
+        // line 63
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 63, $this->getSourceContext()); })()), "descripcion", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                                    </div>
+                                </div>
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" aling =\"left\">
+                                        <br>
+                                        ";
+        // line 69
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 69, $this->getSourceContext()); })()), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
+        echo "
+                                        <a href=\"";
+        // line 70
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
+        echo "\">
+                                            <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                            <div class=\"text-danger\">";
+        // line 76
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 76, $this->getSourceContext()); })()), 'errors');
+        echo "</div>
+                            ";
+        // line 77
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 77, $this->getSourceContext()); })()), 'form_end');
+        echo "
                         </div>
                     </div>
                 </div>
@@ -147,10 +182,10 @@ class __TwigTemplate_1269fa995f080c822b662995766ffc4b2946a9a2436e4ac77f6546060e8
     </div>
 ";
         
-        $__internal_a7e54d3d1766cb20bd6b54836c4e61078e8fb83df93977da68d1b6263a2f3cbf->leave($__internal_a7e54d3d1766cb20bd6b54836c4e61078e8fb83df93977da68d1b6263a2f3cbf_prof);
+        $__internal_990f20486578a9d6f07e46cc2ce4f61dcd258fdb615edbc123a5b4a245820696->leave($__internal_990f20486578a9d6f07e46cc2ce4f61dcd258fdb615edbc123a5b4a245820696_prof);
 
         
-        $__internal_82a3ae1a390d054c5e757b69283e36aef9497a85adffb916a9bab3f66b220275->leave($__internal_82a3ae1a390d054c5e757b69283e36aef9497a85adffb916a9bab3f66b220275_prof);
+        $__internal_ed6a60c6754c14c63a3baf67d22bde093afb0ab46ba13da1f895bd54984e974f->leave($__internal_ed6a60c6754c14c63a3baf67d22bde093afb0ab46ba13da1f895bd54984e974f_prof);
 
     }
 
@@ -166,7 +201,7 @@ class __TwigTemplate_1269fa995f080c822b662995766ffc4b2946a9a2436e4ac77f6546060e8
 
     public function getDebugInfo()
     {
-        return array (  139 => 58,  135 => 57,  126 => 51,  122 => 50,  113 => 44,  109 => 43,  95 => 32,  86 => 26,  77 => 20,  70 => 16,  66 => 15,  59 => 11,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  175 => 77,  171 => 76,  162 => 70,  158 => 69,  149 => 63,  145 => 62,  135 => 54,  128 => 50,  121 => 46,  112 => 40,  105 => 36,  100 => 33,  98 => 32,  92 => 29,  85 => 25,  76 => 19,  69 => 15,  65 => 14,  58 => 10,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -179,57 +214,75 @@ class __TwigTemplate_1269fa995f080c822b662995766ffc4b2946a9a2436e4ac77f6546060e8
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Crear incidencia</div>
                     <div class=\"panel-body\">
-                        <div class=\"row\">
-                            <div class=\"form-group\">
-                                {{ form_start(form) }}
-                                <div class=\"form-group\" >
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            {{ form_label(form.titulo)}}
-                                            {{ form_widget(form.titulo,{'attr':{'class':'form-control','placeholder':'Titulo del caso'}})}}
-                                        </div>
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Priodad</label>
-                                            {{ form_widget(form.prioridadRel,{'attr':{'class':'form-control','placeholder':'.:Seleccione:.'}}) }}
-                                        </div>
+                        <div class=\"row form-group\">
+                            {{ form_start(form) }}
+                            <div class=\"form-group\" >
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        {{ form_label(form.titulo)}}
+                                        {{ form_widget(form.titulo,{'attr':{'class':'form-control','placeholder':'Titulo del caso'}})}}
                                     </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Categoria</label>
-                                            {{ form_widget(form.categoriaRel,{'attr':{'class':'form-control','placeholder':'Categoria'}}) }}
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Grupo</label>
-                                            {{ form_widget(form.grupoRel,{'attr':{'class':'form-control','placeholder':'Cliente'}}) }}
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label for=\"adjunto\">Adjuntos</label>
-                                            <input type=\"file\" name=\"adjunto[]\" id=\"adjunto\" multiple />
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                                            {{ form_label(form.descripcion)}}
-                                            {{ form_widget(form.descripcion,{'attr':{'class':'form-control'}}) }}
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" aling =\"left\">
-                                            <br>
-                                            {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
-                                            <a href=\"{{path('caso_lista')}}\">
-                                                <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                                            </a>
-                                        </div>
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label class=\"control-label\">Priodad</label>
+                                        {{ form_widget(form.prioridadRel,{'attr':{'class':'form-control','placeholder':'.:Seleccione:.'}}) }}
                                     </div>
                                 </div>
-                                <div class=\"text-danger\">{{ form_errors(form)}}</div>
-                                {{ form_end(form)}}
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label class=\"control-label\">Categoria</label>
+                                        {{ form_widget(form.categoriaRel,{'attr':{'class':'form-control','placeholder':'Categoria'}}) }}
+                                    </div>
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label class=\"control-label\">Grupo</label>
+                                        {{ form_widget(form.grupoRel,{'attr':{'class':'form-control','placeholder':'Cliente'}}) }}
+                                    </div>
+                                </div>
+                                {% if app.user.codigoRolFk == 1 %}
+                                    <div class=\"form-group\">
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Asignar a</label>
+                                            {{ form_widget(form.usuarioAsignado,{'attr':{'class':'form-control','placeholder':'estado'}}) }}
+                                        </div>
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Estado</label>
+                                            {{ form_widget(form.estadoSolucionado,{'attr':{'class':'form-control','placeholder':'estado'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class=\"form-group\">
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Estado solucionado</label>
+                                            {{ form_widget(form.estadoAtendido,{'attr':{'class':'form-control','placeholder':'estado'}}) }}
+                                        </div>                                        
+                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                            <label class=\"control-label\">Estado atendido</label>
+                                            {{ form_widget(form.solucion,{'attr':{'class':'form-control','placeholder':'solucion'}}) }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                        <label for=\"adjunto\">Adjuntos</label>
+                                        <input type=\"file\" name=\"adjunto[]\" id=\"adjunto\" multiple />
+                                    </div>
+                                </div>
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                        {{ form_label(form.descripcion)}}
+                                        {{ form_widget(form.descripcion,{'attr':{'class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" aling =\"left\">
+                                        <br>
+                                        {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
+                                        <a href=\"{{path('caso_lista')}}\">
+                                            <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                            <div class=\"text-danger\">{{ form_errors(form)}}</div>
+                            {{ form_end(form)}}
                         </div>
                     </div>
                 </div>

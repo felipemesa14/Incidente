@@ -1,5 +1,5 @@
 {% extends "base.html.twig" %}
-{%  block body %}
+{% block body %}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -27,34 +27,40 @@
                                         <td>{{ caso.prioridadRel.nombre }}</td>
                                         <td>{{ caso.categoriaRel.nombre}}</td>
                                         <td>{{ caso.fechaRegistro|date('d/m/Y H:i') }}</td>
-                                        <td>{%if caso.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                        <td>{%if caso.estadoAtendido == 0 %}  No {%else%}  Si  {% endif %}</td>
                                         <td>{%if caso.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
                                         <td>
-                                            <a href="{{ path('caso_detalle',{'codigoIncidenciaPk':caso.codigoIncidenciaPk}) }}"<button title="Ver detalle" class="btn btn-primary">
+                                            <a href="{{ path('caso_detalle',{'codigoIncidenciaPk':caso.codigoIncidenciaPk}) }}"
+                                               <button title="Ver detalle" class="btn btn-primary">
                                                     <i class="glyphicon glyphicon-book"></i>
                                                 </button>
                                             </a>
-                                        </td>
-                                    </tr>
-                                {% endfor%}
-                            </tbody>
-                        </table>
-                        <div class="row">
-                            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" align="center">
-                                <a href="{{ path('caso_nuevo')}}">
-                                    <input type="button" class="btn btn-success" value="Nuevo"/>
-                                </a>
+                                            {% if app.user.codigoRolFk == 1 %}
+                                            <a href="{{ path('caso_nuevo',{'codigoIncidenciaPk':caso.codigoIncidenciaPk}) }}"
+                                               <button title="Editar" class="btn btn-success">
+                                                    <i class="glyphicon glyphicon-edit"></i>
+                                                </button>
+                                            </a>
+                                            <a href="{{ path('caso_eliminar',{'codigoIncidenciaPk':caso.codigoIncidenciaPk}) }}"
+                                               <button title="Editar" class="btn btn-danger">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                </button>
+                                            </a>
+                                            {% endif  %}
+                                            </td>
+                                        </tr>
+                                        {% endfor%}
+                                        </tbody>
+                                    </table>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" align="center">
+                                            <a href="{{ path('caso_nuevo',{'codigoIncidenciaPk':0}) }}">
+                                                <button class="btn btn-success">Nuevo</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        {% endblock %}
-        {% block javascripts %}
-            <script>
-                $(document).ready(function () {
-                    $('#lista').DataTable();
-                });
-            </script>
-        {% endblock %}
+                        {% endblock %}
 

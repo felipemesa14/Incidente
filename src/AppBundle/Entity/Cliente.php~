@@ -62,7 +62,7 @@ class Cliente
     protected $ciudadRel;
     
     /**
-     * @ORM\OneToMany(targetEntity="Usuario", mappedBy="clienteRel")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="clienteRel")
      */
     protected $usuariosClienteRel; 
 
@@ -242,11 +242,11 @@ class Cliente
     /**
      * Add usuariosClienteRel
      *
-     * @param \AppBundle\Entity\Usuario $usuariosClienteRel
+     * @param \AppBundle\Entity\User $usuariosClienteRel
      *
      * @return Cliente
      */
-    public function addUsuariosClienteRel(\AppBundle\Entity\Usuario $usuariosClienteRel)
+    public function addUsuariosClienteRel(\AppBundle\Entity\User $usuariosClienteRel)
     {
         $this->usuariosClienteRel[] = $usuariosClienteRel;
 
@@ -256,9 +256,9 @@ class Cliente
     /**
      * Remove usuariosClienteRel
      *
-     * @param \AppBundle\Entity\Usuario $usuariosClienteRel
+     * @param \AppBundle\Entity\User $usuariosClienteRel
      */
-    public function removeUsuariosClienteRel(\AppBundle\Entity\Usuario $usuariosClienteRel)
+    public function removeUsuariosClienteRel(\AppBundle\Entity\User $usuariosClienteRel)
     {
         $this->usuariosClienteRel->removeElement($usuariosClienteRel);
     }

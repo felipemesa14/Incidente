@@ -94,6 +94,13 @@ class Incidencia
     /**
      * @var int
      *
+     * @ORM\Column(name="estado_atendido", type="boolean")
+     */
+    private $estadoAtendido = false;
+    
+    /**
+     * @var int
+     *
      * @ORM\Column(name="codigo_categoria_fk", type="integer")
      */
     private $codigoCategoriaFk;
@@ -101,7 +108,7 @@ class Incidencia
     /**
      * @var int
      *
-     * @ORM\Column(name="usuario_asignado", type="integer", nullable=true)
+     * @ORM\Column(name="usuario_asignado", type="string", length=50, nullable=true)
      */
     private $usuarioAsignado;
     
@@ -134,6 +141,14 @@ class Incidencia
      */
     
     protected $comentariosIncidenciaRel;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comentariosIncidenciaRel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get codigoIncidenciaPk
@@ -239,6 +254,30 @@ class Incidencia
     public function getFechaSolucion()
     {
         return $this->fechaSolucion;
+    }
+
+    /**
+     * Set solucion
+     *
+     * @param string $solucion
+     *
+     * @return Incidencia
+     */
+    public function setSolucion($solucion)
+    {
+        $this->solucion = $solucion;
+
+        return $this;
+    }
+
+    /**
+     * Get solucion
+     *
+     * @return string
+     */
+    public function getSolucion()
+    {
+        return $this->solucion;
     }
 
     /**
@@ -362,6 +401,30 @@ class Incidencia
     }
 
     /**
+     * Set estadoAtendido
+     *
+     * @param boolean $estadoAtendido
+     *
+     * @return Incidencia
+     */
+    public function setEstadoAtendido($estadoAtendido)
+    {
+        $this->estadoAtendido = $estadoAtendido;
+
+        return $this;
+    }
+
+    /**
+     * Get estadoAtendido
+     *
+     * @return boolean
+     */
+    public function getEstadoAtendido()
+    {
+        return $this->estadoAtendido;
+    }
+
+    /**
      * Set codigoCategoriaFk
      *
      * @param integer $codigoCategoriaFk
@@ -388,7 +451,7 @@ class Incidencia
     /**
      * Set usuarioAsignado
      *
-     * @param integer $usuarioAsignado
+     * @param string $usuarioAsignado
      *
      * @return Incidencia
      */
@@ -402,7 +465,7 @@ class Incidencia
     /**
      * Get usuarioAsignado
      *
-     * @return integer
+     * @return string
      */
     public function getUsuarioAsignado()
     {
@@ -504,13 +567,6 @@ class Incidencia
     {
         return $this->grupoRel;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->comentariosIncidenciaRel = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add comentariosIncidenciaRel
@@ -544,29 +600,5 @@ class Incidencia
     public function getComentariosIncidenciaRel()
     {
         return $this->comentariosIncidenciaRel;
-    }
-
-    /**
-     * Set solucion
-     *
-     * @param string $solucion
-     *
-     * @return Incidencia
-     */
-    public function setSolucion($solucion)
-    {
-        $this->solucion = $solucion;
-
-        return $this;
-    }
-
-    /**
-     * Get solucion
-     *
-     * @return string
-     */
-    public function getSolucion()
-    {
-        return $this->solucion;
     }
 }

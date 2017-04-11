@@ -1202,7 +1202,6 @@ if ('\\'=== DIRECTORY_SEPARATOR && strlen($dir) > 234) {
 throw new InvalidArgumentException(sprintf('Cache directory too long (%s)', $directory));
 }
 $this->directory = $dir;
-$this->tmp = $this->directory.uniqid('', true);
 }
 protected function doClear($namespace)
 {
@@ -1223,17 +1222,19 @@ return $ok;
 }
 private function write($file, $data, $expiresAt = null)
 {
-if (false === @file_put_contents($this->tmp, $data)) {
-return false;
+set_error_handler(__CLASS__.'::throwError');
+try {
+if (null === $this->tmp) {
+$this->tmp = $this->directory.uniqid('', true);
 }
+file_put_contents($this->tmp, $data);
 if (null !== $expiresAt) {
-@touch($this->tmp, $expiresAt);
+touch($this->tmp, $expiresAt);
 }
-if (@rename($this->tmp, $file)) {
-return true;
+return rename($this->tmp, $file);
+} finally {
+restore_error_handler();
 }
-@unlink($this->tmp);
-return false;
 }
 private function getFile($id, $mkdir = false)
 {
@@ -1243,6 +1244,17 @@ if ($mkdir && !file_exists($dir)) {
 @mkdir($dir, 0777, true);
 }
 return $dir.substr($hash, 2, 20);
+}
+public static function throwError($type, $message, $file, $line)
+{
+throw new \ErrorException($message, 0, $type, $file, $line);
+}
+public function __destruct()
+{
+parent::__destruct();
+if (null !== $this->tmp && file_exists($this->tmp)) {
+unlink($this->tmp);
+}
 }
 }
 }
@@ -3220,7 +3232,7 @@ return $priority;
 }
 public function hasListeners($eventName = null)
 {
-return (bool) count($this->getListeners($eventName));
+return (bool) $this->getListeners($eventName);
 }
 public function addListener($eventName, $listener, $priority = 0)
 {
@@ -4463,6 +4475,36 @@ if ($controller instanceof ContainerAwareInterface) {
 $controller->setContainer($this->container);
 }
 return $controller;
+}
+}
+}
+namespace Symfony\Component\Security\Http
+{
+use Symfony\Component\HttpFoundation\Request;
+interface AccessMapInterface
+{
+public function getPatterns(Request $request);
+}
+}
+namespace Symfony\Component\Security\Http
+{
+use Symfony\Component\HttpFoundation\RequestMatcherInterface;
+use Symfony\Component\HttpFoundation\Request;
+class AccessMap implements AccessMapInterface
+{
+private $map = array();
+public function add(RequestMatcherInterface $requestMatcher, array $attributes = array(), $channel = null)
+{
+$this->map[] = array($requestMatcher, $attributes, $channel);
+}
+public function getPatterns(Request $request)
+{
+foreach ($this->map as $elements) {
+if (null === $elements[0] || $elements[0]->matches($request)) {
+return array($elements[1], $elements[2]);
+}
+}
+return array(null, null);
 }
 }
 }

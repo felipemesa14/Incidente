@@ -7,36 +7,46 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\IncidenciaType;
 use AppBundle\Form\ComentarioType;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class CasoController extends Controller {
 
     /**
      * @Route("/", name="caso_lista")
      */
-    public function listaAction() {
+    public function listaAction(UserInterface $user = null) {
         //Retornar el listado de los casos
         $em = $this->getDoctrine()->getManager();
-        $casos = $em->getRepository('AppBundle:Incidencia')->findByusuario('JuanFelipe');
+        $arUsuario = $em->getRepository('AppBundle:User')->find($this->getUser());
+        if ($arUsuario->getCodigoRolFk() == 1) {
+            $casos = $em->getRepository('AppBundle:Incidencia')->findAll();
+        } else {
+            $casos = $em->getRepository('AppBundle:Incidencia')->findByusuario($arUsuario->getusername());
+        }
         return $this->render('AppBundle:Caso:lista.html.twig', array('casos' => $casos));
     }
 
     /**
-     * @Route("caso/nuevo", name="caso_nuevo")
+     * @Route("caso/nuevo/{codigoIncidenciaPk}", name="caso_nuevo")
      */
-    public function nuevoAction(Request $request) {
+    public function nuevoAction(Request $request, $codigoIncidenciaPk) {
         //Crear formulario para el registro de caso
         $em = $this->getDoctrine()->getManager();
-        $arCaso = new \AppBundle\Entity\Incidencia();
-        $form = $this->createForm(IncidenciaType::class, $arCaso);
+        if ($codigoIncidenciaPk != 0) {
+            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidenciaPk);
+        } else {
+            $arIncidencia = new \AppBundle\Entity\Incidencia();
+            $usuario = $em->getRepository('AppBundle:User')->find($this->getUser());
+            $arIncidencia->setUsuario($usuario->getUsername());
+            $arIncidencia->setFechaRegistro(new \DateTime("now"));
+            $arIncidencia->setClienteRel($usuario->getClienteRel());
+        }
+        $form = $this->createForm(IncidenciaType::class, $arIncidencia);
         $form->handleRequest($request);
-        //Validar el formulario para realizarl el envio y almcenamiento de los datos
+        //Validar el formulario para realizar el envio y almcenamiento de los datos
         if ($form->isSubmitted() && $form->isValid()) {
-            $usuario = $em->getRepository('AppBundle:Usuario')->find(1);
-            $arCaso = $form->getData();
-            $arCaso->setFechaRegistro(new \DateTime("now"));
-            $arCaso->setUsuario($usuario->getUsername());
-            $arCaso->setClienteRel($usuario->getClienteRel());
-            $em->persist($arCaso);
+            $arIncidencia = $form->getData();
+            $em->persist($arIncidencia);
             $em->flush();
             return $this->redirectToRoute('caso_lista');
         }
@@ -56,7 +66,7 @@ class CasoController extends Controller {
         $form = $this->createForm(ComentarioType::class, $arComentario);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $usuario = $em->getRepository('AppBundle:Usuario')->find(1);
+            $usuario = $em->getRepository('AppBundle:User')->find($this->getUser());
             $arComentario = $form->getData();
             $arComentario->setIncidenciaRel($arIncidencia);
             $arComentario->setFechaRegistro(new \DateTime('now'));
@@ -72,6 +82,22 @@ class CasoController extends Controller {
                     'form' => $form->createView(),
                     'arDetalleComentario' => $arDetalleComentario
         ));
+    }
+
+    /**
+     * @Route("caso/eliminar/{codigoIncidenciaPk}", name="caso_eliminar")
+     */
+    public function eliminarAction(Request $request, $codigoIncidenciaPk) {
+        $em = $this->getDoctrine()->getEntityManager();
+        $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidenciaPk);
+        $arComentario = $em->getRepository("AppBundle:Comentario")->findBycodigoIncidenciaFk($arIncidencia);
+        foreach ($arComentario as $arComentario) {
+            $em->remove($arComentario);
+        }
+        $em->remove($arIncidencia);
+        $em->flush();
+
+        return $this->redirectToRoute('caso_lista');
     }
 
 }

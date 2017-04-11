@@ -15,60 +15,41 @@ class __TwigTemplate_476a1d9928675c488aafb108c49d4ed2323991f4010c5fa1140ca3d4551
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_298aba799279c46e5cefdc1ca242ef14ac0a0857ed5b6654a399d4370e5d04cd = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_298aba799279c46e5cefdc1ca242ef14ac0a0857ed5b6654a399d4370e5d04cd->enter($__internal_298aba799279c46e5cefdc1ca242ef14ac0a0857ed5b6654a399d4370e5d04cd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/toolbar.html.twig"));
+        $__internal_939c11ad102940333ab0ef81cd5350e800127d20dd3a0a8a3e772aa1f91417c5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_939c11ad102940333ab0ef81cd5350e800127d20dd3a0a8a3e772aa1f91417c5->enter($__internal_939c11ad102940333ab0ef81cd5350e800127d20dd3a0a8a3e772aa1f91417c5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/toolbar.html.twig"));
 
-        $__internal_ebfa045ca27fcd970aa353e863a16419e6e5eb4e26765d242ce0337926eca54b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ebfa045ca27fcd970aa353e863a16419e6e5eb4e26765d242ce0337926eca54b->enter($__internal_ebfa045ca27fcd970aa353e863a16419e6e5eb4e26765d242ce0337926eca54b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/toolbar.html.twig"));
+        $__internal_7913c1d4cb954d5555cd65fda10feab683a62b20bb13b38b589ca92a823f0576 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_7913c1d4cb954d5555cd65fda10feab683a62b20bb13b38b589ca92a823f0576->enter($__internal_7913c1d4cb954d5555cd65fda10feab683a62b20bb13b38b589ca92a823f0576_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/toolbar.html.twig"));
 
         // line 1
         echo "<!-- START of Symfony Web Debug Toolbar -->
-";
+<div id=\"sfMiniToolbar-";
         // line 2
-        if (("normal" != (isset($context["position"]) || array_key_exists("position", $context) ? $context["position"] : (function () { throw new Twig_Error_Runtime('Variable "position" does not exist.', 2, $this->getSourceContext()); })()))) {
-            // line 3
-            echo "    <div id=\"sfMiniToolbar-";
-            echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 3, $this->getSourceContext()); })()), "html", null, true);
-            echo "\" class=\"sf-minitoolbar\" data-no-turbolink>
-        <a href=\"#\" title=\"Show Symfony toolbar\" tabindex=\"-1\" id=\"sfToolbarMiniToggler-";
-            // line 4
-            echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 4, $this->getSourceContext()); })()), "html", null, true);
-            echo "\" accesskey=\"D\">
-            ";
-            // line 5
-            echo twig_include($this->env, $context, "@WebProfiler/Icon/symfony.svg");
-            echo "
-        </a>
-    </div>
-    <style";
-            // line 8
-            if ((isset($context["csp_style_nonce"]) || array_key_exists("csp_style_nonce", $context) ? $context["csp_style_nonce"] : (function () { throw new Twig_Error_Runtime('Variable "csp_style_nonce" does not exist.', 8, $this->getSourceContext()); })())) {
-                echo " nonce=\"";
-                echo twig_escape_filter($this->env, (isset($context["csp_style_nonce"]) || array_key_exists("csp_style_nonce", $context) ? $context["csp_style_nonce"] : (function () { throw new Twig_Error_Runtime('Variable "csp_style_nonce" does not exist.', 8, $this->getSourceContext()); })()), "html", null, true);
-                echo "\"";
-            }
-            echo ">
+        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 2, $this->getSourceContext()); })()), "html", null, true);
+        echo "\" class=\"sf-minitoolbar\" data-no-turbolink>
+    <a href=\"#\" title=\"Show Symfony toolbar\" tabindex=\"-1\" id=\"sfToolbarMiniToggler-";
+        // line 3
+        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 3, $this->getSourceContext()); })()), "html", null, true);
+        echo "\" accesskey=\"D\">
         ";
-            // line 9
-            echo twig_include($this->env, $context, "@WebProfiler/Profiler/toolbar.css.twig", array("position" => (isset($context["position"]) || array_key_exists("position", $context) ? $context["position"] : (function () { throw new Twig_Error_Runtime('Variable "position" does not exist.', 9, $this->getSourceContext()); })()), "floatable" => true));
-            echo "
-    </style>
-    <div id=\"sfToolbarClearer-";
-            // line 11
-            echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 11, $this->getSourceContext()); })()), "html", null, true);
-            echo "\" class=\"sf-toolbar-clearer\"></div>
-";
-        }
-        // line 13
+        // line 4
+        echo twig_include($this->env, $context, "@WebProfiler/Icon/symfony.svg");
         echo "
+    </a>
+</div>
+<div id=\"sfToolbarClearer-";
+        // line 7
+        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 7, $this->getSourceContext()); })()), "html", null, true);
+        echo "\" class=\"sf-toolbar-clearer\"></div>
+
 <div id=\"sfToolbarMainContent-";
-        // line 14
-        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 14, $this->getSourceContext()); })()), "html", null, true);
+        // line 9
+        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 9, $this->getSourceContext()); })()), "html", null, true);
         echo "\" class=\"sf-toolbarreset clear-fix\" data-no-turbolink>
     ";
-        // line 15
+        // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["templates"]) || array_key_exists("templates", $context) ? $context["templates"] : (function () { throw new Twig_Error_Runtime('Variable "templates" does not exist.', 15, $this->getSourceContext()); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["templates"]) || array_key_exists("templates", $context) ? $context["templates"] : (function () { throw new Twig_Error_Runtime('Variable "templates" does not exist.', 10, $this->getSourceContext()); })()));
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -83,34 +64,34 @@ class __TwigTemplate_476a1d9928675c488aafb108c49d4ed2323991f4010c5fa1140ca3d4551
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["name"] => $context["template"]) {
-            // line 16
+            // line 11
             echo "        ";
-            if (            $this->loadTemplate($context["template"], "@WebProfiler/Profiler/toolbar.html.twig", 16)->hasBlock("toolbar", $context)) {
-                // line 17
+            if (            $this->loadTemplate($context["template"], "@WebProfiler/Profiler/toolbar.html.twig", 11)->hasBlock("toolbar", $context)) {
+                // line 12
                 echo "            ";
-                $__internal_dcb775dceecdbafe40b2e80a0ff762f1948f50e4c57b7ca61faa607ec6ebfd4a = array("collector" => twig_get_attribute($this->env, $this->getSourceContext(),                 // line 18
-(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new Twig_Error_Runtime('Variable "profile" does not exist.', 18, $this->getSourceContext()); })()), "getcollector", array(0 => $context["name"]), "method"), "profiler_url" =>                 // line 19
-(isset($context["profiler_url"]) || array_key_exists("profiler_url", $context) ? $context["profiler_url"] : (function () { throw new Twig_Error_Runtime('Variable "profiler_url" does not exist.', 19, $this->getSourceContext()); })()), "token" => twig_get_attribute($this->env, $this->getSourceContext(),                 // line 20
-(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new Twig_Error_Runtime('Variable "profile" does not exist.', 20, $this->getSourceContext()); })()), "token", array()), "name" =>                 // line 21
-$context["name"], "profiler_markup_version" =>                 // line 22
-(isset($context["profiler_markup_version"]) || array_key_exists("profiler_markup_version", $context) ? $context["profiler_markup_version"] : (function () { throw new Twig_Error_Runtime('Variable "profiler_markup_version" does not exist.', 22, $this->getSourceContext()); })()), "csp_script_nonce" =>                 // line 23
-(isset($context["csp_script_nonce"]) || array_key_exists("csp_script_nonce", $context) ? $context["csp_script_nonce"] : (function () { throw new Twig_Error_Runtime('Variable "csp_script_nonce" does not exist.', 23, $this->getSourceContext()); })()), "csp_style_nonce" =>                 // line 24
-(isset($context["csp_style_nonce"]) || array_key_exists("csp_style_nonce", $context) ? $context["csp_style_nonce"] : (function () { throw new Twig_Error_Runtime('Variable "csp_style_nonce" does not exist.', 24, $this->getSourceContext()); })()));
-                if (!is_array($__internal_dcb775dceecdbafe40b2e80a0ff762f1948f50e4c57b7ca61faa607ec6ebfd4a)) {
+                $__internal_3fb06f10e092dda1f9322d2595c54d193bb6084b83e3c365ac246a99d12598ed = array("collector" => twig_get_attribute($this->env, $this->getSourceContext(),                 // line 13
+(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new Twig_Error_Runtime('Variable "profile" does not exist.', 13, $this->getSourceContext()); })()), "getcollector", array(0 => $context["name"]), "method"), "profiler_url" =>                 // line 14
+(isset($context["profiler_url"]) || array_key_exists("profiler_url", $context) ? $context["profiler_url"] : (function () { throw new Twig_Error_Runtime('Variable "profiler_url" does not exist.', 14, $this->getSourceContext()); })()), "token" => twig_get_attribute($this->env, $this->getSourceContext(),                 // line 15
+(isset($context["profile"]) || array_key_exists("profile", $context) ? $context["profile"] : (function () { throw new Twig_Error_Runtime('Variable "profile" does not exist.', 15, $this->getSourceContext()); })()), "token", array()), "name" =>                 // line 16
+$context["name"], "profiler_markup_version" =>                 // line 17
+(isset($context["profiler_markup_version"]) || array_key_exists("profiler_markup_version", $context) ? $context["profiler_markup_version"] : (function () { throw new Twig_Error_Runtime('Variable "profiler_markup_version" does not exist.', 17, $this->getSourceContext()); })()), "csp_script_nonce" =>                 // line 18
+(isset($context["csp_script_nonce"]) || array_key_exists("csp_script_nonce", $context) ? $context["csp_script_nonce"] : (function () { throw new Twig_Error_Runtime('Variable "csp_script_nonce" does not exist.', 18, $this->getSourceContext()); })()), "csp_style_nonce" =>                 // line 19
+(isset($context["csp_style_nonce"]) || array_key_exists("csp_style_nonce", $context) ? $context["csp_style_nonce"] : (function () { throw new Twig_Error_Runtime('Variable "csp_style_nonce" does not exist.', 19, $this->getSourceContext()); })()));
+                if (!is_array($__internal_3fb06f10e092dda1f9322d2595c54d193bb6084b83e3c365ac246a99d12598ed)) {
                     throw new Twig_Error_Runtime('Variables passed to the "with" tag must be a hash.');
                 }
                 $context['_parent'] = $context;
-                $context = array_merge($context, $__internal_dcb775dceecdbafe40b2e80a0ff762f1948f50e4c57b7ca61faa607ec6ebfd4a);
-                // line 26
+                $context = array_merge($context, $__internal_3fb06f10e092dda1f9322d2595c54d193bb6084b83e3c365ac246a99d12598ed);
+                // line 21
                 echo "                ";
-                $this->loadTemplate($context["template"], "@WebProfiler/Profiler/toolbar.html.twig", 26)->displayBlock("toolbar", $context);
+                $this->loadTemplate($context["template"], "@WebProfiler/Profiler/toolbar.html.twig", 21)->displayBlock("toolbar", $context);
                 echo "
             ";
                 $context = $context['_parent'];
-                // line 28
+                // line 23
                 echo "        ";
             }
-            // line 29
+            // line 24
             echo "    ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -124,31 +105,25 @@ $context["name"], "profiler_markup_version" =>                 // line 22
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['name'], $context['template'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 30
+        // line 25
         echo "
-    ";
-        // line 31
-        if (("normal" != (isset($context["position"]) || array_key_exists("position", $context) ? $context["position"] : (function () { throw new Twig_Error_Runtime('Variable "position" does not exist.', 31, $this->getSourceContext()); })()))) {
-            // line 32
-            echo "        <a class=\"hide-button\" id=\"sfToolbarHideButton-";
-            echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 32, $this->getSourceContext()); })()), "html", null, true);
-            echo "\" title=\"Close Toolbar\" tabindex=\"-1\" accesskey=\"D\">
-            ";
-            // line 33
-            echo twig_include($this->env, $context, "@WebProfiler/Icon/close.svg");
-            echo "
-        </a>
-    ";
-        }
-        // line 36
-        echo "</div>
+    <a class=\"hide-button\" id=\"sfToolbarHideButton-";
+        // line 26
+        echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new Twig_Error_Runtime('Variable "token" does not exist.', 26, $this->getSourceContext()); })()), "html", null, true);
+        echo "\" title=\"Close Toolbar\" tabindex=\"-1\" accesskey=\"D\">
+        ";
+        // line 27
+        echo twig_include($this->env, $context, "@WebProfiler/Icon/close.svg");
+        echo "
+    </a>
+</div>
 <!-- END of Symfony Web Debug Toolbar -->
 ";
         
-        $__internal_298aba799279c46e5cefdc1ca242ef14ac0a0857ed5b6654a399d4370e5d04cd->leave($__internal_298aba799279c46e5cefdc1ca242ef14ac0a0857ed5b6654a399d4370e5d04cd_prof);
+        $__internal_939c11ad102940333ab0ef81cd5350e800127d20dd3a0a8a3e772aa1f91417c5->leave($__internal_939c11ad102940333ab0ef81cd5350e800127d20dd3a0a8a3e772aa1f91417c5_prof);
 
         
-        $__internal_ebfa045ca27fcd970aa353e863a16419e6e5eb4e26765d242ce0337926eca54b->leave($__internal_ebfa045ca27fcd970aa353e863a16419e6e5eb4e26765d242ce0337926eca54b_prof);
+        $__internal_7913c1d4cb954d5555cd65fda10feab683a62b20bb13b38b589ca92a823f0576->leave($__internal_7913c1d4cb954d5555cd65fda10feab683a62b20bb13b38b589ca92a823f0576_prof);
 
     }
 
@@ -164,23 +139,18 @@ $context["name"], "profiler_markup_version" =>                 // line 22
 
     public function getDebugInfo()
     {
-        return array (  144 => 36,  138 => 33,  133 => 32,  131 => 31,  128 => 30,  114 => 29,  111 => 28,  105 => 26,  98 => 24,  97 => 23,  96 => 22,  95 => 21,  94 => 20,  93 => 19,  92 => 18,  90 => 17,  87 => 16,  70 => 15,  66 => 14,  63 => 13,  58 => 11,  53 => 9,  45 => 8,  39 => 5,  35 => 4,  30 => 3,  28 => 2,  25 => 1,);
+        return array (  116 => 27,  112 => 26,  109 => 25,  95 => 24,  92 => 23,  86 => 21,  79 => 19,  78 => 18,  77 => 17,  76 => 16,  75 => 15,  74 => 14,  73 => 13,  71 => 12,  68 => 11,  51 => 10,  47 => 9,  42 => 7,  36 => 4,  32 => 3,  28 => 2,  25 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<!-- START of Symfony Web Debug Toolbar -->
-{% if 'normal' != position %}
-    <div id=\"sfMiniToolbar-{{ token }}\" class=\"sf-minitoolbar\" data-no-turbolink>
-        <a href=\"#\" title=\"Show Symfony toolbar\" tabindex=\"-1\" id=\"sfToolbarMiniToggler-{{ token }}\" accesskey=\"D\">
-            {{ include('@WebProfiler/Icon/symfony.svg') }}
-        </a>
-    </div>
-    <style{% if csp_style_nonce %} nonce=\"{{ csp_style_nonce }}\"{% endif %}>
-        {{ include('@WebProfiler/Profiler/toolbar.css.twig', { 'position': position, 'floatable': true }) }}
-    </style>
-    <div id=\"sfToolbarClearer-{{ token }}\" class=\"sf-toolbar-clearer\"></div>
-{% endif %}
+<div id=\"sfMiniToolbar-{{ token }}\" class=\"sf-minitoolbar\" data-no-turbolink>
+    <a href=\"#\" title=\"Show Symfony toolbar\" tabindex=\"-1\" id=\"sfToolbarMiniToggler-{{ token }}\" accesskey=\"D\">
+        {{ include('@WebProfiler/Icon/symfony.svg') }}
+    </a>
+</div>
+<div id=\"sfToolbarClearer-{{ token }}\" class=\"sf-toolbar-clearer\"></div>
 
 <div id=\"sfToolbarMainContent-{{ token }}\" class=\"sf-toolbarreset clear-fix\" data-no-turbolink>
     {% for name, template in templates %}
@@ -199,11 +169,9 @@ $context["name"], "profiler_markup_version" =>                 // line 22
         {% endif %}
     {% endfor %}
 
-    {% if 'normal' != position %}
-        <a class=\"hide-button\" id=\"sfToolbarHideButton-{{ token }}\" title=\"Close Toolbar\" tabindex=\"-1\" accesskey=\"D\">
-            {{ include('@WebProfiler/Icon/close.svg') }}
-        </a>
-    {% endif %}
+    <a class=\"hide-button\" id=\"sfToolbarHideButton-{{ token }}\" title=\"Close Toolbar\" tabindex=\"-1\" accesskey=\"D\">
+        {{ include('@WebProfiler/Icon/close.svg') }}
+    </a>
 </div>
 <!-- END of Symfony Web Debug Toolbar -->
 ", "@WebProfiler/Profiler/toolbar.html.twig", "/var/www/html/incidente/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Profiler/toolbar.html.twig");

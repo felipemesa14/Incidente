@@ -29,7 +29,7 @@ class Rol
     private $nombre;
     
     /**
-     * @ORM\OneToMany(targetEntity="Usuario", mappedBy="rolRel")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="rolRel")
      */
     protected $usuariosRolRel;
 
@@ -78,11 +78,11 @@ class Rol
     /**
      * Add usuariosRolRel
      *
-     * @param \AppBundle\Entity\Usuario $usuariosRolRel
+     * @param \AppBundle\Entity\User $usuariosRolRel
      *
      * @return Rol
      */
-    public function addUsuariosRolRel(\AppBundle\Entity\Usuario $usuariosRolRel)
+    public function addUsuariosRolRel(\AppBundle\Entity\User $usuariosRolRel)
     {
         $this->usuariosRolRel[] = $usuariosRolRel;
 
@@ -92,9 +92,9 @@ class Rol
     /**
      * Remove usuariosRolRel
      *
-     * @param \AppBundle\Entity\Usuario $usuariosRolRel
+     * @param \AppBundle\Entity\User $usuariosRolRel
      */
-    public function removeUsuariosRolRel(\AppBundle\Entity\Usuario $usuariosRolRel)
+    public function removeUsuariosRolRel(\AppBundle\Entity\User $usuariosRolRel)
     {
         $this->usuariosRolRel->removeElement($usuariosRolRel);
     }
