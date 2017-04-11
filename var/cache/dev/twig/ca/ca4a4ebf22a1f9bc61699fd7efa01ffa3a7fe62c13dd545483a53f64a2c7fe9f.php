@@ -15,11 +15,11 @@ class __TwigTemplate_2a0de785b86b4fd72453cee105d1f672f2a6381bb34c2d2dad23597e23e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a9ae295dfbd448a873e177dbfc003ccf8cf427f3d7fdeca3956522c65f4ac899 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a9ae295dfbd448a873e177dbfc003ccf8cf427f3d7fdeca3956522c65f4ac899->enter($__internal_a9ae295dfbd448a873e177dbfc003ccf8cf427f3d7fdeca3956522c65f4ac899_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Login:login.html.twig"));
+        $__internal_3d1c9fb1ad4e296dc3c3f345963ac161523f993e76eba40cda6bcb685f512f5b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_3d1c9fb1ad4e296dc3c3f345963ac161523f993e76eba40cda6bcb685f512f5b->enter($__internal_3d1c9fb1ad4e296dc3c3f345963ac161523f993e76eba40cda6bcb685f512f5b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Login:login.html.twig"));
 
-        $__internal_be958e6b32bae15b4c76628db7bfb98644a3522d679445aabaaaae313f4b1d2a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_be958e6b32bae15b4c76628db7bfb98644a3522d679445aabaaaae313f4b1d2a->enter($__internal_be958e6b32bae15b4c76628db7bfb98644a3522d679445aabaaaae313f4b1d2a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Login:login.html.twig"));
+        $__internal_03bbc3485d4c3194baeb43a854126581d158f328321700fa06ff314f7027cb2d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_03bbc3485d4c3194baeb43a854126581d158f328321700fa06ff314f7027cb2d->enter($__internal_03bbc3485d4c3194baeb43a854126581d158f328321700fa06ff314f7027cb2d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Login:login.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -36,69 +36,67 @@ class __TwigTemplate_2a0de785b86b4fd72453cee105d1f672f2a6381bb34c2d2dad23597e23e
         <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\"
               integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
     </head>
-    <body class=\"hold-transition login-page\">
-        <div class=\"container\" aling=\"center\">
-            <div class=\"row\">
-                <div class=\"col-md-8 col-md-offset-2\">
-                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading primary\">Login incidencia </div>
-                        <div class=\"panel-body\">
-                            <form class=\"form-horizontal\" role=\"form\" method=\"post\" action=\"";
-        // line 19
+    <body>
+        <div class=\"container\">    
+            <div id=\"loginbox\" style=\"margin-top:130px;\" class=\"mainbox col-md-5 col-md-offset-4 col-sm-8 col-sm-offset-3\">                    
+                <div class=\"panel panel-primary\" >
+                    <div class=\"panel-heading\">
+                        <div class=\"panel-title\">Login incidencia</div>
+                    </div>
+                    <div style=\"padding-top:40px\" class=\"panel-body\" >
+                        ";
+        // line 20
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 20, $this->getSourceContext()); })())) {
+            // line 21
+            echo "                            <div class=\"col-lg-12 alert alert-danger\">";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 21, $this->getSourceContext()); })()), "messageKey", array()), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 21, $this->getSourceContext()); })()), "messageData", array()), "security"), "html", null, true);
+            echo "</div>
+                        ";
+        }
+        // line 23
+        echo "                        <form class=\"form-signin\" role=\"form\" method=\"post\" action=\"";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
         echo "\">
-                                <input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        // line 20
+                            <input type=\"hidden\" name=\"_csrf_token\" value=\"";
+        // line 24
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\">
-                                <div class=\"form-group\">
-                                    <label for=\"email\" class=\"col-md-4 control-label\">Usuario</label>
-                                    <div class=\"col-md-6\">
-                                        <input id=\"username\" type=\"text\" class=\"form-control\" name=\"_username\" 
-                                               value=\"";
-        // line 25
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 25, $this->getSourceContext()); })()), "html", null, true);
+                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                <div style=\"margin-bottom: 25px\" class=\"input-group\">
+                                    <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-user\"></i></span>
+                                    <input id=\"username\" type=\"text\" class=\"form-control\" name=\"_username\" 
+                                           value=\"";
+        // line 29
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 29, $this->getSourceContext()); })()), "html", null, true);
         echo "\" placeholder=\"Usuario\" required autofocus>
-                                    </div>
                                 </div>
-                                <div class=\"form-group\">
-                                    <label for=\"contraseña\" class=\"col-md-4 control-label\">Contraseña</label>
-                                    <div class=\"col-md-6\">
-                                        <input id=\"password\" name=\"_password\" type=\"password\" placeholder=\"Contraseña\" class=\"form-control\"
-                                               name=\"password\" required>
-                                    </div>
+                            </div>
+                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                <div style=\"margin-bottom: 25px\" class=\"input-group\">
+                                    <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-lock\"></i></span>
+                                    <input id=\"password\" name=\"_password\" type=\"password\" placeholder=\"Contraseña\" class=\"form-control\"
+                                           name=\"password\" required>
                                 </div>
-                                <div class=\"row form-group\">
-                                    <div class=\"col-md-12 col-md-offset-4\">
-                                        <button type=\"submit\" class=\"btn btn-primary\">
-                                            Ingresar
-                                        </button>
-                                    </div>
-                                    ";
-        // line 41
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 41, $this->getSourceContext()); })())) {
-            // line 42
-            echo "                                        <div class=\"col-lg-12 alert alert-danger\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 42, $this->getSourceContext()); })()), "messageKey", array()), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 42, $this->getSourceContext()); })()), "messageData", array()), "security"), "html", null, true);
-            echo "</div>
-                                    ";
-        }
-        // line 44
-        echo "                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                            </div>
+                            <div style=\"margin-top:10px\" class=\"modal-footer\">
+                                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 controls\">
+                                    <button type=\"submit\" class=\"btn btn-primary\">
+                                        Ingresar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>                     
+                </div>  
             </div>
-        </div>
     </body>
 </html>
 ";
         
-        $__internal_a9ae295dfbd448a873e177dbfc003ccf8cf427f3d7fdeca3956522c65f4ac899->leave($__internal_a9ae295dfbd448a873e177dbfc003ccf8cf427f3d7fdeca3956522c65f4ac899_prof);
+        $__internal_3d1c9fb1ad4e296dc3c3f345963ac161523f993e76eba40cda6bcb685f512f5b->leave($__internal_3d1c9fb1ad4e296dc3c3f345963ac161523f993e76eba40cda6bcb685f512f5b_prof);
 
         
-        $__internal_be958e6b32bae15b4c76628db7bfb98644a3522d679445aabaaaae313f4b1d2a->leave($__internal_be958e6b32bae15b4c76628db7bfb98644a3522d679445aabaaaae313f4b1d2a_prof);
+        $__internal_03bbc3485d4c3194baeb43a854126581d158f328321700fa06ff314f7027cb2d->leave($__internal_03bbc3485d4c3194baeb43a854126581d158f328321700fa06ff314f7027cb2d_prof);
 
     }
 
@@ -114,7 +112,7 @@ class __TwigTemplate_2a0de785b86b4fd72453cee105d1f672f2a6381bb34c2d2dad23597e23e
 
     public function getDebugInfo()
     {
-        return array (  87 => 44,  81 => 42,  79 => 41,  60 => 25,  52 => 20,  48 => 19,  33 => 7,  25 => 1,);
+        return array (  70 => 29,  62 => 24,  57 => 23,  51 => 21,  49 => 20,  33 => 7,  25 => 1,);
     }
 
     public function getSourceContext()
@@ -130,45 +128,44 @@ class __TwigTemplate_2a0de785b86b4fd72453cee105d1f672f2a6381bb34c2d2dad23597e23e
         <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\"
               integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
     </head>
-    <body class=\"hold-transition login-page\">
-        <div class=\"container\" aling=\"center\">
-            <div class=\"row\">
-                <div class=\"col-md-8 col-md-offset-2\">
-                    <div class=\"panel panel-primary\">
-                        <div class=\"panel-heading primary\">Login incidencia </div>
-                        <div class=\"panel-body\">
-                            <form class=\"form-horizontal\" role=\"form\" method=\"post\" action=\"{{ path('login') }}\">
-                                <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
-                                <div class=\"form-group\">
-                                    <label for=\"email\" class=\"col-md-4 control-label\">Usuario</label>
-                                    <div class=\"col-md-6\">
-                                        <input id=\"username\" type=\"text\" class=\"form-control\" name=\"_username\" 
-                                               value=\"{{ last_username }}\" placeholder=\"Usuario\" required autofocus>
-                                    </div>
-                                </div>
-                                <div class=\"form-group\">
-                                    <label for=\"contraseña\" class=\"col-md-4 control-label\">Contraseña</label>
-                                    <div class=\"col-md-6\">
-                                        <input id=\"password\" name=\"_password\" type=\"password\" placeholder=\"Contraseña\" class=\"form-control\"
-                                               name=\"password\" required>
-                                    </div>
-                                </div>
-                                <div class=\"row form-group\">
-                                    <div class=\"col-md-12 col-md-offset-4\">
-                                        <button type=\"submit\" class=\"btn btn-primary\">
-                                            Ingresar
-                                        </button>
-                                    </div>
-                                    {% if error %}
-                                        <div class=\"col-lg-12 alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                                    {% endif %}
-                                </div>
-                            </form>
-                        </div>
+    <body>
+        <div class=\"container\">    
+            <div id=\"loginbox\" style=\"margin-top:130px;\" class=\"mainbox col-md-5 col-md-offset-4 col-sm-8 col-sm-offset-3\">                    
+                <div class=\"panel panel-primary\" >
+                    <div class=\"panel-heading\">
+                        <div class=\"panel-title\">Login incidencia</div>
                     </div>
-                </div>
+                    <div style=\"padding-top:40px\" class=\"panel-body\" >
+                        {% if error %}
+                            <div class=\"col-lg-12 alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        <form class=\"form-signin\" role=\"form\" method=\"post\" action=\"{{ path('login') }}\">
+                            <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
+                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                <div style=\"margin-bottom: 25px\" class=\"input-group\">
+                                    <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-user\"></i></span>
+                                    <input id=\"username\" type=\"text\" class=\"form-control\" name=\"_username\" 
+                                           value=\"{{ last_username }}\" placeholder=\"Usuario\" required autofocus>
+                                </div>
+                            </div>
+                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                <div style=\"margin-bottom: 25px\" class=\"input-group\">
+                                    <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-lock\"></i></span>
+                                    <input id=\"password\" name=\"_password\" type=\"password\" placeholder=\"Contraseña\" class=\"form-control\"
+                                           name=\"password\" required>
+                                </div>
+                            </div>
+                            <div style=\"margin-top:10px\" class=\"modal-footer\">
+                                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 controls\">
+                                    <button type=\"submit\" class=\"btn btn-primary\">
+                                        Ingresar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>                     
+                </div>  
             </div>
-        </div>
     </body>
 </html>
 ", "AppBundle:Login:login.html.twig", "/var/www/html/incidente/src/AppBundle/Resources/views/Login/login.html.twig");

@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/incidente/src/AppBundle/Form/IncidenciaType.php</file>
-            <file>file:/var/www/html/incidente/src/AppBundle/Resources/views/Caso/lista.html.twig</file>
-            <file>file:/var/www/html/incidente/src/AppBundle/Entity/Incidencia.php</file>
-            <file>file:/var/www/html/incidente/src/AppBundle/Resources/views/Caso/nuevo.html.twig</file>
+            <file>file:/var/www/html/incidente/app/config/security.yml</file>
+            <file>file:/var/www/html/incidente/src/AppBundle/Controller/CasoController.php</file>
         </group>
     </open-files>
 </project-private>

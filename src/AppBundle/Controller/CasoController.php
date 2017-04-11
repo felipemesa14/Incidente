@@ -16,8 +16,10 @@ class CasoController extends Controller {
      */
     public function listaAction(UserInterface $user = null) {
         //Retornar el listado de los casos
+        $user = $this->getUser();
+        $rol = $user->codigoRolFk();
         $em = $this->getDoctrine()->getManager();
-        $arUsuario = $em->getRepository('AppBundle:User')->find($this->getUser());
+        $arUsuario = $em->getRepository('AppBundle:User')->find();
         if ($arUsuario->getCodigoRolFk() == 1) {
             $casos = $em->getRepository('AppBundle:Incidencia')->findAll();
         } else {

@@ -21,29 +21,29 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412->enter($__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
+        $__internal_5def79b2fd26867a2865e6a4a180ad2d7fa0db4e66594f051bb9c3f259e3874d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5def79b2fd26867a2865e6a4a180ad2d7fa0db4e66594f051bb9c3f259e3874d->enter($__internal_5def79b2fd26867a2865e6a4a180ad2d7fa0db4e66594f051bb9c3f259e3874d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
 
-        $__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad->enter($__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
+        $__internal_793597bd9ffc73ce7fe4557e9ea5c1e9d491bffef8b7651229590ba4bf18cf4c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_793597bd9ffc73ce7fe4557e9ea5c1e9d491bffef8b7651229590ba4bf18cf4c->enter($__internal_793597bd9ffc73ce7fe4557e9ea5c1e9d491bffef8b7651229590ba4bf18cf4c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412->leave($__internal_d98d1b20686c7c68ac81ae3002fbf5a724d161307f3cf69443918ec957d78412_prof);
+        $__internal_5def79b2fd26867a2865e6a4a180ad2d7fa0db4e66594f051bb9c3f259e3874d->leave($__internal_5def79b2fd26867a2865e6a4a180ad2d7fa0db4e66594f051bb9c3f259e3874d_prof);
 
         
-        $__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad->leave($__internal_9bf384a15f9abc55f65f35a887a738c5a91f662324f85de47e712ccc6e5ba2ad_prof);
+        $__internal_793597bd9ffc73ce7fe4557e9ea5c1e9d491bffef8b7651229590ba4bf18cf4c->leave($__internal_793597bd9ffc73ce7fe4557e9ea5c1e9d491bffef8b7651229590ba4bf18cf4c_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b->enter($__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_acb38456db718b0caab2e02917340e12443fb5682f2811e95fb611213f3b7487 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_acb38456db718b0caab2e02917340e12443fb5682f2811e95fb611213f3b7487->enter($__internal_acb38456db718b0caab2e02917340e12443fb5682f2811e95fb611213f3b7487_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6->enter($__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_19a948b6ac2ba98987e5abf598ed94bb01b6f3b9ce4435f55fcf603a192f8464 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_19a948b6ac2ba98987e5abf598ed94bb01b6f3b9ce4435f55fcf603a192f8464->enter($__internal_19a948b6ac2ba98987e5abf598ed94bb01b6f3b9ce4435f55fcf603a192f8464_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\">
@@ -52,72 +52,85 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Detalle incidencia</div>
                     <div class=\"panel-body\">
-                        <div class=\"form-group\">
-                            <div class=\"box-body table-responsive no-padding\">
+                        <div class=\"box-body table-responsive no-padding\">
+                            <div class=\"form-group col-lg-6 col-md-6 col-sm-6 col-xs-12\">
                                 <table width=\"100%\" class=\"table table-condensed table-bordered\">
-                                    <tbody><tr>
-                                            <td><strong>N° incidencia:</strong></td>
+                                    <tbody>
+                                        <tr>
+                                            <td class=\"primary\"><strong>Id:</strong></td>
                                             <td>";
-        // line 14
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 14, $this->getSourceContext()); })()), "codigoIncidenciaPk", array()), "html", null, true);
+        // line 15
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 15, $this->getSourceContext()); })()), "codigoIncidenciaPk", array()), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Titulo:</strong></td>
+                                            <td class=\"active\"><strong>Titulo:</strong></td>
                                             <td>";
-        // line 18
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 18, $this->getSourceContext()); })()), "titulo", array()), "html", null, true);
+        // line 19
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 19, $this->getSourceContext()); })()), "titulo", array()), "html", null, true);
         echo "</td>
                                         </tr> 
                                         <tr>
-                                            <td><strong>Categoria:</strong></td>
+                                            <td class=\"active\"><strong>Categoria:</strong></td>
                                             <td>";
-        // line 22
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 22, $this->getSourceContext()); })()), "categoriaRel", array()), "nombre", array()), "html", null, true);
+        // line 23
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 23, $this->getSourceContext()); })()), "categoriaRel", array()), "nombre", array()), "html", null, true);
         echo "</td>
                                         </tr>                     
                                         <tr>
-                                            <td><strong>Prioridad:</strong></td>
+                                            <td class=\"active\"><strong>Prioridad:</strong></td>
                                             <td>";
-        // line 26
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 26, $this->getSourceContext()); })()), "prioridadRel", array()), "nombre", array()), "html", null, true);
+        // line 27
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 27, $this->getSourceContext()); })()), "prioridadRel", array()), "nombre", array()), "html", null, true);
+        echo "</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class=\"form-group col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                <table width=\"100%\" class=\"table table-condensed table-bordered\">
+                                    <tbody>
+                                        <tr>
+                                            <td class=\"active\"><strong>Cliente:</strong></td>
+                                            <td>";
+        // line 37
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 37, $this->getSourceContext()); })()), "clienteRel", array()), "nombre", array()), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Cliente:</strong></td>
+                                            <td class=\"active\"><strong>Fecha registro:</strong></td>
                                             <td>";
-        // line 30
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 30, $this->getSourceContext()); })()), "clienteRel", array()), "nombre", array()), "html", null, true);
+        // line 41
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 41, $this->getSourceContext()); })()), "fechaRegistro", array()), "d/m/Y H:i"), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Fecha registro:</strong></td>
+                                            <td class=\"active\"><strong>Descripci&oacute;n:</strong></td>
                                             <td>";
-        // line 34
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 34, $this->getSourceContext()); })()), "fechaRegistro", array()), "d/m/Y H:i"), "html", null, true);
+        // line 45
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 45, $this->getSourceContext()); })()), "descripcion", array()), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Descripci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Fecha soluci&oacute;n:</strong></td>
                                             <td>";
-        // line 38
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 38, $this->getSourceContext()); })()), "descripcion", array()), "html", null, true);
+        // line 49
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 49, $this->getSourceContext()); })()), "fechaSolucion", array()), "d/m/Y H:i"), "html", null, true);
         echo "</td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class=\"form-group col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                <table width=\"100%\" class=\"table table-condensed table-bordered\">
+                                    <tbody>
                                         <tr>
-                                            <td><strong>Fecha soluci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Soluci&oacute;n:</strong></td>
                                             <td>";
-        // line 42
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 42, $this->getSourceContext()); })()), "fechaSolucion", array()), "d/m/Y H:i"), "html", null, true);
+        // line 59
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 59, $this->getSourceContext()); })()), "solucion", array()), "html", null, true);
         echo "</td>
                                         </tr>
-                                        <tr>
-                                            <td><strong>Soluci&oacute;n:</strong></td>
-                                            <td>";
-        // line 46
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 46, $this->getSourceContext()); })()), "solucion", array()), "html", null, true);
-        echo "</td>
-                                        </tr> 
                                     </tbody>
                                 </table>
                             </div>
@@ -138,22 +151,22 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                                 </thead>
                                 <tbody>
                                     ";
-        // line 67
+        // line 80
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["arDetalleComentario"]);
         foreach ($context['_seq'] as $context["_key"] => $context["arDetalleComentario"]) {
-            // line 68
+            // line 81
             echo "                                        <tr>
                                             <td>";
-            // line 69
+            // line 82
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "fechaRegistro", array()), "Y/m/d H:i"), "html", null, true);
             echo "</td>
                                             <td>";
-            // line 70
+            // line 83
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "username", array()), "html", null, true);
             echo "</td>
                                             <td>";
-            // line 71
+            // line 84
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "comentario", array()), "html", null, true);
             echo "</td>
                                         </tr>
@@ -162,64 +175,54 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['arDetalleComentario'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 73
+        // line 86
         echo "     
                                 </tbody>
                             </table>
                         </div>
                         ";
-        // line 77
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 77, $this->getSourceContext()); })()), 'form_start');
+        // line 90
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 90, $this->getSourceContext()); })()), 'form_start', array("attr" => array("class" => "form-horizontal", "novalidate" => "novalidate")));
         echo "
                         <div class=\"form-group\">
                             <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                                 <label class=\"control-label\">";
-        // line 80
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 80, $this->getSourceContext()); })()), "comentario", array()), 'label');
+        // line 93
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 93, $this->getSourceContext()); })()), "comentario", array()), 'label');
         echo "</label>
                                 ";
-        // line 81
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 81, $this->getSourceContext()); })()), "comentario", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Registrar su comentario")));
+        // line 94
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 94, $this->getSourceContext()); })()), "comentario", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Registrar su comentario")));
         echo "
                             </div>
                         </div>
-                        <div class=\"form-group\">
-                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                                ";
-        // line 86
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 86, $this->getSourceContext()); })()), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
+                    </div>
+                    <div class=\"modal-footer\">
+                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                            ";
+        // line 100
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 100, $this->getSourceContext()); })()), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
         echo "
-                                <a href=\"";
-        // line 87
+                            <a href=\"";
+        // line 101
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
         echo "\">
                                 <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                                </a>
-                            </div>
+                            </a>
                         </div>
-                        ";
-        // line 92
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 92, $this->getSourceContext()); })()), 'form_end');
+                    </div>
+                    ";
+        // line 106
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 106, $this->getSourceContext()); })()), 'form_end');
         echo "
-                    </div>
-                </div>
-                <div class=\"form-group\">
-                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                        <a href=\"";
-        // line 97
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
-        echo "\">
-                            <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                        </a>
-                    </div>
                 </div>
             </div>
         ";
         
-        $__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6->leave($__internal_657a36b16b40b71e4fe884c5d02a3ea399611e1830bf97747423d9c71883d6d6_prof);
+        $__internal_19a948b6ac2ba98987e5abf598ed94bb01b6f3b9ce4435f55fcf603a192f8464->leave($__internal_19a948b6ac2ba98987e5abf598ed94bb01b6f3b9ce4435f55fcf603a192f8464_prof);
 
         
-        $__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b->leave($__internal_9fb1ea72b995ba9795fbb8658c83757dae2c8c24c3b55978b0637309445a6a0b_prof);
+        $__internal_acb38456db718b0caab2e02917340e12443fb5682f2811e95fb611213f3b7487->leave($__internal_acb38456db718b0caab2e02917340e12443fb5682f2811e95fb611213f3b7487_prof);
 
     }
 
@@ -235,7 +238,7 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
 
     public function getDebugInfo()
     {
-        return array (  210 => 97,  202 => 92,  194 => 87,  190 => 86,  182 => 81,  178 => 80,  172 => 77,  166 => 73,  157 => 71,  153 => 70,  149 => 69,  146 => 68,  142 => 67,  118 => 46,  111 => 42,  104 => 38,  97 => 34,  90 => 30,  83 => 26,  76 => 22,  69 => 18,  62 => 14,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  216 => 106,  208 => 101,  204 => 100,  195 => 94,  191 => 93,  185 => 90,  179 => 86,  170 => 84,  166 => 83,  162 => 82,  159 => 81,  155 => 80,  131 => 59,  118 => 49,  111 => 45,  104 => 41,  97 => 37,  84 => 27,  77 => 23,  70 => 19,  63 => 15,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -248,45 +251,58 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Detalle incidencia</div>
                     <div class=\"panel-body\">
-                        <div class=\"form-group\">
-                            <div class=\"box-body table-responsive no-padding\">
+                        <div class=\"box-body table-responsive no-padding\">
+                            <div class=\"form-group col-lg-6 col-md-6 col-sm-6 col-xs-12\">
                                 <table width=\"100%\" class=\"table table-condensed table-bordered\">
-                                    <tbody><tr>
-                                            <td><strong>N° incidencia:</strong></td>
+                                    <tbody>
+                                        <tr>
+                                            <td class=\"primary\"><strong>Id:</strong></td>
                                             <td>{{arIncidencia.codigoIncidenciaPk}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Titulo:</strong></td>
+                                            <td class=\"active\"><strong>Titulo:</strong></td>
                                             <td>{{arIncidencia.titulo}}</td>
                                         </tr> 
                                         <tr>
-                                            <td><strong>Categoria:</strong></td>
+                                            <td class=\"active\"><strong>Categoria:</strong></td>
                                             <td>{{arIncidencia.categoriaRel.nombre}}</td>
                                         </tr>                     
                                         <tr>
-                                            <td><strong>Prioridad:</strong></td>
+                                            <td class=\"active\"><strong>Prioridad:</strong></td>
                                             <td>{{arIncidencia.prioridadRel.nombre}}</td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class=\"form-group col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                <table width=\"100%\" class=\"table table-condensed table-bordered\">
+                                    <tbody>
                                         <tr>
-                                            <td><strong>Cliente:</strong></td>
+                                            <td class=\"active\"><strong>Cliente:</strong></td>
                                             <td>{{arIncidencia.clienteRel.nombre}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Fecha registro:</strong></td>
+                                            <td class=\"active\"><strong>Fecha registro:</strong></td>
                                             <td>{{arIncidencia.fechaRegistro | date('d/m/Y H:i')}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Descripci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Descripci&oacute;n:</strong></td>
                                             <td>{{arIncidencia.descripcion}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Fecha soluci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Fecha soluci&oacute;n:</strong></td>
                                             <td>{{arIncidencia.fechaSolucion | date('d/m/Y H:i')}}</td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class=\"form-group col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                <table width=\"100%\" class=\"table table-condensed table-bordered\">
+                                    <tbody>
                                         <tr>
-                                            <td><strong>Soluci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Soluci&oacute;n:</strong></td>
                                             <td>{{arIncidencia.solucion}}</td>
-                                        </tr> 
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -316,30 +332,23 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                                 </tbody>
                             </table>
                         </div>
-                        {{ form_start(form) }}
+                        {{ form_start(form, { 'attr': {'class': 'form-horizontal', 'novalidate': 'novalidate'} })  }}
                         <div class=\"form-group\">
                             <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                                 <label class=\"control-label\">{{ form_label(form.comentario)}}</label>
                                 {{ form_widget(form.comentario,{'attr':{'class':'form-control','placeholder':'Registrar su comentario'}}) }}
                             </div>
                         </div>
-                        <div class=\"form-group\">
-                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                                {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
-                                <a href=\"{{path('caso_lista')}}\">
+                    </div>
+                    <div class=\"modal-footer\">
+                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                            {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
+                            <a href=\"{{path('caso_lista')}}\">
                                 <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                                </a>
-                            </div>
+                            </a>
                         </div>
-                        {{ form_end(form) }}
                     </div>
-                </div>
-                <div class=\"form-group\">
-                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                        <a href=\"{{path('caso_lista')}}\">
-                            <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                        </a>
-                    </div>
+                    {{ form_end(form) }}
                 </div>
             </div>
         {% endblock %}

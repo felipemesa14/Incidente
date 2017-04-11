@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="incidencia")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\IncidenciaRepository")
  */
-class Incidencia
-{
+class Incidencia {
+
     /**
      * @var int
      *
@@ -35,7 +35,7 @@ class Incidencia
      */
     private $descripcion;
 
-     /**
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_registro", type="datetime")
@@ -48,7 +48,7 @@ class Incidencia
      * @ORM\Column(name="fecha_solucion", type="datetime", nullable=true)
      */
     private $fechaSolucion;
-    
+
     /**
      * @var string
      *
@@ -69,13 +69,6 @@ class Incidencia
      * @ORM\Column(name="codigo_prioridad_fk", type="integer")
      */
     private $codigoPrioridaFk;
-    
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="codigo_grupo_fk", type="integer")
-     */
-    private $codigoGrupoFk;
 
     /**
      * @var int
@@ -90,58 +83,51 @@ class Incidencia
      * @ORM\Column(name="estado_solucionado", type="boolean")
      */
     private $estadoSolucionado = false;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="estado_atendido", type="boolean")
      */
     private $estadoAtendido = false;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="codigo_categoria_fk", type="integer")
      */
     private $codigoCategoriaFk;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="usuario_asignado", type="string", length=50, nullable=true)
      */
     private $usuarioAsignado;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="incidenciasClienteRel")
      * @ORM\JoinColumn(name="codigo_cliente_fk", referencedColumnName="codigo_cliente_pk")
      */
     protected $clienteRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Prioridad", inversedBy="incidenciasPrioridadRel")
      * @ORM\JoinColumn(name="codigo_prioridad_fk", referencedColumnName="codigo_prioridad_pk")
      */
     protected $prioridadRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Categoria", inversedBy="incidenciasCategoriaRel")
      * @ORM\JoinColumn(name="codigo_categoria_fk", referencedColumnName="codigo_categoria_pk")
      */
     protected $categoriaRel;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Grupo", inversedBy="incidenciasGrupoRel")
-     * @ORM\JoinColumn(name="codigo_grupo_fk", referencedColumnName="codigo_grupo_pk")
-     */
-    protected $grupoRel;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Comentario", mappedBy="incidenciaRel")
      */
-    
     protected $comentariosIncidenciaRel;
-    
+
     /**
      * Constructor
      */
@@ -326,30 +312,6 @@ class Incidencia
     public function getCodigoPrioridaFk()
     {
         return $this->codigoPrioridaFk;
-    }
-
-    /**
-     * Set codigoGrupoFk
-     *
-     * @param integer $codigoGrupoFk
-     *
-     * @return Incidencia
-     */
-    public function setCodigoGrupoFk($codigoGrupoFk)
-    {
-        $this->codigoGrupoFk = $codigoGrupoFk;
-
-        return $this;
-    }
-
-    /**
-     * Get codigoGrupoFk
-     *
-     * @return integer
-     */
-    public function getCodigoGrupoFk()
-    {
-        return $this->codigoGrupoFk;
     }
 
     /**
@@ -542,30 +504,6 @@ class Incidencia
     public function getCategoriaRel()
     {
         return $this->categoriaRel;
-    }
-
-    /**
-     * Set grupoRel
-     *
-     * @param \AppBundle\Entity\Grupo $grupoRel
-     *
-     * @return Incidencia
-     */
-    public function setGrupoRel(\AppBundle\Entity\Grupo $grupoRel = null)
-    {
-        $this->grupoRel = $grupoRel;
-
-        return $this;
-    }
-
-    /**
-     * Get grupoRel
-     *
-     * @return \AppBundle\Entity\Grupo
-     */
-    public function getGrupoRel()
-    {
-        return $this->grupoRel;
     }
 
     /**

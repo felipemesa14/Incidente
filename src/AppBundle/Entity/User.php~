@@ -84,7 +84,7 @@ class User implements UserInterface {
      * @ORM\Column(name="telefono", type="integer", nullable=true)
      */
     private $telefono;
-    
+
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
@@ -101,15 +101,13 @@ class User implements UserInterface {
      * @ORM\JoinColumn(name="codigo_cliente_fk", referencedColumnName="codigo_cliente_pk")
      */
     protected $clienteRel;
-    
 
     /**
      * Get codigoUsuarioPk
      *
      * @return integer
      */
-    public function getCodigoUsuarioPk()
-    {
+    public function getCodigoUsuarioPk() {
         return $this->codigoUsuarioPk;
     }
 
@@ -120,8 +118,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setCodigoRolFk($codigoRolFk)
-    {
+    public function setCodigoRolFk($codigoRolFk) {
         $this->codigoRolFk = $codigoRolFk;
 
         return $this;
@@ -132,8 +129,7 @@ class User implements UserInterface {
      *
      * @return integer
      */
-    public function getCodigoRolFk()
-    {
+    public function getCodigoRolFk() {
         return $this->codigoRolFk;
     }
 
@@ -144,8 +140,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setCodigoClienteFk($codigoClienteFk)
-    {
+    public function setCodigoClienteFk($codigoClienteFk) {
         $this->codigoClienteFk = $codigoClienteFk;
 
         return $this;
@@ -156,8 +151,7 @@ class User implements UserInterface {
      *
      * @return integer
      */
-    public function getCodigoClienteFk()
-    {
+    public function getCodigoClienteFk() {
         return $this->codigoClienteFk;
     }
 
@@ -168,8 +162,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setUsername($username)
-    {
+    public function setUsername($username) {
         $this->username = $username;
 
         return $this;
@@ -180,8 +173,7 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getUsername()
-    {
+    public function getUsername() {
         return $this->username;
     }
 
@@ -192,8 +184,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
 
         return $this;
@@ -204,8 +195,7 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
     }
 
@@ -216,8 +206,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
 
         return $this;
@@ -228,8 +217,7 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -240,8 +228,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setApellido($apellido)
-    {
+    public function setApellido($apellido) {
         $this->apellido = $apellido;
 
         return $this;
@@ -252,8 +239,7 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getApellido()
-    {
+    public function getApellido() {
         return $this->apellido;
     }
 
@@ -264,8 +250,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -276,8 +261,7 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -288,8 +272,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setTelefono($telefono)
-    {
+    public function setTelefono($telefono) {
         $this->telefono = $telefono;
 
         return $this;
@@ -300,19 +283,18 @@ class User implements UserInterface {
      *
      * @return integer
      */
-    public function getTelefono()
-    {
+    public function getTelefono() {
         return $this->telefono;
     }
-    
-        public function eraseCredentials() {
+
+    public function eraseCredentials() {
         
     }
-    
-     /** @see \Serializable::serialize() */
+
+    /** @see \Serializable::serialize() */
     public function serialize() {
         return serialize(array(
-            $this->codigo_empleado_pk,
+            $this->codigoUsuarioPk,
             $this->username,
             $this->password,
                 // see section on salt below
@@ -323,7 +305,7 @@ class User implements UserInterface {
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized) {
         list (
-                $this->codigo_empleado_pk,
+                $this->codigoUsuarioPk,
                 $this->username,
                 $this->password,
                 // see section on salt below
@@ -331,9 +313,7 @@ class User implements UserInterface {
                 ) = unserialize($serialized);
     }
 
-    
-    public function getSalt()
-    {
+    public function getSalt() {
         // The bcrypt algorithm doesn't require a separate salt.
         // You *may* need a real salt if you choose a different encoder.
         return null;
@@ -346,8 +326,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setRoles($roles)
-    {
+    public function setRoles($roles) {
         $this->roles = $roles;
 
         return $this;
@@ -358,8 +337,7 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getRoles()
-    {
+    public function getRoles() {
         return array($this->roles);
     }
 
@@ -370,8 +348,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setRolRel(\AppBundle\Entity\Rol $rolRel = null)
-    {
+    public function setRolRel(\AppBundle\Entity\Rol $rolRel = null) {
         $this->rolRel = $rolRel;
 
         return $this;
@@ -382,8 +359,7 @@ class User implements UserInterface {
      *
      * @return \AppBundle\Entity\Rol
      */
-    public function getRolRel()
-    {
+    public function getRolRel() {
         return $this->rolRel;
     }
 
@@ -394,8 +370,7 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setClienteRel(\AppBundle\Entity\Cliente $clienteRel = null)
-    {
+    public function setClienteRel(\AppBundle\Entity\Cliente $clienteRel = null) {
         $this->clienteRel = $clienteRel;
 
         return $this;
@@ -406,10 +381,8 @@ class User implements UserInterface {
      *
      * @return \AppBundle\Entity\Cliente
      */
-    public function getClienteRel()
-    {
+    public function getClienteRel() {
         return $this->clienteRel;
     }
-    
-    
+
 }

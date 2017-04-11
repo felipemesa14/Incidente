@@ -25,13 +25,6 @@ class IncidenciaType extends AbstractType {
                                 ->orderBy('p.nombre', 'ASC');
                     },
                     'choice_label' => 'nombre'))
-                ->add('grupoRel', EntityType::class, array(
-                    'class' => 'AppBundle:Grupo',
-                    'query_builder' => function (EntityRepository $er) {
-                        return $er->createQueryBuilder('g')
-                                ->orderBy('g.nombre', 'ASC');
-                    },
-                    'choice_label' => 'nombre'))
                 ->add('categoriaRel', EntityType::class, array(
                     'class' => 'AppBundle:Categoria',
                     'query_builder' => function (EntityRepository $er) {
@@ -55,10 +48,10 @@ class IncidenciaType extends AbstractType {
                         'Juan Felipe Mesa Ocampo' => 'Juan',
                         'Sebastian' => 'Sebastian',
                         'Mario Estrada' => 'Mario',
-                    )))
+                    )))  
+                ->add('solucion', TextareaType::class)
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
-                ->add('solucion', TextareaType::class)
                 ->add('guardar', SubmitType::class, array(
                     'label' => 'Guardar'));
     }
