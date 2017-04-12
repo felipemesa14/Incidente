@@ -34,11 +34,11 @@ class CasoController extends Controller {
         if ($codigoIncidenciaPk != 0) {
             $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidenciaPk);
         } else {
-            $arIncidencia = new \AppBundle\Entity\Incidencia();
-            $usuario = $em->getRepository('AppBundle:User')->find($this->getUser());
-            $arIncidencia->setUsuario($usuario->getUsername());
+            $arIncidencia = new \AppBundle\Entity\Incidencia();            
+            $arUsuario = $this->getUser();
+            $arIncidencia->setUsuario($arUsuario->getUsername());
             $arIncidencia->setFechaRegistro(new \DateTime("now"));
-            $arIncidencia->setClienteRel($usuario->getClienteRel());
+            $arIncidencia->setClienteRel($arUsuario->getClienteRel());
         }
         $form = $this->createForm(IncidenciaType::class, $arIncidencia);
         $form->handleRequest($request);
@@ -76,7 +76,8 @@ class CasoController extends Controller {
     public function detalleAction(Request $request, $codigoIncidenciaPk) {
         $em = $this->getDoctrine()->getManager();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidenciaPk);
-        $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBycodigoIncidenciaFk($codigoIncidenciaPk);
+        $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoIncidenciaFk' => $codigoIncidenciaPk));
+        
         //Crear formulario de observaciones
         $arComentario = new \AppBundle\Entity\Comentario();
         $form = $this->createForm(ComentarioType::class, $arComentario);
@@ -101,8 +102,7 @@ class CasoController extends Controller {
     }
 
     private function enviarCorreo($arIncidencia) {
-
-        $user = $this->getUser();
+        $arUsuario = $this->getUser();
         $message = \Swift_Message::newInstance()
                 ->setSubject('Soporte Soga')
                 ->setFrom('felipemesa14@gmail.com')
