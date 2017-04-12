@@ -7,23 +7,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\IncidenciaType;
 use AppBundle\Form\ComentarioType;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class CasoController extends Controller {
 
     /**
      * @Route("/", name="caso_lista")
      */
-    public function listaAction(UserInterface $user = null) {
+    public function listaAction() {
         //Retornar el listado de los casos
         $user = $this->getUser();
-        $rol = $user->codigoRolFk();
         $em = $this->getDoctrine()->getManager();
-        $arUsuario = $em->getRepository('AppBundle:User')->find();
-        if ($arUsuario->getCodigoRolFk() == 1) {
+        if ($user->getCodigoRolFk() == 1) {
             $casos = $em->getRepository('AppBundle:Incidencia')->findAll();
         } else {
-            $casos = $em->getRepository('AppBundle:Incidencia')->findByusuario($arUsuario->getusername());
+            $casos = $em->getRepository('AppBundle:Incidencia')->findByusuario($user->getUsername());
         }
         return $this->render('AppBundle:Caso:lista.html.twig', array('casos' => $casos));
     }
@@ -50,16 +47,33 @@ class CasoController extends Controller {
             $arIncidencia = $form->getData();
             $em->persist($arIncidencia);
             $em->flush();
+            #if ($codigoIncidenciaPk == 0) {
+                $this->enviarCorreo($arIncidencia);
+            #}
             return $this->redirectToRoute('caso_lista');
         }
         return $this->render('AppBundle:Caso:nuevo.html.twig', array('form' => $form->createView()));
     }
 
     /**
+     * @Route("caso/eliminar/{codigoIncidenciaPk}", name="caso_eliminar")
+     */
+    public function eliminarAction(Request $request, $codigoIncidenciaPk) {
+        $em = $this->getDoctrine()->getEntityManager();
+        $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidenciaPk);
+        $arComentario = $em->getRepository("AppBundle:Comentario")->findBycodigoIncidenciaFk($arIncidencia);
+        foreach ($arComentario as $arComentario) {
+            $em->remove($arComentario);
+        }
+        $em->remove($arIncidencia);
+        $em->flush();
+        return $this->redirectToRoute('caso_lista');
+    }
+
+    /**
      * @Route("caso/detalle/{codigoIncidenciaPk}", name="caso_detalle")
      */
     public function detalleAction(Request $request, $codigoIncidenciaPk) {
-
         $em = $this->getDoctrine()->getManager();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidenciaPk);
         $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBycodigoIncidenciaFk($codigoIncidenciaPk);
@@ -86,20 +100,16 @@ class CasoController extends Controller {
         ));
     }
 
-    /**
-     * @Route("caso/eliminar/{codigoIncidenciaPk}", name="caso_eliminar")
-     */
-    public function eliminarAction(Request $request, $codigoIncidenciaPk) {
-        $em = $this->getDoctrine()->getEntityManager();
-        $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidenciaPk);
-        $arComentario = $em->getRepository("AppBundle:Comentario")->findBycodigoIncidenciaFk($arIncidencia);
-        foreach ($arComentario as $arComentario) {
-            $em->remove($arComentario);
-        }
-        $em->remove($arIncidencia);
-        $em->flush();
+    private function enviarCorreo($arIncidencia) {
 
-        return $this->redirectToRoute('caso_lista');
+        $user = $this->getUser();
+        $message = \Swift_Message::newInstance()
+                ->setSubject('Soporte Soga')
+                ->setFrom('felipemesa14@gmail.com')
+                ->setTo('felipemesa14@gmail.com')
+                ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', 
+                        array('descripcion' => $arIncidencia->getDescripcion())), 'text/html');
+        $this->get('mailer')->send($message);
     }
 
 }

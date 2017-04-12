@@ -52,8 +52,8 @@ class __TwigTemplate_16cd08dee5f5303ebc040fc2c380e2224e3481e1d040c4961d9e5b66a29
         // line 26
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
         echo "\">
-                            Incidencia
-                        </a>
+                            Incidencia</a>
+
                     </div>
                     <div class=\"collapse navbar-collapse\" id=\"app-navbar-collapse\">
                         <ul class=\"nav navbar-nav\">
@@ -62,14 +62,18 @@ class __TwigTemplate_16cd08dee5f5303ebc040fc2c380e2224e3481e1d040c4961d9e5b66a29
                         <ul class=\"nav navbar-nav navbar-right\">
                             <li class=\"dropdown\">
                                 <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\"
-                                   aria-expanded=\"false\"><span class=\"caret\"></span>
+                                   aria-expanded=\"false\">
+                                    ";
+        // line 38
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["app"] ?? null), "user", array()), "nombre", array()), "html", null, true);
+        echo "
+                                    <span class=\"caret\"></span>
                                 </a>
-
                                 <ul class=\"dropdown-menu\" role=\"menu\">
                                     <li>
                                         <a href=\"";
-        // line 42
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
+        // line 43
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("logout");
         echo "\">
                                             Salir
                                         </a>
@@ -81,15 +85,15 @@ class __TwigTemplate_16cd08dee5f5303ebc040fc2c380e2224e3481e1d040c4961d9e5b66a29
                 </div>
             </nav>
         </div>
+    </body>
     ";
-        // line 53
+        // line 55
         $this->displayBlock('body', $context, $blocks);
-        // line 54
+        // line 58
         echo "    ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 60
-        echo "</body>
-</html>
+        // line 62
+        echo "</html>
 ";
     }
 
@@ -112,21 +116,22 @@ class __TwigTemplate_16cd08dee5f5303ebc040fc2c380e2224e3481e1d040c4961d9e5b66a29
         ";
     }
 
-    // line 53
+    // line 55
     public function block_body($context, array $blocks = array())
     {
+        // line 56
+        echo "
+    ";
     }
 
-    // line 54
+    // line 58
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 55
+        // line 59
         echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("public/js/app.js"), "html", null, true);
         echo "\"></script>
         <script src=\"//code.jquery.com/jquery-1.12.4.js\"></script>
-        <script src=\"//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js\"></script>
-        <script src=\"//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js\"></script>
     ";
     }
 
@@ -142,7 +147,7 @@ class __TwigTemplate_16cd08dee5f5303ebc040fc2c380e2224e3481e1d040c4961d9e5b66a29
 
     public function getDebugInfo()
     {
-        return array (  124 => 55,  121 => 54,  116 => 53,  106 => 7,  103 => 6,  97 => 5,  91 => 60,  88 => 54,  86 => 53,  72 => 42,  53 => 26,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  131 => 59,  128 => 58,  123 => 56,  120 => 55,  110 => 7,  107 => 6,  101 => 5,  96 => 62,  93 => 58,  91 => 55,  76 => 43,  68 => 38,  53 => 26,  35 => 12,  33 => 6,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()

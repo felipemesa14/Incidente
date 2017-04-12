@@ -11,7 +11,6 @@ class __TwigTemplate_7b099bac64d4ef45838c0476543288122592d7b541b6451615c5471dace
         $this->parent = $this->loadTemplate("base.html.twig", "AppBundle:Caso:lista.html.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
-            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -39,119 +38,128 @@ class __TwigTemplate_7b099bac64d4ef45838c0476543288122592d7b541b6451615c5471dace
                             <thead>
                                 <tr class=\"primary\">
                                     <th>Id</th>
-                                    <th>Titulo</th>
+                                    <th>Asunto</th>
                                     <th>Prioridad</th>
                                     <th>Categoria</th>
+                                    <th>Descripcion</th>
                                     <th>Fecha</th>
                                     <th>Ate</th>
                                     <th>Sol</th>
-                                    <th>Tareas</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 ";
-        // line 23
+        // line 26
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["casos"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["caso"]) {
-            // line 24
+            // line 27
             echo "                                    <tr>
                                         <td>";
-            // line 25
+            // line 28
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 26
+            // line 29
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "titulo", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 27
+            // line 30
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "prioridadRel", array()), "nombre", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 28
+            // line 31
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "categoriaRel", array()), "nombre", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 29
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "descripcion", array()), "html", null, true);
+            echo "</td>
+                                        <td>";
+            // line 33
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "fechaRegistro", array()), "d/m/Y H:i"), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 30
-            if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0)) {
+            // line 34
+            if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoAtendido", array()) == 0)) {
                 echo "  No ";
             } else {
                 echo "  Si  ";
             }
             echo "</td>
                                         <td>";
-            // line 31
+            // line 35
             if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0)) {
                 echo "  No ";
             } else {
                 echo "  Si  ";
             }
             echo "</td>
-                                        <td>
+                                        <td style=\"text-align: center\">
                                             <a href=\"";
-            // line 33
+            // line 37
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_detalle", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
-            echo "\"
-                                               <button title=\"Ver detalle\" class=\"btn btn-primary\">
-                                                    <i class=\"glyphicon glyphicon-book\"></i>
-                                                </button>
-                                            </a>
-                                            <a href=\"";
+            echo "\">
+                                                <img src=\"";
             // line 38
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_nuevo", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
-            echo "\"
-                                               <button title=\"Editar\" class=\"btn btn-success\">
-                                                    <i class=\"glyphicon glyphicon-edit\"></i>
-                                                </button>
-                                            </a>
-                                            <a href=\"";
-            // line 43
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_eliminar", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
-            echo "\"
-                                               <button title=\"Editar\" class=\"btn btn-danger\">
-                                                    <i class=\"glyphicon glyphicon-remove\"></i>
-                                                </button>
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("imagenes/bootstrap/glyphicons_152_new_window.png"), "html", null, true);
+            echo "\" width=20 height=20 title=\"Detalle\">
                                             </a>
                                         </td>
+                                        <td style=\"text-align: center\">
+                                            ";
+            // line 42
+            if (((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["app"] ?? null), "user", array()), "codigoRolFk", array()) == 1) || (twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0))) {
+                // line 43
+                echo "                                                <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_nuevo", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
+                echo "\">
+                                                    <img src=\"";
+                // line 44
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("imagenes/bootstrap/glyphicons_151_edit.png"), "html", null, true);
+                echo "\" width=20 height=20 title=\"Editar\">    
+                                                </a>
+                                            ";
+            }
+            // line 47
+            echo "                                        </td>
+                                        <td style=\"text-align: center\">
+                                            ";
+            // line 49
+            if (((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["app"] ?? null), "user", array()), "codigoRolFk", array()) == 1) || (twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0))) {
+                // line 50
+                echo "                                                <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_eliminar", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
+                echo "\">
+                                                    <span class=\"glyphicon glyphicon-trash\"></span>
+                                                </a>
+                                            ";
+            }
+            // line 54
+            echo "                                        </td>
                                     </tr>
                                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['caso'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 51
+        // line 57
         echo "                            </tbody>
                         </table>
-                        <div class=\"row\">
-                            <div class=\"col-lg-12 col-sm-12 col-md-12 col-xs-12\" align=\"center\">
-                                <a href=\"";
-        // line 55
+                        <div class=\"modal-footer\">
+                            <a href=\"";
+        // line 60
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_nuevo", array("codigoIncidenciaPk" => 0));
         echo "\">
-                                    <input type=\"button\" class=\"btn btn-success\" value=\"Nuevo\"/>
-                                </a>
-                            </div>
+                                <button class=\"btn btn-primary\">Nuevo</button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        ";
-    }
-
-    // line 64
-    public function block_javascripts($context, array $blocks = array())
-    {
-        // line 65
-        echo "            <script>
-                \$(document).ready(function () {
-                    \$('#lista').DataTable();
-                });
-            </script>
         ";
     }
 
@@ -167,7 +175,7 @@ class __TwigTemplate_7b099bac64d4ef45838c0476543288122592d7b541b6451615c5471dace
 
     public function getDebugInfo()
     {
-        return array (  150 => 65,  147 => 64,  134 => 55,  128 => 51,  114 => 43,  106 => 38,  98 => 33,  89 => 31,  81 => 30,  77 => 29,  73 => 28,  69 => 27,  65 => 26,  61 => 25,  58 => 24,  54 => 23,  32 => 3,  29 => 2,  11 => 1,);
+        return array (  155 => 60,  150 => 57,  142 => 54,  134 => 50,  132 => 49,  128 => 47,  122 => 44,  117 => 43,  115 => 42,  108 => 38,  104 => 37,  95 => 35,  87 => 34,  83 => 33,  79 => 32,  75 => 31,  71 => 30,  67 => 29,  63 => 28,  60 => 27,  56 => 26,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

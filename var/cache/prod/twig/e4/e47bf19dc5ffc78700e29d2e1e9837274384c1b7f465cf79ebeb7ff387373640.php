@@ -33,100 +33,144 @@ class __TwigTemplate_495ef55ebfc49726850771d59646b5417c9c40b14a514463db0a77d585d
             <div class=\"col-md-12\">
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Crear incidencia</div>
-                    <div class=\"panel-body\">
-                        <div class=\"row\">
+                    <section class=\"content\">        \t
+                        ";
+        // line 9
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? null), 'form_start', array("attr" => array("class" => "form-horizontal")));
+        echo "
+                        <div class=\"panel-body\">
                             <div class=\"form-group\">
-                                ";
-        // line 11
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? null), 'form_start');
-        echo "
-                                <div class=\"form-group\" >
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            ";
-        // line 15
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "titulo", array()), 'label');
-        echo "
-                                            ";
-        // line 16
+                                <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Asunto:</strong></div>
+                                <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
+                                    ";
+        // line 14
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "titulo", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Titulo del caso")));
         echo "
-                                        </div>
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Priodad</label>
-                                            ";
-        // line 20
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "prioridadRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => ".:Seleccione:.")));
+                                </div>
+                                <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Prioridad:</strong></div>
+                                <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
+                                    ";
+        // line 18
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "prioridadRel", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
-                                        </div>
+                                </div>
+                            </div>
+                            <div class=\"form-group\">
+                                <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Categoria:</strong></div>
+                                <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
+                                    ";
+        // line 24
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "categoriaRel", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                                </div>
+                                <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Adjuntos</strong></div>
+                                <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\"><br>
+                                    <input type=\"file\" name=\"adjunto[]\" id=\"adjunto\" multiple />
+                                </div>
+                            </div>
+                            ";
+        // line 31
+        if ((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["app"] ?? null), "user", array()), "codigoRolFk", array()) == 1)) {
+            // line 32
+            echo "                                <div class=\"form-group\">
+                                    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Asignar a:</strong></div>
+                                    <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
+                                        ";
+            // line 35
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "usuarioAsignado", array()), 'widget', array("attr" => array("class" => "form-control")));
+            echo "
                                     </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Categoria</label>
-                                            ";
-        // line 26
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "categoriaRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Categoria")));
-        echo "
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label class=\"control-label\">Grupo</label>
-                                            ";
-        // line 32
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "grupoRel", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Cliente")));
-        echo "
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">
-                                            <label for=\"adjunto\">Adjuntos</label>
-                                            <input type=\"file\" name=\"adjunto[]\" id=\"adjunto\" multiple />
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                                            ";
-        // line 43
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "descripcion", array()), 'label');
-        echo "
-                                            ";
-        // line 44
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "descripcion", array()), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group\">
-                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" aling =\"left\">
-                                            <br>
-                                            ";
-        // line 50
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
-        echo "
-                                            <a href=\"";
-        // line 51
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
-        echo "\">
-                                                <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                                            </a>
-                                        </div>
+                                    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Atendido:</strong></div>
+                                    <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
+                                        ";
+            // line 39
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "estadoAtendido", array()), 'widget', array("attr" => array("class" => "form-control")));
+            echo "
                                     </div>
                                 </div>
-                                <div class=\"text-danger\">";
+                                <div class=\"form-group\">
+                                    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Solucionado:</strong></div>
+                                    <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">
+                                        ";
+            // line 45
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "estadoSolucionado", array()), 'widget', array("attr" => array("class" => "form-control")));
+            echo "
+                                    </div>
+                                </div>
+                            ";
+        } else {
+            // line 49
+            echo "                                ";
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "usuarioAsignado", array()), 'widget', array("attr" => array("style" => "display:none")));
+            echo "
+                                ";
+            // line 50
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "estadoSolucionado", array()), 'widget', array("attr" => array("style" => "display:none")));
+            echo "
+                                ";
+            // line 51
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "estadoAtendido", array()), 'widget', array("attr" => array("style" => "display:none")));
+            echo "
+                                ";
+            // line 52
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "solucion", array()), 'widget', array("attr" => array("style" => "display:none")));
+            echo "
+                            ";
+        }
+        // line 54
+        echo "                            <div class=\"form-group\">
+                                <label class=\"col-sm-2 control-label\"><strong>Descripci&oacute;n:</strong></label>
+                                <div class=\"col-sm-10\">
+                                    ";
         // line 57
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "descripcion", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+                                </div>
+                            </div>
+                            ";
+        // line 60
+        if ((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["app"] ?? null), "user", array()), "codigoRolFk", array()) == 1)) {
+            // line 61
+            echo "                                <div class=\"form-group\">
+                                    <div class=\"col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label\"><strong>Solucion:</strong></div>
+                                    <div class=\"col-lg-10 col-md-10 col-sm-10 col-xs-12\">
+                                        ";
+            // line 64
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "solucion", array()), 'widget', array("attr" => array("class" => "form-control")));
+            echo "
+                                    </div>
+                                </div>
+                            ";
+        }
+        // line 68
+        echo "                        </div>
+                        <div class=\"text-danger\">";
+        // line 69
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(($context["form"] ?? null), 'errors');
         echo "</div>
-                                ";
-        // line 58
+                        <div class=\"modal-footer\">
+                            ";
+        // line 71
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
+        echo "
+                            <a href=\"";
+        // line 72
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
+        echo "\">
+                                <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                            </a>
+                        </div>
+                        ";
+        // line 76
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? null), 'form_end');
         echo "
-                            </div>
-                        </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 ";
     }
 
@@ -142,7 +186,7 @@ class __TwigTemplate_495ef55ebfc49726850771d59646b5417c9c40b14a514463db0a77d585d
 
     public function getDebugInfo()
     {
-        return array (  121 => 58,  117 => 57,  108 => 51,  104 => 50,  95 => 44,  91 => 43,  77 => 32,  68 => 26,  59 => 20,  52 => 16,  48 => 15,  41 => 11,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  165 => 76,  158 => 72,  154 => 71,  149 => 69,  146 => 68,  139 => 64,  134 => 61,  132 => 60,  126 => 57,  121 => 54,  116 => 52,  112 => 51,  108 => 50,  103 => 49,  96 => 45,  87 => 39,  80 => 35,  75 => 32,  73 => 31,  63 => 24,  54 => 18,  47 => 14,  39 => 9,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

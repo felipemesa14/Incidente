@@ -25,6 +25,7 @@ security:
             pattern:    ^/
             http_basic: ~
             provider: db_users
+            anonymous: ~
             form_login:
                 login_path: login
                 check_path: login
@@ -34,7 +35,7 @@ security:
                 
     access_control:
     - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/, roles: ROLE_USER }
+    - { path: ^/, roles: ROLE_USER }   
             
             # activate different ways to authenticate
 

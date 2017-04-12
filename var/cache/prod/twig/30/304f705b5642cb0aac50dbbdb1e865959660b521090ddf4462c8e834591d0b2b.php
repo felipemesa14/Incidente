@@ -34,72 +34,85 @@ class __TwigTemplate_a51f99a2ef3b2c33070992a9cfe7cfb1d5e71fbfc0ed412992c4f606dc2
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Detalle incidencia</div>
                     <div class=\"panel-body\">
-                        <div class=\"form-group\">
-                            <div class=\"box-body table-responsive no-padding\">
+                        <div class=\"box-body table-responsive no-padding\">
+                            <div class=\"form-group col-lg-6 col-md-6 col-sm-6 col-xs-12\">
                                 <table width=\"100%\" class=\"table table-condensed table-bordered\">
-                                    <tbody><tr>
-                                            <td><strong>N° incidencia:</strong></td>
+                                    <tbody>
+                                        <tr>
+                                            <td class=\"primary\"><strong>Id:</strong></td>
                                             <td>";
-        // line 14
+        // line 15
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "codigoIncidenciaPk", array()), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Titulo:</strong></td>
+                                            <td class=\"active\"><strong>Titulo:</strong></td>
                                             <td>";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "titulo", array()), "html", null, true);
         echo "</td>
                                         </tr> 
                                         <tr>
-                                            <td><strong>Categoria:</strong></td>
+                                            <td class=\"active\"><strong>Categoria:</strong></td>
                                             <td>";
-        // line 22
+        // line 23
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "categoriaRel", array()), "nombre", array()), "html", null, true);
         echo "</td>
                                         </tr>                     
                                         <tr>
-                                            <td><strong>Prioridad:</strong></td>
+                                            <td class=\"active\"><strong>Prioridad:</strong></td>
                                             <td>";
-        // line 26
+        // line 27
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "prioridadRel", array()), "nombre", array()), "html", null, true);
         echo "</td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class=\"form-group col-lg-6 col-md-6 col-sm-6 col-xs-12\">
+                                <table width=\"100%\" class=\"table table-condensed table-bordered\">
+                                    <tbody>
                                         <tr>
-                                            <td><strong>Cliente:</strong></td>
+                                            <td class=\"active\"><strong>Cliente:</strong></td>
                                             <td>";
-        // line 30
+        // line 37
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "clienteRel", array()), "nombre", array()), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Fecha registro:</strong></td>
+                                            <td class=\"active\"><strong>Fecha registro:</strong></td>
                                             <td>";
-        // line 34
+        // line 41
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "fechaRegistro", array()), "d/m/Y H:i"), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Descripci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Descripci&oacute;n:</strong></td>
                                             <td>";
-        // line 38
+        // line 45
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "descripcion", array()), "html", null, true);
         echo "</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Fecha soluci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Fecha soluci&oacute;n:</strong></td>
                                             <td>";
-        // line 42
+        // line 49
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "fechaSolucion", array()), "d/m/Y H:i"), "html", null, true);
         echo "</td>
                                         </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class=\"form-group col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                                <table width=\"100%\" class=\"table table-condensed table-bordered\">
+                                    <tbody>
                                         <tr>
-                                            <td><strong>Soluci&oacute;n:</strong></td>
+                                            <td class=\"active\"><strong>Soluci&oacute;n:</strong></td>
                                             <td>";
-        // line 46
+        // line 59
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), ($context["arIncidencia"] ?? null), "solucion", array()), "html", null, true);
         echo "</td>
-                                        </tr> 
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -120,22 +133,22 @@ class __TwigTemplate_a51f99a2ef3b2c33070992a9cfe7cfb1d5e71fbfc0ed412992c4f606dc2
                                 </thead>
                                 <tbody>
                                     ";
-        // line 67
+        // line 80
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["arDetalleComentario"]);
         foreach ($context['_seq'] as $context["_key"] => $context["arDetalleComentario"]) {
-            // line 68
+            // line 81
             echo "                                        <tr>
                                             <td>";
-            // line 69
+            // line 82
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "fechaRegistro", array()), "Y/m/d H:i"), "html", null, true);
             echo "</td>
                                             <td>";
-            // line 70
+            // line 83
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "username", array()), "html", null, true);
             echo "</td>
                                             <td>";
-            // line 71
+            // line 84
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "comentario", array()), "html", null, true);
             echo "</td>
                                         </tr>
@@ -144,50 +157,49 @@ class __TwigTemplate_a51f99a2ef3b2c33070992a9cfe7cfb1d5e71fbfc0ed412992c4f606dc2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['arDetalleComentario'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 73
+        // line 86
         echo "     
                                 </tbody>
                             </table>
                         </div>
                         ";
-        // line 77
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? null), 'form_start');
+        // line 90
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? null), 'form_start', array("attr" => array("class" => "form-horizontal", "novalidate" => "novalidate")));
         echo "
                         <div class=\"form-group\">
                             <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                                 <label class=\"control-label\">";
-        // line 80
+        // line 93
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "comentario", array()), 'label');
         echo "</label>
                                 ";
-        // line 81
+        // line 94
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "comentario", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Registrar su comentario")));
         echo "
                             </div>
                         </div>
-                        <div class=\"form-group\">
-                            <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
-                                ";
-        // line 86
+                    </div>
+                    <div class=\"modal-footer\">
+                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
+                            ";
+        // line 100
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), ($context["form"] ?? null), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
         echo "
-                                <a href=\"";
-        // line 87
+                            <a href=\"";
+        // line 101
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
         echo "\">
-                                    <button type=\"button\" class=\"btn btn-default\">Volver</button>
-                                </a>
-                            </div>
+                                <button type=\"button\" class=\"btn btn-default\">Volver</button>
+                            </a>
                         </div>
-                        ";
-        // line 92
+                    </div>
+                    ";
+        // line 106
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? null), 'form_end');
         echo "
-                    </div>
                 </div>
             </div>
-        </div>
-    ";
+        ";
     }
 
     public function getTemplateName()
@@ -202,7 +214,7 @@ class __TwigTemplate_a51f99a2ef3b2c33070992a9cfe7cfb1d5e71fbfc0ed412992c4f606dc2
 
     public function getDebugInfo()
     {
-        return array (  184 => 92,  176 => 87,  172 => 86,  164 => 81,  160 => 80,  154 => 77,  148 => 73,  139 => 71,  135 => 70,  131 => 69,  128 => 68,  124 => 67,  100 => 46,  93 => 42,  86 => 38,  79 => 34,  72 => 30,  65 => 26,  58 => 22,  51 => 18,  44 => 14,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  198 => 106,  190 => 101,  186 => 100,  177 => 94,  173 => 93,  167 => 90,  161 => 86,  152 => 84,  148 => 83,  144 => 82,  141 => 81,  137 => 80,  113 => 59,  100 => 49,  93 => 45,  86 => 41,  79 => 37,  66 => 27,  59 => 23,  52 => 19,  45 => 15,  31 => 3,  28 => 2,  11 => 1,);
     }
 
     public function getSourceContext()

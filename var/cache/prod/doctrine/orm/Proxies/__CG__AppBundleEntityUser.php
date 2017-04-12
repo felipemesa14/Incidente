@@ -64,10 +64,10 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoUsuarioPk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoRolFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'nombre', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'apellido', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'telefono', 'rolRel', 'clienteRel'];
+            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoUsuarioPk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoRolFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'nombre', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'apellido', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'telefono', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'roles', 'rolRel', 'clienteRel'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoUsuarioPk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoRolFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'nombre', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'apellido', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'telefono', 'rolRel', 'clienteRel'];
+        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoUsuarioPk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoRolFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'username', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'plainPassword', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'password', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'nombre', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'apellido', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'email', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'telefono', '' . "\0" . 'AppBundle\\Entity\\User' . "\0" . 'roles', 'rolRel', 'clienteRel'];
     }
 
     /**
@@ -257,28 +257,6 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getPlainPassword()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPlainPassword', []);
-
-        return parent::getPlainPassword();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setPlainPassword($password)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPlainPassword', [$password]);
-
-        return parent::setPlainPassword($password);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setPassword($password)
     {
 
@@ -389,6 +367,17 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function eraseCredentials()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'eraseCredentials', []);
+
+        return parent::eraseCredentials();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function serialize()
     {
 
@@ -406,6 +395,39 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'unserialize', [$serialized]);
 
         return parent::unserialize($serialized);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSalt()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSalt', []);
+
+        return parent::getSalt();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRoles($roles)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoles', [$roles]);
+
+        return parent::setRoles($roles);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRoles()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoles', []);
+
+        return parent::getRoles();
     }
 
     /**
@@ -450,17 +472,6 @@ class User extends \AppBundle\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClienteRel', []);
 
         return parent::getClienteRel();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getSalt()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSalt', []);
-
-        return parent::getSalt();
     }
 
 }

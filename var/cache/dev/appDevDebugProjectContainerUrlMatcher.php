@@ -130,14 +130,14 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_nuevo')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::nuevoAction',));
             }
 
-            // caso_detalle
-            if (0 === strpos($pathinfo, '/caso/detalle') && preg_match('#^/caso/detalle/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_detalle')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::detalleAction',));
-            }
-
             // caso_eliminar
             if (0 === strpos($pathinfo, '/caso/eliminar') && preg_match('#^/caso/eliminar/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_eliminar')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::eliminarAction',));
+            }
+
+            // caso_detalle
+            if (0 === strpos($pathinfo, '/caso/detalle') && preg_match('#^/caso/detalle/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_detalle')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::detalleAction',));
             }
 
         }

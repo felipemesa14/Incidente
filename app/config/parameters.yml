@@ -5,8 +5,9 @@ parameters:
     database_name: bd_incidente
     database_user: root
     database_password: Papelon1217
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_encryption: ssl
+    mailer_user: felipemesa14@gmail.com
+    mailer_password: P4p3l0n$1217
     secret: c47cda79f44f7039d4021d5c7977bf5af19e01a4

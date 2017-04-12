@@ -64,10 +64,10 @@ class Incidencia extends \AppBundle\Entity\Incidencia implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoIncidenciaPk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'titulo', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'descripcion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaRegistro', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaSolucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'solucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoPrioridaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoGrupoFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuario', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'estadoSolucionado', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoCategoriaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuarioAsignado', 'clienteRel', 'prioridadRel', 'categoriaRel', 'grupoRel', 'comentariosIncidenciaRel'];
+            return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoIncidenciaPk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'titulo', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'descripcion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaRegistro', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaSolucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'solucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoPrioridaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuario', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'estadoSolucionado', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'estadoAtendido', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoCategoriaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuarioAsignado', 'clienteRel', 'prioridadRel', 'categoriaRel', 'comentariosIncidenciaRel'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoIncidenciaPk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'titulo', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'descripcion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaRegistro', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaSolucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'solucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoPrioridaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoGrupoFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuario', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'estadoSolucionado', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoCategoriaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuarioAsignado', 'clienteRel', 'prioridadRel', 'categoriaRel', 'grupoRel', 'comentariosIncidenciaRel'];
+        return ['__isInitialized__', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoIncidenciaPk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'titulo', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'descripcion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaRegistro', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'fechaSolucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'solucion', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoClienteFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoPrioridaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuario', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'estadoSolucionado', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'estadoAtendido', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'codigoCategoriaFk', '' . "\0" . 'AppBundle\\Entity\\Incidencia' . "\0" . 'usuarioAsignado', 'clienteRel', 'prioridadRel', 'categoriaRel', 'comentariosIncidenciaRel'];
     }
 
     /**
@@ -279,6 +279,28 @@ class Incidencia extends \AppBundle\Entity\Incidencia implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      */
+    public function setSolucion($solucion)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSolucion', [$solucion]);
+
+        return parent::setSolucion($solucion);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSolucion()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSolucion', []);
+
+        return parent::getSolucion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setCodigoClienteFk($codigoClienteFk)
     {
 
@@ -323,28 +345,6 @@ class Incidencia extends \AppBundle\Entity\Incidencia implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      */
-    public function setCodigoGrupoFk($codigoGrupoFk)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCodigoGrupoFk', [$codigoGrupoFk]);
-
-        return parent::setCodigoGrupoFk($codigoGrupoFk);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCodigoGrupoFk()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCodigoGrupoFk', []);
-
-        return parent::getCodigoGrupoFk();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setUsuario($usuario)
     {
 
@@ -384,6 +384,28 @@ class Incidencia extends \AppBundle\Entity\Incidencia implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEstadoSolucionado', []);
 
         return parent::getEstadoSolucionado();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEstadoAtendido($estadoAtendido)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEstadoAtendido', [$estadoAtendido]);
+
+        return parent::setEstadoAtendido($estadoAtendido);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEstadoAtendido()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEstadoAtendido', []);
+
+        return parent::getEstadoAtendido();
     }
 
     /**
@@ -499,28 +521,6 @@ class Incidencia extends \AppBundle\Entity\Incidencia implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      */
-    public function setGrupoRel(\AppBundle\Entity\Grupo $grupoRel = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGrupoRel', [$grupoRel]);
-
-        return parent::setGrupoRel($grupoRel);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getGrupoRel()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGrupoRel', []);
-
-        return parent::getGrupoRel();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function addComentariosIncidenciaRel(\AppBundle\Entity\Comentario $comentariosIncidenciaRel)
     {
 
@@ -549,28 +549,6 @@ class Incidencia extends \AppBundle\Entity\Incidencia implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getComentariosIncidenciaRel', []);
 
         return parent::getComentariosIncidenciaRel();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setSolucion($solucion)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSolucion', [$solucion]);
-
-        return parent::setSolucion($solucion);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getSolucion()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSolucion', []);
-
-        return parent::getSolucion();
     }
 
 }
