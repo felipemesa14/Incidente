@@ -47,9 +47,9 @@ class CasoController extends Controller {
             $arIncidencia = $form->getData();
             $em->persist($arIncidencia);
             $em->flush();
-            #if ($codigoIncidenciaPk == 0) {
+            if ($codigoIncidenciaPk == 0) {
                 $this->enviarCorreo($arIncidencia);
-            #}
+            }
             return $this->redirectToRoute('caso_lista');
         }
         return $this->render('AppBundle:Caso:nuevo.html.twig', array('form' => $form->createView()));
