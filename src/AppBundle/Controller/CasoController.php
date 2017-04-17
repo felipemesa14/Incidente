@@ -31,7 +31,7 @@ class CasoController extends Controller {
                     foreach ($arrSeleccionados AS $codigoIncidencia) {
                         $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidencia);
                         if ($arIncidencia->getEstadoAtendido() == 0) {
-                            $arComentario = $em->getRepository("AppBundle:Comentario")->findBycodigoIncidenciaFk($arIncidencia);
+                            $arComentario = $em->getRepository("AppBundle:Comentario")->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
                             if (count($arComentario > 0)) {
                                 foreach ($arComentario as $arComentario) {
                                     $em->remove($arComentario);
@@ -49,7 +49,7 @@ class CasoController extends Controller {
         if ($arUsuario->getRolRel()->getNombre() == "ROL_ADMIN") {
             $casos = $em->getRepository('AppBundle:Incidencia')->findAll();
         } else {
-            $casos = $em->getRepository('AppBundle:Incidencia')->findByusuario($arUsuario->getUsername());
+            $casos = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername()));
         }
         return $this->render('AppBundle:Caso:lista.html.twig', array('casos' => $casos,
                     'mensaje' => $mensaje,
