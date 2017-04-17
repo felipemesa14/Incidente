@@ -54,6 +54,10 @@
                 <source>Comentario</source>
                 <target>Comentario</target>
             </trans-unit>
+            <trans-unit id="14">
+                <source>Eliminar</source>
+                <target>Eliminar</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

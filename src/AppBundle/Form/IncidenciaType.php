@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Doctrine\ORM\EntityRepository;
 
 class IncidenciaType extends AbstractType {
@@ -32,24 +31,6 @@ class IncidenciaType extends AbstractType {
                                 ->orderBy('c.nombre', 'ASC');
                     },
                     'choice_label' => 'nombre'))
-                ->add('estadoSolucionado', ChoiceType::class, array(
-                    'choices' => array(
-                        'No' => '0',
-                        'Si' => '1',
-                    )))
-                ->add('estadoAtendido', ChoiceType::class, array(
-                    'choices' => array(
-                        'No' => '0',
-                        'Si' => '1',
-                    )))
-                ->add('usuarioAsignado', ChoiceType::class, array(
-                    'choices' => array(
-                        'Juan Felipe' => 'Felipe',
-                        'Juan Felipe Mesa Ocampo' => 'Juan',
-                        'Sebastian' => 'Sebastian',
-                        'Mario Estrada' => 'Mario',
-                    )))  
-                ->add('solucion', TextareaType::class, array('required'=>false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
                 ->add('guardar', SubmitType::class, array(

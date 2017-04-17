@@ -21,37 +21,49 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0145fbf32c515674b008a4c52093654bd6864bbb2cb2c438c989a049529cb0a7 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0145fbf32c515674b008a4c52093654bd6864bbb2cb2c438c989a049529cb0a7->enter($__internal_0145fbf32c515674b008a4c52093654bd6864bbb2cb2c438c989a049529cb0a7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:lista.html.twig"));
+        $__internal_296a0291aaa8fff8b9d6c4bff0ee7cb5c2ce9ca37bb0710644f8dde4bff0a573 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_296a0291aaa8fff8b9d6c4bff0ee7cb5c2ce9ca37bb0710644f8dde4bff0a573->enter($__internal_296a0291aaa8fff8b9d6c4bff0ee7cb5c2ce9ca37bb0710644f8dde4bff0a573_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:lista.html.twig"));
 
-        $__internal_246a1c8e3f5b57d17eaa6c067ebc3948cac70ee8b65869b5a12c9f5fbaed97cf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_246a1c8e3f5b57d17eaa6c067ebc3948cac70ee8b65869b5a12c9f5fbaed97cf->enter($__internal_246a1c8e3f5b57d17eaa6c067ebc3948cac70ee8b65869b5a12c9f5fbaed97cf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:lista.html.twig"));
+        $__internal_134f206414a0da38734498972031b9e96c325fa5ef0f7cae05a48cc4b4afde80 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_134f206414a0da38734498972031b9e96c325fa5ef0f7cae05a48cc4b4afde80->enter($__internal_134f206414a0da38734498972031b9e96c325fa5ef0f7cae05a48cc4b4afde80_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:lista.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_0145fbf32c515674b008a4c52093654bd6864bbb2cb2c438c989a049529cb0a7->leave($__internal_0145fbf32c515674b008a4c52093654bd6864bbb2cb2c438c989a049529cb0a7_prof);
+        $__internal_296a0291aaa8fff8b9d6c4bff0ee7cb5c2ce9ca37bb0710644f8dde4bff0a573->leave($__internal_296a0291aaa8fff8b9d6c4bff0ee7cb5c2ce9ca37bb0710644f8dde4bff0a573_prof);
 
         
-        $__internal_246a1c8e3f5b57d17eaa6c067ebc3948cac70ee8b65869b5a12c9f5fbaed97cf->leave($__internal_246a1c8e3f5b57d17eaa6c067ebc3948cac70ee8b65869b5a12c9f5fbaed97cf_prof);
+        $__internal_134f206414a0da38734498972031b9e96c325fa5ef0f7cae05a48cc4b4afde80->leave($__internal_134f206414a0da38734498972031b9e96c325fa5ef0f7cae05a48cc4b4afde80_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_9517134b3908a926959ea93160f3ff1ff3fd509f63acac0befda2e63f0ef36b2 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9517134b3908a926959ea93160f3ff1ff3fd509f63acac0befda2e63f0ef36b2->enter($__internal_9517134b3908a926959ea93160f3ff1ff3fd509f63acac0befda2e63f0ef36b2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_d2392c7e6f44ff2aeee65b45b26a56507c564718058b014b5551706cf3243917 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d2392c7e6f44ff2aeee65b45b26a56507c564718058b014b5551706cf3243917->enter($__internal_d2392c7e6f44ff2aeee65b45b26a56507c564718058b014b5551706cf3243917_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_c750075a76b7d332cd6ff70bc70d59e6d23d21d74542dfb07cd5bbb6385a94a4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c750075a76b7d332cd6ff70bc70d59e6d23d21d74542dfb07cd5bbb6385a94a4->enter($__internal_c750075a76b7d332cd6ff70bc70d59e6d23d21d74542dfb07cd5bbb6385a94a4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_93af7de7da5268616e28ceb9cb9fdedfde37aac9b084ae5799fd761e7985b380 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_93af7de7da5268616e28ceb9cb9fdedfde37aac9b084ae5799fd761e7985b380->enter($__internal_93af7de7da5268616e28ceb9cb9fdedfde37aac9b084ae5799fd761e7985b380_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\">
+        ";
+        // line 4
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 4, $this->getSourceContext()); })()), 'form_start', array("attr" => array("class" => "form-horizontal", "novalidate" => "novalidate")));
+        echo "
+        ";
+        // line 5
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 5, $this->getSourceContext()); })()), 'errors');
+        echo "
         <div class=\"row\">
             <div class=\"col-md-12\">
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Listado de Incidencias</div>
                     <div class=\"panel-body\">
+                        <div class=\"text-danger\">";
+        // line 11
+        echo twig_escape_filter($this->env, (isset($context["mensaje"]) || array_key_exists("mensaje", $context) ? $context["mensaje"] : (function () { throw new Twig_Error_Runtime('Variable "mensaje" does not exist.', 11, $this->getSourceContext()); })()), "html", null, true);
+        echo "</div>
                         <table id=\"lista\" class=\"table table-striped table-bordered table-condensed table-hover\">
                             <thead>
                                 <tr class=\"primary\">
@@ -70,38 +82,38 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
                             </thead>
                             <tbody>
                                 ";
-        // line 26
+        // line 29
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["casos"]) || array_key_exists("casos", $context) ? $context["casos"] : (function () { throw new Twig_Error_Runtime('Variable "casos" does not exist.', 26, $this->getSourceContext()); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["casos"]) || array_key_exists("casos", $context) ? $context["casos"] : (function () { throw new Twig_Error_Runtime('Variable "casos" does not exist.', 29, $this->getSourceContext()); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["caso"]) {
-            // line 27
+            // line 30
             echo "                                    <tr>
                                         <td>";
-            // line 28
+            // line 31
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 29
+            // line 32
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "titulo", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 30
+            // line 33
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "prioridadRel", array()), "nombre", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 31
+            // line 34
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "categoriaRel", array()), "nombre", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 32
+            // line 35
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "descripcion", array()), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 33
+            // line 36
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "fechaRegistro", array()), "d/m/Y H:i"), "html", null, true);
             echo "</td>
                                         <td>";
-            // line 34
+            // line 37
             if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoAtendido", array()) == 0)) {
                 echo "  No ";
             } else {
@@ -109,7 +121,7 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
             }
             echo "</td>
                                         <td>";
-            // line 35
+            // line 38
             if ((twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0)) {
                 echo "  No ";
             } else {
@@ -118,45 +130,57 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
             echo "</td>
                                         <td style=\"text-align: center\">
                                             <a href=\"";
-            // line 37
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_detalle", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
+            // line 40
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_detalle", array("codigoIncidencia" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
             echo "\">
                                                 <img src=\"";
-            // line 38
+            // line 41
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("imagenes/bootstrap/glyphicons_152_new_window.png"), "html", null, true);
             echo "\" width=20 height=20 title=\"Detalle\">
                                             </a>
                                         </td>
                                         <td style=\"text-align: center\">
                                             ";
-            // line 42
-            if (((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 42, $this->getSourceContext()); })()), "user", array()), "codigoRolFk", array()) == 1) || (twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0))) {
-                // line 43
+            // line 45
+            if (((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 45, $this->getSourceContext()); })()), "user", array()), "rolRelFk", array()), "nombre", array()) == "ROL_USER") && (twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0))) {
+                // line 46
                 echo "                                                <a href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_nuevo", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_nuevo", array("codigoIncidencia" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
                 echo "\">
                                                     <img src=\"";
-                // line 44
+                // line 47
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("imagenes/bootstrap/glyphicons_151_edit.png"), "html", null, true);
                 echo "\" width=20 height=20 title=\"Editar\">    
                                                 </a>
                                             ";
             }
-            // line 47
-            echo "                                        </td>
-                                        <td style=\"text-align: center\">
-                                            ";
-            // line 49
-            if (((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 49, $this->getSourceContext()); })()), "user", array()), "codigoRolFk", array()) == 1) || (twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0))) {
-                // line 50
+            // line 50
+            echo "                                            ";
+            if ((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 50, $this->getSourceContext()); })()), "user", array()), "rolRelFk", array()), "nombre", array()) == "ROL_USER")) {
+                // line 51
                 echo "                                                <a href=\"";
-                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_eliminar", array("codigoIncidenciaPk" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_editar", array("codigoIncidencia" => twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()))), "html", null, true);
                 echo "\">
-                                                    <span class=\"glyphicon glyphicon-trash\"></span>
+                                                    <img src=\"";
+                // line 52
+                echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("imagenes/bootstrap/glyphicons_151_edit.png"), "html", null, true);
+                echo "\" width=20 height=20 title=\"Editar\">    
                                                 </a>
                                             ";
             }
-            // line 54
+            // line 55
+            echo "                                        </td>
+                                        <td style=\"text-align: center\">
+                                            ";
+            // line 57
+            if (((twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 57, $this->getSourceContext()); })()), "user", array()), "codigoRolFk", array()) == 2) || (twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "estadoSolucionado", array()) == 0))) {
+                // line 58
+                echo "                                                <input type=\"checkbox\" name=\"ChkSeleccionar[]\" value=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["caso"], "codigoIncidenciaPk", array()), "html", null, true);
+                echo "\" />
+                                            ";
+            }
+            // line 60
             echo "                                        </td>
                                     </tr>
                                 ";
@@ -164,26 +188,35 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['caso'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 57
+        // line 63
         echo "                            </tbody>
                         </table>
-                        <div class=\"modal-footer\">
-                            <a href=\"";
-        // line 60
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_nuevo", array("codigoIncidenciaPk" => 0));
-        echo "\">
-                                <button class=\"btn btn-primary\">Nuevo</button>
-                            </a>
+                        <div class=\"modal-footer\">                            
+                            <div class=\"btn-group\">
+                                <a class=\"btn btn-default btn-sm\" href=\"";
+        // line 67
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_nuevo", array("codigoIncidencia" => 0));
+        echo "\">Nuevo</a>
+                                <div class=\"btn-group\">
+                                    ";
+        // line 69
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 69, $this->getSourceContext()); })()), "BtnEliminar", array()), 'widget', array("attr" => array("class" => "btn btn-danger btn-sm")));
+        echo "
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    ";
+        // line 74
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 74, $this->getSourceContext()); })()), 'form_end');
+        echo "
                 </div>
-            </div>
-        ";
+            ";
         
-        $__internal_c750075a76b7d332cd6ff70bc70d59e6d23d21d74542dfb07cd5bbb6385a94a4->leave($__internal_c750075a76b7d332cd6ff70bc70d59e6d23d21d74542dfb07cd5bbb6385a94a4_prof);
+        $__internal_93af7de7da5268616e28ceb9cb9fdedfde37aac9b084ae5799fd761e7985b380->leave($__internal_93af7de7da5268616e28ceb9cb9fdedfde37aac9b084ae5799fd761e7985b380_prof);
 
         
-        $__internal_9517134b3908a926959ea93160f3ff1ff3fd509f63acac0befda2e63f0ef36b2->leave($__internal_9517134b3908a926959ea93160f3ff1ff3fd509f63acac0befda2e63f0ef36b2_prof);
+        $__internal_d2392c7e6f44ff2aeee65b45b26a56507c564718058b014b5551706cf3243917->leave($__internal_d2392c7e6f44ff2aeee65b45b26a56507c564718058b014b5551706cf3243917_prof);
 
     }
 
@@ -199,7 +232,7 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
 
     public function getDebugInfo()
     {
-        return array (  173 => 60,  168 => 57,  160 => 54,  152 => 50,  150 => 49,  146 => 47,  140 => 44,  135 => 43,  133 => 42,  126 => 38,  122 => 37,  113 => 35,  105 => 34,  101 => 33,  97 => 32,  93 => 31,  89 => 30,  85 => 29,  81 => 28,  78 => 27,  74 => 26,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  211 => 74,  203 => 69,  198 => 67,  192 => 63,  184 => 60,  178 => 58,  176 => 57,  172 => 55,  166 => 52,  161 => 51,  158 => 50,  152 => 47,  147 => 46,  145 => 45,  138 => 41,  134 => 40,  125 => 38,  117 => 37,  113 => 36,  109 => 35,  105 => 34,  101 => 33,  97 => 32,  93 => 31,  90 => 30,  86 => 29,  65 => 11,  56 => 5,  52 => 4,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -207,11 +240,14 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
         return new Twig_Source("{% extends \"base.html.twig\" %}
 {% block body %}
     <div class=\"container\">
+        {{ form_start(form, { 'attr': {'class': 'form-horizontal', 'novalidate': 'novalidate'} }) }}
+        {{ form_errors(form) }}
         <div class=\"row\">
             <div class=\"col-md-12\">
                 <div class=\"panel panel-primary\">
                     <div class=\"panel-heading\">Listado de Incidencias</div>
                     <div class=\"panel-body\">
+                        <div class=\"text-danger\">{{ mensaje }}</div>
                         <table id=\"lista\" class=\"table table-striped table-bordered table-condensed table-hover\">
                             <thead>
                                 <tr class=\"primary\">
@@ -240,37 +276,43 @@ class __TwigTemplate_c5057f42db1b44afc0deff0bce3f09e15954154eb79b32d477e1754a6e7
                                         <td>{%if caso.estadoAtendido == 0 %}  No {%else%}  Si  {% endif %}</td>
                                         <td>{%if caso.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
                                         <td style=\"text-align: center\">
-                                            <a href=\"{{ path('caso_detalle',{'codigoIncidenciaPk':caso.codigoIncidenciaPk}) }}\">
+                                            <a href=\"{{ path('caso_detalle',{'codigoIncidencia':caso.codigoIncidenciaPk}) }}\">
                                                 <img src=\"{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}\" width=20 height=20 title=\"Detalle\">
                                             </a>
                                         </td>
                                         <td style=\"text-align: center\">
-                                            {% if app.user.codigoRolFk == 1 or caso.estadoSolucionado == 0 %}
-                                                <a href=\"{{ path('caso_nuevo',{'codigoIncidenciaPk':caso.codigoIncidenciaPk}) }}\">
+                                            {% if app.user.rolRelFk.nombre == \"ROL_USER\" and caso.estadoSolucionado == 0 %}
+                                                <a href=\"{{ path('caso_nuevo',{'codigoIncidencia':caso.codigoIncidenciaPk}) }}\">
+                                                    <img src=\"{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}\" width=20 height=20 title=\"Editar\">    
+                                                </a>
+                                            {% endif  %}
+                                            {% if app.user.rolRelFk.nombre == \"ROL_USER\" %}
+                                                <a href=\"{{ path('caso_editar',{'codigoIncidencia':caso.codigoIncidenciaPk}) }}\">
                                                     <img src=\"{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}\" width=20 height=20 title=\"Editar\">    
                                                 </a>
                                             {% endif  %}
                                         </td>
                                         <td style=\"text-align: center\">
-                                            {% if app.user.codigoRolFk == 1 or caso.estadoSolucionado == 0 %}
-                                                <a href=\"{{ path('caso_eliminar',{'codigoIncidenciaPk':caso.codigoIncidenciaPk}) }}\">
-                                                    <span class=\"glyphicon glyphicon-trash\"></span>
-                                                </a>
+                                            {% if app.user.codigoRolFk == 2 or caso.estadoSolucionado == 0 %}
+                                                <input type=\"checkbox\" name=\"ChkSeleccionar[]\" value=\"{{ caso.codigoIncidenciaPk }}\" />
                                             {% endif  %}
                                         </td>
                                     </tr>
                                 {% endfor%}
                             </tbody>
                         </table>
-                        <div class=\"modal-footer\">
-                            <a href=\"{{ path('caso_nuevo',{'codigoIncidenciaPk':0}) }}\">
-                                <button class=\"btn btn-primary\">Nuevo</button>
-                            </a>
+                        <div class=\"modal-footer\">                            
+                            <div class=\"btn-group\">
+                                <a class=\"btn btn-default btn-sm\" href=\"{{ path('caso_nuevo',{'codigoIncidencia':0}) }}\">Nuevo</a>
+                                <div class=\"btn-group\">
+                                    {{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    {{ form_end(form) }}
                 </div>
-            </div>
-        {% endblock %}
+            {% endblock %}
 
 ", "AppBundle:Caso:lista.html.twig", "/var/www/html/incidente/src/AppBundle/Resources/views/Caso/lista.html.twig");
     }

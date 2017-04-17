@@ -79,9 +79,9 @@ class User implements UserInterface {
     private $email;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="telefono", type="integer", nullable=true)
+     * @ORM\Column(name="telefono", type="string",length=50, nullable=true)
      */
     private $telefono;
 

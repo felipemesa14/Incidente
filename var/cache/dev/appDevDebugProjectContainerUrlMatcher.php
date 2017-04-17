@@ -126,17 +126,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/caso')) {
             // caso_nuevo
-            if (0 === strpos($pathinfo, '/caso/nuevo') && preg_match('#^/caso/nuevo/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/caso/nuevo') && preg_match('#^/caso/nuevo/(?P<codigoIncidencia>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_nuevo')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::nuevoAction',));
             }
 
-            // caso_eliminar
-            if (0 === strpos($pathinfo, '/caso/eliminar') && preg_match('#^/caso/eliminar/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_eliminar')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::eliminarAction',));
+            // caso_editar
+            if (0 === strpos($pathinfo, '/caso/editarAdmin') && preg_match('#^/caso/editarAdmin/(?P<codigoIncidencia>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_editar')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::editarAdminAction',));
             }
 
             // caso_detalle
-            if (0 === strpos($pathinfo, '/caso/detalle') && preg_match('#^/caso/detalle/(?P<codigoIncidenciaPk>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/caso/detalle') && preg_match('#^/caso/detalle/(?P<codigoIncidencia>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'caso_detalle')), array (  '_controller' => 'AppBundle\\Controller\\CasoController::detalleAction',));
             }
 

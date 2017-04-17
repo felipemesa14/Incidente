@@ -121,6 +121,7 @@ $catalogue = new MessageCatalogue('es', array (
     'Guardar' => 'Guardar',
     'Registrar su comentario' => 'Registrar su comentario',
     'Comentario' => 'Comentario',
+    'Eliminar' => 'Eliminar',
   ),
 ));
 
