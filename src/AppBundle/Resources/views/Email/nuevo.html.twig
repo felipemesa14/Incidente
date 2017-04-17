@@ -1,5 +1,90 @@
 <html>
     <body>
-        <h1>{{ descripcion }}</h1>
+        <table width="599" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                    <img src="http://www.ng.cr/images/software/desarrollo-de-software-en-la-nube-sicla-07.jpg" width="600" height="188">
+                    </td>
+                </tr>
+                <tr colspan="2">
+                    <td width="528" style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                    Tu incidente se ha generado correctamente con el identificador {{ arIncidencia.codigoIncidenciaPk }} </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                    Asunto: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arIncidencia.titulo }} </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                        Fecha: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                    {{ arIncidencia.fechaRegistro | date('Y/m/d') }} </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                        Prioridad: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arIncidencia.prioridadRel.nombre }} </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                        Categoria: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arIncidencia.categoriaRel.nombre}} </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                        Descripci&oacute;n: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arIncidencia.descripcion }} </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>

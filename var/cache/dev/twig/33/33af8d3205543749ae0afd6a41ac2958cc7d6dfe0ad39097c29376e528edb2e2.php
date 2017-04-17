@@ -21,29 +21,29 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0c4a7d8796615b087ba309234e979f31ec58e7b6cd0fe81db2cc44ebea622270 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0c4a7d8796615b087ba309234e979f31ec58e7b6cd0fe81db2cc44ebea622270->enter($__internal_0c4a7d8796615b087ba309234e979f31ec58e7b6cd0fe81db2cc44ebea622270_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
+        $__internal_c33310915e10eb904c60143a9bc773607a56eb6991dd411788788e06e2def5f1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_c33310915e10eb904c60143a9bc773607a56eb6991dd411788788e06e2def5f1->enter($__internal_c33310915e10eb904c60143a9bc773607a56eb6991dd411788788e06e2def5f1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
 
-        $__internal_f9972c5ea6d188175e2e24a13b7055cbf8c8d75a6a66e4cf9b64511bad71f939 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f9972c5ea6d188175e2e24a13b7055cbf8c8d75a6a66e4cf9b64511bad71f939->enter($__internal_f9972c5ea6d188175e2e24a13b7055cbf8c8d75a6a66e4cf9b64511bad71f939_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
+        $__internal_b835df2a123e3160eea10b95e419d3c828646342c44849f428368f5ce6b1cedb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b835df2a123e3160eea10b95e419d3c828646342c44849f428368f5ce6b1cedb->enter($__internal_b835df2a123e3160eea10b95e419d3c828646342c44849f428368f5ce6b1cedb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "AppBundle:Caso:detalle.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_0c4a7d8796615b087ba309234e979f31ec58e7b6cd0fe81db2cc44ebea622270->leave($__internal_0c4a7d8796615b087ba309234e979f31ec58e7b6cd0fe81db2cc44ebea622270_prof);
+        $__internal_c33310915e10eb904c60143a9bc773607a56eb6991dd411788788e06e2def5f1->leave($__internal_c33310915e10eb904c60143a9bc773607a56eb6991dd411788788e06e2def5f1_prof);
 
         
-        $__internal_f9972c5ea6d188175e2e24a13b7055cbf8c8d75a6a66e4cf9b64511bad71f939->leave($__internal_f9972c5ea6d188175e2e24a13b7055cbf8c8d75a6a66e4cf9b64511bad71f939_prof);
+        $__internal_b835df2a123e3160eea10b95e419d3c828646342c44849f428368f5ce6b1cedb->leave($__internal_b835df2a123e3160eea10b95e419d3c828646342c44849f428368f5ce6b1cedb_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_c25e7d70f193d7218a1eea9085121534df10ec58ec20bab05ec08670b21f5188 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_c25e7d70f193d7218a1eea9085121534df10ec58ec20bab05ec08670b21f5188->enter($__internal_c25e7d70f193d7218a1eea9085121534df10ec58ec20bab05ec08670b21f5188_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_756f7548f6920cb0bb2f1e19fb790d822e168ed29596006a0c40ae8e11d4cd07 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_756f7548f6920cb0bb2f1e19fb790d822e168ed29596006a0c40ae8e11d4cd07->enter($__internal_756f7548f6920cb0bb2f1e19fb790d822e168ed29596006a0c40ae8e11d4cd07_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_a52f71cb6d11f40c0709f46a99a5677017f460f8b487c225ed26d55a3aad94fa = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a52f71cb6d11f40c0709f46a99a5677017f460f8b487c225ed26d55a3aad94fa->enter($__internal_a52f71cb6d11f40c0709f46a99a5677017f460f8b487c225ed26d55a3aad94fa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_e1abebd0dc037015ffe1e9029836c308d3d3445bd522015cd38ce1ebd67c65a5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e1abebd0dc037015ffe1e9029836c308d3d3445bd522015cd38ce1ebd67c65a5->enter($__internal_e1abebd0dc037015ffe1e9029836c308d3d3445bd522015cd38ce1ebd67c65a5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"container\">
@@ -113,11 +113,21 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                                         </tr>
                                         <tr>
                                             <td class=\"active\"><strong>Fecha soluci&oacute;n:</strong></td>
-                                            <td>";
+                                            ";
         // line 49
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 49, $this->getSourceContext()); })()), "fechaSolucion", array()), "d/m/Y H:i"), "html", null, true);
-        echo "</td>
-                                        </tr>
+        if ((null === twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 49, $this->getSourceContext()); })()), "fechaSolucion", array()))) {
+            // line 50
+            echo "                                            <td></td>
+                                            ";
+        } else {
+            // line 52
+            echo "                                            <td>";
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 52, $this->getSourceContext()); })()), "fechaSolucion", array()), "d/m/Y H:i"), "html", null, true);
+            echo "</td>
+                                            ";
+        }
+        // line 54
+        echo "                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -127,8 +137,8 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                                         <tr>
                                             <td class=\"active\"><strong>Soluci&oacute;n:</strong></td>
                                             <td>";
-        // line 59
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 59, $this->getSourceContext()); })()), "solucion", array()), "html", null, true);
+        // line 63
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["arIncidencia"]) || array_key_exists("arIncidencia", $context) ? $context["arIncidencia"] : (function () { throw new Twig_Error_Runtime('Variable "arIncidencia" does not exist.', 63, $this->getSourceContext()); })()), "solucion", array()), "html", null, true);
         echo "</td>
                                         </tr>
                                     </tbody>
@@ -151,22 +161,22 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                                 </thead>
                                 <tbody>
                                     ";
-        // line 80
+        // line 84
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($context["arDetalleComentario"]);
         foreach ($context['_seq'] as $context["_key"] => $context["arDetalleComentario"]) {
-            // line 81
+            // line 85
             echo "                                        <tr>
                                             <td>";
-            // line 82
+            // line 86
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "fechaRegistro", array()), "Y/m/d H:i"), "html", null, true);
             echo "</td>
                                             <td>";
-            // line 83
+            // line 87
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "username", array()), "html", null, true);
             echo "</td>
                                             <td>";
-            // line 84
+            // line 88
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["arDetalleComentario"], "comentario", array()), "html", null, true);
             echo "</td>
                                         </tr>
@@ -175,24 +185,24 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['arDetalleComentario'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 86
+        // line 90
         echo "     
                                 </tbody>
                             </table>
                         </div>
                         ";
-        // line 90
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 90, $this->getSourceContext()); })()), 'form_start', array("attr" => array("class" => "form-horizontal", "novalidate" => "novalidate")));
+        // line 94
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 94, $this->getSourceContext()); })()), 'form_start', array("attr" => array("class" => "form-horizontal", "novalidate" => "novalidate")));
         echo "
                         <div class=\"form-group\">
                             <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                                 <label class=\"control-label\">";
-        // line 93
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 93, $this->getSourceContext()); })()), "comentario", array()), 'label');
+        // line 97
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 97, $this->getSourceContext()); })()), "comentario", array()), 'label');
         echo "</label>
                                 ";
-        // line 94
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 94, $this->getSourceContext()); })()), "comentario", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Registrar su comentario")));
+        // line 98
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 98, $this->getSourceContext()); })()), "comentario", array()), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Registrar su comentario")));
         echo "
                             </div>
                         </div>
@@ -200,11 +210,11 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                     <div class=\"modal-footer\">
                         <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">
                             ";
-        // line 100
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 100, $this->getSourceContext()); })()), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
+        // line 104
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 104, $this->getSourceContext()); })()), "guardar", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
         echo "
                             <a href=\"";
-        // line 101
+        // line 105
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("caso_lista");
         echo "\">
                                 <button type=\"button\" class=\"btn btn-default\">Volver</button>
@@ -212,17 +222,17 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                         </div>
                     </div>
                     ";
-        // line 106
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 106, $this->getSourceContext()); })()), 'form_end');
+        // line 110
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 110, $this->getSourceContext()); })()), 'form_end');
         echo "
                 </div>
             </div>
         ";
         
-        $__internal_a52f71cb6d11f40c0709f46a99a5677017f460f8b487c225ed26d55a3aad94fa->leave($__internal_a52f71cb6d11f40c0709f46a99a5677017f460f8b487c225ed26d55a3aad94fa_prof);
+        $__internal_e1abebd0dc037015ffe1e9029836c308d3d3445bd522015cd38ce1ebd67c65a5->leave($__internal_e1abebd0dc037015ffe1e9029836c308d3d3445bd522015cd38ce1ebd67c65a5_prof);
 
         
-        $__internal_c25e7d70f193d7218a1eea9085121534df10ec58ec20bab05ec08670b21f5188->leave($__internal_c25e7d70f193d7218a1eea9085121534df10ec58ec20bab05ec08670b21f5188_prof);
+        $__internal_756f7548f6920cb0bb2f1e19fb790d822e168ed29596006a0c40ae8e11d4cd07->leave($__internal_756f7548f6920cb0bb2f1e19fb790d822e168ed29596006a0c40ae8e11d4cd07_prof);
 
     }
 
@@ -238,7 +248,7 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
 
     public function getDebugInfo()
     {
-        return array (  216 => 106,  208 => 101,  204 => 100,  195 => 94,  191 => 93,  185 => 90,  179 => 86,  170 => 84,  166 => 83,  162 => 82,  159 => 81,  155 => 80,  131 => 59,  118 => 49,  111 => 45,  104 => 41,  97 => 37,  84 => 27,  77 => 23,  70 => 19,  63 => 15,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  226 => 110,  218 => 105,  214 => 104,  205 => 98,  201 => 97,  195 => 94,  189 => 90,  180 => 88,  176 => 87,  172 => 86,  169 => 85,  165 => 84,  141 => 63,  130 => 54,  124 => 52,  120 => 50,  118 => 49,  111 => 45,  104 => 41,  97 => 37,  84 => 27,  77 => 23,  70 => 19,  63 => 15,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -291,7 +301,11 @@ class __TwigTemplate_dfdc7e44c8f33bd20e9dd7af7530da94c8f7cf7e1a4e0cc4554309e50e2
                                         </tr>
                                         <tr>
                                             <td class=\"active\"><strong>Fecha soluci&oacute;n:</strong></td>
+                                            {% if (arIncidencia.fechaSolucion is null) %}
+                                            <td></td>
+                                            {% else %}
                                             <td>{{arIncidencia.fechaSolucion | date('d/m/Y H:i')}}</td>
+                                            {% endif %}
                                         </tr>
                                     </tbody>
                                 </table>

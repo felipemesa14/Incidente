@@ -46,7 +46,11 @@
                                         </tr>
                                         <tr>
                                             <td class="active"><strong>Fecha soluci&oacute;n:</strong></td>
+                                            {% if (arIncidencia.fechaSolucion is null) %}
+                                            <td></td>
+                                            {% else %}
                                             <td>{{arIncidencia.fechaSolucion | date('d/m/Y H:i')}}</td>
+                                            {% endif %}
                                         </tr>
                                     </tbody>
                                 </table>

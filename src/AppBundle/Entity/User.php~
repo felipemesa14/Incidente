@@ -86,11 +86,6 @@ class User implements UserInterface {
     private $telefono;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
-     */
-    private $roles;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Rol", inversedBy="usuariosRolRel")
      * @ORM\JoinColumn(name="codigo_rol_fk", referencedColumnName="codigo_rol_pk")
      */
@@ -338,7 +333,7 @@ class User implements UserInterface {
      * @return string
      */
     public function getRoles() {
-        return array($this->roles);
+        return array($this->getRolRel()->getNombre());
     }
 
     /**

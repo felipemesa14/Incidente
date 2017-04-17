@@ -98,6 +98,7 @@ class CasoController extends Controller {
         //Validar el formulario para realizar el envio y almcenamiento de los datos
         if ($form->isSubmitted() && $form->isValid()) {
             $arIncidencia = $form->getData();
+            $arIncidencia->setFechaSolucion(new \DateTime("now"));
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {
@@ -142,8 +143,8 @@ class CasoController extends Controller {
         $message = \Swift_Message::newInstance()
                 ->setSubject('Soporte Soga')
                 ->setFrom('felipemesa14@gmail.com')
-                ->setTo('felipemesa14@gmail.com')
-                ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('descripcion' => $arIncidencia->getDescripcion())), 'text/html');
+                ->setTo('felipemesa14@hotmail.com')
+                ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia)), 'text/html');
         $this->get('mailer')->send($message);
     }
 

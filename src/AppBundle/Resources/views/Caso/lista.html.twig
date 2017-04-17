@@ -41,19 +41,18 @@
                                             </a>
                                         </td>
                                         <td style="text-align: center">
-                                            {% if app.user.codigoRolFk == 1 and caso.estadoAtendido == 0 %}
+                                            {% if app.user.rolRel.nombre == "ROLE_USER" and caso.estadoAtendido == 0 %}
                                                 <a href="{{ path('caso_nuevo',{'codigoIncidencia':caso.codigoIncidenciaPk}) }}">
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
                                                 </a>
-                                            {% endif  %}
-                                            {% if app.user.codigoRolFk == 2 %}
+                                            {% else  %}
                                                 <a href="{{ path('caso_editar',{'codigoIncidencia':caso.codigoIncidenciaPk}) }}">
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
                                                 </a>
                                             {% endif  %}
                                         </td>
                                         <td style="text-align: center">
-                                            {% if app.user.codigoRolFk == 2 or caso.estadoSolucionado == 0 %}
+                                            {% if app.user.rolRel.nombre == "ROLE_ADMIN" or caso.estadoSolucionado == 0 %}
                                                 <input type="checkbox" name="ChkSeleccionar[]" value="{{ caso.codigoIncidenciaPk }}" />
                                             {% endif  %}
                                         </td>
