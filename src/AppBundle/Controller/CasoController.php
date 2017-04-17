@@ -46,7 +46,7 @@ class CasoController extends Controller {
                 }
             }
         }
-        if ($arUsuario->getRolRel()->getNombre() == "ROL_ADMIN") {
+        if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
             $casos = $em->getRepository('AppBundle:Incidencia')->findAll();
         } else {
             $casos = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername()));
