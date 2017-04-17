@@ -30,7 +30,7 @@ class CasoController extends Controller {
                 if (count($arrSeleccionados) > 0) {
                     foreach ($arrSeleccionados AS $codigoIncidencia) {
                         $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidencia);
-                        if ($arIncidencia->getEstadoSolucionado() == 0) {
+                        if ($arIncidencia->getEstadoAtendido() == 0) {
                             $arComentario = $em->getRepository("AppBundle:Comentario")->findBycodigoIncidenciaFk($arIncidencia);
                             if (count($arComentario > 0)) {
                                 foreach ($arComentario as $arComentario) {
@@ -39,7 +39,7 @@ class CasoController extends Controller {
                             }
                             $em->remove($arIncidencia);
                         } else {
-                            $mensaje = 'No se piede';
+                            $mensaje = 'No se puede eliminar el caso despues de atendido';
                         }
                     }
                     $em->flush();

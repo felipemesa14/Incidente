@@ -8,7 +8,6 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Listado de Incidencias</div>
                     <div class="panel-body">
-                        <div class="text-danger">{{ mensaje }}</div>
                         <table id="lista" class="table table-striped table-bordered table-condensed table-hover">
                             <thead>
                                 <tr class="primary">
@@ -42,7 +41,7 @@
                                             </a>
                                         </td>
                                         <td style="text-align: center">
-                                            {% if app.user.codigoRolFk == 1 and caso.estadoSolucionado == 0 %}
+                                            {% if app.user.codigoRolFk == 1 and caso.estadoAtendido == 0 %}
                                                 <a href="{{ path('caso_nuevo',{'codigoIncidencia':caso.codigoIncidenciaPk}) }}">
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
                                                 </a>
@@ -62,6 +61,7 @@
                                 {% endfor%}
                             </tbody>
                         </table>
+                        <div class="text-danger">{{ mensaje }}</div>
                         <div class="modal-footer">                            
                             <div class="btn-group">
                                 <a class="btn btn-default btn-sm" href="{{ path('caso_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a>
