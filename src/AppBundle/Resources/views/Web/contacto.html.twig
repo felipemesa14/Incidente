@@ -1,0 +1,62 @@
+{% extends "baseweb.html.twig" %}
+{% block body %}
+    <body id="page5">
+    <div class="main">
+        <!-- content -->
+        <article id="content">
+            <div class="wrapper">
+                <section class="col1">
+                    <h2 class="under">Contactenos</h2>
+
+                    <form id="ContactForm" method="post" action="enviarcorreo.php">
+                        <div>
+                            <div  class="wrapper">
+                                <span>Su nombre:</span>
+                                <input type="text" class="input" id="nombre" name="nombre">
+                            </div>
+                            <div  class="wrapper">
+                                <span>Ciudad:</span>
+                                <input type="text" class="input" id="ciudad" name="ciudad">
+                            </div>
+                            <div  class="wrapper">
+                                <span>E-mail:</span>
+                                <input type="text" class="input" id="email" name="email">
+                            </div>
+                            <div  class="wrapper">
+                                <span>Celular:</span>
+                                <input type="text" class="input" id="celular" name="celular">
+                            </div>
+                            <div  class="wrapper">
+                                <span>Telefono:</span>
+                                <input type="text" class="input" id="telefono" name="telefono">
+                            </div>                                    
+                            <div  class="textarea_box">
+                                <span>Mensaje:</span>
+                                <textarea cols="1" rows="1" id="comentarios" name="comentarios"></textarea>
+                            </div>
+                            <input type="submit" value="Enviar">
+                            <a href="#" onClick="document.getElementById('ContactForm').submit()">Enviar</a>
+                            <a href="#" onClick="document.getElementById('ContactForm').reset()">Limpiar</a>
+                        </div>
+                    </form>
+                </section>
+                <section class="col2 pad_left1">
+                    <h2 class="under">CONTACTENOS</h2>
+                    <div id="address"><span>Country:<br>
+                            City:<br>
+                            Telephone:<br>
+                            Email:</span>
+                        Colombia<br>
+                        Medellin<br>
+                        +574 4448120<br>
+                        <a href="mailto:" class="color2">sogainformacion@gmail.com</a></div>
+                    <h2 class="under">Recuerde:</h2>
+                    <p>El equipo de desarrollo de soga app esta dispuesto a un acercamiento comercial para conocer puntualmente sus necesidades y poder orientarlo hacia la mejor solucion.</p>
+                </section>
+            </div>
+
+        </article>
+    </div>
+    </body>
+{% endblock %}
+
