@@ -79,7 +79,7 @@ class CasoController extends Controller {
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {
-                $this->enviarCorreo($arIncidencia);
+                //$this->enviarCorreo($arIncidencia);
             }
             return $this->redirectToRoute('caso_lista');
         }

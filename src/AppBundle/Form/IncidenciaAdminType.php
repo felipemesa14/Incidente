@@ -49,7 +49,7 @@ class IncidenciaAdminType extends AbstractType {
                         'Sebastian' => 'Sebastian',
                         'Mario Estrada' => 'Mario',
                     )))  
-                ->add('solucion', TextareaType::class)
+                ->add('solucion', TextareaType::class, array('required'=> false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
                 ->add('guardar', SubmitType::class, array(
