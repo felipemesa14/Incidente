@@ -8,6 +8,6 @@ parameters:
     mailer_transport: gmail
     mailer_host: smtp.gmail.com
     mailer_encryption: ssl
-    mailer_user: felipemesa14@gmail.com
-    mailer_password: P4p3l0n$1217
+    mailer_user: 
+    mailer_password: 
     secret: c47cda79f44f7039d4021d5c7977bf5af19e01a4
