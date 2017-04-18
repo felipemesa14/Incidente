@@ -34,7 +34,7 @@
                                             <td>{{ caso.categoriaRel.nombre}}</td>
                                             <td>{{ caso.descripcion}}</td>
                                             <td>{{ caso.fechaRegistro|date('d/m/Y H:i') }}</td>
-                                            <td>{%if caso.estadoAtendido == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                            <td>{%if caso.estadoAtendido == 0 %}  No {%else%}  Si ({{ caso.usuarioAsignado }}) {% endif %}</td>
                                             <td>{%if caso.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
                                             <td style="text-align: center">
                                                 <a href="{{ path('caso_detalle',{'codigoIncidencia':caso.codigoIncidenciaPk}) }}">
@@ -53,7 +53,7 @@
                                                 {% endif  %}
                                             </td>
                                             <td style="text-align: center">
-                                                {% if app.user.rolRel.nombre == "ROLE_ADMIN" or caso.estadoSolucionado == 0 %}
+                                                {% if app.user.rolRel.nombre == "ROLE_ADMIN" or caso.estadoAtendido == 0 %}
                                                     <input type="checkbox" name="ChkSeleccionar[]" value="{{ caso.codigoIncidenciaPk }}" />
                                                 {% endif  %}
                                             </td>
