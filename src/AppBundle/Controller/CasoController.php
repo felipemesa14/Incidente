@@ -114,6 +114,7 @@ class CasoController extends Controller {
      */
     public function detalleAction(Request $request, $codigoIncidencia) {
         $em = $this->getDoctrine()->getManager();
+        $arUsuario = $this->getUser();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
         $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
         //Crear formulario de observaciones
@@ -121,11 +122,10 @@ class CasoController extends Controller {
         $form = $this->createForm(ComentarioType::class, $arComentario);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $usuario = $em->getRepository('AppBundle:User')->find($this->getUser());
             $arComentario = $form->getData();
             $arComentario->setIncidenciaRel($arIncidencia);
             $arComentario->setFechaRegistro(new \DateTime('now'));
-            $arComentario->setUsername($usuario->getUsername());
+            $arComentario->setUsername($arUsuario->getUsername());
             $em->persist($arComentario);
             $em->flush();
             return $this->redirectToRoute('caso_detalle', array('codigoIncidencia' => $codigoIncidencia));
@@ -140,10 +140,11 @@ class CasoController extends Controller {
 
     private function enviarCorreo($arIncidencia) {
         $arUsuario = $this->getUser();
+        $correoUsuario = $arUsuario->getEmail();
         $message = \Swift_Message::newInstance()
                 ->setSubject('Soporte Soga')
-                ->setFrom('felipemesa14@gmail.com')
-                ->setTo('felipemesa14@hotmail.com')
+                ->setFrom('sogainformacion@gmail.com')
+                ->setTo(array($correoUsuario,'sogasoporte@gmail.com','sogasoporte2@gmail.com'))
                 ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia)), 'text/html');
         $this->get('mailer')->send($message);
     }
