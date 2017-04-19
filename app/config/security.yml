@@ -36,7 +36,12 @@ security:
     access_control:
     - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/index, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }   
+    - { path: ^/contacto, roles: ROLE_USER }
+    - { path: ^/lista, roles: ROLE_USER }
+    - { path: ^/caso/nuevo/, roles: ROLE_USER }
+    - { path: ^/contacto, roles: ROLE_USER }
+    - { path: ^/contacto, roles: ROLE_USER }
+    - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             
             # activate different ways to authenticate
 
