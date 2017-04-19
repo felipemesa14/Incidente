@@ -11,9 +11,9 @@ use AppBundle\Form\ComentarioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CasoController extends Controller {
-
+ 
     /**
-     * @Route("/", name="caso_lista")
+     * @Route("/lista", name="caso_lista")
      */
     public function listaAction(Request $request) {
         //Retornar el listado de los casos

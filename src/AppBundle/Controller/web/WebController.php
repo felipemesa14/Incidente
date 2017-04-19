@@ -8,6 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class WebController extends Controller {
 
     /**
+     * @Route("/", name="index")
+     */
+    public function inAction() {
+
+        return $this->redirectToRoute('caso_lista');
+    }
+    
+    /**
      * @Route("/index", name="web_index")
      */
     public function indexAction() {
