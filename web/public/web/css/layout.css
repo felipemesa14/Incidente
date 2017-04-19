@@ -2,6 +2,9 @@
 .col1, .col2, .col3, .cols { float:left;}
 
 .cols{ width:190px;}
+.cols10{ width:400px; float: left}
+.cols11{ width:280px; float: left}
+
 
 .col1{ width:670px;}
 .col3{ width:200px;}
