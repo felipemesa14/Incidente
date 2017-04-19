@@ -12,7 +12,7 @@
 
 
 /*======= index.html =======*/
-#page1 .body2{ background:url(../images/bg_slider.gif) bottom repeat-x}
+#page1 .body2{ background:url(../images/bg_slider.gif) bottom repeat-x; width: 792px; height: 182px}
 #page1 header{height:551px;}
 /*======= index-1.html =======*/
 /*======= index-2.html =======*/
@@ -26,6 +26,6 @@
 #page4 .pad_bot2{ padding-bottom:48px;}
 #page4 #content { padding-bottom:57px;}
 /*======= index-4.html =======*/
-#page5 #content{ padding-top:4px}
+#page5 #content{ padding-top:5px}
 /*======= index-5.html =======*/
 /*======= index-6.html =======*/
