@@ -15,11 +15,12 @@
                             <h1><a href="#" id="logo">App Soga</a></h1>
                             <nav>
                                 <ul id="menu">
-                                    <li id="nav1" class="active"><a href="#">Inicio<span>Bienvenido!</span></a></li>
-                                    <li id="nav2"><a href="#">Cliente<span>Acceso</span></a></li>
+                                    <li id="nav1" class="active"><a href="{{ path('web_index') }}">Inicio<span>Bienvenido!</span></a></li>
+                                    <li id="nav3"><a href="{{ path('web_corporativo') }}">Corporativo</a></li>
+                                    <li id="nav2"><a href="{{ path('web_cliente') }}">Cliente<span>Acceso</span></a></li>
                                     <li id="nav3"><a href="#">Ayuda<span>Documentacion</span></a></li>
                                     <li id="nav4"><a href="#">Producto<span>Servicios</span></a></li>
-                                    <li id="nav5"><a href="{{ path('web_contacto') }}">Contacto<span>Email</span></a></li>
+                                    <li id="nav5"><a href="{{ path('web_contacto') }}">Contacto<span>Reos</span></a></li>                                 
                                 </ul>
                             </nav>
                         </div>
