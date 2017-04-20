@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Caso;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class CasoController extends Controller {
 
     /**
-     * @Route("/lista", name="caso_lista")
+     * @Route("caso/lista", name="caso_lista")
      */
     public function listaAction(Request $request) {
         //Retornar el listado de los casos
