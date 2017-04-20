@@ -11,7 +11,7 @@ use AppBundle\Form\ComentarioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CasoController extends Controller {
- 
+
     /**
      * @Route("/lista", name="caso_lista")
      */
@@ -116,6 +116,7 @@ class CasoController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $arUsuario = $this->getUser();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
+        $arUsuarioIncidencia = $em->getRepository('AppBundle:User')->findBy(array('username' => $arIncidencia->getUsuario()));
         $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
         //Crear formulario de observaciones
         $arComentario = new \AppBundle\Entity\Comentario();
@@ -134,7 +135,8 @@ class CasoController extends Controller {
         return $this->render('AppBundle:Caso:detalle.html.twig', array(
                     'arIncidencia' => $arIncidencia,
                     'form' => $form->createView(),
-                    'arDetalleComentario' => $arDetalleComentario
+                    'arDetalleComentario' => $arDetalleComentario,
+                    'arUsuarioIncidencia' => $arUsuarioIncidencia
         ));
     }
 
@@ -144,7 +146,7 @@ class CasoController extends Controller {
         $message = \Swift_Message::newInstance()
                 ->setSubject('Soporte Soga')
                 ->setFrom('sogainformacion@gmail.com')
-                ->setTo(array($correoUsuario,'sogasoporte@gmail.com','sogasoporte2@gmail.com'))
+                ->setTo(array($correoUsuario, 'sogasoporte@gmail.com', 'sogasoporte2@gmail.com'))
                 ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia)), 'text/html');
         $this->get('mailer')->send($message);
     }

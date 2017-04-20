@@ -36,6 +36,20 @@ class User implements UserInterface {
      * @ORM\Column(name="codigo_cliente_fk", type="integer")
      */
     private $codigoClienteFk;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_area_fk", type="integer")
+     */
+    private $codigoAreaFk;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_cargo_fk", type="integer")
+     */
+    private $codigoCargoFk;
+    
 
     /**
      * @var string
@@ -96,6 +110,18 @@ class User implements UserInterface {
      * @ORM\JoinColumn(name="codigo_cliente_fk", referencedColumnName="codigo_cliente_pk")
      */
     protected $clienteRel;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Area", inversedBy="usuariosAreaRel")
+     * @ORM\JoinColumn(name="codigo_area_fk", referencedColumnName="codigo_area_pk")
+     */
+    protected $AreaRel;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Cargo", inversedBy="usuariosCargoRel")
+     * @ORM\JoinColumn(name="codigo_cargo_fk", referencedColumnName="codigo_cargo_pk")
+     */
+    protected $CargoRel;
 
     /**
      * Get codigoUsuarioPk
@@ -380,4 +406,100 @@ class User implements UserInterface {
         return $this->clienteRel;
     }
 
+
+    /**
+     * Set codigoAreaFk
+     *
+     * @param integer $codigoAreaFk
+     *
+     * @return User
+     */
+    public function setCodigoAreaFk($codigoAreaFk)
+    {
+        $this->codigoAreaFk = $codigoAreaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoAreaFk
+     *
+     * @return integer
+     */
+    public function getCodigoAreaFk()
+    {
+        return $this->codigoAreaFk;
+    }
+
+    /**
+     * Set codigoCargoFk
+     *
+     * @param integer $codigoCargoFk
+     *
+     * @return User
+     */
+    public function setCodigoCargoFk($codigoCargoFk)
+    {
+        $this->codigoCargoFk = $codigoCargoFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoCargoFk
+     *
+     * @return integer
+     */
+    public function getCodigoCargoFk()
+    {
+        return $this->codigoCargoFk;
+    }
+
+    /**
+     * Set areaRel
+     *
+     * @param \AppBundle\Entity\Area $areaRel
+     *
+     * @return User
+     */
+    public function setAreaRel(\AppBundle\Entity\Area $areaRel = null)
+    {
+        $this->AreaRel = $areaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get areaRel
+     *
+     * @return \AppBundle\Entity\Area
+     */
+    public function getAreaRel()
+    {
+        return $this->AreaRel;
+    }
+
+    /**
+     * Set cargoRel
+     *
+     * @param \AppBundle\Entity\Cargo $cargoRel
+     *
+     * @return User
+     */
+    public function setCargoRel(\AppBundle\Entity\Cargo $cargoRel = null)
+    {
+        $this->CargoRel = $cargoRel;
+
+        return $this;
+    }
+
+    /**
+     * Get cargoRel
+     *
+     * @return \AppBundle\Entity\Cargo
+     */
+    public function getCargoRel()
+    {
+        return $this->CargoRel;
+    }
 }
