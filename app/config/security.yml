@@ -40,9 +40,10 @@ security:
     - { path: ^/caso/lista, roles: ROLE_USER }
     - { path: ^/caso/nuevo/, roles: ROLE_USER }
     - { path: ^/caso/editar/, roles: ROLE_USER }
+    - { path: ^/caso/detalle/, roles: ROLE_USER }
+    - { path: ^/caso/editarAdmin/, roles: ROLE_USER }
     - { path: ^/contacto, roles: ROLE_USER }
     - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            
             # activate different ways to authenticate
 
             # http_basic: ~

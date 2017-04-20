@@ -6,82 +6,81 @@
         <link rel="stylesheet" href="{{ asset('public/web/css/layout.css')}}" type="text/css" media="all">
         <link rel="stylesheet" href="{{ asset('public/web/css/style.css')}}" type="text/css" media="all">
     </head>
-        <div class="body1">
-            <div class="body2">
-                <div class="main">
-                    <!-- header -->
-                    <header>
-                        <div class="wrapper">
-                            <h1><a href="#" id="logo">App Soga</a></h1>
-                            <nav>
-                                <ul id="menu">
-                                    <li id="nav1" class="active"><a href="{{ path('web_index') }}">Inicio<span>Bienvenido!</span></a></li>
-                                    <li id="nav3"><a href="{{ path('web_corporativo') }}">Corporativo</a></li>
-                                    <li id="nav2"><a href="{{ path('web_cliente') }}">Cliente<span>Acceso</span></a></li>
-                                    <li id="nav3"><a href="{{ path('web_documentacion') }}">Ayuda<span>Documentacion</span></a></li>
-                                    <li id="nav4"><a href="#">Producto<span>Servicios</span></a></li>
-                                    <li id="nav5"><a href="{{ path('caso_lista') }}">Contacto<span>Reos</span></a></li>                                 
-                                </ul>
-                            </nav>
-                        </div>
-                    </header>
-                </div>
-            </div>
-        </div>
-        <div class="body3">
-            {% block body %}
-
-            {% endblock %}
-        </div>
-        <div class="body4">
-                        <div class="main">
-                <article id="content2">
+    <div class="body1">
+        <div class="body2">
+            <div class="main">
+                <!-- header -->
+                <header>
                     <div class="wrapper">
-                        <section class="col3">
-                            <h4>Porque nosotros?</h4>
-                            <ul class="list1">
-                                <li><a href="#">Herramientas tecnologicas</a></li>
-                                <li><a href="#">Equipo de trabajo</a></li>
-                                <li><a href="#">Conceptos "libre"</a></li>
-                                <li><a href="#">Valores agregados</a></li>
+                        <h1><a href="#" id="logo">App Soga</a></h1>
+                        <nav>
+                            <ul id="menu">
+                                <li id="nav1" class="active"><a href="{{ path('web_index') }}">Inicio<span>Bienvenido!</span></a></li>
+                                <li id="nav3"><a href="{{ path('web_corporativo') }}">Corporativo</a></li>
+                                <li id="nav2"><a href="{{ path('web_cliente') }}">Cliente<span>Acceso</span></a></li>
+                                <li id="nav3"><a href="{{ path('web_documentacion') }}">Ayuda<span>Documentacion</span></a></li>
+                                <li id="nav4"><a href="#">Producto<span>Servicios</span></a></li>
+                                <li id="nav5"><a href="{{ path('caso_lista') }}">Contacto<span>Reos</span></a></li>                                 
                             </ul>
-                        </section>
-                        <section class="col3 pad_left2">
-                            <h4>Direccion</h4>
-                            <ul class="address">
-                                <li><span>Pais:</span>Colombia</li>
-                                <li><span>Ciudad:</span>Medellin</li>
-                                <li><span>Telefono:</span>4 4448120</li>
-                                <li><span>Email:</span><a href="mailto:">sogainformacion@gmail.com</a></li>
-                            </ul>
-                        </section>
-                        <section class="col3 pad_left2">
-                            <h4>Siguenos</h4>
-                            <ul id="icons">
-                                <li><a href="#"><img src="{{ asset('public/web/images//icon1.jpg')}}" alt="">Facebook</a></li>
-                                <li><a href="#"><img src="{{ asset('public/web/images//icon2.jpg')}}" alt="">Twitter</a></li>
-                                <li><a href="#"><img src="{{ asset('public/web/images//icon3.jpg')}}" alt="">LinkedIn</a></li>
-                                <li><a href="#"><img src="{{ asset('public/web/images//icon4.jpg')}}" alt="">Delicious</a></li>
-                            </ul>
-                        </section>
+                        </nav>
                     </div>
-                </article>
-                <!-- content end -->
+                </header>
             </div>
         </div>
-    </body>
-    {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('public/web/js/jquery-1.6.js')}}" ></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/cufon-yui.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/cufon-replace.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/Swis721_Cn_BT_400.font.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/Swis721_Cn_BT_700.font.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/jquery.easing.1.3.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/tms-0.3.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/tms_presets.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/jcarousellite.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/script.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('public/web/js/tabs.js')}}"></script>  
-        <!--<script type="text/javascript"> Cufon.now();</script>-->
-    {% endblock %}
+    </div>
+    <div class="body3">
+        {% block body %}
+
+        {% endblock %}
+    </div>
+    <div class="body4">
+        <div class="main">
+            <article id="content2">
+                <div class="wrapper">
+                    <section class="col3">
+                        <h4>Porque nosotros?</h4>
+                        <ul class="list1">
+                            <li><a href="#">Herramientas tecnologicas</a></li>
+                            <li><a href="#">Equipo de trabajo</a></li>
+                            <li><a href="#">Conceptos "libre"</a></li>
+                            <li><a href="#">Valores agregados</a></li>
+                        </ul>
+                    </section>
+                    <section class="col3 pad_left2">
+                        <h4>Direccion</h4>
+                        <ul class="address">
+                            <li><span>Pais:</span>Colombia</li>
+                            <li><span>Ciudad:</span>Medellin</li>
+                            <li><span>Telefono:</span>4 4448120</li>
+                            <li><span>Email:</span><a href="mailto:">sogainformacion@gmail.com</a></li>
+                        </ul>
+                    </section>
+                    <section class="col3 pad_left2">
+                        <h4>Siguenos</h4>
+                        <ul id="icons">
+                            <li><a href="https://www.facebook.com/App-Soga-SAS-653767021474083" alt="facebook" target="_blank"><img src="{{ asset('public/web/images//icon1.jpg')}}" alt="">Facebook</a></li>
+                            <li><a href="#"><img src="{{ asset('public/web/images//icon2.jpg')}}" alt="twitter" target="_blank">Twitter</a></li>
+                            <li><a href="https://www.instagram.com/appsoga/" alt="instagram" target="_blank"><img src="{{ asset('public/web/images/instagram-icono.jpg')}}" alt="">Instagram</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+            <!-- content end -->
+        </div>
+    </div>
+</body>
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('public/web/js/jquery-1.6.js')}}" ></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/cufon-yui.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/cufon-replace.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/Swis721_Cn_BT_400.font.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/Swis721_Cn_BT_700.font.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/jquery.easing.1.3.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/tms-0.3.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/tms_presets.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/jcarousellite.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/script.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/web/js/tabs.js')}}"></script>  
+    <!--<script type="text/javascript"> Cufon.now();</script>-->
+{% endblock %}
 </html>
