@@ -90,6 +90,12 @@ header{padding-top:34px;height:148px}
 #icons a{color:#696969;text-decoration:none;font-style:normal;display:inline-block}
 #icons img{float:left;margin-right:9px;margin-top:5px}
 #icons a:hover{color:#fff}
+
+#icons2{background:url(../images/line_hor1.png) 23px 0 no-repeat;padding-top:1px}
+#icons2 li{background:url(../images/line_hor1.png) 23px bottom no-repeat;line-height:29px}
+#icons2 a{color:#595858;text-decoration:none;font-style:normal;display:inline-block}
+#icons2 img{float:left;margin-right:9px;margin-top:5px}
+#icons2 a:hover{color:#000000}
 /*--- tabs begin ---*/
 .tabs {}
 .tabs ul.nav {float:left;padding-left:372px;padding-bottom:24px}
