@@ -14,7 +14,7 @@ class WebController extends Controller {
 
         return $this->redirectToRoute('caso_lista');
     }
-    
+
     /**
      * @Route("/index", name="web_index")
      */
@@ -45,6 +45,14 @@ class WebController extends Controller {
     public function clienteAction() {
 
         return $this->render('AppBundle:Web:cliente.html.twig');
+    }
+
+    /**
+     * @Route("/documentacion", name="web_documentacion")
+     */
+    public function documentacionAction() {
+
+        return $this->render('AppBundle:Web:documentacion.html.twig');
     }
 
 }
