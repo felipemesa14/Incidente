@@ -1,0 +1,53 @@
+{% extends "baseweb.html.twig" %}
+{% block body %}
+    <link href="{{ asset('public/Boostrap/css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <body id="page5">
+        <div class="container">
+            <div class="row" style="margin-top:50px;">
+                <div class="col-md-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Listado de Novedades</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-active table-bordered table-condensed table-hover">
+                                    <thead>
+                                        <tr class="primary">
+                                            <th class="active">Tipo</th>
+                                            <th class="active">Fecha</th>
+                                            <th class="active">Modulo</th>
+                                            <th class="active">Comentarios</th>
+                                            <th class="active"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for arNovedad in arNovedad %}
+                                            <tr>
+                                                <td>{{ arNovedad.tipoNovedadRel.nombre }}</td>
+                                                <td>{{ arNovedad.moduloRel.nombre }}</td>
+                                                <td>{{ arNovedad.fecha | date('Y/m/d') }}</td>
+                                                <td>{{ arNovedad.comentario }}</td>
+                                                <td>
+                                                    <a href="{{ path('novedad_nuevo',{'codigoNovedad':arNovedad.codigoNovedadPk}) }}">
+                                                        <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
+                                                    </a>
+                                                </td>
+                                            </tr> 
+                                        {% endfor %} 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">                            
+                                <div class="btn-group">
+                                    <a class="btn btn-default btn-sm" href="{{ path('novedad_nuevo',{'codigoNovedad':0}) }}">Nuevo</a>                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
+

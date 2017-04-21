@@ -21,9 +21,9 @@ class CasoController extends Controller {
         $em = $this->getDoctrine()->getManager();
         //Validacion tipo de usuario para mostrar el listado de las incidencias reportados
         if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
-            $casos = $em->getRepository('AppBundle:Incidencia')->findAll();
+            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findAll();
         } else {
-            $casos = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername()));
+            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername()));
         }
         $form = $this->createFormBuilder()
                 ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
@@ -51,7 +51,7 @@ class CasoController extends Controller {
           }
           }
           } */
-        return $this->render('AppBundle:Caso:lista.html.twig', array('casos' => $casos,
+        return $this->render('AppBundle:Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
     }

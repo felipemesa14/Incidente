@@ -760,4 +760,28 @@ class Incidencia {
     {
         return $this->comentariosIncidenciaRel;
     }
+
+    /**
+     * Set extension
+     *
+     * @param string $extension
+     *
+     * @return Incidencia
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Get extension
+     *
+     * @return string
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
 }

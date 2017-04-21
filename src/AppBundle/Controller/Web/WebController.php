@@ -19,8 +19,9 @@ class WebController extends Controller {
      * @Route("/index", name="web_index")
      */
     public function indexAction() {
-
-        return $this->render('AppBundle:Web:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $arNovedad = $em->getRepository('AppBundle:Novedad')->findAll();
+        return $this->render('AppBundle:Web:index.html.twig', array('arNovedad' => $arNovedad));
     }
 
     /**
@@ -62,5 +63,4 @@ class WebController extends Controller {
 
         return $this->render('AppBundle:Web:producto.html.twig');
     }
-
 }
