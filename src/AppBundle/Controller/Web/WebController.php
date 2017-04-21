@@ -55,4 +55,12 @@ class WebController extends Controller {
         return $this->render('AppBundle:Web:documentacion.html.twig');
     }
 
+    /**
+     * @Route("/producto", name="web_producto")
+     */
+    public function productoAction() {
+
+        return $this->render('AppBundle:Web:producto.html.twig');
+    }
+
 }

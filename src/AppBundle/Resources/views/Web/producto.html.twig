@@ -1,0 +1,66 @@
+{% extends "baseweb.html.twig" %}
+{% block body %}
+    <link href="{{ asset('public/Boostrap/css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <body id="page5">
+        <div class="main">
+            <!-- content -->
+            <article id="content">
+                <h2 class="under">Productos</h2>
+                <div class="col-lg-6">
+                    <div class="contenedor">
+                        <section>
+                            <h2>Soga App</h2><br>
+                            <div>
+                                <img src="{{ asset('public/web/images/producto/soga.png')}} "width="450" height="240">
+                                <img class="top" src="{{ asset('public/web/images/producto/logo.jpg')}}"width="450" height="240">                            
+                            </div>                
+                        </section>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contenedor">
+                        <section>
+                            <h2>Descripción</h2><br>
+                            <div>
+                                <p class="text-success">Es un Sistema de Recurso Humano de turnos desarrollado para plataforma Web
+                                    con los últimos estándares de seguridad, calidad y tecnología y que soporte servidores
+                                    Linux y windows y asi mismo nos permite conectarnos en tiempo real desde cualquier
+                                    parte del mundo.</p>
+                            </div>                
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6"><br><br>
+                        <div class="contenedor">
+                            <section>
+                                <h2>Ardid</h2>
+                                <div>
+                                    <img src="{{ asset('public/web/images/producto/ardid.png')}} "width="450" height="240">
+                                    <img class="top" src="{{ asset('public/web/images/producto/logo.jpg')}} "width="450" height="240">                           
+                                </div>                
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-lg-6"><br><br>
+                        <div class="contenedor">
+                            <section>
+                                <h2>Descripción</h2><br>
+                                <div>
+                                    <p class="text-success">Es un Sistema de consulta desarrollado para plataforma Web con
+                                        los últimos estándares de seguridad, calidad y tecnología y que permite entregarle al
+                                        empleado la siguiente información de manera oportuna y eficaz.
+                                        (comprobante de pago, carta laboral, certificado de ingreso).</p>
+                                </div>                
+                            </section>
+                        </div>
+                    </div>
+                </div><br><br>
+            </article>
+        </div>
+    </body>
+{% endblock %}
+
