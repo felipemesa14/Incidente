@@ -14,6 +14,14 @@
                 <source>The presented password is invalid.</source>
                 <target>La contraseña es invalida</target>
             </trans-unit>
+            <trans-unit id="15">
+                <source>Authentication request could not be processed due to a system problem.</source>
+                <target>La solicitud de autenticación no se pudo procesar debido a un problema del sistema.</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Invalid credentials.</source>
+                <target>el usuario y la contraseña es invalida</target>
+            </trans-unit>
             <trans-unit id="4">
                 <source>Titulo del caso</source>
                 <target>Asunto</target>
