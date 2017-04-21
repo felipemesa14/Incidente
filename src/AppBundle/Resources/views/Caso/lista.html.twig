@@ -69,19 +69,19 @@
                             <div class="text-danger">{{ mensaje }}</div>
                             <div class="modal-footer">                            
                                 <div class="btn-group">
-                                    <a class="btn btn-primary btn-sm" href="{{ path('caso_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a>
+                                    <a class="btn btn-success btn-sm" href="{{ path('caso_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a>
                                     <!--<div class="btn-group">
                                     {{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}
                                 </div>-->
                                 </div>
-                                <div class="col-lg-1">
-                                    {% if app.user.rolRel.nombre == "ROLE_ADMIN" %}
-                                        <a class="btn btn-default btn-sm" href="{{ path('novedad_lista') }}">Agregar novedad</a>
-                                    {% endif %}
-                                </div>
                             </div>
                         </div>
                         {{ form_end(form) }}
+                    </div>
+                    <div class="col-lg-1">
+                        {% if app.user.rolRel.nombre == "ROLE_ADMIN" %}
+                            <a class="btn btn-default btn-sm" href="{{ path('novedad_lista') }}">Agregar novedad</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
