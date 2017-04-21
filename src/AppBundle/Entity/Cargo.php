@@ -29,16 +29,16 @@ class Cargo {
     private $nombre;
 
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="cargoRel")
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="cargoRel")
      */
-    protected $usuariosCargoRel;
+    protected $incidenciasCargoRel;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->usuariosCargoRel = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->incidenciasCargoRel = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -76,36 +76,36 @@ class Cargo {
     }
 
     /**
-     * Add usuariosCargoRel
+     * Add incidenciasCargoRel
      *
-     * @param \AppBundle\Entity\User $usuariosCargoRel
+     * @param \AppBundle\Entity\Incidencia $incidenciasCargoRel
      *
      * @return Cargo
      */
-    public function addUsuariosCargoRel(\AppBundle\Entity\User $usuariosCargoRel)
+    public function addIncidenciasCargoRel(\AppBundle\Entity\Incidencia $incidenciasCargoRel)
     {
-        $this->usuariosCargoRel[] = $usuariosCargoRel;
+        $this->incidenciasCargoRel[] = $incidenciasCargoRel;
 
         return $this;
     }
 
     /**
-     * Remove usuariosCargoRel
+     * Remove incidenciasCargoRel
      *
-     * @param \AppBundle\Entity\User $usuariosCargoRel
+     * @param \AppBundle\Entity\Incidencia $incidenciasCargoRel
      */
-    public function removeUsuariosCargoRel(\AppBundle\Entity\User $usuariosCargoRel)
+    public function removeIncidenciasCargoRel(\AppBundle\Entity\Incidencia $incidenciasCargoRel)
     {
-        $this->usuariosCargoRel->removeElement($usuariosCargoRel);
+        $this->incidenciasCargoRel->removeElement($incidenciasCargoRel);
     }
 
     /**
-     * Get usuariosCargoRel
+     * Get incidenciasCargoRel
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUsuariosCargoRel()
+    public function getIncidenciasCargoRel()
     {
-        return $this->usuariosCargoRel;
+        return $this->incidenciasCargoRel;
     }
 }

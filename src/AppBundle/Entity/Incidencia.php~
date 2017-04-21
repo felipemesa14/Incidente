@@ -22,6 +22,40 @@ class Incidencia {
     private $codigoIncidenciaPk;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_cliente_fk", type="integer")
+     */
+    private $codigoClienteFk;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_prioridad_fk", type="integer")
+     */
+    private $codigoPrioridaFk;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_categoria_fk", type="integer")
+     */
+    private $codigoCategoriaFk;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_area_fk", type="integer")
+     */
+    private $codigoAreaFk;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_cargo_fk", type="integer")
+     */
+    private $codigoCargoFk;    
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=100)
@@ -43,39 +77,39 @@ class Incidencia {
     private $fechaRegistro;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_solucion", type="datetime", nullable=true)
-     */
-    private $fechaSolucion;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="solucion", type="string", length=255, nullable=true)
-     */
-    private $solucion;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="codigo_cliente_fk", type="integer")
-     */
-    private $codigoClienteFk;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="codigo_prioridad_fk", type="integer")
-     */
-    private $codigoPrioridaFk;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="usuario", type="string", nullable=true)
      */
     private $usuario;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_completo", type="string", length=50)
+     */
+    private $nombreCompleto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string",length=50)
+     */
+    private $telefono;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="string",length=50)
+     */
+    private $extension;
 
     /**
      * @var int
@@ -90,14 +124,21 @@ class Incidencia {
      * @ORM\Column(name="estado_atendido", type="boolean")
      */
     private $estadoAtendido = false;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_solucion", type="datetime", nullable=true)
+     */
+    private $fechaSolucion;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="codigo_categoria_fk", type="integer")
+     * @ORM\Column(name="solucion", type="string", length=255, nullable=true)
      */
-    private $codigoCategoriaFk;
-
+    private $solucion;
+    
     /**
      * @var int
      *
@@ -122,6 +163,18 @@ class Incidencia {
      * @ORM\JoinColumn(name="codigo_categoria_fk", referencedColumnName="codigo_categoria_pk")
      */
     protected $categoriaRel;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Area", inversedBy="incidenciasAreaRel")
+     * @ORM\JoinColumn(name="codigo_area_fk", referencedColumnName="codigo_area_pk")
+     */
+    protected $AreaRel;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Cargo", inversedBy="incidenciasCargoRel")
+     * @ORM\JoinColumn(name="codigo_cargo_fk", referencedColumnName="codigo_cargo_pk")
+     */
+    protected $CargoRel;
 
     /**
      * @ORM\OneToMany(targetEntity="Comentario", mappedBy="incidenciaRel")
@@ -144,6 +197,126 @@ class Incidencia {
     public function getCodigoIncidenciaPk()
     {
         return $this->codigoIncidenciaPk;
+    }
+
+    /**
+     * Set codigoClienteFk
+     *
+     * @param integer $codigoClienteFk
+     *
+     * @return Incidencia
+     */
+    public function setCodigoClienteFk($codigoClienteFk)
+    {
+        $this->codigoClienteFk = $codigoClienteFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoClienteFk
+     *
+     * @return integer
+     */
+    public function getCodigoClienteFk()
+    {
+        return $this->codigoClienteFk;
+    }
+
+    /**
+     * Set codigoPrioridaFk
+     *
+     * @param integer $codigoPrioridaFk
+     *
+     * @return Incidencia
+     */
+    public function setCodigoPrioridaFk($codigoPrioridaFk)
+    {
+        $this->codigoPrioridaFk = $codigoPrioridaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoPrioridaFk
+     *
+     * @return integer
+     */
+    public function getCodigoPrioridaFk()
+    {
+        return $this->codigoPrioridaFk;
+    }
+
+    /**
+     * Set codigoCategoriaFk
+     *
+     * @param integer $codigoCategoriaFk
+     *
+     * @return Incidencia
+     */
+    public function setCodigoCategoriaFk($codigoCategoriaFk)
+    {
+        $this->codigoCategoriaFk = $codigoCategoriaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoCategoriaFk
+     *
+     * @return integer
+     */
+    public function getCodigoCategoriaFk()
+    {
+        return $this->codigoCategoriaFk;
+    }
+
+    /**
+     * Set codigoAreaFk
+     *
+     * @param integer $codigoAreaFk
+     *
+     * @return Incidencia
+     */
+    public function setCodigoAreaFk($codigoAreaFk)
+    {
+        $this->codigoAreaFk = $codigoAreaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoAreaFk
+     *
+     * @return integer
+     */
+    public function getCodigoAreaFk()
+    {
+        return $this->codigoAreaFk;
+    }
+
+    /**
+     * Set codigoCargoFk
+     *
+     * @param integer $codigoCargoFk
+     *
+     * @return Incidencia
+     */
+    public function setCodigoCargoFk($codigoCargoFk)
+    {
+        $this->codigoCargoFk = $codigoCargoFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoCargoFk
+     *
+     * @return integer
+     */
+    public function getCodigoCargoFk()
+    {
+        return $this->codigoCargoFk;
     }
 
     /**
@@ -267,54 +440,6 @@ class Incidencia {
     }
 
     /**
-     * Set codigoClienteFk
-     *
-     * @param integer $codigoClienteFk
-     *
-     * @return Incidencia
-     */
-    public function setCodigoClienteFk($codigoClienteFk)
-    {
-        $this->codigoClienteFk = $codigoClienteFk;
-
-        return $this;
-    }
-
-    /**
-     * Get codigoClienteFk
-     *
-     * @return integer
-     */
-    public function getCodigoClienteFk()
-    {
-        return $this->codigoClienteFk;
-    }
-
-    /**
-     * Set codigoPrioridaFk
-     *
-     * @param integer $codigoPrioridaFk
-     *
-     * @return Incidencia
-     */
-    public function setCodigoPrioridaFk($codigoPrioridaFk)
-    {
-        $this->codigoPrioridaFk = $codigoPrioridaFk;
-
-        return $this;
-    }
-
-    /**
-     * Get codigoPrioridaFk
-     *
-     * @return integer
-     */
-    public function getCodigoPrioridaFk()
-    {
-        return $this->codigoPrioridaFk;
-    }
-
-    /**
      * Set usuario
      *
      * @param string $usuario
@@ -336,6 +461,78 @@ class Incidencia {
     public function getUsuario()
     {
         return $this->usuario;
+    }
+
+    /**
+     * Set nombreCompleto
+     *
+     * @param string $nombreCompleto
+     *
+     * @return Incidencia
+     */
+    public function setNombreCompleto($nombreCompleto)
+    {
+        $this->nombreCompleto = $nombreCompleto;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreCompleto
+     *
+     * @return string
+     */
+    public function getNombreCompleto()
+    {
+        return $this->nombreCompleto;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Incidencia
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     *
+     * @return Incidencia
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
     }
 
     /**
@@ -384,30 +581,6 @@ class Incidencia {
     public function getEstadoAtendido()
     {
         return $this->estadoAtendido;
-    }
-
-    /**
-     * Set codigoCategoriaFk
-     *
-     * @param integer $codigoCategoriaFk
-     *
-     * @return Incidencia
-     */
-    public function setCodigoCategoriaFk($codigoCategoriaFk)
-    {
-        $this->codigoCategoriaFk = $codigoCategoriaFk;
-
-        return $this;
-    }
-
-    /**
-     * Get codigoCategoriaFk
-     *
-     * @return integer
-     */
-    public function getCodigoCategoriaFk()
-    {
-        return $this->codigoCategoriaFk;
     }
 
     /**
@@ -504,6 +677,54 @@ class Incidencia {
     public function getCategoriaRel()
     {
         return $this->categoriaRel;
+    }
+
+    /**
+     * Set areaRel
+     *
+     * @param \AppBundle\Entity\Area $areaRel
+     *
+     * @return Incidencia
+     */
+    public function setAreaRel(\AppBundle\Entity\Area $areaRel = null)
+    {
+        $this->AreaRel = $areaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get areaRel
+     *
+     * @return \AppBundle\Entity\Area
+     */
+    public function getAreaRel()
+    {
+        return $this->AreaRel;
+    }
+
+    /**
+     * Set cargoRel
+     *
+     * @param \AppBundle\Entity\Cargo $cargoRel
+     *
+     * @return Incidencia
+     */
+    public function setCargoRel(\AppBundle\Entity\Cargo $cargoRel = null)
+    {
+        $this->CargoRel = $cargoRel;
+
+        return $this;
+    }
+
+    /**
+     * Get cargoRel
+     *
+     * @return \AppBundle\Entity\Cargo
+     */
+    public function getCargoRel()
+    {
+        return $this->CargoRel;
     }
 
     /**

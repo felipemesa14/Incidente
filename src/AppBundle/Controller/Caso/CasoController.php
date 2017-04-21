@@ -16,41 +16,41 @@ class CasoController extends Controller {
      * @Route("caso/lista", name="caso_lista")
      */
     public function listaAction(Request $request) {
-        //Retornar el listado de los casos
+        $mensaje = '';
         $arUsuario = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $mensaje = '';
-        $form = $this->createFormBuilder()
-                ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
-                ->getForm();
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            if ($form->get('BtnEliminar')->isClicked()) {
-                $arrSeleccionados = $request->request->get('ChkSeleccionar');
-                if (count($arrSeleccionados) > 0) {
-                    foreach ($arrSeleccionados AS $codigoIncidencia) {
-                        $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidencia);
-                        if ($arIncidencia->getEstadoAtendido() == 0) {
-                            $arComentario = $em->getRepository("AppBundle:Comentario")->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
-                            if (count($arComentario > 0)) {
-                                foreach ($arComentario as $arComentario) {
-                                    $em->remove($arComentario);
-                                }
-                            }
-                            $em->remove($arIncidencia);
-                        } else {
-                            $mensaje = 'No se puede eliminar el caso despues de atendido';
-                        }
-                    }
-                    $em->flush();
-                }
-            }
-        }
+        //Validacion tipo de usuario para mostrar el listado de las incidencias reportados
         if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
             $casos = $em->getRepository('AppBundle:Incidencia')->findAll();
         } else {
             $casos = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername()));
         }
+        $form = $this->createFormBuilder()
+                ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
+                ->getForm();
+        $form->handleRequest($request);
+        /* if ($form->isSubmitted() && $form->isValid()) {
+          if ($form->get('BtnEliminar')->isClicked()) {
+          $arrSeleccionados = $request->request->get('ChkSeleccionar');
+          if (count($arrSeleccionados) > 0) {
+          foreach ($arrSeleccionados AS $codigoIncidencia) {
+          $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidencia);
+          if ($arIncidencia->getEstadoAtendido() == 0) {
+          $arComentario = $em->getRepository("AppBundle:Comentario")->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
+          if (count($arComentario > 0)) {
+          foreach ($arComentario as $arComentario) {
+          $em->remove($arComentario);
+          }
+          }
+          $em->remove($arIncidencia);
+          } else {
+          $mensaje = 'No se puede eliminar el caso despues de atendido';
+          }
+          }
+          $em->flush();
+          }
+          }
+          } */
         return $this->render('AppBundle:Caso:lista.html.twig', array('casos' => $casos,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
@@ -73,13 +73,14 @@ class CasoController extends Controller {
         }
         $form = $this->createForm(IncidenciaType::class, $arIncidencia);
         $form->handleRequest($request);
+        $Form = $request->request->all();
         //Validar el formulario para realizar el envio y almcenamiento de los datos
         if ($form->isSubmitted() && $form->isValid()) {
             $arIncidencia = $form->getData();
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {
-                $this->enviarCorreo($arIncidencia);
+                //$this->enviarCorreo($arIncidencia);
             }
             return $this->redirectToRoute('caso_lista');
         }
@@ -101,9 +102,6 @@ class CasoController extends Controller {
             $arIncidencia->setFechaSolucion(new \DateTime("now"));
             $em->persist($arIncidencia);
             $em->flush();
-            if ($codigoIncidencia == 0) {
-                $this->enviarCorreo($arIncidencia);
-            }
             return $this->redirectToRoute('caso_lista');
         }
         return $this->render('AppBundle:Caso:editarAdmin.html.twig', array('form' => $form->createView()));
@@ -116,7 +114,6 @@ class CasoController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $arUsuario = $this->getUser();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
-        $arUsuarioIncidencia = $em->getRepository('AppBundle:User')->findBy(array('username' => $arIncidencia->getUsuario()));
         $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
         //Crear formulario de observaciones
         $arComentario = new \AppBundle\Entity\Comentario();
@@ -135,18 +132,16 @@ class CasoController extends Controller {
         return $this->render('AppBundle:Caso:detalle.html.twig', array(
                     'arIncidencia' => $arIncidencia,
                     'form' => $form->createView(),
-                    'arDetalleComentario' => $arDetalleComentario,
-                    'arUsuarioIncidencia' => $arUsuarioIncidencia
+                    'arDetalleComentario' => $arDetalleComentario
         ));
     }
 
     private function enviarCorreo($arIncidencia) {
         $arUsuario = $this->getUser();
-        $correoUsuario = $arUsuario->getEmail();
         $message = \Swift_Message::newInstance()
                 ->setSubject('Soporte Soga')
                 ->setFrom('sogainformacion@gmail.com')
-                ->setTo(array($correoUsuario, 'sogasoporte@gmail.com', 'sogasoporte2@gmail.com'))
+                ->setTo(array('sogasoporte@gmail.com', 'sogasoporte2@gmail.com'))
                 ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia)), 'text/html');
         $this->get('mailer')->send($message);
     }

@@ -35,21 +35,7 @@ class User implements UserInterface {
      *
      * @ORM\Column(name="codigo_cliente_fk", type="integer")
      */
-    private $codigoClienteFk;
-    
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="codigo_area_fk", type="integer")
-     */
-    private $codigoAreaFk;
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="codigo_cargo_fk", type="integer")
-     */
-    private $codigoCargoFk;
-    
+    private $codigoClienteFk;    
 
     /**
      * @var string
@@ -72,34 +58,6 @@ class User implements UserInterface {
     private $password;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nombre", type="string", length=50)
-     */
-    private $nombre;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="apellido", type="string", length=50)
-     */
-    private $apellido;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=50)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="telefono", type="string",length=50, nullable=true)
-     */
-    private $telefono;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Rol", inversedBy="usuariosRolRel")
      * @ORM\JoinColumn(name="codigo_rol_fk", referencedColumnName="codigo_rol_pk")
      */
@@ -111,24 +69,14 @@ class User implements UserInterface {
      */
     protected $clienteRel;
     
-    /**
-     * @ORM\ManyToOne(targetEntity="Area", inversedBy="usuariosAreaRel")
-     * @ORM\JoinColumn(name="codigo_area_fk", referencedColumnName="codigo_area_pk")
-     */
-    protected $AreaRel;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Cargo", inversedBy="usuariosCargoRel")
-     * @ORM\JoinColumn(name="codigo_cargo_fk", referencedColumnName="codigo_cargo_pk")
-     */
-    protected $CargoRel;
 
     /**
      * Get codigoUsuarioPk
      *
      * @return integer
      */
-    public function getCodigoUsuarioPk() {
+    public function getCodigoUsuarioPk()
+    {
         return $this->codigoUsuarioPk;
     }
 
@@ -139,7 +87,8 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setCodigoRolFk($codigoRolFk) {
+    public function setCodigoRolFk($codigoRolFk)
+    {
         $this->codigoRolFk = $codigoRolFk;
 
         return $this;
@@ -150,7 +99,8 @@ class User implements UserInterface {
      *
      * @return integer
      */
-    public function getCodigoRolFk() {
+    public function getCodigoRolFk()
+    {
         return $this->codigoRolFk;
     }
 
@@ -161,7 +111,8 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setCodigoClienteFk($codigoClienteFk) {
+    public function setCodigoClienteFk($codigoClienteFk)
+    {
         $this->codigoClienteFk = $codigoClienteFk;
 
         return $this;
@@ -172,7 +123,8 @@ class User implements UserInterface {
      *
      * @return integer
      */
-    public function getCodigoClienteFk() {
+    public function getCodigoClienteFk()
+    {
         return $this->codigoClienteFk;
     }
 
@@ -183,7 +135,8 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setUsername($username) {
+    public function setUsername($username)
+    {
         $this->username = $username;
 
         return $this;
@@ -194,7 +147,8 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getUsername() {
+    public function getUsername()
+    {
         return $this->username;
     }
 
@@ -205,7 +159,8 @@ class User implements UserInterface {
      *
      * @return User
      */
-    public function setPassword($password) {
+    public function setPassword($password)
+    {
         $this->password = $password;
 
         return $this;
@@ -216,98 +171,59 @@ class User implements UserInterface {
      *
      * @return string
      */
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
     /**
-     * Set nombre
+     * Set rolRel
      *
-     * @param string $nombre
+     * @param \AppBundle\Entity\Rol $rolRel
      *
      * @return User
      */
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
+    public function setRolRel(\AppBundle\Entity\Rol $rolRel = null)
+    {
+        $this->rolRel = $rolRel;
 
         return $this;
     }
 
     /**
-     * Get nombre
+     * Get rolRel
      *
-     * @return string
+     * @return \AppBundle\Entity\Rol
      */
-    public function getNombre() {
-        return $this->nombre;
+    public function getRolRel()
+    {
+        return $this->rolRel;
     }
 
     /**
-     * Set apellido
+     * Set clienteRel
      *
-     * @param string $apellido
+     * @param \AppBundle\Entity\Cliente $clienteRel
      *
      * @return User
      */
-    public function setApellido($apellido) {
-        $this->apellido = $apellido;
+    public function setClienteRel(\AppBundle\Entity\Cliente $clienteRel = null)
+    {
+        $this->clienteRel = $clienteRel;
 
         return $this;
     }
 
     /**
-     * Get apellido
+     * Get clienteRel
      *
-     * @return string
+     * @return \AppBundle\Entity\Cliente
      */
-    public function getApellido() {
-        return $this->apellido;
+    public function getClienteRel()
+    {
+        return $this->clienteRel;
     }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return User
-     */
-    public function setEmail($email) {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail() {
-        return $this->email;
-    }
-
-    /**
-     * Set telefono
-     *
-     * @param integer $telefono
-     *
-     * @return User
-     */
-    public function setTelefono($telefono) {
-        $this->telefono = $telefono;
-
-        return $this;
-    }
-
-    /**
-     * Get telefono
-     *
-     * @return integer
-     */
-    public function getTelefono() {
-        return $this->telefono;
-    }
-
+    
     public function eraseCredentials() {
         
     }
@@ -360,146 +276,5 @@ class User implements UserInterface {
      */
     public function getRoles() {
         return array($this->getRolRel()->getNombre());
-    }
-
-    /**
-     * Set rolRel
-     *
-     * @param \AppBundle\Entity\Rol $rolRel
-     *
-     * @return User
-     */
-    public function setRolRel(\AppBundle\Entity\Rol $rolRel = null) {
-        $this->rolRel = $rolRel;
-
-        return $this;
-    }
-
-    /**
-     * Get rolRel
-     *
-     * @return \AppBundle\Entity\Rol
-     */
-    public function getRolRel() {
-        return $this->rolRel;
-    }
-
-    /**
-     * Set clienteRel
-     *
-     * @param \AppBundle\Entity\Cliente $clienteRel
-     *
-     * @return User
-     */
-    public function setClienteRel(\AppBundle\Entity\Cliente $clienteRel = null) {
-        $this->clienteRel = $clienteRel;
-
-        return $this;
-    }
-
-    /**
-     * Get clienteRel
-     *
-     * @return \AppBundle\Entity\Cliente
-     */
-    public function getClienteRel() {
-        return $this->clienteRel;
-    }
-
-
-    /**
-     * Set codigoAreaFk
-     *
-     * @param integer $codigoAreaFk
-     *
-     * @return User
-     */
-    public function setCodigoAreaFk($codigoAreaFk)
-    {
-        $this->codigoAreaFk = $codigoAreaFk;
-
-        return $this;
-    }
-
-    /**
-     * Get codigoAreaFk
-     *
-     * @return integer
-     */
-    public function getCodigoAreaFk()
-    {
-        return $this->codigoAreaFk;
-    }
-
-    /**
-     * Set codigoCargoFk
-     *
-     * @param integer $codigoCargoFk
-     *
-     * @return User
-     */
-    public function setCodigoCargoFk($codigoCargoFk)
-    {
-        $this->codigoCargoFk = $codigoCargoFk;
-
-        return $this;
-    }
-
-    /**
-     * Get codigoCargoFk
-     *
-     * @return integer
-     */
-    public function getCodigoCargoFk()
-    {
-        return $this->codigoCargoFk;
-    }
-
-    /**
-     * Set areaRel
-     *
-     * @param \AppBundle\Entity\Area $areaRel
-     *
-     * @return User
-     */
-    public function setAreaRel(\AppBundle\Entity\Area $areaRel = null)
-    {
-        $this->AreaRel = $areaRel;
-
-        return $this;
-    }
-
-    /**
-     * Get areaRel
-     *
-     * @return \AppBundle\Entity\Area
-     */
-    public function getAreaRel()
-    {
-        return $this->AreaRel;
-    }
-
-    /**
-     * Set cargoRel
-     *
-     * @param \AppBundle\Entity\Cargo $cargoRel
-     *
-     * @return User
-     */
-    public function setCargoRel(\AppBundle\Entity\Cargo $cargoRel = null)
-    {
-        $this->CargoRel = $cargoRel;
-
-        return $this;
-    }
-
-    /**
-     * Get cargoRel
-     *
-     * @return \AppBundle\Entity\Cargo
-     */
-    public function getCargoRel()
-    {
-        return $this->CargoRel;
     }
 }

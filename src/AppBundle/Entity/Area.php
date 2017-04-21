@@ -29,16 +29,16 @@ class Area
     private $nombre;
     
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="areaRel")
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="areaRel")
      */
-    protected $usuariosAreaRel;
+    protected $incidenciasAreaRel;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->usuariosAreaRel = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->incidenciasAreaRel = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -76,36 +76,36 @@ class Area
     }
 
     /**
-     * Add usuariosAreaRel
+     * Add incidenciasAreaRel
      *
-     * @param \AppBundle\Entity\User $usuariosAreaRel
+     * @param \AppBundle\Entity\Incidencia $incidenciasAreaRel
      *
      * @return Area
      */
-    public function addUsuariosAreaRel(\AppBundle\Entity\User $usuariosAreaRel)
+    public function addIncidenciasAreaRel(\AppBundle\Entity\Incidencia $incidenciasAreaRel)
     {
-        $this->usuariosAreaRel[] = $usuariosAreaRel;
+        $this->incidenciasAreaRel[] = $incidenciasAreaRel;
 
         return $this;
     }
 
     /**
-     * Remove usuariosAreaRel
+     * Remove incidenciasAreaRel
      *
-     * @param \AppBundle\Entity\User $usuariosAreaRel
+     * @param \AppBundle\Entity\Incidencia $incidenciasAreaRel
      */
-    public function removeUsuariosAreaRel(\AppBundle\Entity\User $usuariosAreaRel)
+    public function removeIncidenciasAreaRel(\AppBundle\Entity\Incidencia $incidenciasAreaRel)
     {
-        $this->usuariosAreaRel->removeElement($usuariosAreaRel);
+        $this->incidenciasAreaRel->removeElement($incidenciasAreaRel);
     }
 
     /**
-     * Get usuariosAreaRel
+     * Get incidenciasAreaRel
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUsuariosAreaRel()
+    public function getIncidenciasAreaRel()
     {
-        return $this->usuariosAreaRel;
+        return $this->incidenciasAreaRel;
     }
 }

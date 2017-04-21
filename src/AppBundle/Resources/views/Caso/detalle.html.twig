@@ -64,19 +64,20 @@
                                         <tbody>
                                             <tr>
                                                 <td class="active"><strong>Usuario:</strong></td>
-                                                <td>{{arUsuarioIncidencia[0].nombre ~ ' ' ~ arUsuarioIncidencia[0].apellido}}</td>
+                                                <td colspan="2">{{arIncidencia.nombreCompleto}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="active"><strong>Departamento:</strong></td>
-                                                <td>{{arUsuarioIncidencia[0].areaRel.nombre}}</td>
+                                                <td colspan="2">{{arIncidencia.areaRel.nombre}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="active"><strong>Cargo:</strong></td>
-                                                <td>{{arUsuarioIncidencia[0].cargoRel.nombre}}</td>
+                                                <td colspan="2">{{arIncidencia.cargoRel.nombre}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="active"><strong>Telefono:</strong></td>
-                                                    <td>{{arUsuarioIncidencia[0].telefono}}</td>
+                                                <td>{{arIncidencia.telefono }}</td>
+                                                <td><strong>Ext:  </strong>{{arIncidencia.extension}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
