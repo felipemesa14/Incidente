@@ -2,7 +2,7 @@
 parameters:
     database_host: localhost
     database_port: 3306
-    database_name: bd_incidente
+    database_name: bdincidente
     database_user: root
     database_password: Papelon1217
     mailer_transport: gmail
