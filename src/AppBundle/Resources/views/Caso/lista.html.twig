@@ -78,10 +78,13 @@
                         </div>
                         {{ form_end(form) }}
                     </div>
-                    <div class="col-lg-1">
+                    <div class="col-lg-11">
                         {% if app.user.rolRel.nombre == "ROLE_ADMIN" %}
                             <a class="btn btn-default btn-sm" href="{{ path('novedad_lista') }}">Agregar novedad</a>
                         {% endif %}
+                    </div>
+                    <div class="col-lg-1">
+                        <a class="btn btn-default btn-sm" href="{{ path('logout') }}">Salir</a>
                     </div>
                 </div>
             </div>
