@@ -12,7 +12,7 @@ class WebController extends Controller {
      */
     public function inAction() {
 
-        return $this->redirectToRoute('caso_lista');
+        return $this->redirectToRoute('web_index');
     }
 
     /**
