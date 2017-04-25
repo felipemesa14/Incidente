@@ -1,5 +1,3 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/security.html
 security:
         
     role_hierarchy:
@@ -7,7 +5,7 @@ security:
 
     encoders:
         AppBundle\Entity\User: bcrypt
-    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+        
     providers:
         db_users:
             entity:
@@ -15,7 +13,6 @@ security:
                 property: username
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
         
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -35,7 +32,6 @@ security:
                 
     access_control:
     - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/index, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/contacto, roles: ROLE_USER }
     - { path: ^/caso/lista, roles: ROLE_USER }
     - { path: ^/caso/nuevo/, roles: ROLE_USER }
@@ -44,10 +40,3 @@ security:
     - { path: ^/caso/editarAdmin/, roles: ROLE_USER }
     - { path: ^/contacto, roles: ROLE_USER }
     - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
