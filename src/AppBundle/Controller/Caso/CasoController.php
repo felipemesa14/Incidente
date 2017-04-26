@@ -29,28 +29,29 @@ class CasoController extends Controller {
                 ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
                 ->getForm();
         $form->handleRequest($request);
-        /* if ($form->isSubmitted() && $form->isValid()) {
-          if ($form->get('BtnEliminar')->isClicked()) {
-          $arrSeleccionados = $request->request->get('ChkSeleccionar');
-          if (count($arrSeleccionados) > 0) {
-          foreach ($arrSeleccionados AS $codigoIncidencia) {
-          $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidencia);
-          if ($arIncidencia->getEstadoAtendido() == 0) {
-          $arComentario = $em->getRepository("AppBundle:Comentario")->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
-          if (count($arComentario > 0)) {
-          foreach ($arComentario as $arComentario) {
-          $em->remove($arComentario);
-          }
-          }
-          $em->remove($arIncidencia);
-          } else {
-          $mensaje = 'No se puede eliminar el caso despues de atendido';
-          }
-          }
-          $em->flush();
-          }
-          }
-          } */
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('BtnEliminar')->isClicked()) {
+                $arrSeleccionados = $request->request->get('ChkSeleccionar');
+                if (count($arrSeleccionados) > 0) {
+                    foreach ($arrSeleccionados AS $codigoIncidencia) {
+                        $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidencia);
+                        if ($arIncidencia->getEstadoAtendido() == 0) {
+                            $arComentario = $em->getRepository("AppBundle:Comentario")->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
+                            if (count($arComentario > 0)) {
+                                foreach ($arComentario as $arComentario) {
+                                    $em->remove($arComentario);
+                                }
+                            }
+                            $em->remove($arIncidencia);
+                        } else {
+                            $mensaje = 'No se puede eliminar el caso despues de atendido';
+                        }
+                    }
+                    $em->flush();
+                }
+                return $this->redirectToRoute('caso_lista');
+            }
+        }
         return $this->render('AppBundle:Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
@@ -102,6 +103,9 @@ class CasoController extends Controller {
             $arIncidencia->setFechaSolucion(new \DateTime("now"));
             $em->persist($arIncidencia);
             $em->flush();
+            if ($arIncidencia->getEstadoSolucionado() == 1) {
+                $this->enviarCorreo($arIncidencia);
+            }
             return $this->redirectToRoute('caso_lista');
         }
         return $this->render('AppBundle:Caso:editarAdmin.html.twig', array('form' => $form->createView()));
@@ -137,11 +141,15 @@ class CasoController extends Controller {
     }
 
     private function enviarCorreo($arIncidencia) {
-        $arUsuario = $this->getUser();
+        if ($arIncidencia->getEstadoSolucionado() == 1) {
+            $correoEnviar = $arIncidencia->getEmail();
+        } else {
+            $correoEnviar = array('sogaimplementacion@gmail.com','sogasoporte@gmail.com','sogasoporte2@gmail.com');
+        }
         $message = \Swift_Message::newInstance()
-                ->setSubject('Soporte Soga')
+                ->setSubject('Soga soporte')
                 ->setFrom('sogainformacion@gmail.com')
-                ->setTo(array('sogasoporte@gmail.com', 'sogasoporte2@gmail.com'))
+                ->setTo($correoEnviar)
                 ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia)), 'text/html');
         $this->get('mailer')->send($message);
     }

@@ -45,10 +45,6 @@
                                                 <td>{{arIncidencia.fechaRegistro | date('d/m/Y H:i')}}</td>
                                             </tr>
                                             <tr>
-                                                <td class="active"><strong>Descripci&oacute;n:</strong></td>
-                                                <td>{{arIncidencia.descripcion}}</td>
-                                            </tr>
-                                            <tr>
                                                 <td class="active"><strong>Fecha soluci&oacute;n:</strong></td>
                                                 {% if (arIncidencia.fechaSolucion is null) %}
                                                     <td></td>
@@ -86,6 +82,12 @@
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <table width="100%" class="table table-condensed table-bordered">
                                         <tbody>
+                                            <tr>
+                                                <td class="active"><strong>Descripci&oacute;n:</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{arIncidencia.descripcion}}</td>
+                                            </tr>
                                             <tr>
                                                 <td class="active"><strong>Soluci&oacute;n:</strong></td>
                                             </tr>
