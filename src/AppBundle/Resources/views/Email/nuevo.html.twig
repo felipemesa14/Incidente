@@ -10,10 +10,17 @@
                         <img src="http://www.ng.cr/images/software/desarrollo-de-software-en-la-nube-sicla-07.jpg" width="600" height="188">
                     </td>
                 </tr>
-                <tr colspan="2">
-                    <td width="528" style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
-                        Se ha generado correctamente una {% if (arIncidencia.getEstadoSolucionado() == 1) %} soluci&oacute;n a la {%endif %}incidencia Id:{{ arIncidencia.codigoIncidenciaPk }} </td>      
-                </tr>
+                {% if (arDetalleComentario =="") %}
+                    <tr colspan="2">
+                        <td width="528" style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                            Se ha generado correctamente una {% if (arIncidencia.getEstadoSolucionado() == 1) %} soluci&oacute;n a la {%endif %}incidencia Id:{{ arIncidencia.codigoIncidenciaPk }} </td>      
+                    </tr>
+                {%else %}
+                    <tr colspan="2">
+                        <td width="528" style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">
+                            Se ha generado un comentario en el incidente Id: {{ arIncidencia.codigoIncidenciaPk }}</td>      
+                    </tr>
+                {% endif %}
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
@@ -89,6 +96,14 @@
                         <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center"><a href="{{ path('caso_detalle',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">Ver detalle</a></td>
                     </tr>-->
                 {% endif %}
+                {% if (arDetalleComentario != "") %}
+                    <tr>
+                        <th style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#03524f; text-align:center; font-weight:bold">Comentario</th>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">{{arDetalleComentario.comentario}}</td>
+                    </tr>
+                {% endif %}
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
@@ -97,8 +112,9 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                </tr>
+                </tr>                    
             </tbody>
         </table>
+
     </body>
 </html>

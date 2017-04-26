@@ -80,7 +80,9 @@ class CasoController extends Controller {
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {
-                $this->enviarCorreo($arIncidencia);
+                //$correoEnviar = array('sogaimplementacion@gmail.com', 'sogasoporte@gmail.com', 'sogasoporte2@gmail.com');
+                $correoEnviar = array('felipemesa14@gmail.com');
+                $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
             return $this->redirectToRoute('caso_lista');
         }
@@ -103,7 +105,8 @@ class CasoController extends Controller {
             $em->persist($arIncidencia);
             $em->flush();
             if ($arIncidencia->getEstadoSolucionado() == 1) {
-                $this->enviarCorreo($arIncidencia);
+                $correoEnviar = $arIncidencia->getEmail();
+                $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
             return $this->redirectToRoute('caso_lista');
         }
@@ -118,7 +121,7 @@ class CasoController extends Controller {
         $arUsuario = $this->getUser();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
         $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
-        //Crear formulario de observaciones
+        //Crear formulario de comentarios
         $arComentario = new \AppBundle\Entity\Comentario();
         $form = $this->createForm(ComentarioType::class, $arComentario);
         $form->handleRequest($request);
@@ -129,6 +132,10 @@ class CasoController extends Controller {
             $arComentario->setUsername($arUsuario->getUsername());
             $em->persist($arComentario);
             $em->flush();
+            if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
+                $correoEnviar = $arIncidencia->getEmail();
+                $this->enviarCorreo($arIncidencia, $correoEnviar, $arComentario);
+            }
             return $this->redirectToRoute('caso_detalle', array('codigoIncidencia' => $codigoIncidencia));
         }
         //Crear vista detalle del incidente
@@ -139,17 +146,12 @@ class CasoController extends Controller {
         ));
     }
 
-    private function enviarCorreo($arIncidencia) {
-        if ($arIncidencia->getEstadoSolucionado() == 1) {
-            $correoEnviar = $arIncidencia->getEmail();
-        } else {
-            $correoEnviar = array('sogaimplementacion@gmail.com','sogasoporte@gmail.com','sogasoporte2@gmail.com');
-        }
+    private function enviarCorreo($arIncidencia, $correoEnviar, $arDetalleComentario) {
         $message = \Swift_Message::newInstance()
                 ->setSubject('Soga soporte')
                 ->setFrom('sogainformacion@gmail.com')
                 ->setTo($correoEnviar)
-                ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia)), 'text/html');
+                ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia, 'arDetalleComentario' => $arDetalleComentario)), 'text/html');
         $this->get('mailer')->send($message);
     }
 

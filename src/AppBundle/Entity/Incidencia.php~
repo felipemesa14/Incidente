@@ -65,7 +65,7 @@ class Incidencia {
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=255)
+     * @ORM\Column(name="descripcion", type="string", length=5000)
      */
     private $descripcion;
 

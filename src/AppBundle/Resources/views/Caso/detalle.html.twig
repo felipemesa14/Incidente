@@ -37,19 +37,32 @@
                                     <table width="100%" class="table table-condensed table-bordered">
                                         <tbody>
                                             <tr>
-                                                <td class="active"><strong>Cliente:</strong></td>
-                                                <td>{{arIncidencia.clienteRel.nombre}}</td>
+                                                <td class="active" colspan="2"><strong>Cliente:</strong></td>
+                                                <td colspan="2">{{arIncidencia.clienteRel.nombre}}</td>
                                             </tr>
                                             <tr>
-                                                <td class="active"><strong>Fecha registro:</strong></td>
-                                                <td>{{arIncidencia.fechaRegistro | date('d/m/Y H:i')}}</td>
+                                                <td class="active" colspan="2"><strong>Fecha registro:</strong></td>
+                                                <td colspan="2">{{arIncidencia.fechaRegistro | date('d/m/Y H:i')}}</td>
                                             </tr>
                                             <tr>
-                                                <td class="active"><strong>Fecha soluci&oacute;n:</strong></td>
+                                                <td class="active"><strong>Ate:</strong></td>
+                                                <td>
+                                                    {% if (arIncidencia.estadoAtendido == 0)%}No{% else %} Si {% endif %}
+                                                </td>
+                                                <td class="active"><strong>Sol:</strong></td>
+                                                <td>
+                                                {% if (arIncidencia.estadoSolucionado == 0)%}No{% else %} Si {% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="active" colspan="2"><strong>Fecha soluci&oacute;n:</strong></td>
                                                 {% if (arIncidencia.fechaSolucion is null) %}
-                                                    <td></td>
+                                                    <td colspan="2"></td>
                                                 {% else %}
-                                                    <td>{{arIncidencia.fechaSolucion | date('d/m/Y H:i')}}</td>
+                                                    <td colspan="2">{{arIncidencia.fechaSolucion | date('d/m/Y H:i')}}</td>
                                                 {% endif %}
                                             </tr>
                                         </tbody>
@@ -69,6 +82,10 @@
                                             <tr>
                                                 <td class="active"><strong>Cargo:</strong></td>
                                                 <td colspan="3">{{arIncidencia.cargoRel.nombre}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="active"><strong>Correo:</strong></td>
+                                                <td colspan="3">{{arIncidencia.email}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="active"><strong>Telefono:</strong></td>
