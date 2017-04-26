@@ -44,9 +44,9 @@ class IncidenciaAdminType extends AbstractType {
                     )))
                 ->add('usuarioAsignado', ChoiceType::class, array(
                     'choices' => array(
-                        'Juan Felipe' => 'Felipe',
+                        'Juan Felipe Tangarife' => 'Felipe',
                         'Juan Felipe Mesa Ocampo' => 'Juan',
-                        'Sebastian' => 'Sebastian',
+                        'Sebastian Orozco' => 'Sebastian',
                         'Mario Estrada' => 'Mario',
                     )))  
                 ->add('solucion', TextareaType::class, array('required'=> false))
