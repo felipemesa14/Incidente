@@ -69,6 +69,11 @@ class User implements UserInterface {
      */
     protected $clienteRel;
     
+    /**
+     * @ORM\OneToMany(targetEntity="Tarea", mappedBy="usuarioAsignadoRel")
+     */
+    protected $tareasUsuarioAsignadoRel;
+    
 
     /**
      * Get codigoUsuarioPk
@@ -276,5 +281,46 @@ class User implements UserInterface {
      */
     public function getRoles() {
         return array($this->getRolRel()->getNombre());
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tareasUsuarioAsignadoRel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add tareasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Tarea $tareasUsuarioAsignadoRel
+     *
+     * @return User
+     */
+    public function addTareasUsuarioAsignadoRel(\AppBundle\Entity\Tarea $tareasUsuarioAsignadoRel)
+    {
+        $this->tareasUsuarioAsignadoRel[] = $tareasUsuarioAsignadoRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove tareasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Tarea $tareasUsuarioAsignadoRel
+     */
+    public function removeTareasUsuarioAsignadoRel(\AppBundle\Entity\Tarea $tareasUsuarioAsignadoRel)
+    {
+        $this->tareasUsuarioAsignadoRel->removeElement($tareasUsuarioAsignadoRel);
+    }
+
+    /**
+     * Get tareasUsuarioAsignadoRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTareasUsuarioAsignadoRel()
+    {
+        return $this->tareasUsuarioAsignadoRel;
     }
 }

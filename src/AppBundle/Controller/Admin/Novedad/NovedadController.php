@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Novedad;
+namespace AppBundle\Controller\Admin\Novedad;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -11,16 +11,16 @@ use AppBundle\Form\NovedadType;
 class NovedadController extends Controller {
 
     /**
-     * @Route("novedad/lista", name="novedad_lista")
+     * @Route("admin/novedad/lista", name="novedad_lista")
      */
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
         $arNovedad = $em->getRepository('AppBundle:Novedad')->findAll();
-        return $this->render('AppBundle:Novedad:lista.html.twig', array('arNovedad' => $arNovedad));
+        return $this->render('AppBundle:Admin/Novedad:lista.html.twig', array('arNovedad' => $arNovedad));
     }
 
     /**
-     * @Route("novedad/nuevo/{codigoNovedad}", name="novedad_nuevo")
+     * @Route("admin/novedad/nuevo/{codigoNovedad}", name="novedad_nuevo")
      */
     public function nuevoAction(Request $request, $codigoNovedad) {
         //Crear formulario para el registro de caso
@@ -39,7 +39,7 @@ class NovedadController extends Controller {
             $em->flush();
             return $this->redirectToRoute('novedad_lista');
         }
-        return $this->render('AppBundle:Novedad:nuevo.html.twig', array('form' => $form->createView()));
+        return $this->render('AppBundle:Admin/Novedad:nuevo.html.twig', array('form' => $form->createView()));
     }
 
 }

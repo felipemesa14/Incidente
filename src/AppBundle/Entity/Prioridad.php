@@ -31,7 +31,12 @@ class Prioridad
     /**
      * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="prioridadRel")
      */
-    protected $incidenciasPrioridadRel; 
+    protected $incidenciasPrioridadRel;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Tarea", mappedBy="prioridadRel")
+     */
+    protected $tareasPrioridadRel;
 
 
     /**
@@ -107,5 +112,39 @@ class Prioridad
     public function getIncidenciasPrioridadRel()
     {
         return $this->incidenciasPrioridadRel;
+    }
+
+    /**
+     * Add tareasPrioridadRel
+     *
+     * @param \AppBundle\Entity\Tarea $tareasPrioridadRel
+     *
+     * @return Prioridad
+     */
+    public function addTareasPrioridadRel(\AppBundle\Entity\Tarea $tareasPrioridadRel)
+    {
+        $this->tareasPrioridadRel[] = $tareasPrioridadRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove tareasPrioridadRel
+     *
+     * @param \AppBundle\Entity\Tarea $tareasPrioridadRel
+     */
+    public function removeTareasPrioridadRel(\AppBundle\Entity\Tarea $tareasPrioridadRel)
+    {
+        $this->tareasPrioridadRel->removeElement($tareasPrioridadRel);
+    }
+
+    /**
+     * Get tareasPrioridadRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTareasPrioridadRel()
+    {
+        return $this->tareasPrioridadRel;
     }
 }

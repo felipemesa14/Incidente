@@ -58,7 +58,7 @@ class Incidencia {
     /**
      * @var string
      *
-     * @ORM\Column(name="titulo", type="string", length=100)
+     * @ORM\Column(name="titulo", type="string", length=1000)
      */
     private $titulo;
 
@@ -86,7 +86,7 @@ class Incidencia {
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre_completo", type="string", length=50)
+     * @ORM\Column(name="nombre_completo", type="string", length=100)
      */
     private $nombreCompleto;
 
@@ -135,7 +135,7 @@ class Incidencia {
     /**
      * @var string
      *
-     * @ORM\Column(name="solucion", type="string", length=255, nullable=true)
+     * @ORM\Column(name="solucion", type="string", length=5000, nullable=true)
      */
     private $solucion;
     

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Caso;
+namespace AppBundle\Controller\Admin\Caso;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class CasoController extends Controller {
 
     /**
-     * @Route("caso/lista", name="caso_lista")
+     * @Route("admin/caso/lista", name="caso_admin_lista")
      */
     public function listaAction(Request $request) {
         $mensaje = '';
@@ -46,19 +46,18 @@ class CasoController extends Controller {
             }
         }
         //Validacion tipo de usuario para mostrar el listado de las incidencias reportados
-        if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN" || $arUsuario->getRolRel()->getNombre() == "ROLE_SUPER_ADMIN") {
-            //$arIncidencia = $em->getRepository('AppBundle:Incidencia')->findAll();
-            return $this->redirectToRoute('admin_index');
+        if ($arUsuario->getRolRel()->getNombre() == "ROLE_SUPER_ADMIN") {
+            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findAll();
         } else {
-            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername()));
+            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuarioAsignado' => $arUsuario->getUsername()));
         }
-        return $this->render('AppBundle:Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
+        return $this->render('AppBundle:Admin/Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
     }
 
     /**
-     * @Route("caso/nuevo/{codigoIncidencia}", name="caso_nuevo")
+     * @Route("admin/caso/nuevo/{codigoIncidencia}", name="caso_admin_nuevo")
      */
     public function nuevoAction(Request $request, $codigoIncidencia) {
         //Crear formulario para el registro de caso
@@ -81,16 +80,17 @@ class CasoController extends Controller {
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {
-                $correoEnviar = array('sogaimplementacion@gmail.com', 'sogasoporte@gmail.com', 'sogasoporte2@gmail.com');
+                //$correoEnviar = array('sogaimplementacion@gmail.com', 'sogasoporte@gmail.com', 'sogasoporte2@gmail.com');
+                $correoEnviar = array('felipemesa14@gmail.com');
                 $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
-            return $this->redirectToRoute('caso_lista');
+            return $this->redirectToRoute('caso_admin_lista');
         }
-        return $this->render('AppBundle:Caso:nuevo.html.twig', array('form' => $form->createView()));
+        return $this->render('AppBundle:Admin/Caso:nuevo.html.twig', array('form' => $form->createView()));
     }
 
     /**
-     * @Route("caso/editarAdmin/{codigoIncidencia}", name="caso_editar")
+     * @Route("admin/caso/editarAdmin/{codigoIncidencia}", name="caso_admin_editar")
      */
     public function editarAdminAction(Request $request, $codigoIncidencia) {
         //Crear formulario para el registro de caso
@@ -108,13 +108,13 @@ class CasoController extends Controller {
                 $correoEnviar = $arIncidencia->getEmail();
                 $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
-            return $this->redirectToRoute('caso_lista');
+            return $this->redirectToRoute('caso_admin_lista');
         }
-        return $this->render('AppBundle:Caso:editarAdmin.html.twig', array('form' => $form->createView()));
+        return $this->render('AppBundle:Admin/Caso:editarAdmin.html.twig', array('form' => $form->createView()));
     }
 
     /**
-     * @Route("caso/detalle/{codigoIncidencia}", name="caso_detalle")
+     * @Route("admin/caso/detalle/{codigoIncidencia}", name="caso_admin_detalle")
      */
     public function detalleAction(Request $request, $codigoIncidencia) {
         $em = $this->getDoctrine()->getManager();
@@ -136,10 +136,10 @@ class CasoController extends Controller {
                 $correoEnviar = $arIncidencia->getEmail();
                 $this->enviarCorreo($arIncidencia, $correoEnviar, $arComentario);
             }
-            return $this->redirectToRoute('caso_detalle', array('codigoIncidencia' => $codigoIncidencia));
+            return $this->redirectToRoute('caso_admin_detalle', array('codigoIncidencia' => $codigoIncidencia));
         }
         //Crear vista detalle del incidente
-        return $this->render('AppBundle:Caso:detalle.html.twig', array(
+        return $this->render('AppBundle:Admin/Caso:detalle.html.twig', array(
                     'arIncidencia' => $arIncidencia,
                     'form' => $form->createView(),
                     'arDetalleComentario' => $arDetalleComentario

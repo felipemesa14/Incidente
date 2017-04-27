@@ -192,3 +192,9 @@ INSERT  INTO `user`(`codigo_usuario_pk`,`codigo_rol_fk`,`codigo_cliente_fk`,`use
 (7,1,7,'COORDINAR','$2a$04$iqgtd0gqbU3zs4Y/QTT7QeBCWJi0hHsC3e9Lx9cN0ATXthPdKOeFi'),
 (8,1,8,'ESTELAR','$2a$04$RitqSr5QN94vuK90OEYFqe1TL5HscxUFXMv9M1Iuba1cyV6jDdaka'),
 (9,1,9,'SEGURCOL','$2a$04$S2VoK4H.JGsq/Q8DvXfANu2tXSL8Ry83oUoAmM7I9LvEGIILAHJKy');
+
+
+/* Datos Tabla 'tipo_tarea' */
+insert into `tipo_tarea` (`codigo_tipo_tarea_pk`, `nombre`) values('1','IMPLEMENTACION');
+insert into `tipo_tarea` (`codigo_tipo_tarea_pk`, `nombre`) values('2','DESARROLLO');
+insert into `tipo_tarea` (`codigo_tipo_tarea_pk`, `nombre`) values('3','SOPORTE');
