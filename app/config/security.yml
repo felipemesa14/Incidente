@@ -39,5 +39,13 @@ security:
     - { path: ^/caso/editar/, roles: ROLE_USER }
     - { path: ^/caso/detalle/, roles: ROLE_USER }
     - { path: ^/caso/editarAdmin/, roles: ROLE_USER }
+    - { path: ^/admin/caso/lista, roles: ROLE_USER }
+    - { path: ^/admin/caso/nuevo/, roles: ROLE_USER }
+    - { path: ^/admin/caso/editar/, roles: ROLE_USER }
+    - { path: ^/admin/caso/detalle/, roles: ROLE_USER }
+    - { path: ^/admin/caso/editarAdmin/, roles: ROLE_USER }
+    - { path: ^/admin/tarea/lista, roles: ROLE_USER }
+    - { path: ^/admin/tarea/nuevo/, roles: ROLE_USER }
+    - { path: ^/admin/tarea/detalle/, roles: ROLE_USER }
     - { path: ^/contacto, roles: ROLE_USER }
     - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
