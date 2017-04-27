@@ -74,6 +74,11 @@ class User implements UserInterface {
      */
     protected $tareasUsuarioAsignadoRel;
     
+    /**
+     * @ORM\OneToMany(targetEntity="Tarea", mappedBy="usuarioAsignadoRel")
+     */
+    protected $notasUsuarioAsignadoRel;
+    
 
     /**
      * Get codigoUsuarioPk
@@ -322,5 +327,39 @@ class User implements UserInterface {
     public function getTareasUsuarioAsignadoRel()
     {
         return $this->tareasUsuarioAsignadoRel;
+    }
+
+    /**
+     * Add notasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Tarea $notasUsuarioAsignadoRel
+     *
+     * @return User
+     */
+    public function addNotasUsuarioAsignadoRel(\AppBundle\Entity\Tarea $notasUsuarioAsignadoRel)
+    {
+        $this->notasUsuarioAsignadoRel[] = $notasUsuarioAsignadoRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove notasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Tarea $notasUsuarioAsignadoRel
+     */
+    public function removeNotasUsuarioAsignadoRel(\AppBundle\Entity\Tarea $notasUsuarioAsignadoRel)
+    {
+        $this->notasUsuarioAsignadoRel->removeElement($notasUsuarioAsignadoRel);
+    }
+
+    /**
+     * Get notasUsuarioAsignadoRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotasUsuarioAsignadoRel()
+    {
+        return $this->notasUsuarioAsignadoRel;
     }
 }
