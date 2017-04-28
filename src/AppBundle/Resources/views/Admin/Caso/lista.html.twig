@@ -74,7 +74,7 @@
                                 {{ knp_pagination_render(arIncidencia) }}       
                             </div>
                             <div class="btn-group" style="float: right;padding-top: 20px;">
-                                <a class="btn btn-success btn-sm" href="{{ path('caso_admin_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a>
+                                <a class="btn btn-default btn-sm" href="{{ path('caso_admin_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a>
                                 {% if app.user.rolRel.nombre == "ROLE_ADMIN" or app.user.rolRel.nombre == "ROLE_SUPER_ADMIN" %}
                                     {{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}
                                 {% else %}
