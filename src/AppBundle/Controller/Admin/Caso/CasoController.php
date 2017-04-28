@@ -17,7 +17,7 @@ class CasoController extends Controller {
      */
     public function listaAction(Request $request) {
         $mensaje = '';
-        $arUsuario = $this->getUser();
+        $paginator = $this->get('knp_paginator');
         $em = $this->getDoctrine()->getManager();
         $form = $this->createFormBuilder()
                 ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
@@ -45,15 +45,13 @@ class CasoController extends Controller {
                 }
             }
         }
-        //Validacion tipo de usuario para mostrar el listado de las incidencias reportados
-        /*if ($arUsuario->getRolRel()->getNombre() == "ROLE_SUPER_ADMIN") {*/
-        $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findByestadoSolucionado(0, array('fechaRegistro' => 'DESC'));
-        $arIncidenciaSolucionados = $em->getRepository('AppBundle:Incidencia')->findByestadoSolucionado(1, array('fechaRegistro' => 'DESC'));
-        /*} else {
-            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuarioAsignado' => $arUsuario->getUsername()));
-        }*/
-        return $this->render('AppBundle:Admin/Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
-                    'arIncidenciaSolucionado'=>$arIncidenciaSolucionados,
+        $arIncidencia = $paginator->paginate($em->getRepository('AppBundle:Incidencia')
+                        ->findByestadoSolucionado(0, array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
+        $arIncidenciaSolucionados = $paginator->paginate($em->getRepository('AppBundle:Incidencia')
+                        ->findByestadoSolucionado(1, array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
+        return $this->render('AppBundle:Admin/Caso:lista.html.twig', array(
+                    'arIncidencia' => $arIncidencia,
+                    'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
     }
