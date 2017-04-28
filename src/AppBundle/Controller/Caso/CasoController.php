@@ -17,6 +17,7 @@ class CasoController extends Controller {
      */
     public function listaAction(Request $request) {
         $mensaje = '';
+        $paginator = $this->get('knp_paginator');
         $arUsuario = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createFormBuilder()
@@ -50,9 +51,10 @@ class CasoController extends Controller {
             //$arIncidencia = $em->getRepository('AppBundle:Incidencia')->findAll();
             return $this->redirectToRoute('admin_index');
         } else {
-            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername(),
-                'estadoSolucionado' => 0), array('fechaRegistro' => 'DESC'));
-            $arIncidenciaSolucionados = $em->getRepository('AppBundle:Incidencia')->findByestadoSolucionado(1, array('fechaSolucion' => 'DESC'));
+            $arIncidencia = $paginator->paginate($em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername(),
+                'estadoSolucionado' => 0), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
+            $arIncidenciaSolucionados = $paginator->paginate($em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername(),
+                'estadoSolucionado' => 1), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
         }
         return $this->render('AppBundle:Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
                     'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
