@@ -4,7 +4,7 @@
             <div class="row" style="margin-top:20px;">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Detalle Tarea</div>
+                        <div class="panel-heading">Detalle tarea</div>
                         <div class="panel-body">
                             <div class="box-body table-responsive no-padding">
                                 <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -14,10 +14,6 @@
                                                 <td class="active"><strong>Id:</strong></td>
                                                 <td>{{arTarea.codigoTareaPk}}</td>
                                             </tr>
-                                            <tr>
-                                                <td class="active"><strong>Titulo:</strong></td>
-                                                <td>{{arTarea.titulo}}</td>
-                                            </tr> 
                                             <tr>
                                                 <td class="active"><strong>Tipo tarea:</strong></td>
                                                 <td>{{arTarea.tipoTareaRel.nombre}}</td>
@@ -100,7 +96,7 @@
                         <div class="modal-footer">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <a href="{{path('tarea_lista')}}" class="btn btn-default">Cancelar</a>
-                                {{form_widget(form.guardar,{'attr':{'class':'btn btn-success'}}) }}
+                                {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
                             </div>
                         </div>
                         {{ form_end(form) }}

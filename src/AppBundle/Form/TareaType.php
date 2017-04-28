@@ -6,7 +6,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
@@ -33,8 +32,10 @@ class TareaType extends AbstractType {
                         return $er->createQueryBuilder('p')
                                 ->orderBy('p.nombre', 'ASC');
                     },
+                    'preferred_choices' => array('3'),
                     'choice_label' => 'nombre',
-                    'required' => true))
+                    'required' => true
+                ))
                 ->add('tipoTareaRel', EntityType::class, array(
                     'class' => 'AppBundle:TipoTarea',
                     'query_builder' => function (EntityRepository $er) {
@@ -43,9 +44,8 @@ class TareaType extends AbstractType {
                     },
                     'choice_label' => 'nombre',
                     'required' => true))
-                ->add('titulo')
-                ->add('fechaInicio', DateType::class, array('widget' => 'single_text', 'format' => 'yyyy-MM-dd', 'attr' => array('class' => 'date',)))
-                ->add('fechaFinal', DateType::class, array('widget' => 'single_text', 'format' => 'yyyy-MM-dd', 'attr' => array('class' => 'date',)))
+                ->add('fechaInicio', DateType::class, array('data' => new \DateTime("now"), 'widget' => 'single_text', 'format' => 'yyyy-MM-dd', 'attr' => array('class' => 'date',)))
+                ->add('fechaFinal', DateType::class, array('data' => new \DateTime("now"), 'widget' => 'single_text', 'format' => 'yyyy-MM-dd', 'attr' => array('class' => 'date',)))
                 ->add('porcentaje')
                 ->add('descripcion', TextareaType::class)
                 ->add('guardar', SubmitType::class, array(

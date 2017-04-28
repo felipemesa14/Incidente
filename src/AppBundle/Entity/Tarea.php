@@ -43,13 +43,6 @@ class Tarea
     private $codigoPrioridadFk;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="titulo", type="string", length=100)
-     */
-    private $titulo;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="datetime")

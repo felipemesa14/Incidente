@@ -43,6 +43,13 @@ class User implements UserInterface {
      * @ORM\Column(name="username", type="string", length=50 , unique=true)
      */
     private $username;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=100, nullable=true)
+     */
+    private $email;
 
     /**
      * @Assert\NotBlank()
@@ -361,5 +368,29 @@ class User implements UserInterface {
     public function getNotasUsuarioAsignadoRel()
     {
         return $this->notasUsuarioAsignadoRel;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

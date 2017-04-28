@@ -16,6 +16,7 @@ class TareaController extends Controller {
      */
     public function listaAction(Request $request) {
         $mensaje = "";
+        $paginator = $this->get('knp_paginator');
         $arUsuario = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createFormBuilder()
@@ -41,11 +42,20 @@ class TareaController extends Controller {
         }
         //Validacion tipo de usuario para mostrar el listado de las incidencias reportados
         if ($arUsuario->getRolRel()->getNombre() == "ROLE_SUPER_ADMIN") {
-            $arTarea = $em->getRepository('AppBundle:Tarea')->findAll();
+            $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
+                            ->findByFinalizado(0), $request->query->get('page', 1), 20);
+            $arTareaFinalizado = $paginator->paginate($em->getRepository('AppBundle:Tarea')
+                            ->findByFinalizado(1), $request->query->get('page', 1), 20);
         } else {
-            $arTarea = $em->getRepository('AppBundle:Tarea')->findByUsuarioAsignadoRel($arUsuario);
+            $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
+                            ->findBy(array('usuarioAsignadoRel' => $arUsuario,
+                                'finalizado' => 0)), $request->query->get('page', 1), 20);
+            $arTareaFinalizado = $paginator->paginate($em->getRepository('AppBundle:Tarea')
+                            ->findBy(array('usuarioAsignadoRel' => $arUsuario,
+                                'finalizado' => 1)), $request->query->get('page', 1), 20);
         }
         return $this->render('AppBundle:Admin/Tarea:lista.html.twig', array('arTarea' => $arTarea,
+                    'arTareaFinalizado' => $arTareaFinalizado,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
     }
@@ -67,6 +77,7 @@ class TareaController extends Controller {
             $arTarea = $form->getData();
             $em->persist($arTarea);
             $em->flush();
+            $this->enviarCorreo($arTarea);
             return $this->redirectToRoute('tarea_lista');
         }
         return $this->render('AppBundle:Admin/Tarea:nuevo.html.twig', array('form' => $form->createView()));
@@ -89,6 +100,15 @@ class TareaController extends Controller {
         }
         return $this->render('AppBundle:Admin/Tarea:detalle.html.twig', array('arTarea' => $arTarea,
                     'form' => $form->createView()));
+    }
+
+    private function enviarCorreo($arTarea) {
+        $message = \Swift_Message::newInstance()
+                ->setSubject('Tarea asignada')
+                ->setFrom('sogainformacion@gmail.com')
+                ->setTo($arTarea->getUsuarioAsignadoRel()->getEmail())
+                ->setBody($this->renderView('AppBundle:Email:nuevaTarea.html.twig', array('arTarea' => $arTarea)), 'text/html');
+        $this->get('mailer')->send($message);
     }
 
 }

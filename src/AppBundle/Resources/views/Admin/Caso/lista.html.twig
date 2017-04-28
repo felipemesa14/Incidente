@@ -96,6 +96,7 @@
                                     <th class="active">Prioridad</th>
                                     <th class="active">Categoria</th>
                                     <th class="active">Descripcion</th>
+                                    <th class="active">Solucion</th>
                                     <th class="active">Fecha reg</th>
                                     <th class="active">Fecha sol</th>
                                     <th class="active">Ate</th>
@@ -112,6 +113,7 @@
                                         <td>{{ arIncidenciaSolucionado.prioridadRel.nombre }}</td>
                                         <td>{{ arIncidenciaSolucionado.categoriaRel.nombre}}</td>
                                         <td>{{ arIncidenciaSolucionado.descripcion}}</td>
+                                        <td>{{ arIncidenciaSolucionado.solucion}}</td>
                                         <td>{{ arIncidenciaSolucionado.fechaRegistro|date('d/m/Y H:i') }}</td>
                                         {% if (arIncidenciaSolucionado.fechaSolucion is null) %}
                                             <td></td>
@@ -119,7 +121,7 @@
                                             <td>{{ arIncidenciaSolucionado.fechaSolucion|date('d/m/Y H:i') }}</td>
                                         {% endif %}
                                         <td>{%if arIncidenciaSolucionado.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidenciaSolucionado.usuarioAsignado }}) {% endif %}</td>
-                                        <td>{%if arIncidenciaSolucionado.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                        <td>{%if arIncidenciaSolucionado.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>                          
                                         <td style="text-align: center">
                                             <a href="{{ path('caso_admin_detalle',{'codigoIncidencia':arIncidenciaSolucionado.codigoIncidenciaPk}) }}">
                                                 <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">

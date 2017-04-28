@@ -4,16 +4,10 @@
             <div class="row" style="margin-top:20px;">
                 <div class="col-md-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Crear Tarea</div>
+                        <div class="panel-heading">Crear tarea</div>
                         <section class="content">        	
                             {{ form_start(form, { 'attr': {'class': 'form-horizontal'} }) }}
                             <div class="panel-body">
-                                <div class="form-group">
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Asunto:</strong></div>
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                        {{ form_widget(form.titulo,{'attr':{'class':'form-control','placeholder':'Titulo de la tarea'}})}}
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Tipo Tarea:</strong></div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -54,7 +48,7 @@
                             <div class="text-danger">{{ form_errors(form)}}</div>
                             <div class="modal-footer">
                                 <a href="{{path('tarea_lista')}}" class="btn btn-default">Cancelar</a>
-                                {{form_widget(form.guardar,{'attr':{'class':'btn btn-success'}}) }}
+                                {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary'}}) }}
                             </div>
                             {{ form_end(form)}}
                         </section>

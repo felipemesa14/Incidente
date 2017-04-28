@@ -100,6 +100,7 @@
                                         <th class="active">Prioridad</th>
                                         <th class="active">Categoria</th>
                                         <th class="active">Descripcion</th>
+                                        <th class="active">Solucion</th>
                                         <th class="active">Fecha reg</th>
                                         <th class="active">Fecha sol</th>
                                         <th class="active">Ate</th>
@@ -116,6 +117,7 @@
                                             <td>{{ arIncidenciaSolucionado.prioridadRel.nombre }}</td>
                                             <td>{{ arIncidenciaSolucionado.categoriaRel.nombre}}</td>
                                             <td>{{ arIncidenciaSolucionado.descripcion}}</td>
+                                            <td>{{ arIncidenciaSolucionado.solucion}}</td>
                                             <td>{{ arIncidenciaSolucionado.fechaRegistro|date('d/m/Y H:i') }}</td>
                                             {% if (arIncidenciaSolucionado.fechaSolucion is null) %}
                                                 <td></td>

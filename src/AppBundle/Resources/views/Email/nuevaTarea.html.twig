@@ -1,0 +1,76 @@
+<html>
+    <body>
+        <table width="599" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <img src="http://haytarea.com/recursos/imagenes_haytarea/logotipo.png" width="600" height="188">
+                    </td>
+                </tr>
+                    <tr colspan="2">
+                        <td width="528" style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#ff7700; text-align:center; font-weight:bold">
+                            Se ha generado correctamente una Tarea :{{ arTarea.codigoTareaPk }} </td>      
+                    </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#ff7700; text-align:center; font-weight:bold">
+                        FECHA INICIO: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arTarea.fechaInicio | date('Y/m/d') }} </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#ff7700; text-align:center; font-weight:bold">
+                        FECHA FINAL: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arTarea.fechaFinal | date('Y/m/d') }} </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#ff7700; text-align:center; font-weight:bold">
+                        PRIORIDAD: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arTarea.prioridadRel.nombre }} </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#ff7700; text-align:center; font-weight:bold">
+                        TIPO TAREA: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arTarea.tipoTareaRel.nombre}} </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:22px; color:#ff7700; text-align:center; font-weight:bold">
+                        DESCRIP&Oacute;N: </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#666; text-align:center">
+                        {{ arTarea.descripcion }} </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>                    
+            </tbody>
+        </table>
+    </body>
+</html>
