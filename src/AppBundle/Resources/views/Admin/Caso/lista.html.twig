@@ -9,7 +9,7 @@
                     <div class="panel-heading">Pendientes</div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table id="lista" class="table table-striped table-condensed table-hover table-bordered">
+                            <table id="lista" class="tamaño table table-striped table-condensed table-hover table-bordered">
                                 <thead>
                                     <tr class="primary">
                                         <th class="active">Id</th>
@@ -30,16 +30,16 @@
                                 <tbody>
                                     {% for arIncidencia in arIncidencia %}
                                         <tr>
-                                            <td>{{ arIncidencia.codigoIncidenciaPk }}</td>
-                                            <td>{{ arIncidencia.titulo }}</td>
-                                            <td>{{ arIncidencia.clienteRel.nombre }}</td>
-                                            <td>{{ arIncidencia.nombreCompleto }}</td>
-                                            <td>{{ arIncidencia.prioridadRel.nombre }}</td>
-                                            <td>{{ arIncidencia.categoriaRel.nombre}}</td>
-                                            <td>{{ arIncidencia.descripcion}}</td>
-                                            <td>{{ arIncidencia.fechaRegistro|date('d/m/Y H:i') }}</td>
-                                            <td>{%if arIncidencia.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidencia.usuarioAsignado }}) {% endif %}</td>
-                                            <td>{%if arIncidencia.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                            <td class="tamaño">{{ arIncidencia.codigoIncidenciaPk }}</td>
+                                            <td class="tamaño">{{ arIncidencia.titulo }}</td>
+                                            <td class="tamaño">{{ arIncidencia.clienteRel.nombre }}</td>
+                                            <td class="tamaño">{{ arIncidencia.nombreCompleto }}</td>
+                                            <td class="tamaño">{{ arIncidencia.prioridadRel.nombre }}</td>
+                                            <td class="tamaño">{{ arIncidencia.categoriaRel.nombre}}</td>
+                                            <td class="tamaño">{{ arIncidencia.descripcion}}</td>
+                                            <td class="tamaño">{{ arIncidencia.fechaRegistro|date('d/m/Y H:i') }}</td>
+                                            <td class="tamaño">{%if arIncidencia.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidencia.usuarioAsignado }}) {% endif %}</td>
+                                            <td class="tamaño">{%if arIncidencia.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
                                             <td style="text-align: center">
                                                 <a href="{{ path('caso_admin_detalle',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
@@ -87,7 +87,7 @@
                     <div class="panel-heading">Solucionados</div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table id="lista" class="table table-striped table-condensed table-hover table-bordered">
+                            <table id="lista" class="tamaño table table-striped table-condensed table-hover table-bordered">
                                 <thead>
                                     <tr class="primary">
                                         <th class="active">Id</th>
@@ -106,19 +106,19 @@
                                 <tbody>
                                     {% for arIncidenciaSolucionado in arIncidenciaSolucionado %}
                                         <tr>
-                                            <td>{{ arIncidenciaSolucionado.codigoIncidenciaPk }}</td>
-                                            <td>{{ arIncidenciaSolucionado.titulo }}</td>
-                                            <td>{{ arIncidenciaSolucionado.prioridadRel.nombre }}</td>
-                                            <td>{{ arIncidenciaSolucionado.categoriaRel.nombre}}</td>
-                                            <td>{{ arIncidenciaSolucionado.descripcion}}</td>
-                                            <td>{{ arIncidenciaSolucionado.fechaRegistro|date('d/m/Y H:i') }}</td>
+                                            <td class="tamaño">{{ arIncidenciaSolucionado.codigoIncidenciaPk }}</td>
+                                            <td class="tamaño">{{ arIncidenciaSolucionado.titulo }}</td>
+                                            <td class="tamaño">{{ arIncidenciaSolucionado.prioridadRel.nombre }}</td>
+                                            <td class="tamaño">{{ arIncidenciaSolucionado.categoriaRel.nombre}}</td>
+                                            <td class="tamaño">{{ arIncidenciaSolucionado.descripcion}}</td>
+                                            <td class="tamaño">{{ arIncidenciaSolucionado.fechaRegistro|date('d/m/Y H:i') }}</td>
                                             {% if (arIncidenciaSolucionado.fechaSolucion is null) %}
                                                 <td></td>
                                             {% else %}
-                                                <td>{{ arIncidenciaSolucionado.fechaSolucion|date('d/m/Y H:i') }}</td>
+                                                <td class="tamaño">{{ arIncidenciaSolucionado.fechaSolucion|date('d/m/Y H:i') }}</td>
                                             {% endif %}
-                                            <td>{%if arIncidenciaSolucionado.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidenciaSolucionado.usuarioAsignado }}) {% endif %}</td>
-                                            <td>{%if arIncidenciaSolucionado.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                            <td class="tamaño">{%if arIncidenciaSolucionado.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidenciaSolucionado.usuarioAsignado }}) {% endif %}</td>
+                                            <td class="tamaño">{%if arIncidenciaSolucionado.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
                                             <td style="text-align: center">
                                                 <a href="{{ path('caso_admin_detalle',{'codigoIncidencia':arIncidenciaSolucionado.codigoIncidenciaPk}) }}">
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
