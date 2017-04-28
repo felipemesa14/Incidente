@@ -14,6 +14,8 @@
                                     <tr class="primary">
                                         <th class="active">Id</th>
                                         <th class="active">Asunto</th>
+                                        <th class="active">Empresa</th>
+                                        <th class="active">Usuario</th>
                                         <th class="active">Prioridad</th>
                                         <th class="active">Categoria</th>
                                         <th class="active">Descripcion</th>
@@ -30,6 +32,8 @@
                                         <tr>
                                             <td>{{ arIncidencia.codigoIncidenciaPk }}</td>
                                             <td>{{ arIncidencia.titulo }}</td>
+                                            <td>{{ arIncidencia.clienteRel.nombre }}</td>
+                                            <td>{{ arIncidencia.nombreCompleto }}</td>
                                             <td>{{ arIncidencia.prioridadRel.nombre }}</td>
                                             <td>{{ arIncidencia.categoriaRel.nombre}}</td>
                                             <td>{{ arIncidencia.descripcion}}</td>
