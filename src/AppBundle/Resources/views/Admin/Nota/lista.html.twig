@@ -11,7 +11,7 @@
                         <div class="form-group">
                             <div class="col-lg-3">
                                 <label>Nota</label>
-                                {{ form_widget(form.descripcion,{'attr':{'class':'form-control','rows':'2','required':'required'}}) }}
+                                {{ form_widget(form.descripcion,{'attr':{'class':'form-control input-sm','rows':'3','required':'required'}}) }}
                                 <div class="modal-footer">  
                                     {{ form_widget(form.guardar,{'attr':{'class':'btn btn-primary btn-sm'}}) }}
                                 </div>
@@ -20,7 +20,7 @@
                             {% for arNota in arNota %}
                                 <div class="col-lg-3">
                                     <label>Nota</label>&nbsp;&nbsp; <input type="checkbox" name="ChkSeleccionar[]" value="{{ arNota.codigoNotaPk }}" /><br>
-                                    <textarea class="form-control" rows="5" readonly>{{ arNota.descripcion}}</textarea>
+                                    <textarea class="form-control input-sm" rows="5" readonly>{{ arNota.descripcion}}</textarea>
                                 </div>
                             {% endfor %}
                         </div>
