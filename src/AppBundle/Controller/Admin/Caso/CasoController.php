@@ -47,11 +47,13 @@ class CasoController extends Controller {
         }
         //Validacion tipo de usuario para mostrar el listado de las incidencias reportados
         /*if ($arUsuario->getRolRel()->getNombre() == "ROLE_SUPER_ADMIN") {*/
-            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findAll();
+        $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findByestadoSolucionado(0, array('fechaRegistro' => 'DESC'));
+        $arIncidenciaSolucionados = $em->getRepository('AppBundle:Incidencia')->findByestadoSolucionado(1, array('fechaRegistro' => 'DESC'));
         /*} else {
             $arIncidencia = $em->getRepository('AppBundle:Incidencia')->findBy(array('usuarioAsignado' => $arUsuario->getUsername()));
         }*/
         return $this->render('AppBundle:Admin/Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
+                    'arIncidenciaSolucionado'=>$arIncidenciaSolucionados,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
     }

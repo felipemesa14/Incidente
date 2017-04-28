@@ -4,99 +4,149 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <body id="page5">
-        <div class="container">
-            {{ form_start(form, { 'attr': {'class': 'form-horizontal', 'novalidate': 'novalidate'} }) }}
-            {{ form_errors(form) }}
-            <div class="row" style="margin-top:50px;">
-                <div class="col-md-12">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">Listado de Incidencias</div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table id="lista" class="table table-striped table-condensed table-hover table-bordered">
-                                    <thead>
-                                        <tr class="primary">
-                                            <th class="active">Id</th>
-                                            <th class="active">Asunto</th>
-                                            <th class="active">Prioridad</th>
-                                            <th class="active">Categoria</th>
-                                            <th class="active">Descripcion</th>
-                                            <th class="active">Fecha</th>
-                                            <th class="active">Ate</th>
-                                            <th class="active">Sol</th>
-                                            <th class="active"></th>
-                                            <th class="active"></th>
-                                            <th class="active"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for arIncidencia in arIncidencia %}
-                                            <tr>
-                                                <td>{{ arIncidencia.codigoIncidenciaPk }}</td>
-                                                <td>{{ arIncidencia.titulo }}</td>
-                                                <td>{{ arIncidencia.prioridadRel.nombre }}</td>
-                                                <td>{{ arIncidencia.categoriaRel.nombre}}</td>
-                                                <td>{{ arIncidencia.descripcion}}</td>
-                                                <td>{{ arIncidencia.fechaRegistro|date('d/m/Y H:i') }}</td>
-                                                <td>{%if arIncidencia.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidencia.usuarioAsignado }}) {% endif %}</td>
-                                                <td>{%if arIncidencia.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
-                                                <td style="text-align: center">
-                                                    <a href="{{ path('caso_detalle',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">
-                                                        <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
+    <div class="container">
+        {{ form_start(form, { 'attr': {'class': 'form-horizontal', 'novalidate': 'novalidate'} }) }}
+        {{ form_errors(form) }}
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Pendientes</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="lista" class="table table-striped table-condensed table-hover table-bordered">
+                                <thead>
+                                    <tr class="primary">
+                                        <th class="active">Id</th>
+                                        <th class="active">Asunto</th>
+                                        <th class="active">Prioridad</th>
+                                        <th class="active">Categoria</th>
+                                        <th class="active">Descripcion</th>
+                                        <th class="active">Fecha reg</th>
+                                        <th class="active">Ate</th>
+                                        <th class="active">Sol</th>
+                                        <th class="active"></th>
+                                        <th class="active"></th>
+                                        <th class="active"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for arIncidencia in arIncidencia %}
+                                        <tr>
+                                            <td>{{ arIncidencia.codigoIncidenciaPk }}</td>
+                                            <td>{{ arIncidencia.titulo }}</td>
+                                            <td>{{ arIncidencia.prioridadRel.nombre }}</td>
+                                            <td>{{ arIncidencia.categoriaRel.nombre}}</td>
+                                            <td>{{ arIncidencia.descripcion}}</td>
+                                            <td>{{ arIncidencia.fechaRegistro|date('d/m/Y H:i') }}</td>
+                                            <td>{%if arIncidencia.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidencia.usuarioAsignado }}) {% endif %}</td>
+                                            <td>{%if arIncidencia.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                            <td style="text-align: center">
+                                                <a href="{{ path('caso_admin_detalle',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">
+                                                    <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
+                                                </a>
+                                            </td>
+                                            <td style="text-align: center">
+                                                {% if app.user.rolRel.nombre == "ROLE_USER" and arIncidencia.estadoAtendido == 0 %}
+                                                    <a href="{{ path('caso_admin_nuevo',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">
+                                                        <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
                                                     </a>
-                                                </td>
-                                                <td style="text-align: center">
-                                                    {% if app.user.rolRel.nombre == "ROLE_USER" and arIncidencia.estadoAtendido == 0 %}
-                                                        <a href="{{ path('caso_nuevo',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">
-                                                            <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
-                                                        </a>
-                                                    {% elseif app.user.rolRel.nombre == "ROLE_ADMIN"  %}
-                                                        <a href="{{ path('caso_editar',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">
-                                                            <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
-                                                        </a>
+                                                {% elseif app.user.rolRel.nombre == "ROLE_ADMIN" or app.user.rolRel.nombre == "ROLE_SUPER_ADMIN"  %}
+                                                    <a href="{{ path('caso_admin_editar',{'codigoIncidencia':arIncidencia.codigoIncidenciaPk}) }}">
+                                                        <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
+                                                    </a>
 
-                                                    {% endif  %}
-                                                </td>
-                                                <td style="text-align: center">
-                                                    {% if app.user.rolRel.nombre == "ROLE_ADMIN" %}
-                                                        <input type="checkbox" name="ChkSeleccionar[]" value="{{ arIncidencia.codigoIncidenciaPk }}" />
-                                                    {% endif  %}
-                                                </td>
-                                            </tr>
-                                        {% endfor%}
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-danger">{{ mensaje }}</div>
-                            <div class="modal-footer">                            
+                                                {% endif  %}
+                                            </td>
+                                            <td style="text-align: center">
+                                                {% if app.user.rolRel.nombre == "ROLE_ADMIN" or app.user.rolRel.nombre == "ROLE_SUPER_ADMIN" %}
+                                                    <input type="checkbox" name="ChkSeleccionar[]" value="{{ arIncidencia.codigoIncidenciaPk }}" />
+                                                {% endif  %}
+                                            </td>
+                                        </tr>
+                                    {% endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-danger">{{ mensaje }}</div>
+                        <div class="modal-footer">                            
+                            <div class="btn-group">
+                                <a class="btn btn-success btn-sm" href="{{ path('caso_admin_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a>
                                 <div class="btn-group">
-                                    <a class="btn btn-success btn-sm" href="{{ path('caso_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a>
-                                    <div class="btn-group">
-                                        {% if app.user.rolRel.nombre == "ROLE_ADMIN" %}
-                                            {{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}
-                                        {% else %}
-                                            <div style="display: none">{{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}</div>
-                                        {% endif %}
-                                    </div>
+                                    {% if app.user.rolRel.nombre == "ROLE_ADMIN" or app.user.rolRel.nombre == "ROLE_SUPER_ADMIN" %}
+                                        {{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}
+                                    {% else %}
+                                        <div style="display: none">{{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}</div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-                        {{ form_end(form) }}
                     </div>
+                    {{ form_end(form) }}
                 </div>
-                    <div class="col-lg-11">
-                        {% if app.user.rolRel.nombre == "ROLE_ADMIN" %}
-                            <a class="btn btn-default btn-sm" href="{{ path('novedad_lista') }}">Agregar novedad</a>
-                        {% endif %}
+                <div class="panel panel-success">
+                    <div class="panel-heading">Solucionados</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="lista" class="table table-striped table-condensed table-hover table-bordered">
+                                <thead>
+                                    <tr class="primary">
+                                        <th class="active">Id</th>
+                                        <th class="active">Asunto</th>
+                                        <th class="active">Prioridad</th>
+                                        <th class="active">Categoria</th>
+                                        <th class="active">Descripcion</th>
+                                        <th class="active">Fecha reg</th>
+                                        <th class="active">Fecha sol</th>
+                                        <th class="active">Ate</th>
+                                        <th class="active">Sol</th>
+                                        <th class="active"></th>
+                                        <th class="active"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for arIncidenciaSolucionado in arIncidenciaSolucionado %}
+                                        <tr>
+                                            <td>{{ arIncidenciaSolucionado.codigoIncidenciaPk }}</td>
+                                            <td>{{ arIncidenciaSolucionado.titulo }}</td>
+                                            <td>{{ arIncidenciaSolucionado.prioridadRel.nombre }}</td>
+                                            <td>{{ arIncidenciaSolucionado.categoriaRel.nombre}}</td>
+                                            <td>{{ arIncidenciaSolucionado.descripcion}}</td>
+                                            <td>{{ arIncidenciaSolucionado.fechaRegistro|date('d/m/Y H:i') }}</td>
+                                            {% if (arIncidenciaSolucionado.fechaSolucion is null) %}
+                                                <td></td>
+                                            {% else %}
+                                                <td>{{ arIncidenciaSolucionado.fechaSolucion|date('d/m/Y H:i') }}</td>
+                                            {% endif %}
+                                            <td>{%if arIncidenciaSolucionado.estadoAtendido == 0 %}  No {%else%}  Si ({{ arIncidenciaSolucionado.usuarioAsignado }}) {% endif %}</td>
+                                            <td>{%if arIncidenciaSolucionado.estadoSolucionado == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                            <td style="text-align: center">
+                                                <a href="{{ path('caso_admin_detalle',{'codigoIncidencia':arIncidenciaSolucionado.codigoIncidenciaPk}) }}">
+                                                    <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
+                                                </a>
+                                            </td>
+                                            <td style="text-align: center">
+                                                {% if app.user.rolRel.nombre == "ROLE_USER" and arIncidenciaSolucionado.estadoAtendido == 0 %}
+                                                    <a href="{{ path('caso_admin_nuevo',{'codigoIncidencia':arIncidenciaSolucionado.codigoIncidenciaPk}) }}">
+                                                        <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
+                                                    </a>
+                                                {% elseif app.user.rolRel.nombre == "ROLE_ADMIN" or app.user.rolRel.nombre == "ROLE_SUPER_ADMIN"  %}
+                                                    <a href="{{ path('caso_admin_editar',{'codigoIncidencia':arIncidenciaSolucionado.codigoIncidenciaPk}) }}">
+                                                        <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
+                                                    </a>
+
+                                                {% endif  %}
+                                            </td>
+                                        </tr>
+                                    {% endfor%}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <div class="col-lg-1">
-                        <a class="btn btn-default btn-sm" href="{{ path('logout') }}">Salir</a>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12"></div>
-                    </div><br><br><br>
+                    {{ form_end(form) }}
+                </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 {% endblock %}
 
