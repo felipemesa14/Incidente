@@ -14,6 +14,14 @@ class DocumentacionController extends Controller {
 
         return $this->render('AppBundle:Web/documentacion/recursoHumano:lista.html.twig');
     }
+    
+    /**
+     * @Route("documentacion/turno", name="turno")
+     */
+    public function turnoAction() {
+
+        return $this->render('AppBundle:Web/documentacion/turno:lista.html.twig');
+    }
 
 
 
