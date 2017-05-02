@@ -65,7 +65,7 @@
                             <div class="btn-group btn-sm" style="float: left;margin-left: 0px;padding-top: 0px;">
                                 {{ knp_pagination_render(arTarea) }}       
                             </div>
-                            <div class="btn-group">
+                            <div class="btn-group" style="float: right;padding-top: 20px;">
                                 {% if app.user.rolRel.nombre == "ROLE_SUPER_ADMIN" %}
                                     <a class="btn btn-primary btn-sm" href="{{ path('tarea_nuevo',{codigoTarea:0}) }}">Nuevo</a>
                                     {{ form_widget(form.BtnEliminar, { 'attr': {'class': 'btn btn-danger btn-sm'} }) }}
@@ -91,7 +91,8 @@
                                         <th class="active">Fecha ini</th>
                                         <th class="active">Fecha fin</th>
                                         <th class="active">%</th>
-                                        <th class="active">Finalizado</th>
+                                        <th class="active">Fin</th>
+                                        <th class="active">rev</th>
                                         <th class="active"></th>
                                         <th class="active"></th>
                                     </tr>
@@ -108,6 +109,7 @@
                                             <td>{{ arTareaFinalizado.fechaFinal|date('d/m/Y') }}</td>
                                             <td>{{ arTareaFinalizado.porcentaje }}</td>
                                             <td>{%if arTareaFinalizado.finalizado == 0 %}  No {%else%}  Si  {% endif %}</td>
+                                            <td>{%if arTareaFinalizado.revisado == 0 %}  No {%else%}  Si  {% endif %}</td>
                                             <td style="text-align: center">
                                                 <a href="{{ path('tarea_nuevo',{'codigoTarea':arTareaFinalizado.codigoTareaPk}) }}">
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    

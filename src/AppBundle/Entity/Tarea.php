@@ -71,6 +71,13 @@ class Tarea
     private $finalizado = false;
     
     /**
+     * @var int
+     *
+     * @ORM\Column(name="revisado", type="boolean")
+     */
+    private $revisado = false;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="descripcion", type="string", length=1000)
@@ -423,5 +430,29 @@ class Tarea
     public function getComentario()
     {
         return $this->comentario;
+    }
+
+    /**
+     * Set revisado
+     *
+     * @param boolean $revisado
+     *
+     * @return Tarea
+     */
+    public function setRevisado($revisado)
+    {
+        $this->revisado = $revisado;
+
+        return $this;
+    }
+
+    /**
+     * Get revisado
+     *
+     * @return boolean
+     */
+    public function getRevisado()
+    {
+        return $this->revisado;
     }
 }
