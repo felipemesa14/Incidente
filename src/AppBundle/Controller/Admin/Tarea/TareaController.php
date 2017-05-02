@@ -92,10 +92,12 @@ class TareaController extends Controller {
         $form = $this->createForm(TareaDetalleType::class, $arTarea);
         $form->handleRequest($request);
         //Validar el formulario para realizar el envio y almcenamiento de los datos
-        if ($form->isSubmitted() && $form->isValid()) {            
+        if ($form->isSubmitted() && $form->isValid()) {
             $revisado = $request->request->get('chkRevisado');
+            if ($revisado != NULL) {
+                $arTarea->setRevisado($revisado);
+            }
             $arTarea = $form->getData();
-            $arTarea->setRevisado($revisado);
             $em->persist($arTarea);
             $em->flush();
             return $this->redirectToRoute('tarea_lista');
