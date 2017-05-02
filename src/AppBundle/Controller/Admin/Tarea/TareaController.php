@@ -52,7 +52,7 @@ class TareaController extends Controller {
                                 'finalizado' => 0)), $request->query->get('page', 1), 20);
             $arTareaFinalizado = $paginator->paginate($em->getRepository('AppBundle:Tarea')
                             ->findBy(array('usuarioAsignadoRel' => $arUsuario,
-                                'finalizado' => 1)), $request->query->get('page', 1), 20);
+                                'finalizado' => 1), array('fechaInicio' => 'DESC')), $request->query->get('page', 1), 20);
         }
         return $this->render('AppBundle:Admin/Tarea:lista.html.twig', array('arTarea' => $arTarea,
                     'arTareaFinalizado' => $arTareaFinalizado,
