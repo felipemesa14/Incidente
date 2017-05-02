@@ -45,7 +45,7 @@ class TareaController extends Controller {
             $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
                             ->findByFinalizado(0), $request->query->get('page', 1), 20);
             $arTareaFinalizado = $paginator->paginate($em->getRepository('AppBundle:Tarea')
-                            ->findByFinalizado(1), $request->query->get('page', 1), 20);
+                            ->findByFinalizado(1, array('fechaInicio' => 'DESC')), $request->query->get('page', 1), 20);
         } else {
             $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
                             ->findBy(array('usuarioAsignadoRel' => $arUsuario,
