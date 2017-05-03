@@ -46,9 +46,9 @@ class CasoController extends Controller {
             }
         }
         $arIncidencia = $paginator->paginate($em->getRepository('AppBundle:Incidencia')
-                        ->findByestadoSolucionado(0, array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
+                        ->findBy(array('estadoSolucionado'=>0), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
         $arIncidenciaSolucionados = $paginator->paginate($em->getRepository('AppBundle:Incidencia')
-                        ->findByestadoSolucionado(1, array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
+                        ->findBy(array('estadoSolucionado'=>1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
         return $this->render('AppBundle:Admin/Caso:lista.html.twig', array(
                     'arIncidencia' => $arIncidencia,
                     'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
