@@ -43,9 +43,9 @@ class TareaController extends Controller {
         //Validacion tipo de usuario para mostrar el listado de las incidencias reportados
         if ($arUsuario->getRolRel()->getNombre() == "ROLE_SUPER_ADMIN") {
             $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
-                            ->findByFinalizado(0), $request->query->get('page', 1), 20);
+                            ->findBy(array('finalizado' => 0)), $request->query->get('page', 1), 20);
             $arTareaFinalizado = $paginator->paginate($em->getRepository('AppBundle:Tarea')
-                            ->findBy(array('finalizado' => 0, 'revisado' => 1), array('fechaInicio' => 'DESC')), $request->query->get('page', 1), 20);
+                            ->findBy(array('finalizado' => 1, 'revisado' => 1), array('fechaInicio' => 'DESC')), $request->query->get('page', 1), 20);
         } else {
             $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
                             ->findBy(array('usuarioAsignadoRel' => $arUsuario,
