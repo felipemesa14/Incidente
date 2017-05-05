@@ -80,7 +80,13 @@
     <script type="text/javascript" src="{{ asset('public/web/js/tms_presets.js')}}"></script>
     <script type="text/javascript" src="{{ asset('public/web/js/jcarousellite.js')}}"></script>
     <script type="text/javascript" src="{{ asset('public/web/js/script.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('public/web/js/tabs.js')}}"></script>  
-    <!--<script type="text/javascript"> Cufon.now();</script>-->
+    <script type="text/javascript" src="{{ asset('public/web/js/tabs.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+    $('#myModal').modal('show');
+});
+  </script>
 {% endblock %}
 </html>
