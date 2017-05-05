@@ -1,8 +1,7 @@
 {% extends "baseweb.html.twig" %}
 {% block body %}
-    <link href="{{ asset('public/Boostrap/css/app.css') }}" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link href="{{ asset('public/Boostrap/css/app.css') }}" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <body id="page5">
         <!--<div class="wrapper">
             <div class="slider">
@@ -123,6 +122,34 @@
                     </div>
                 </div>
             </article>
-        </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content warning">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title danger"><strong>OOPPS TENEMOS INCONVENIENTES</strong></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Pedimos disculpas a nuestros clientes, nos encontramos sin linea de soporte.<br>
+                                Por lo cual ponemos a disposicion los siguientes contactos.<br><br>
+                                Juan Felipe Tangarife: 301 4735995<br>
+                                Sebastian Orozco: 314 7701335<br>
+                                Mario Estrada: 320 5015059<br><br>
+                                <strong>Horario de atenci&oacute;n</strong><br>
+                                        Lunes - Viernes <br>
+                                        7:30 AM - 05:30 PM
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>                 
     {% endblock %}
+
 
