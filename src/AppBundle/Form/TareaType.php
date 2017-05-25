@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TareaType extends AbstractType {
 
@@ -46,6 +47,11 @@ class TareaType extends AbstractType {
                     'required' => true))
                 ->add('fechaInicio', DateType::class, array('data' => new \DateTime("now"), 'widget' => 'single_text', 'format' => 'yyyy-MM-dd', 'attr' => array('class' => 'date',)))
                 ->add('fechaFinal', DateType::class, array('data' => new \DateTime("now"), 'widget' => 'single_text', 'format' => 'yyyy-MM-dd', 'attr' => array('class' => 'date',)))
+                ->add('finalizado', ChoiceType::class, array(
+                    'choices' => array(
+                        'No' => '0',
+                        'Si' => '1',
+                )))
                 ->add('porcentaje')
                 ->add('descripcion', TextareaType::class)
                 ->add('guardar', SubmitType::class, array(
