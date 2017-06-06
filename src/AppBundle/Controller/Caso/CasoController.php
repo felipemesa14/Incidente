@@ -86,7 +86,7 @@ class CasoController extends Controller {
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {
-                $correoEnviar = array('sogaimplementacion@gmail.com', 'sogasoporte@gmail.com', 'sogasoporte2@gmail.com');
+                $correoEnviar = array('sogaimplementacion@gmail.com', 'soporte1@appsoga.com', 'soporte2@appsoga.com');
                 $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
             return $this->redirectToRoute('caso_lista');
