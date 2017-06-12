@@ -1,8 +1,7 @@
 {% extends "baseweb.html.twig" %}
 {% block body %}
-    <body id="page5">
+    <!--<body id="page5">
         <div class="main">
-            <!-- content -->
             <article id="content">
                 <h2 class="under">Documentacion</h2>
                 <div class="wrapper">
@@ -56,6 +55,69 @@
                     </section>
                 </div>
             </article>
+        </div>
+    </body>-->
+    <link href="{{ asset('public/Boostrap/css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <body id="page5">
+        <div class="container">
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Temas</div>
+                        <div class="panel-body">
+                            <table id="lista" class="tamaño table-responsive table table-striped table-condensed table-hover table-bordered">
+                                <thead>
+                                    <tr class="primary">
+                                        <th class="active">Codigo</th>
+                                        <th class="active">Modulo</th>
+                                        <th class="active">Funcion</th>
+                                        <th class="active">Grupo</th>
+                                        <th class="active">Descripcion</th>
+                                        <th class="active">Orden</th>
+                                        <th class="active"></th>
+                                        <th class="active"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for arTemas in arTemas %}
+                                        <tr>
+                                            <td>{{ arTemas.codigoTemaPk }}</td>
+                                            <td>{{ arTemas.moduloRel.nombre }}</td>
+                                            <td>{{ arTemas.funcionRel.nombre }}</td>
+                                            <td>{{ arTemas.grupoRel.nombre}}</td>
+                                            <td>{{ arTemas.nombre}}</td>
+                                            <td>{{ arTemas.orden}}</td>
+                                            <td style="text-align: center">
+                                                    <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
+                                            </td>
+                                            <td style="text-align: center">
+                                               <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
+                                            </td>
+                                        </tr>
+                                    {% endfor%}
+                                </tbody>
+                            </table>
+                            <div class="btn-toolbar">            
+                                <div class="btn-group" style="float: left;padding-top: 20px;">
+                                    <div class="btn btn-default btn-sm">Registros <span class="badge">{{ arTemas.getTotalItemCount }}</span></div>                        
+                                </div>
+
+                                <div class="btn-group btn-sm" style="float: left;margin-left: 0px;padding-top: 0px;">
+                                    {{ knp_pagination_render(arTemas) }}       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <a class="btn btn-default btn-sm" href="{{ path('logout') }}">Salir</a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12"></div>
+                </div><br><br><br>
+            </div>
         </div>
     </body>
 {% endblock %}
