@@ -27,13 +27,13 @@ class AyGrupo
      * @ORM\Column(name="codigo_modulo_fk", type="integer", nullable=true)
      */
     private $codigoModuloFk;
-
+    
     /**
      * @var int
      *
-     * @ORM\Column(name="condigo_funcion_fk", type="integer", nullable=true)
+     * @ORM\Column(name="codigo_funcion_fk", type="integer", nullable=true)
      */
-    private $condigoFuncionFk;
+    private $codigoFuncionFk;
 
     /**
      * @var string
@@ -61,11 +61,12 @@ class AyGrupo
      */
     protected $funcionRel;
     
+    
     /**
      * @ORM\OneToMany(targetEntity="AyTema", mappedBy="$moduloRel")
      */
     protected $temasModuloRel;
-
+    
     /**
      * Constructor
      */
@@ -106,30 +107,6 @@ class AyGrupo
     public function getCodigoModuloFk()
     {
         return $this->codigoModuloFk;
-    }
-
-    /**
-     * Set condigoFuncionFk
-     *
-     * @param integer $condigoFuncionFk
-     *
-     * @return AyGrupo
-     */
-    public function setCondigoFuncionFk($condigoFuncionFk)
-    {
-        $this->condigoFuncionFk = $condigoFuncionFk;
-
-        return $this;
-    }
-
-    /**
-     * Get condigoFuncionFk
-     *
-     * @return integer
-     */
-    public function getCondigoFuncionFk()
-    {
-        return $this->condigoFuncionFk;
     }
 
     /**
@@ -205,30 +182,6 @@ class AyGrupo
     }
 
     /**
-     * Set funcionRel
-     *
-     * @param \AppBundle\Entity\AyFuncion $funcionRel
-     *
-     * @return AyGrupo
-     */
-    public function setFuncionRel(\AppBundle\Entity\AyFuncion $funcionRel = null)
-    {
-        $this->funcionRel = $funcionRel;
-
-        return $this;
-    }
-
-    /**
-     * Get funcionRel
-     *
-     * @return \AppBundle\Entity\AyFuncion
-     */
-    public function getFuncionRel()
-    {
-        return $this->funcionRel;
-    }
-
-    /**
      * Add temasModuloRel
      *
      * @param \AppBundle\Entity\AyTema $temasModuloRel
@@ -260,5 +213,53 @@ class AyGrupo
     public function getTemasModuloRel()
     {
         return $this->temasModuloRel;
+    }
+
+    /**
+     * Set codigoFuncionFk
+     *
+     * @param integer $codigoFuncionFk
+     *
+     * @return AyGrupo
+     */
+    public function setCodigoFuncionFk($codigoFuncionFk)
+    {
+        $this->codigoFuncionFk = $codigoFuncionFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoFuncionFk
+     *
+     * @return integer
+     */
+    public function getCodigoFuncionFk()
+    {
+        return $this->codigoFuncionFk;
+    }
+
+    /**
+     * Set funcionRel
+     *
+     * @param \AppBundle\Entity\AyFuncion $funcionRel
+     *
+     * @return AyGrupo
+     */
+    public function setFuncionRel(\AppBundle\Entity\AyFuncion $funcionRel = null)
+    {
+        $this->funcionRel = $funcionRel;
+
+        return $this;
+    }
+
+    /**
+     * Get funcionRel
+     *
+     * @return \AppBundle\Entity\AyFuncion
+     */
+    public function getFuncionRel()
+    {
+        return $this->funcionRel;
     }
 }

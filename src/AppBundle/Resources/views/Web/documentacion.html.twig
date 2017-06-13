@@ -1,124 +1,40 @@
 {% extends "baseweb.html.twig" %}
 {% block body %}
-    <!--<body id="page5">
+    <body id="page5">
         <div class="main">
             <article id="content">
-                <h2 class="under">Documentacion</h2>
+                <h2 class="under">AYUDA</h2>
                 <div class="wrapper">
+                    {% for arModulos in arModulos %}
                     <section class="cols11">
                         <div class="wrapper pad_bot2">
-                            <h3><span class="dropcap">1</span>Recurso humano</h3>
-                            <figure><img src="{{ asset('public/web/images/page4_img5.jpg')}}" alt=""></figure>
-                            <p class="pad_bot1">Paquete de documentacion del modulo de recursos humanos, normatividad y actualizaciones.</p>
-                            <a href="{{ path('recurso_humano') }}" class="link1">Leer mas</a>
-                        </div>
-                    </section>       
-                    <section class="cols11 pad_left1">
-                        <div class="wrapper pad_bot2">
-                            <h3><span class="dropcap">2</span>Turnos</h3>
-                            <figure><img src="{{ asset('public/web/images/page4_img1.jpg')}}" alt=""></figure>
-                            <p class="pad_bot1">Video tutoriales y contenido para el manejo del modulo turnos. Documentacion relacionada.</p>
-                            <a href="{{ path('turno') }}" class="link1">Leer mas</a>
-                        </div>
-                    </section> 
-                    <section class="cols11 pad_left1">
-                        <div class="wrapper pad_bot2">
-                            <h3><span class="dropcap">3</span>Cartera</h3>
-                            <figure><img src="{{ asset('public/web/images/page4_img2.jpg')}}" alt=""></figure>
-                            <p class="pad_bot1">Losgistica de transporte, documentacion de la aplicacion y los procesos que maneja el sistema.</p>
-                            <a href="#" class="link1">Leer mas</a>
-                        </div><br>
-                    </section>
-                    <section class="cols11">
-                        <div class="wrapper">
-                            <h3><span class="dropcap">4</span>Inventario</h3>
-                            <figure><img src="{{ asset('public/web/images/page4_img6.jpg')}}" alt=""></figure>
-                            <p class="pad_bot1">Procesos de inventario, instructivos y manuales de uso de la aplicacion, nuevas tecnicas de costeco y actualizaciones.</p>
-                            <a href="#" class="link1">Leer mas</a>
+                            <h3><span class="dropcap">{{ arModulos.codigoModuloPk}}</span>{{ arModulos.nombre}}</h3>
+                            <div class="wrapper pad_bot2"><br>
+                                <ul id="icons2" style="margin-left:50px">
+                                    {% for arFunciones in arFunciones %}
+                                    <li class="treeview" style="margin-left:25px"><img src="{{ asset('public/web/images/button_white.png')}}"><strong>{{ arFunciones.nombre}}</strong></li>
+                                    <!--<li class="treeview" style="margin-left:50px"><img src="{{ asset('public/web/images/button_black.png')}}">Seleccion</li>
+                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Requisicion</a></li>
+                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Aspirante</a></li>
+                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Seleccion</a></li>
+                                    
+                                    
+                                    <li class="treeview" style="margin-left:50px"><img src="{{ asset('public/web/images/button_black.png')}}">Seguridad social</li>
+                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Examen</a></li>
+                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Pago examen</a></li>-->
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </section>
-                    <section class="cols11 pad_left1">
-                        <div class="wrapper pad_bot2">
-                            <h3><span class="dropcap">5</span>Contabilidad</h3>
-                            <figure><img src="{{ asset('public/web/images/page4_img3.jpg')}}" alt=""></figure>
-                            <p class="pad_bot1">Documentacion de la apliacion y recursos de tutoria para manejar la contabilidad son soga app.</p>
-                            <a href="#" class="link1">Leer mas</a>
-                        </div>
-                    </section>
-                    <section class="cols11 pad_left1">
-                        <div class="wrapper">
-                            <h3><span class="dropcap">6</span>General</h3>
-                            <figure><img src="{{ asset('public/web/images/page4_img4.jpg')}}" alt=""></figure>
-                            <p class="pad_bot1">Instructivo para manejo de herramientas tipo general, calendario, tareas, proyectos, gestor de archivos entre otras.</p>
-                            <a href="documentacion/herramienta/lista.php" class="link1">Leer mas</a>
-                        </div>
-                    </section>
+                    {% endfor %}
+                    {% for arTemas in arTemas %}
+                    
+                    {% endfor %}
                 </div>
             </article>
         </div>
-    </body>-->
-    <link href="{{ asset('public/Boostrap/css/app.css') }}" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <body id="page5">
-        <div class="container">
-            <div class="row" style="margin-top:20px;">
-                <div class="col-md-12">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">Temas</div>
-                        <div class="panel-body">
-                            <table id="lista" class="tamaño table-responsive table table-striped table-condensed table-hover table-bordered">
-                                <thead>
-                                    <tr class="primary">
-                                        <th class="active">Codigo</th>
-                                        <th class="active">Modulo</th>
-                                        <th class="active">Funcion</th>
-                                        <th class="active">Grupo</th>
-                                        <th class="active">Descripcion</th>
-                                        <th class="active">Orden</th>
-                                        <th class="active"></th>
-                                        <th class="active"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for arTemas in arTemas %}
-                                        <tr>
-                                            <td>{{ arTemas.codigoTemaPk }}</td>
-                                            <td>{{ arTemas.moduloRel.nombre }}</td>
-                                            <td>{{ arTemas.funcionRel.nombre }}</td>
-                                            <td>{{ arTemas.grupoRel.nombre}}</td>
-                                            <td>{{ arTemas.nombre}}</td>
-                                            <td>{{ arTemas.orden}}</td>
-                                            <td style="text-align: center">
-                                                <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">   
-                                            </td>
-                                            <td style="text-align: center">
-                                                <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle"> 
-                                            </td>
-                                        </tr>
-                                    {% endfor%}
-                                </tbody>
-                            </table>
-                            <div class="btn-toolbar">            
-                                <div class="btn-group" style="float: left;padding-top: 20px;">
-                                    <div class="btn btn-default btn-sm">Registros <span class="badge">{{ arTemas.getTotalItemCount }}</span></div>                        
-                                </div>
-
-                                <div class="btn-group btn-sm" style="float: left;margin-left: 0px;padding-top: 0px;">
-                                    {{ knp_pagination_render(arTemas) }}       
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-1">
-                    <a class="btn btn-default btn-sm" href="{{ path('logout') }}">Salir</a>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12"></div>
-                </div><br><br><br>
-            </div>
-        </div>
     </body>
+
 {% endblock %}
 
