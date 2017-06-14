@@ -5,32 +5,40 @@
             <article id="content">
                 <h2 class="under">AYUDA</h2>
                 <div class="wrapper">
-                    {% for arModulos in arModulos %}
-                    <section class="cols11">
-                        <div class="wrapper pad_bot2">
-                            <h3><span class="dropcap">{{ arModulos.codigoModuloPk}}</span>{{ arModulos.nombre}}</h3>
-                            <div class="wrapper pad_bot2"><br>
-                                <ul id="icons2" style="margin-left:50px">
-                                    {% for arFunciones in arFunciones %}
-                                    <li class="treeview" style="margin-left:25px"><img src="{{ asset('public/web/images/button_white.png')}}"><strong>{{ arFunciones.nombre}}</strong></li>
-                                    <!--<li class="treeview" style="margin-left:50px"><img src="{{ asset('public/web/images/button_black.png')}}">Seleccion</li>
-                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Requisicion</a></li>
-                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Aspirante</a></li>
-                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Seleccion</a></li>
-                                    
-                                    
-                                    <li class="treeview" style="margin-left:50px"><img src="{{ asset('public/web/images/button_black.png')}}">Seguridad social</li>
-                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Examen</a></li>
-                                    <li class="treeview" style="margin-left:70px"><a href="#"><img width="17" height="17" src="{{ asset('public/web/images/dropcap1.gif')}}">Pago examen</a></li>-->
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    {% endfor %}
+                    <table>
+                    {% set intCodigoModulo = '' %}
                     {% for arTemas in arTemas %}
-                    
+                        {% if intCodigoModulo != arTemas.codigoModuloFk %}
+                            <tr>                                
+                                <td>{{ arTemas.modulo }}</td>
+                                <td colspan="3"></td>
+                            </tr>
+                            {% set intCodigoModulo = arTemas.codigoModuloFk %} 
+                            {% set intCodigoFuncion = '' %}
+                        {% endif %}
+                        {% if intCodigoFuncion != arTemas.codigoFuncionFk %}
+                            <tr>                        
+                                <td colspan="1"></td>
+                                <td>{{ arTemas.funcion }}</td>
+                                <td colspan="2"></td>
+                            </tr>
+                            {% set intCodigoFuncion = arTemas.codigoFuncionFk %}
+                            {% set intCodigoGrupo = '' %}                    
+                        {% endif %}  
+                        {% if intCodigoGrupo != arTemas.codigoGrupoFk %}
+                            <tr>                        
+                                <td colspan="2"></td>
+                                <td>{{ arTemas.grupo }}</td>
+                                <td colspan="1"></td>
+                            </tr>                            
+                            {% set intCodigoGrupo = arTemas.codigoGrupoFk %}                    
+                        {% endif %}                                                
+                        <tr>
+                            <td colspan="3"></td>
+                            <td>{{ arTemas.tema }}</td>
+                        </tr>
                     {% endfor %}
+                    </table>
                 </div>
             </article>
         </div>

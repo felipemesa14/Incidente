@@ -13,16 +13,13 @@ class AyudaController extends Controller {
      */
     public function listaAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $arModulos = new \AppBundle\Entity\AyModulo();
-        $arModulos = $em->getRepository('AppBundle:AyModulo')->findAll(array(), array('codigoModuloPk' => 'DESC'));
-        $arFunciones = new \AppBundle\Entity\AyFuncion();
-        $arFunciones = $em->getRepository('AppBundle:AyFuncion')->findAll(array(), array('codigoFuncionPk' => 'DESC'));
-        $arTemas = $em->getRepository('AppBundle:AyTema')
-                ->findAll(array(), array('codigoModuloFk' => 'DESC', 'codigoGrupoFk' => 'DESC'));
+        $dql   = "SELECT m.nombre as modulo, f.nombre as funcion, g.nombre as grupo, t.nombre as tema, t.codigoModuloFk, t.codigoFuncionFk, t.codigoGrupoFk FROM AppBundle:AyTema t JOIN t.moduloRel m JOIN t.funcionRel f JOIN t.grupoRel g "
+                . "ORDER BY t.codigoModuloFk, t.codigoFuncionFk, t.codigoGrupoFk, t.orden";
+        $query = $em->createQuery($dql);
+        $arTemas = $query->getResult();         
+        
         return $this->render('AppBundle:Web:documentacion.html.twig', array(
-                    'arTemas' => $arTemas,
-                    'arModulos' => $arModulos,
-                    'arFunciones' => $arFunciones));
+                    'arTemas' => $arTemas));
     }
 
 }
