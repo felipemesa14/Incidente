@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * AyTema
@@ -46,6 +47,7 @@ class AyTema
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=100)
+     * @Assert\NotBlank(message="Este campo no puede estar vacio")
      */
     private $nombre;
 
@@ -57,20 +59,37 @@ class AyTema
     private $orden;
     
     /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=500, nullable=true)
+     */
+    private $descripcion;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenido", type="string", length=1000, nullable=true)
+     */
+    private $contenido;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="AyModulo", inversedBy="temasModuloRel")
      * @ORM\JoinColumn(name="codigo_modulo_fk", referencedColumnName="codigo_modulo_pk")
+     * @Assert\NotNull(message="Seleccione un elemento")
      */
     protected $moduloRel;
     
     /**
      * @ORM\ManyToOne(targetEntity="AyFuncion", inversedBy="temasFuncionRel")
      * @ORM\JoinColumn(name="codigo_funcion_fk", referencedColumnName="codigo_funcion_pk")
+     * @Assert\NotNull(message="Seleccione un elemento")
      */
     protected $funcionRel;
     
     /**
      * @ORM\ManyToOne(targetEntity="AyGrupo", inversedBy="temasGrupoRel")
      * @ORM\JoinColumn(name="codigo_grupo_fk", referencedColumnName="codigo_grupo_pk")
+     * @Assert\NotNull(message="Seleccione un elemento")
      */
     protected $grupoRel;
 
@@ -275,5 +294,53 @@ class AyTema
     public function getGrupoRel()
     {
         return $this->grupoRel;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     *
+     * @return AyTema
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set contenido
+     *
+     * @param string $contenido
+     *
+     * @return AyTema
+     */
+    public function setContenido($contenido)
+    {
+        $this->contenido = $contenido;
+
+        return $this;
+    }
+
+    /**
+     * Get contenido
+     *
+     * @return string
+     */
+    public function getContenido()
+    {
+        return $this->contenido;
     }
 }

@@ -6,38 +6,41 @@
                 <h2 class="under">AYUDA</h2>
                 <div class="wrapper">
                     <table>
-                    {% set intCodigoModulo = '' %}
-                    {% for arTemas in arTemas %}
-                        {% if intCodigoModulo != arTemas.codigoModuloFk %}
-                            <tr>                                
-                                <td>{{ arTemas.modulo }}</td>
+                        {% set intCodigoModulo = '' %}
+                        {% for arTemas in arTemas %}
+                            {% if intCodigoModulo != arTemas.codigoModuloFk %}
+                                <tr>                                
+                                    <td>{{ arTemas.modulo }}</td>
+                                    <td colspan="3"></td>
+                                </tr>
+                                {% set intCodigoModulo = arTemas.codigoModuloFk %} 
+                                {% set intCodigoFuncion = '' %}
+                            {% endif %}
+                            {% if intCodigoFuncion != arTemas.codigoFuncionFk %}
+                                <tr>                        
+                                    <td colspan="1"></td>
+                                    <td>{{ arTemas.funcion }}</td>
+                                    <td colspan="2"></td>
+                                </tr>
+                                {% set intCodigoFuncion = arTemas.codigoFuncionFk %}
+                                {% set intCodigoGrupo = '' %}                    
+                            {% endif %}  
+                            {% if intCodigoGrupo != arTemas.codigoGrupoFk %}
+                                <tr>                        
+                                    <td colspan="2"></td>
+                                    <td>{{ arTemas.grupo }}</td>
+                                    <td colspan="1"></td>
+                                </tr>                            
+                                {% set intCodigoGrupo = arTemas.codigoGrupoFk %}                    
+                            {% endif %}                                                
+                            <tr>
                                 <td colspan="3"></td>
+                                <td>{% if app.user %}
+                                        {% if app.user.rolRel.nombre == "ROLE_ADMIN" or app.user.rolRel.nombre == "ROLE_SUPER_ADMIN"  %}<a href="{{ path('web_ayuda_nuevo',{'codigoTema':arTemas.codigoTemaPk}) }}">{{ arTemas.tema }}</a>{% endif %}
+                                    {% else %}{{ arTemas.tema }}{% endif %}
+                                </td>
                             </tr>
-                            {% set intCodigoModulo = arTemas.codigoModuloFk %} 
-                            {% set intCodigoFuncion = '' %}
-                        {% endif %}
-                        {% if intCodigoFuncion != arTemas.codigoFuncionFk %}
-                            <tr>                        
-                                <td colspan="1"></td>
-                                <td>{{ arTemas.funcion }}</td>
-                                <td colspan="2"></td>
-                            </tr>
-                            {% set intCodigoFuncion = arTemas.codigoFuncionFk %}
-                            {% set intCodigoGrupo = '' %}                    
-                        {% endif %}  
-                        {% if intCodigoGrupo != arTemas.codigoGrupoFk %}
-                            <tr>                        
-                                <td colspan="2"></td>
-                                <td>{{ arTemas.grupo }}</td>
-                                <td colspan="1"></td>
-                            </tr>                            
-                            {% set intCodigoGrupo = arTemas.codigoGrupoFk %}                    
-                        {% endif %}                                                
-                        <tr>
-                            <td colspan="3"></td>
-                            <td>{{ arTemas.tema }}</td>
-                        </tr>
-                    {% endfor %}
+                        {% endfor %}
                     </table>
                 </div>
             </article>
