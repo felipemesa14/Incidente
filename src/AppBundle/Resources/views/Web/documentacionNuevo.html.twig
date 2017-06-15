@@ -9,11 +9,21 @@
                 <div class="col-md-12">
                     <div class="panel panel-success">
                         <div class="panel-heading">Ayuda nuevo</div>
+                        {{ form_start(form, { 'attr': {'novalidate': 'novalidate'} }) }}
                         <div class="panel-body">
-                            {{ form_start(form, { 'attr': {'novalidate': 'novalidate'} }) }}
-                            {{ form_errors(form) }}
-                            {{ form_end(form) }}
+                            {{ form_row(form.moduloRel)}}
+                            {{ form_row(form.funcionRel)}}
+                            {{ form_row(form.grupoRel)}}
+                            {{ form_row(form.nombre)}}
+                            {{ form_row(form.orden)}}
+                            {{ form_row(form.descripcion)}}
+                            {{ form_row(form.contenido)}}
                         </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-default" target="_blank" href="{{ path('web_ayuda_detalle',{'codigoTema':arTema.codigoTemaPk}) }}">Vista previa</a>
+                            {{ form_widget(form.guardar)}}
+                        </div>
+                        {{ form_end(form)}}
                     </div>
                 </div>
             </div>

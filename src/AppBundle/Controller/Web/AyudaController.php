@@ -38,7 +38,7 @@ class AyudaController extends Controller {
             $arTema = $form->getData();
             $em->persist($arTema);
             $em->flush();
-            return $this->redirectToRoute('web_ayuda');
+            return $this->redirectToRoute('web_ayuda_nuevo', array('codigoTema' => $codigoTema));
         }
         return $this->render('AppBundle:Web:documentacionNuevo.html.twig', array(
                     'arTema' => $arTema,
