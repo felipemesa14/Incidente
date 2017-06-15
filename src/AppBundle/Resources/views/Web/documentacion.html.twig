@@ -37,7 +37,9 @@
                                 <td colspan="3"></td>
                                 <td>{% if app.user %}
                                         {% if app.user.rolRel.nombre == "ROLE_ADMIN" or app.user.rolRel.nombre == "ROLE_SUPER_ADMIN"  %}<a href="{{ path('web_ayuda_nuevo',{'codigoTema':arTemas.codigoTemaPk}) }}">{{ arTemas.tema }}</a>{% endif %}
-                                    {% else %}{{ arTemas.tema }}{% endif %}
+                                    {% else %}
+                                        <a href="{{ path('web_ayuda_detalle',{'codigoTema':arTemas.codigoTemaPk}) }}">{{ arTemas.tema }}</a>
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}

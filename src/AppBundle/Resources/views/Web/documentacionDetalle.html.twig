@@ -1,0 +1,47 @@
+{% extends "baseweb.html.twig" %}
+{% block body %}
+    <link href="{{ asset('public/Boostrap/css/app.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <body id="page5">
+        <div class="container">
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Ayuda detalle</div>
+                        <div class="panel-body">
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <table width="100%" class="table table-condensed">
+                                    <tbody>
+                                        <tr>
+                                            <td class="active"><strong>MODULO:</strong></td>
+                                            <td>{{arTema.moduloRel.nombre | default('')}}</td>
+                                            <td class="active"><strong>FUNCI&Oacute;N:</strong></td>
+                                            <td>{{arTema.funcionRel.nombre | default('')}}</td>
+                                            <td class="active"><strong>GRUPO:</strong></td>
+                                            <td>{{arTema.grupoRel.nombre | default('')}}</td>
+                                            <td class="active"><strong>NOMBRE:</strong></td>
+                                            <td>{{arTema.nombre | default('')}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <table width="100%" class="table table-condensed">
+                                    <tbody>
+                                        <tr><td class="active"><strong>DESCRIPCI&Oacute;N:</strong></td></tr>
+                                        <tr><td>{{arTema.descripcion}}</td></tr>
+                                        <tr><td class="active"><strong>CONTENIDO:</strong></td></tr>
+                                        <tr><td>{{arTema.contenido| raw}}</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="{{path('web_ayuda')}}" class="btn btn-default">Volver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+{% endblock %}
+
