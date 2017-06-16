@@ -1,0 +1,61 @@
+{% extends "baseweb.html.twig" %}
+{% block body %}
+    <body id="page5">
+        <div class="main">
+            <article id="content">
+                <h2 class="under">Documentacion</h2>
+                <div class="wrapper">
+                    <section class="cols11">
+                        <div class="wrapper pad_bot2">
+                            <h3><span class="dropcap">1</span>Recurso humano</h3>
+                            <figure><img src="{{ asset('public/web/images/page4_img5.jpg')}}" alt=""></figure>
+                            <p class="pad_bot1">Paquete de documentacion del modulo de recursos humanos, normatividad y actualizaciones.</p>
+                            <a href="{{ path('recurso_humano') }}" class="link1">Leer mas</a>
+                        </div>
+                    </section>       
+                    <section class="cols11 pad_left1">
+                        <div class="wrapper pad_bot2">
+                            <h3><span class="dropcap">2</span>Turnos</h3>
+                            <figure><img src="{{ asset('public/web/images/page4_img1.jpg')}}" alt=""></figure>
+                            <p class="pad_bot1">Video tutoriales y contenido para el manejo del modulo turnos. Documentacion relacionada.</p>
+                            <a href="{{ path('turno') }}" class="link1">Leer mas</a>
+                        </div>
+                    </section> 
+                    <section class="cols11 pad_left1">
+                        <div class="wrapper pad_bot2">
+                            <h3><span class="dropcap">3</span>Cartera</h3>
+                            <figure><img src="{{ asset('public/web/images/page4_img2.jpg')}}" alt=""></figure>
+                            <p class="pad_bot1">Losgistica de transporte, documentacion de la aplicacion y los procesos que maneja el sistema.</p>
+                            <a href="#" class="link1">Leer mas</a>
+                        </div><br>
+                    </section>
+                    <section class="cols11">
+                        <div class="wrapper">
+                            <h3><span class="dropcap">4</span>Inventario</h3>
+                            <figure><img src="{{ asset('public/web/images/page4_img6.jpg')}}" alt=""></figure>
+                            <p class="pad_bot1">Procesos de inventario, instructivos y manuales de uso de la aplicacion, nuevas tecnicas de costeco y actualizaciones.</p>
+                            <a href="#" class="link1">Leer mas</a>
+                        </div>
+                    </section>
+                    <section class="cols11 pad_left1">
+                        <div class="wrapper pad_bot2">
+                            <h3><span class="dropcap">5</span>Contabilidad</h3>
+                            <figure><img src="{{ asset('public/web/images/page4_img3.jpg')}}" alt=""></figure>
+                            <p class="pad_bot1">Documentacion de la apliacion y recursos de tutoria para manejar la contabilidad son soga app.</p>
+                            <a href="#" class="link1">Leer mas</a>
+                        </div>
+                    </section>
+                    <section class="cols11 pad_left1">
+                        <div class="wrapper">
+                            <h3><span class="dropcap">6</span>General</h3>
+                            <figure><img src="{{ asset('public/web/images/page4_img4.jpg')}}" alt=""></figure>
+                            <p class="pad_bot1">Instructivo para manejo de herramientas tipo general, calendario, tareas, proyectos, gestor de archivos entre otras.</p>
+                            <a href="documentacion/herramienta/lista.php" class="link1">Leer mas</a>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </body>
+{% endblock %}
+
