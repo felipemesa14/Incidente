@@ -57,7 +57,7 @@ class WebController extends Controller {
     }
 
     /**
-     * @Route("/ayuda/documentacion", name="web_ayuda_documentacion")
+     * @Route("/ayuda/documentacion", name="web_documentacion")
      */
     public function ayudaDocumentacionAction() {
 
