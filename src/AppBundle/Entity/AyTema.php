@@ -68,7 +68,7 @@ class AyTema
     /**
      * @var string
      *
-     * @ORM\Column(name="contenido", type="string", length=1000, nullable=true)
+     * @ORM\Column(name="contenido", type="string", length=100000, nullable=true)
      */
     private $contenido;
     
