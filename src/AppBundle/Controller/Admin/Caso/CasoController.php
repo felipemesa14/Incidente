@@ -5,12 +5,17 @@ namespace AppBundle\Controller\Admin\Caso;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use AppBundle\Form\IncidenciaType;
 use AppBundle\Form\IncidenciaAdminType;
 use AppBundle\Form\ComentarioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 
 class CasoController extends Controller {
+
+    var $strDqlLista = "";
 
     /**
      * @Route("admin/caso/lista", name="caso_admin_lista")
@@ -19,36 +24,22 @@ class CasoController extends Controller {
         $mensaje = '';
         $paginator = $this->get('knp_paginator');
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createFormBuilder()
-                ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
-                ->getForm();
+        $form = $this->formularioFiltro();
         $form->handleRequest($request);
+        $this->lista();
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->get('BtnEliminar')->isClicked()) {
                 $arrSeleccionados = $request->request->get('ChkSeleccionar');
-                if (count($arrSeleccionados) > 0) {
-                    foreach ($arrSeleccionados AS $codigoIncidencia) {
-                        $arIncidencia = $em->getRepository("AppBundle:Incidencia")->find($codigoIncidencia);
-                        if ($arIncidencia->getEstadoAtendido() == 0) {
-                            $arComentario = $em->getRepository("AppBundle:Comentario")->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
-                            if (count($arComentario > 0)) {
-                                foreach ($arComentario as $arComentario) {
-                                    $em->remove($arComentario);
-                                }
-                            }
-                            $em->remove($arIncidencia);
-                        } else {
-                            $mensaje = 'No se puede eliminar el caso despues de atendido';
-                        }
-                    }
-                    $em->flush();
-                }
+                $em->getRepository('AppBundle:Incidencia')->eliminarIncidente($arrSeleccionados);
+            }
+            if ($form->get('BtnFiltrar')->isClicked()) {
+                $this->filtrar($form);
+                $this->lista();
             }
         }
-        $arIncidencia = $paginator->paginate($em->getRepository('AppBundle:Incidencia')
-                        ->findBy(array('estadoSolucionado'=>0), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
+        $arIncidencia = $paginator->paginate($em->createQuery($this->strDqlLista), $request->query->get('page', 1), 20);
         $arIncidenciaSolucionados = $paginator->paginate($em->getRepository('AppBundle:Incidencia')
-                        ->findBy(array('estadoSolucionado'=>1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
+                        ->findBy(array('estadoSolucionado' => 1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
         return $this->render('AppBundle:Admin/Caso:lista.html.twig', array(
                     'arIncidencia' => $arIncidencia,
                     'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
@@ -153,6 +144,50 @@ class CasoController extends Controller {
                 ->setTo($correoEnviar)
                 ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia, 'arDetalleComentario' => $arDetalleComentario)), 'text/html');
         $this->get('mailer')->send($message);
+    }
+
+    private function lista() {
+        $session = new session;
+        $em = $this->getDoctrine()->getManager();
+        $this->strDqlLista = $em->getRepository('AppBundle:Incidencia')->listaDql(
+                $session->get('filtroCodigoCliente'));
+    }
+
+    private function filtrar($form) {
+        $session = new session;
+        $codigoCliente = '';
+        if ($form->get('clienteRel')->getData()) {
+            $codigoCliente = $form->get('clienteRel')->getData()->getCodigoClientePk();
+        }
+        $session->set('filtroCodigoCliente', $codigoCliente);
+    }
+
+    private function formularioFiltro() {
+        $em = $this->getDoctrine()->getManager();
+        $session = new session;
+        $arrayPropiedadesClientes = array(
+            'class' => 'AppBundle:Cliente',
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('c')
+                                ->orderBy('c.nombre', 'ASC');
+            },
+            'choice_label' => 'nombre',
+            'required' => false,
+            'empty_data' => "",
+            'placeholder' => "TODOS",
+            'data' => "",
+            'label' => "Cliente"
+        );
+        if ($session->get('filtroCodigoCliente')) {
+            $arrayPropiedadesClientes['data'] = $em->getReference("AppBundle:Cliente", $session->get('filtroCodigoCliente'));
+        }
+
+        $form = $this->createFormBuilder()
+                ->add('clienteRel', EntityType::class, $arrayPropiedadesClientes)
+                ->add('BtnFiltrar', SubmitType::class, array('label' => 'Filtrar'))
+                ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar',))
+                ->getForm();
+        return $form;
     }
 
 }
