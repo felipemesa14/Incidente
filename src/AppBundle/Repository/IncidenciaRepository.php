@@ -10,10 +10,13 @@ namespace AppBundle\Repository;
  */
 class IncidenciaRepository extends \Doctrine\ORM\EntityRepository {
 
-    public function listaDql($strCodigoCliente = "") {
+    public function listaDql($strCodigoCliente = "",$strCodigoCategoria = "") {
         $dql = "SELECT i FROM AppBundle:Incidencia i WHERE i.estadoSolucionado = 0";
         if ($strCodigoCliente != "") {
             $dql .= " AND i.codigoClienteFk = " . $strCodigoCliente;
+        }
+        if ($strCodigoCategoria != "") {
+            $dql .= " AND i.codigoCategoriaFk = " . $strCodigoCategoria;
         }
         $dql .= " ORDER BY i.fechaRegistro DESC";
         return $dql;

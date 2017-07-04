@@ -150,7 +150,7 @@ class CasoController extends Controller {
         $session = new session;
         $em = $this->getDoctrine()->getManager();
         $this->strDqlLista = $em->getRepository('AppBundle:Incidencia')->listaDql(
-                $session->get('filtroCodigoCliente'));
+                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'));
     }
 
     private function filtrar($form) {
@@ -160,6 +160,11 @@ class CasoController extends Controller {
             $codigoCliente = $form->get('clienteRel')->getData()->getCodigoClientePk();
         }
         $session->set('filtroCodigoCliente', $codigoCliente);
+        $codigoCategoria = '';
+        if ($form->get('categoriaRel')->getData()) {
+            $codigoCategoria = $form->get('categoriaRel')->getData()->getCodigoCategoriaPk();
+        }
+        $session->set('filtroCodigoCategoria', $codigoCategoria);
     }
 
     private function formularioFiltro() {
@@ -178,12 +183,30 @@ class CasoController extends Controller {
             'data' => "",
             'label' => "Cliente"
         );
+        $arrayPropiedadesCategoria = array(
+            'class' => 'AppBundle:Categoria',
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('c')
+                                ->orderBy('c.nombre', 'ASC');
+            },
+            'choice_label' => 'nombre',
+            'required' => false,
+            'empty_data' => "",
+            'placeholder' => "TODOS",
+            'data' => "",
+            'label' => "Categoria"
+        );
         if ($session->get('filtroCodigoCliente')) {
             $arrayPropiedadesClientes['data'] = $em->getReference("AppBundle:Cliente", $session->get('filtroCodigoCliente'));
         }
 
+        if ($session->get('filtroCodigoCategoria')) {
+            $arrayPropiedadesCategoria['data'] = $em->getReference("AppBundle:Categoria", $session->get('filtroCodigoCategoria'));
+        }
+
         $form = $this->createFormBuilder()
                 ->add('clienteRel', EntityType::class, $arrayPropiedadesClientes)
+                ->add('categoriaRel', EntityType::class, $arrayPropiedadesCategoria)
                 ->add('BtnFiltrar', SubmitType::class, array('label' => 'Filtrar'))
                 ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar',))
                 ->getForm();
