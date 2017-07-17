@@ -7,7 +7,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\IncidenciaType;
 use AppBundle\Form\IncidenciaAdminType;
-use AppBundle\Form\ComentarioType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CasoController extends Controller {
@@ -52,9 +53,9 @@ class CasoController extends Controller {
             return $this->redirectToRoute('admin_index');
         } else {
             $arIncidencia = $paginator->paginate($em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername(),
-                'estadoSolucionado' => 0), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
+                        'estadoSolucionado' => 0), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
             $arIncidenciaSolucionados = $paginator->paginate($em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername(),
-                'estadoSolucionado' => 1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
+                        'estadoSolucionado' => 1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
         }
         return $this->render('AppBundle:Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
                     'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
@@ -127,15 +128,30 @@ class CasoController extends Controller {
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
         $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
         //Crear formulario de comentarios
-        $arComentario = new \AppBundle\Entity\Comentario();
-        $form = $this->createForm(ComentarioType::class, $arComentario);
+
+        $form = $this->createFormBuilder()
+                ->add('estadoSolucionado', ChoiceType::class, array(
+                    'data' => $arIncidencia->getEstadoSolucionado(),
+                    'choices' => array(
+                        'No' => '0',
+                        'Si' => '1',
+            )))
+                ->add('comentario', TextareaType::class, array('required' => false))
+                ->add('BtnGuardar', SubmitType::class, array('label' => 'Guardar'))
+                ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $arComentario = $form->getData();
-            $arComentario->setIncidenciaRel($arIncidencia);
-            $arComentario->setFechaRegistro(new \DateTime('now'));
-            $arComentario->setUsername($arUsuario->getUsername());
-            $em->persist($arComentario);
+            $comentario = $form->get('comentario')->getData();
+            if ($comentario) {
+                $arComentario = new \AppBundle\Entity\Comentario();
+                $arComentario->setComentario($comentario);
+                $arComentario->setIncidenciaRel($arIncidencia);
+                $arComentario->setFechaRegistro(new \DateTime('now'));
+                $arComentario->setUsername($arUsuario->getUsername());
+                $em->persist($arComentario);
+            }
+            $arIncidencia->setEstadoSolucionado($form->get('estadoSolucionado')->getData());
+            $em->persist($arIncidencia);
             $em->flush();
             if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
                 $correoEnviar = $arIncidencia->getEmail();
