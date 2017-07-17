@@ -140,6 +140,11 @@ class Incidencia {
     private $solucion;
     
     /**
+     * @ORM\Column(name="adjunto", type="string", length=250, nullable=true)
+     */    
+    private $adjunto;
+    
+    /**
      * @var int
      *
      * @ORM\Column(name="usuario_asignado", type="string", length=50, nullable=true)

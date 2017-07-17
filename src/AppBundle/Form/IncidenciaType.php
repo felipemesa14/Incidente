@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class IncidenciaType extends AbstractType {
 
@@ -25,7 +26,7 @@ class IncidenciaType extends AbstractType {
                                 ->orderBy('p.nombre', 'ASC');
                     },
                     'choice_label' => 'nombre',
-                    'required'=>true))
+                    'required' => true))
                 ->add('categoriaRel', EntityType::class, array(
                     'class' => 'AppBundle:Categoria',
                     'query_builder' => function (EntityRepository $er) {
@@ -33,7 +34,7 @@ class IncidenciaType extends AbstractType {
                                 ->orderBy('c.nombre', 'ASC');
                     },
                     'choice_label' => 'nombre',
-                    'required'=>true))
+                    'required' => true))
                 ->add('areaRel', EntityType::class, array(
                     'class' => 'AppBundle:Area',
                     'query_builder' => function (EntityRepository $er) {
@@ -41,7 +42,7 @@ class IncidenciaType extends AbstractType {
                                 ->orderBy('a.nombre', 'ASC');
                     },
                     'choice_label' => 'nombre',
-                    'required'=>true))
+                    'required' => true))
                 ->add('cargoRel', EntityType::class, array(
                     'class' => 'AppBundle:Cargo',
                     'query_builder' => function (EntityRepository $er) {
@@ -49,13 +50,14 @@ class IncidenciaType extends AbstractType {
                                 ->orderBy('c.nombre', 'ASC');
                     },
                     'choice_label' => 'nombre',
-                    'required'=>true))
+                    'required' => true))
                 ->add('nombreCompleto', TextType::class)
                 ->add('telefono', TextType::class)
                 ->add('extension', TextType::class)
                 ->add('email', EmailType::class, array('required' => false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
+                ->add('adjunto', FileType::class)
                 ->add('guardar', SubmitType::class, array(
                     'label' => 'Guardar'));
     }

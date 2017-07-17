@@ -84,6 +84,12 @@ class CasoController extends Controller {
         //Validar el formulario para realizar el envio y almcenamiento de los datos
         if ($form->isSubmitted() && $form->isValid()) {
             $arIncidencia = $form->getData();
+            $objArchivo = $form->get('adjunto')->getData();
+            if ($objArchivo->getClientOriginalExtension() != NULL) {
+                $strNombreArchivo = $objArchivo->getClientOriginalName();
+                $form->get('adjunto')->getData()->move('/var/www/html/recursos/web/incidente/', $strNombreArchivo);
+                $arIncidencia->setAdjunto($strNombreArchivo);
+            }
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {

@@ -140,6 +140,11 @@ class Incidencia {
     private $solucion;
     
     /**
+     * @ORM\Column(name="adjunto", type="string", length=250, nullable=true)
+     */    
+    private $adjunto;
+    
+    /**
      * @var int
      *
      * @ORM\Column(name="usuario_asignado", type="string", length=50, nullable=true)
@@ -783,5 +788,29 @@ class Incidencia {
     public function getExtension()
     {
         return $this->extension;
+    }
+
+    /**
+     * Set adjunto
+     *
+     * @param string $adjunto
+     *
+     * @return Incidencia
+     */
+    public function setAdjunto($adjunto)
+    {
+        $this->adjunto = $adjunto;
+
+        return $this;
+    }
+
+    /**
+     * Get adjunto
+     *
+     * @return string
+     */
+    public function getAdjunto()
+    {
+        return $this->adjunto;
     }
 }
