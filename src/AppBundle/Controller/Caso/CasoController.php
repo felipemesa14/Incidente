@@ -85,7 +85,7 @@ class CasoController extends Controller {
         if ($form->isSubmitted() && $form->isValid()) {
             $arIncidencia = $form->getData();
             $objArchivo = $form->get('adjunto')->getData();
-            if ($objArchivo->getClientOriginalExtension() != NULL) {
+            if ($objArchivo != NULL) {
                 $strNombreArchivo = $objArchivo->getClientOriginalName();
                 $form->get('adjunto')->getData()->move('/var/www/html/recursos/web/incidente/', $strNombreArchivo);
                 $arIncidencia->setAdjunto($strNombreArchivo);
@@ -93,8 +93,8 @@ class CasoController extends Controller {
             $em->persist($arIncidencia);
             $em->flush();
             if ($codigoIncidencia == 0) {
-                $correoEnviar = array('sogaimplementacion@gmail.com', 'soporte1@appsoga.com', 'soporte2@appsoga.com');
-                $this->enviarCorreo($arIncidencia, $correoEnviar, '');
+                //$correoEnviar = array('sogaimplementacion@gmail.com', 'soporte1@appsoga.com', 'soporte2@appsoga.com');
+                //$this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
             return $this->redirectToRoute('caso_lista');
         }
