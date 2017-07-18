@@ -57,7 +57,7 @@ class IncidenciaType extends AbstractType {
                 ->add('email', EmailType::class, array('required' => false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
-                ->add('adjunto', FileType::class)
+                ->add('adjunto', FileType::class, array('required' => false))
                 ->add('guardar', SubmitType::class, array(
                     'label' => 'Guardar'));
     }
