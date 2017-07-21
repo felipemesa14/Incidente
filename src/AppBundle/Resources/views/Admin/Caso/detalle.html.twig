@@ -7,7 +7,7 @@
                     <div class="panel-heading">Detalle incidencia</div>
                     <div class="panel-body">
                         <div class="btn-group">
-                            <a class="btn btn-default btn-sm" href="{{ path('caso_admin_detalle_descargar_adjunto', { 'codigoIncidencia': arIncidencia.codigoIncidenciaPk }) }}">Adjunto</a>           
+                            {% if arIncidencia.adjunto %}<a class="btn btn-default btn-sm" href="{{ path('caso_admin_detalle_descargar_adjunto', { 'codigoIncidencia': arIncidencia.codigoIncidenciaPk }) }}">Adjunto</a> {% endif %}          
                         </div>
                         <br /> <br /> 
                         <div class="box-body table-responsive no-padding">
