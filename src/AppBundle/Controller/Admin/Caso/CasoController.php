@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Admin\Caso;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use AppBundle\Form\IncidenciaType;
 use AppBundle\Form\IncidenciaAdminType;
@@ -135,6 +136,23 @@ class CasoController extends Controller {
                     'form' => $form->createView(),
                     'arDetalleComentario' => $arDetalleComentario
         ));
+    }
+
+    /**
+     * @Route("admin/caso/detalle/descargar/adjunto/{codigoIncidencia}", name="caso_admin_detalle_descargar_adjunto")
+     */
+    public function descargarAction($codigoIncidencia) {
+        $em = $this->getDoctrine()->getManager();
+        $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
+        $strRuta = '/var/www/html/recursos/web/incidente/' . $arIncidencia->getAdjunto();
+        // Generate response
+        $response = new Response();
+
+        // Set headers
+        $response->headers->set('Cache-Control', 'private');
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . $arIncidencia->getAdjunto() . '";');
+        $response->sendHeaders();
+        $response->setContent(readfile($strRuta));
     }
 
     private function enviarCorreo($arIncidencia, $correoEnviar, $arDetalleComentario) {
