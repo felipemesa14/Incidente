@@ -97,6 +97,7 @@
                                     <tr class="primary">
                                         <th class="active">Id</th>
                                         <th class="active">Asunto</th>
+                                        <th class="active">Usuario</th>
                                         <th class="active">Prioridad</th>
                                         <th class="active">Categoria</th>
                                         <th class="active">Descripcion</th>
@@ -114,6 +115,7 @@
                                         <tr>
                                             <td>{{ arIncidenciaSolucionado.codigoIncidenciaPk }}</td>
                                             <td>{{ arIncidenciaSolucionado.titulo }}</td>
+                                            <td>{{ arIncidenciaSolucionado.nombreCompleto}}</td>
                                             <td>{{ arIncidenciaSolucionado.prioridadRel.nombre }}</td>
                                             <td>{{ arIncidenciaSolucionado.categoriaRel.nombre}}</td>
                                             <td>{{ arIncidenciaSolucionado.descripcion}}</td>
