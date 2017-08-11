@@ -115,6 +115,7 @@ class CasoController extends Controller {
                     $arTarea->setFechaInicio($arIncidencia->getFechaRegistro());
                     $arTarea->setFechaFinal($arIncidencia->getFechaRegistro());
                     $arTarea->setDescripcion($arIncidencia->getDescripcion());
+                    $arTarea->setComentario($arIncidencia->getSolucion());
                     $em->persist($arTarea);
                 }
             }
