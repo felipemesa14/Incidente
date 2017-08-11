@@ -87,6 +87,7 @@ class CasoController extends Controller {
     public function editarAdminAction(Request $request, $codigoIncidencia) {
         //Crear formulario para el registro de caso
         $em = $this->getDoctrine()->getManager();
+        $arIncidencia = new \AppBundle\Entity\Incidencia();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
         $form = $this->createForm(IncidenciaAdminType::class, $arIncidencia);
         $form->handleRequest($request);
@@ -95,11 +96,29 @@ class CasoController extends Controller {
             $arIncidencia = $form->getData();
             $arIncidencia->setFechaSolucion(new \DateTime("now"));
             $em->persist($arIncidencia);
-            $em->flush();
             if ($arIncidencia->getEstadoSolucionado() == 1) {
                 $correoEnviar = $arIncidencia->getEmail();
                 $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
+            if ($form->get('guardarTarea')->isClicked()) {
+                if ($arIncidencia->getEstadoAtendido()) {
+                    $arTarea = $em->getRepository('AppBundle:Tarea')->findOneBy(array('codigoIncidenciaFk' => $arIncidencia->getCodigoIncidenciaPk()));
+                    if (!$arTarea) {
+                        $arTarea = new \AppBundle\Entity\Tarea();
+                    }
+                    $arUsuario = $em->getRepository('AppBundle:User')->findOneBy(array('username' => $arIncidencia->getUsuarioAsignado()));
+                    $arTipoTarea = $em->getRepository('AppBundle:TipoTarea')->find($arIncidencia->getCategoriaRel()->getCodigoInterfazFk());
+                    $arTarea->setIncidenciaRel($arIncidencia);
+                    $arTarea->setUsuarioAsignadoRel($arUsuario);
+                    $arTarea->setTipoTareaRel($arTipoTarea);
+                    $arTarea->setPrioridadRel($arIncidencia->getPrioridadRel());
+                    $arTarea->setFechaInicio($arIncidencia->getFechaRegistro());
+                    $arTarea->setFechaFinal($arIncidencia->getFechaRegistro());
+                    $arTarea->setDescripcion($arIncidencia->getDescripcion());
+                    $em->persist($arTarea);
+                }
+            }
+            $em->flush();
             return $this->redirectToRoute('caso_admin_lista');
         }
         return $this->render('AppBundle:Admin/Caso:editarAdmin.html.twig', array('form' => $form->createView()));

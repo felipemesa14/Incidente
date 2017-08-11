@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="tarea")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TareaRepository")
  */
-class Tarea
-{
+class Tarea {
+
     /**
      * @var int
      *
@@ -20,21 +20,28 @@ class Tarea
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $codigoTareaPk;
-    
-     /**
+
+    /**
      * @var int
      *
      * @ORM\Column(name="codigo_usuario_fk", type="integer")
      */
     private $codigoUsuarioFk;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="codigo_tipo_tarea_fk", type="integer")
      */
     private $codigoTipoTareaFk;
-    
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_incidencia_fk", type="integer", nullable=true)
+     */
+    private $codigoIncidenciaFk;
+
     /**
      * @var int
      *
@@ -48,67 +55,90 @@ class Tarea
      * @ORM\Column(name="fecha_inicio", type="datetime")
      */
     private $fechaInicio;
-    
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_final", type="datetime")
      */
     private $fechaFinal;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="porcentaje", type="integer", nullable=true)
      */
-    private $porcentaje;
-    
+    private $porcentaje = 0;
+
     /**
      * @var int
      *
      * @ORM\Column(name="finalizado", type="boolean")
      */
     private $finalizado = false;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="revisado", type="boolean")
      */
     private $revisado = false;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="descripcion", type="string", length=1000)
      */
     private $descripcion;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="comentario", type="string", length=1000, nullable=true)
      */
     private $comentario;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="tareasUsuarioAsignadoRel")
      * @ORM\JoinColumn(name="codigo_usuario_fk", referencedColumnName="codigo_usuario_pk")
      */
     protected $usuarioAsignadoRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Prioridad", inversedBy="tareasPrioridadRel")
      * @ORM\JoinColumn(name="codigo_prioridad_fk", referencedColumnName="codigo_prioridad_pk")
      */
     protected $prioridadRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="TipoTarea", inversedBy="tareasTipoTareaRel")
      * @ORM\JoinColumn(name="codigo_tipo_tarea_fk", referencedColumnName="codigo_tipo_tarea_pk")
      */
     protected $tipoTareaRel;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Incidencia", inversedBy="tareaIncidenciaRel")
+     * @ORM\JoinColumn(name="codigo_incidencia_fk", referencedColumnName="codigo_incidencia_pk")
+     */
+    protected $incidenciaRel;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Prueba", mappedBy="tareaRel")
+     */
+    protected $pruebaTareaRel;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Comentario", mappedBy="tareaRel")
+     */
+    protected $comentariosTareaRel;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comentariosTareaRel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get codigoTareaPk
@@ -169,6 +199,30 @@ class Tarea
     }
 
     /**
+     * Set codigoIncidenciaFk
+     *
+     * @param integer $codigoIncidenciaFk
+     *
+     * @return Tarea
+     */
+    public function setCodigoIncidenciaFk($codigoIncidenciaFk)
+    {
+        $this->codigoIncidenciaFk = $codigoIncidenciaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoIncidenciaFk
+     *
+     * @return integer
+     */
+    public function getCodigoIncidenciaFk()
+    {
+        return $this->codigoIncidenciaFk;
+    }
+
+    /**
      * Set codigoPrioridadFk
      *
      * @param integer $codigoPrioridadFk
@@ -190,30 +244,6 @@ class Tarea
     public function getCodigoPrioridadFk()
     {
         return $this->codigoPrioridadFk;
-    }
-
-    /**
-     * Set titulo
-     *
-     * @param string $titulo
-     *
-     * @return Tarea
-     */
-    public function setTitulo($titulo)
-    {
-        $this->titulo = $titulo;
-
-        return $this;
-    }
-
-    /**
-     * Get titulo
-     *
-     * @return string
-     */
-    public function getTitulo()
-    {
-        return $this->titulo;
     }
 
     /**
@@ -313,6 +343,30 @@ class Tarea
     }
 
     /**
+     * Set revisado
+     *
+     * @param boolean $revisado
+     *
+     * @return Tarea
+     */
+    public function setRevisado($revisado)
+    {
+        $this->revisado = $revisado;
+
+        return $this;
+    }
+
+    /**
+     * Get revisado
+     *
+     * @return boolean
+     */
+    public function getRevisado()
+    {
+        return $this->revisado;
+    }
+
+    /**
      * Set descripcion
      *
      * @param string $descripcion
@@ -334,6 +388,30 @@ class Tarea
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+
+    /**
+     * Set comentario
+     *
+     * @param string $comentario
+     *
+     * @return Tarea
+     */
+    public function setComentario($comentario)
+    {
+        $this->comentario = $comentario;
+
+        return $this;
+    }
+
+    /**
+     * Get comentario
+     *
+     * @return string
+     */
+    public function getComentario()
+    {
+        return $this->comentario;
     }
 
     /**
@@ -409,50 +487,84 @@ class Tarea
     }
 
     /**
-     * Set comentario
+     * Set incidenciaRel
      *
-     * @param string $comentario
+     * @param \AppBundle\Entity\Incidencia $incidenciaRel
      *
      * @return Tarea
      */
-    public function setComentario($comentario)
+    public function setIncidenciaRel(\AppBundle\Entity\Incidencia $incidenciaRel = null)
     {
-        $this->comentario = $comentario;
+        $this->incidenciaRel = $incidenciaRel;
 
         return $this;
     }
 
     /**
-     * Get comentario
+     * Get incidenciaRel
      *
-     * @return string
+     * @return \AppBundle\Entity\Incidencia
      */
-    public function getComentario()
+    public function getIncidenciaRel()
     {
-        return $this->comentario;
+        return $this->incidenciaRel;
     }
 
     /**
-     * Set revisado
+     * Add comentariosTareaRel
      *
-     * @param boolean $revisado
+     * @param \AppBundle\Entity\Comentario $comentariosTareaRel
      *
      * @return Tarea
      */
-    public function setRevisado($revisado)
+    public function addComentariosTareaRel(\AppBundle\Entity\Comentario $comentariosTareaRel)
     {
-        $this->revisado = $revisado;
+        $this->comentariosTareaRel[] = $comentariosTareaRel;
 
         return $this;
     }
 
     /**
-     * Get revisado
+     * Remove comentariosTareaRel
      *
-     * @return boolean
+     * @param \AppBundle\Entity\Comentario $comentariosTareaRel
      */
-    public function getRevisado()
+    public function removeComentariosTareaRel(\AppBundle\Entity\Comentario $comentariosTareaRel)
     {
-        return $this->revisado;
+        $this->comentariosTareaRel->removeElement($comentariosTareaRel);
+    }
+
+    /**
+     * Get comentariosTareaRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComentariosTareaRel()
+    {
+        return $this->comentariosTareaRel;
+    }
+
+    /**
+     * Set pruebaTareaRel
+     *
+     * @param \AppBundle\Entity\Prueba $pruebaTareaRel
+     *
+     * @return Tarea
+     */
+    public function setPruebaTareaRel(\AppBundle\Entity\Prueba $pruebaTareaRel = null)
+    {
+        $this->pruebaTareaRel = $pruebaTareaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get pruebaTareaRel
+     *
+     * @return \AppBundle\Entity\Prueba
+     */
+    public function getPruebaTareaRel()
+    {
+        return $this->pruebaTareaRel;
     }
 }

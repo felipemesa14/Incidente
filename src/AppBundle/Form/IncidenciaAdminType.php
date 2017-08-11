@@ -36,24 +36,24 @@ class IncidenciaAdminType extends AbstractType {
                     'choices' => array(
                         'No' => '0',
                         'Si' => '1',
-                    )))
+            )))
                 ->add('estadoAtendido', ChoiceType::class, array(
                     'choices' => array(
                         'No' => '0',
                         'Si' => '1',
-                    )))
+            )))
                 ->add('usuarioAsignado', ChoiceType::class, array(
                     'choices' => array(
                         'Juan Felipe Tangarife' => 'Felipe',
                         'Juan Felipe Mesa Ocampo' => 'Juan',
                         'Sebastian Orozco' => 'Sebastian',
                         'Mario Estrada' => 'Mario',
-                    )))  
-                ->add('solucion', TextareaType::class, array('required'=> false))
+            )))
+                ->add('solucion', TextareaType::class, array('required' => false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
-                ->add('guardar', SubmitType::class, array(
-                    'label' => 'Guardar'));
+                ->add('guardar', SubmitType::class, array('label' => 'Guardar'))
+                ->add('guardarTarea', SubmitType::class, array('label' => 'Enlazar a tareas'));
     }
 
     /**

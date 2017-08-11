@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="categoria")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoriaRepository")
  */
-class Categoria
-{
+class Categoria {
+
     /**
      * @var int
      *
@@ -27,11 +27,25 @@ class Categoria
      * @ORM\Column(name="nombre", type="string", length=100, nullable=true)
      */
     private $nombre;
-    
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_interfaz_fk", type="integer", nullable=true)
+     */
+    private $codigoInterfazFk;
+
     /**
      * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="categoriaRel")
      */
     protected $incidenciasCategoriaRel;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->incidenciasCategoriaRel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get codigoCategoriaPk
@@ -66,12 +80,29 @@ class Categoria
     {
         return $this->nombre;
     }
+
     /**
-     * Constructor
+     * Set codigoInterfazFk
+     *
+     * @param integer $codigoInterfazFk
+     *
+     * @return Categoria
      */
-    public function __construct()
+    public function setCodigoInterfazFk($codigoInterfazFk)
     {
-        $this->incidenciasCategoriaRel = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codigoInterfazFk = $codigoInterfazFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoInterfazFk
+     *
+     * @return integer
+     */
+    public function getCodigoInterfazFk()
+    {
+        return $this->codigoInterfazFk;
     }
 
     /**

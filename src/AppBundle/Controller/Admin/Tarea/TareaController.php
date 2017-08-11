@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\TareaType;
 use AppBundle\Form\TareaDetalleType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use AppBundle\Form\ComentarioType;
 
 class TareaController extends Controller {
 
@@ -45,7 +46,7 @@ class TareaController extends Controller {
             $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
                             ->findBy(array('finalizado' => 0)), $request->query->get('page', 1), 20);
             $arTareaFinalizado = $paginator->paginate($em->getRepository('AppBundle:Tarea')
-                            ->findBy(array('finalizado' => 1, 'revisado' =>  0), array('fechaInicio' => 'DESC')), $request->query->get('page', 1), 20);
+                            ->findBy(array('finalizado' => 1, 'revisado' => 0), array('fechaInicio' => 'DESC')), $request->query->get('page', 1), 20);
         } else {
             $arTarea = $paginator->paginate($em->getRepository('AppBundle:Tarea')
                             ->findBy(array('usuarioAsignadoRel' => $arUsuario,
@@ -88,7 +89,11 @@ class TareaController extends Controller {
      */
     public function detalleAction(Request $request, $codigoTarea) {
         $em = $this->getDoctrine()->getManager();
+        $arComentario = new \AppBundle\Entity\Comentario();
         $arTarea = $em->getRepository('AppBundle:Tarea')->find($codigoTarea);
+        $arPrueba = $em->getRepository('AppBundle:Prueba')->findOneBy(array('codigoTareaFk' => $codigoTarea));
+        $arUsuario = $this->getUser();
+        $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoTareaFk' => $codigoTarea));
         $form = $this->createForm(TareaDetalleType::class, $arTarea);
         $form->handleRequest($request);
         //Validar el formulario para realizar el envio y almcenamiento de los datos
@@ -99,11 +104,38 @@ class TareaController extends Controller {
             }
             $arTarea = $form->getData();
             $em->persist($arTarea);
+            if ($arTarea->getFinalizado()) {
+                if (!$arPrueba) {
+                    $arPrueba = new \AppBundle\Entity\Prueba();
+                }
+                $arPrueba->setUsuarioAsignadoRel($arTarea->getUsuarioAsignadoRel());
+                $arPrueba->setFecha($arTarea->getFechaFinal());
+                $arPrueba->setIncidenciaRel($arTarea->getIncidenciaRel());
+                $arPrueba->setTareaRel($arTarea);
+                $arPrueba->setDescripcion($arTarea->getDescripcion());
+                $arPrueba->setSolucion($arTarea->getComentario());
+                $arPrueba->setEstadoPrueba(1);
+                $em->persist($arPrueba);
+            }
             $em->flush();
-            return $this->redirectToRoute('tarea_lista');
+            return $this->redirectToRoute('tarea_detalle',array('codigoTarea'=>$codigoTarea));
+        }
+        $formComentario = $this->createForm(ComentarioType::class, $arComentario);
+        $formComentario->handleRequest($request);
+        if ($formComentario->isSubmitted() && $formComentario->isValid()) {
+            $arComentario = $formComentario->getData();
+            $arComentario->setTareaRel($arTarea);
+            $arComentario->setPruebaRel($arPrueba);
+            $arComentario->setFechaRegistro(new \DateTime('now'));
+            $arComentario->setUsername($arUsuario->getUsername());
+            $em->persist($arComentario);
+            $em->flush();
+            return $this->redirectToRoute('tarea_detalle',array('codigoTarea'=>$codigoTarea));
         }
         return $this->render('AppBundle:Admin/Tarea:detalle.html.twig', array('arTarea' => $arTarea,
-                    'form' => $form->createView()));
+                    'arDetalleComentario' => $arDetalleComentario,
+                    'form' => $form->createView(),
+                    'formComentario' => $formComentario->createView()));
     }
 
     private function enviarCorreo($arTarea) {

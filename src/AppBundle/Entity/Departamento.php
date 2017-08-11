@@ -31,7 +31,16 @@ class Departamento
     /**
      * @ORM\OneToMany(targetEntity="Ciudad", mappedBy="departamentoRel")
      */
-    protected $usuariosDepartamentoRel;
+    protected $ciudadesDepartamentoRel;
+
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ciudadesDepartamentoRel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get codigoDepartamentoPk
@@ -66,45 +75,38 @@ class Departamento
     {
         return $this->nombre;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->usuariosDepartamentoRel = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add usuariosDepartamentoRel
+     * Add ciudadesDepartamentoRel
      *
-     * @param \AppBundle\Entity\Ciudad $usuariosDepartamentoRel
+     * @param \AppBundle\Entity\Ciudad $ciudadesDepartamentoRel
      *
      * @return Departamento
      */
-    public function addUsuariosDepartamentoRel(\AppBundle\Entity\Ciudad $usuariosDepartamentoRel)
+    public function addCiudadesDepartamentoRel(\AppBundle\Entity\Ciudad $ciudadesDepartamentoRel)
     {
-        $this->usuariosDepartamentoRel[] = $usuariosDepartamentoRel;
+        $this->ciudadesDepartamentoRel[] = $ciudadesDepartamentoRel;
 
         return $this;
     }
 
     /**
-     * Remove usuariosDepartamentoRel
+     * Remove ciudadesDepartamentoRel
      *
-     * @param \AppBundle\Entity\Ciudad $usuariosDepartamentoRel
+     * @param \AppBundle\Entity\Ciudad $ciudadesDepartamentoRel
      */
-    public function removeUsuariosDepartamentoRel(\AppBundle\Entity\Ciudad $usuariosDepartamentoRel)
+    public function removeCiudadesDepartamentoRel(\AppBundle\Entity\Ciudad $ciudadesDepartamentoRel)
     {
-        $this->usuariosDepartamentoRel->removeElement($usuariosDepartamentoRel);
+        $this->ciudadesDepartamentoRel->removeElement($ciudadesDepartamentoRel);
     }
 
     /**
-     * Get usuariosDepartamentoRel
+     * Get ciudadesDepartamentoRel
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUsuariosDepartamentoRel()
+    public function getCiudadesDepartamentoRel()
     {
-        return $this->usuariosDepartamentoRel;
+        return $this->ciudadesDepartamentoRel;
     }
 }

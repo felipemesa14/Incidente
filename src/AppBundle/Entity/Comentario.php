@@ -24,9 +24,23 @@ class Comentario
     /**
      * @var int
      *
-     * @ORM\Column(name="codigo_incidencia_fk", type="integer")
+     * @ORM\Column(name="codigo_incidencia_fk", type="integer", nullable=true)
      */
     private $codigoIncidenciaFk;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_tarea_fk", type="integer", nullable=true)
+     */
+    private $codigoTareaFk;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_prueba_fk", type="integer", nullable=true)
+     */
+    private $codigoPruebaFk;
 
     /**
      * @var string
@@ -54,6 +68,18 @@ class Comentario
      * @ORM\JoinColumn(name="codigo_incidencia_fk", referencedColumnName="codigo_incidencia_pk")
      */
     protected $incidenciaRel;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Tarea", inversedBy="comentariosTareaRel")
+     * @ORM\JoinColumn(name="codigo_tarea_fk", referencedColumnName="codigo_tarea_pk")
+     */
+    protected $tareaRel;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Prueba", inversedBy="comentariosPruebaRel")
+     * @ORM\JoinColumn(name="codigo_prueba_fk", referencedColumnName="codigo_prueba_pk")
+     */
+    protected $pruebaRel;
 
 
     /**
@@ -184,5 +210,101 @@ class Comentario
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * Set codigoTareaFk
+     *
+     * @param integer $codigoTareaFk
+     *
+     * @return Comentario
+     */
+    public function setCodigoTareaFk($codigoTareaFk)
+    {
+        $this->codigoTareaFk = $codigoTareaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoTareaFk
+     *
+     * @return integer
+     */
+    public function getCodigoTareaFk()
+    {
+        return $this->codigoTareaFk;
+    }
+
+    /**
+     * Set codigoPruebaFk
+     *
+     * @param integer $codigoPruebaFk
+     *
+     * @return Comentario
+     */
+    public function setCodigoPruebaFk($codigoPruebaFk)
+    {
+        $this->codigoPruebaFk = $codigoPruebaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoPruebaFk
+     *
+     * @return integer
+     */
+    public function getCodigoPruebaFk()
+    {
+        return $this->codigoPruebaFk;
+    }
+
+    /**
+     * Set tareaRel
+     *
+     * @param \AppBundle\Entity\Tarea $tareaRel
+     *
+     * @return Comentario
+     */
+    public function setTareaRel(\AppBundle\Entity\Tarea $tareaRel = null)
+    {
+        $this->tareaRel = $tareaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get tareaRel
+     *
+     * @return \AppBundle\Entity\Tarea
+     */
+    public function getTareaRel()
+    {
+        return $this->tareaRel;
+    }
+
+    /**
+     * Set pruebaRel
+     *
+     * @param \AppBundle\Entity\Prueba $pruebaRel
+     *
+     * @return Comentario
+     */
+    public function setPruebaRel(\AppBundle\Entity\Prueba $pruebaRel = null)
+    {
+        $this->pruebaRel = $pruebaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get pruebaRel
+     *
+     * @return \AppBundle\Entity\Prueba
+     */
+    public function getPruebaRel()
+    {
+        return $this->pruebaRel;
     }
 }

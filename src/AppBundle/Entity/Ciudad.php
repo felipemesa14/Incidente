@@ -45,7 +45,14 @@ class Ciudad
      * @ORM\OneToMany(targetEntity="Cliente", mappedBy="ciudadRel")
      */
     protected $clientesCiudadRel; 
-    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->clientesCiudadRel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get codigoCiudadPk
      *
@@ -126,13 +133,6 @@ class Ciudad
     public function getDepartamentoRel()
     {
         return $this->departamentoRel;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->clientesCiudadRel = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

@@ -32,7 +32,8 @@ class Cargo {
      * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="cargoRel")
      */
     protected $incidenciasCargoRel;
-
+    
+    
     /**
      * Constructor
      */

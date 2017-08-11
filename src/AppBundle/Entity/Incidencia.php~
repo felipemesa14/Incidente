@@ -34,27 +34,28 @@ class Incidencia {
      * @ORM\Column(name="codigo_prioridad_fk", type="integer")
      */
     private $codigoPrioridaFk;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="codigo_categoria_fk", type="integer")
      */
     private $codigoCategoriaFk;
-    
+
     /**
      * @var int
      *
      * @ORM\Column(name="codigo_area_fk", type="integer")
      */
     private $codigoAreaFk;
+
     /**
      * @var int
      *
      * @ORM\Column(name="codigo_cargo_fk", type="integer")
      */
-    private $codigoCargoFk;    
-    
+    private $codigoCargoFk;
+
     /**
      * @var string
      *
@@ -82,7 +83,7 @@ class Incidencia {
      * @ORM\Column(name="usuario", type="string", nullable=true)
      */
     private $usuario;
-    
+
     /**
      * @var string
      *
@@ -103,7 +104,7 @@ class Incidencia {
      * @ORM\Column(name="telefono", type="string",length=50)
      */
     private $telefono;
-    
+
     /**
      * @var string
      *
@@ -124,7 +125,7 @@ class Incidencia {
      * @ORM\Column(name="estado_atendido", type="boolean")
      */
     private $estadoAtendido = false;
-    
+
     /**
      * @var \DateTime
      *
@@ -138,12 +139,12 @@ class Incidencia {
      * @ORM\Column(name="solucion", type="string", length=5000, nullable=true)
      */
     private $solucion;
-    
+
     /**
      * @ORM\Column(name="adjunto", type="string", length=250, nullable=true)
-     */    
+     */
     private $adjunto;
-    
+
     /**
      * @var int
      *
@@ -168,24 +169,34 @@ class Incidencia {
      * @ORM\JoinColumn(name="codigo_categoria_fk", referencedColumnName="codigo_categoria_pk")
      */
     protected $categoriaRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Area", inversedBy="incidenciasAreaRel")
      * @ORM\JoinColumn(name="codigo_area_fk", referencedColumnName="codigo_area_pk")
      */
-    protected $AreaRel;
-    
+    protected $areaRel;
+
     /**
      * @ORM\ManyToOne(targetEntity="Cargo", inversedBy="incidenciasCargoRel")
      * @ORM\JoinColumn(name="codigo_cargo_fk", referencedColumnName="codigo_cargo_pk")
      */
-    protected $CargoRel;
+    protected $cargoRel;
 
     /**
      * @ORM\OneToMany(targetEntity="Comentario", mappedBy="incidenciaRel")
      */
     protected $comentariosIncidenciaRel;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Tarea", mappedBy="incidenciaRel")
+     */
+    protected $tareaIncidenciaRel;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Prueba", mappedBy="incidenciaRel")
+     */
+    protected $pruebaIncidenciaRel;
+    
     /**
      * Constructor
      */
@@ -397,54 +408,6 @@ class Incidencia {
     }
 
     /**
-     * Set fechaSolucion
-     *
-     * @param \DateTime $fechaSolucion
-     *
-     * @return Incidencia
-     */
-    public function setFechaSolucion($fechaSolucion)
-    {
-        $this->fechaSolucion = $fechaSolucion;
-
-        return $this;
-    }
-
-    /**
-     * Get fechaSolucion
-     *
-     * @return \DateTime
-     */
-    public function getFechaSolucion()
-    {
-        return $this->fechaSolucion;
-    }
-
-    /**
-     * Set solucion
-     *
-     * @param string $solucion
-     *
-     * @return Incidencia
-     */
-    public function setSolucion($solucion)
-    {
-        $this->solucion = $solucion;
-
-        return $this;
-    }
-
-    /**
-     * Get solucion
-     *
-     * @return string
-     */
-    public function getSolucion()
-    {
-        return $this->solucion;
-    }
-
-    /**
      * Set usuario
      *
      * @param string $usuario
@@ -541,6 +504,30 @@ class Incidencia {
     }
 
     /**
+     * Set extension
+     *
+     * @param string $extension
+     *
+     * @return Incidencia
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Get extension
+     *
+     * @return string
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
+    /**
      * Set estadoSolucionado
      *
      * @param boolean $estadoSolucionado
@@ -586,6 +573,78 @@ class Incidencia {
     public function getEstadoAtendido()
     {
         return $this->estadoAtendido;
+    }
+
+    /**
+     * Set fechaSolucion
+     *
+     * @param \DateTime $fechaSolucion
+     *
+     * @return Incidencia
+     */
+    public function setFechaSolucion($fechaSolucion)
+    {
+        $this->fechaSolucion = $fechaSolucion;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaSolucion
+     *
+     * @return \DateTime
+     */
+    public function getFechaSolucion()
+    {
+        return $this->fechaSolucion;
+    }
+
+    /**
+     * Set solucion
+     *
+     * @param string $solucion
+     *
+     * @return Incidencia
+     */
+    public function setSolucion($solucion)
+    {
+        $this->solucion = $solucion;
+
+        return $this;
+    }
+
+    /**
+     * Get solucion
+     *
+     * @return string
+     */
+    public function getSolucion()
+    {
+        return $this->solucion;
+    }
+
+    /**
+     * Set adjunto
+     *
+     * @param string $adjunto
+     *
+     * @return Incidencia
+     */
+    public function setAdjunto($adjunto)
+    {
+        $this->adjunto = $adjunto;
+
+        return $this;
+    }
+
+    /**
+     * Get adjunto
+     *
+     * @return string
+     */
+    public function getAdjunto()
+    {
+        return $this->adjunto;
     }
 
     /**
@@ -693,7 +752,7 @@ class Incidencia {
      */
     public function setAreaRel(\AppBundle\Entity\Area $areaRel = null)
     {
-        $this->AreaRel = $areaRel;
+        $this->areaRel = $areaRel;
 
         return $this;
     }
@@ -705,7 +764,7 @@ class Incidencia {
      */
     public function getAreaRel()
     {
-        return $this->AreaRel;
+        return $this->areaRel;
     }
 
     /**
@@ -717,7 +776,7 @@ class Incidencia {
      */
     public function setCargoRel(\AppBundle\Entity\Cargo $cargoRel = null)
     {
-        $this->CargoRel = $cargoRel;
+        $this->cargoRel = $cargoRel;
 
         return $this;
     }
@@ -729,7 +788,7 @@ class Incidencia {
      */
     public function getCargoRel()
     {
-        return $this->CargoRel;
+        return $this->cargoRel;
     }
 
     /**
@@ -767,26 +826,50 @@ class Incidencia {
     }
 
     /**
-     * Set extension
+     * Set tareaIncidenciaRel
      *
-     * @param string $extension
+     * @param \AppBundle\Entity\Tarea $tareaIncidenciaRel
      *
      * @return Incidencia
      */
-    public function setExtension($extension)
+    public function setTareaIncidenciaRel(\AppBundle\Entity\Tarea $tareaIncidenciaRel = null)
     {
-        $this->extension = $extension;
+        $this->tareaIncidenciaRel = $tareaIncidenciaRel;
 
         return $this;
     }
 
     /**
-     * Get extension
+     * Get tareaIncidenciaRel
      *
-     * @return string
+     * @return \AppBundle\Entity\Tarea
      */
-    public function getExtension()
+    public function getTareaIncidenciaRel()
     {
-        return $this->extension;
+        return $this->tareaIncidenciaRel;
+    }
+
+    /**
+     * Set pruebaIncidenciaRel
+     *
+     * @param \AppBundle\Entity\Prueba $pruebaIncidenciaRel
+     *
+     * @return Incidencia
+     */
+    public function setPruebaIncidenciaRel(\AppBundle\Entity\Prueba $pruebaIncidenciaRel = null)
+    {
+        $this->pruebaIncidenciaRel = $pruebaIncidenciaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get pruebaIncidenciaRel
+     *
+     * @return \AppBundle\Entity\Prueba
+     */
+    public function getPruebaIncidenciaRel()
+    {
+        return $this->pruebaIncidenciaRel;
     }
 }

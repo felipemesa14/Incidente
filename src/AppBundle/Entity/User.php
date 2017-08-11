@@ -82,7 +82,12 @@ class User implements UserInterface {
     protected $tareasUsuarioAsignadoRel;
     
     /**
-     * @ORM\OneToMany(targetEntity="Tarea", mappedBy="usuarioAsignadoRel")
+     * @ORM\OneToMany(targetEntity="Prueba", mappedBy="usuarioAsignadoRel")
+     */
+    protected $pruebasUsuarioAsignadoRel;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Nota", mappedBy="usuarioAsignadoRel")
      */
     protected $notasUsuarioAsignadoRel;
     

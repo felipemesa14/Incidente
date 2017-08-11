@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div class="row" style="margin-top:20px;">
+            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Pruebas pendientes</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="lista" class="tamaño table table-striped table-condensed table-hover table-bordered">
+                                <thead>
+                                    <tr class="primary">
+                                        <th class="active">COD</th>
+                                        <th class="active">COD INCIDENCIA</th>
+                                        <th class="active">COD TAREA</th>
+                                        <th class="active">DESCRIPCION</th>
+                                        <th class="active">SOLUCION</th>
+                                        <th class="active">USUARIO</th>
+                                        <th class="active">FECHA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for arPrueba in arPrueba %}
+                                        <tr>
+                                            <td>{{ arPrueba.codigoPruebaPk }}</td>
+                                            <td>{{ arPrueba.codigoIncidenciaFk }}</td>
+                                            <td>{{ arPrueba.codigoTareaFk }}</td>
+                                            <td>{{ arPrueba.descripcion}}</td>
+                                            <td>{{ arPrueba.solucion}}</td>
+                                            <td>{{ arPrueba.usuarioAsignadoRel.username}}</td>
+                                            <td>{{ arPrueba.fecha|date('d/m/Y') }}</td>
+                                        </tr>
+                                    {% endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-toolbar">            
+                            <div class="btn-group" style="float: left;padding-top: 20px;">
+                                <div class="btn btn-default btn-sm">Registros <span class="badge">{{ arPrueba.getTotalItemCount }}</span></div>                        
+                            </div>
+                            <div class="btn-group btn-sm" style="float: left;margin-left: 0px;padding-top: 0px;">
+                                {{ knp_pagination_render(arPrueba) }}       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
