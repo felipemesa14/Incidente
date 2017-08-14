@@ -17,6 +17,7 @@
                                         <th class="active">SOLUCION</th>
                                         <th class="active">USUARIO</th>
                                         <th class="active">FECHA</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -29,6 +30,11 @@
                                             <td>{{ arPrueba.solucion}}</td>
                                             <td>{{ arPrueba.usuarioAsignadoRel.username}}</td>
                                             <td>{{ arPrueba.fecha|date('d/m/Y') }}</td>
+                                            <td>
+                                                <a href="{{ path('prueba_detalle',{'codigoPrueba':arPrueba.codigoPruebaPk}) }}">
+                                                    <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
+                                                </a>
+                                            </td>
                                         </tr>
                                     {% endfor%}
                                 </tbody>

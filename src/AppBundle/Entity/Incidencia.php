@@ -64,13 +64,6 @@ class Incidencia {
     private $titulo;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="descripcion", type="string", length=5000)
-     */
-    private $descripcion;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_registro", type="datetime")
@@ -136,6 +129,20 @@ class Incidencia {
     /**
      * @var string
      *
+     * @ORM\Column(name="descripcion", type="string", length=5000)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion_desarrollo", type="text", nullable=true)
+     */
+    private $descripcionDesarrollo;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="solucion", type="string", length=5000, nullable=true)
      */
     private $solucion;
@@ -191,17 +198,16 @@ class Incidencia {
      * @ORM\OneToOne(targetEntity="Tarea", mappedBy="incidenciaRel")
      */
     protected $tareaIncidenciaRel;
-    
+
     /**
      * @ORM\OneToOne(targetEntity="Prueba", mappedBy="incidenciaRel")
      */
     protected $pruebaIncidenciaRel;
-    
+
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->comentariosIncidenciaRel = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -210,8 +216,7 @@ class Incidencia {
      *
      * @return integer
      */
-    public function getCodigoIncidenciaPk()
-    {
+    public function getCodigoIncidenciaPk() {
         return $this->codigoIncidenciaPk;
     }
 
@@ -222,8 +227,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setCodigoClienteFk($codigoClienteFk)
-    {
+    public function setCodigoClienteFk($codigoClienteFk) {
         $this->codigoClienteFk = $codigoClienteFk;
 
         return $this;
@@ -234,8 +238,7 @@ class Incidencia {
      *
      * @return integer
      */
-    public function getCodigoClienteFk()
-    {
+    public function getCodigoClienteFk() {
         return $this->codigoClienteFk;
     }
 
@@ -246,8 +249,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setCodigoPrioridaFk($codigoPrioridaFk)
-    {
+    public function setCodigoPrioridaFk($codigoPrioridaFk) {
         $this->codigoPrioridaFk = $codigoPrioridaFk;
 
         return $this;
@@ -258,8 +260,7 @@ class Incidencia {
      *
      * @return integer
      */
-    public function getCodigoPrioridaFk()
-    {
+    public function getCodigoPrioridaFk() {
         return $this->codigoPrioridaFk;
     }
 
@@ -270,8 +271,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setCodigoCategoriaFk($codigoCategoriaFk)
-    {
+    public function setCodigoCategoriaFk($codigoCategoriaFk) {
         $this->codigoCategoriaFk = $codigoCategoriaFk;
 
         return $this;
@@ -282,8 +282,7 @@ class Incidencia {
      *
      * @return integer
      */
-    public function getCodigoCategoriaFk()
-    {
+    public function getCodigoCategoriaFk() {
         return $this->codigoCategoriaFk;
     }
 
@@ -294,8 +293,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setCodigoAreaFk($codigoAreaFk)
-    {
+    public function setCodigoAreaFk($codigoAreaFk) {
         $this->codigoAreaFk = $codigoAreaFk;
 
         return $this;
@@ -306,8 +304,7 @@ class Incidencia {
      *
      * @return integer
      */
-    public function getCodigoAreaFk()
-    {
+    public function getCodigoAreaFk() {
         return $this->codigoAreaFk;
     }
 
@@ -318,8 +315,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setCodigoCargoFk($codigoCargoFk)
-    {
+    public function setCodigoCargoFk($codigoCargoFk) {
         $this->codigoCargoFk = $codigoCargoFk;
 
         return $this;
@@ -330,8 +326,7 @@ class Incidencia {
      *
      * @return integer
      */
-    public function getCodigoCargoFk()
-    {
+    public function getCodigoCargoFk() {
         return $this->codigoCargoFk;
     }
 
@@ -342,8 +337,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setTitulo($titulo)
-    {
+    public function setTitulo($titulo) {
         $this->titulo = $titulo;
 
         return $this;
@@ -354,8 +348,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getTitulo()
-    {
+    public function getTitulo() {
         return $this->titulo;
     }
 
@@ -366,8 +359,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setDescripcion($descripcion)
-    {
+    public function setDescripcion($descripcion) {
         $this->descripcion = $descripcion;
 
         return $this;
@@ -378,8 +370,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getDescripcion()
-    {
+    public function getDescripcion() {
         return $this->descripcion;
     }
 
@@ -390,8 +381,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setFechaRegistro($fechaRegistro)
-    {
+    public function setFechaRegistro($fechaRegistro) {
         $this->fechaRegistro = $fechaRegistro;
 
         return $this;
@@ -402,8 +392,7 @@ class Incidencia {
      *
      * @return \DateTime
      */
-    public function getFechaRegistro()
-    {
+    public function getFechaRegistro() {
         return $this->fechaRegistro;
     }
 
@@ -414,8 +403,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setUsuario($usuario)
-    {
+    public function setUsuario($usuario) {
         $this->usuario = $usuario;
 
         return $this;
@@ -426,8 +414,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getUsuario()
-    {
+    public function getUsuario() {
         return $this->usuario;
     }
 
@@ -438,8 +425,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setNombreCompleto($nombreCompleto)
-    {
+    public function setNombreCompleto($nombreCompleto) {
         $this->nombreCompleto = $nombreCompleto;
 
         return $this;
@@ -450,8 +436,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getNombreCompleto()
-    {
+    public function getNombreCompleto() {
         return $this->nombreCompleto;
     }
 
@@ -462,8 +447,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -474,8 +458,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -486,8 +469,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setTelefono($telefono)
-    {
+    public function setTelefono($telefono) {
         $this->telefono = $telefono;
 
         return $this;
@@ -498,8 +480,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getTelefono()
-    {
+    public function getTelefono() {
         return $this->telefono;
     }
 
@@ -510,8 +491,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setExtension($extension)
-    {
+    public function setExtension($extension) {
         $this->extension = $extension;
 
         return $this;
@@ -522,8 +502,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getExtension()
-    {
+    public function getExtension() {
         return $this->extension;
     }
 
@@ -534,8 +513,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setEstadoSolucionado($estadoSolucionado)
-    {
+    public function setEstadoSolucionado($estadoSolucionado) {
         $this->estadoSolucionado = $estadoSolucionado;
 
         return $this;
@@ -546,8 +524,7 @@ class Incidencia {
      *
      * @return boolean
      */
-    public function getEstadoSolucionado()
-    {
+    public function getEstadoSolucionado() {
         return $this->estadoSolucionado;
     }
 
@@ -558,8 +535,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setEstadoAtendido($estadoAtendido)
-    {
+    public function setEstadoAtendido($estadoAtendido) {
         $this->estadoAtendido = $estadoAtendido;
 
         return $this;
@@ -570,8 +546,7 @@ class Incidencia {
      *
      * @return boolean
      */
-    public function getEstadoAtendido()
-    {
+    public function getEstadoAtendido() {
         return $this->estadoAtendido;
     }
 
@@ -582,8 +557,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setFechaSolucion($fechaSolucion)
-    {
+    public function setFechaSolucion($fechaSolucion) {
         $this->fechaSolucion = $fechaSolucion;
 
         return $this;
@@ -594,8 +568,7 @@ class Incidencia {
      *
      * @return \DateTime
      */
-    public function getFechaSolucion()
-    {
+    public function getFechaSolucion() {
         return $this->fechaSolucion;
     }
 
@@ -606,8 +579,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setSolucion($solucion)
-    {
+    public function setSolucion($solucion) {
         $this->solucion = $solucion;
 
         return $this;
@@ -618,8 +590,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getSolucion()
-    {
+    public function getSolucion() {
         return $this->solucion;
     }
 
@@ -630,8 +601,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setAdjunto($adjunto)
-    {
+    public function setAdjunto($adjunto) {
         $this->adjunto = $adjunto;
 
         return $this;
@@ -642,8 +612,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getAdjunto()
-    {
+    public function getAdjunto() {
         return $this->adjunto;
     }
 
@@ -654,8 +623,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setUsuarioAsignado($usuarioAsignado)
-    {
+    public function setUsuarioAsignado($usuarioAsignado) {
         $this->usuarioAsignado = $usuarioAsignado;
 
         return $this;
@@ -666,8 +634,7 @@ class Incidencia {
      *
      * @return string
      */
-    public function getUsuarioAsignado()
-    {
+    public function getUsuarioAsignado() {
         return $this->usuarioAsignado;
     }
 
@@ -678,8 +645,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setClienteRel(\AppBundle\Entity\Cliente $clienteRel = null)
-    {
+    public function setClienteRel(\AppBundle\Entity\Cliente $clienteRel = null) {
         $this->clienteRel = $clienteRel;
 
         return $this;
@@ -690,8 +656,7 @@ class Incidencia {
      *
      * @return \AppBundle\Entity\Cliente
      */
-    public function getClienteRel()
-    {
+    public function getClienteRel() {
         return $this->clienteRel;
     }
 
@@ -702,8 +667,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setPrioridadRel(\AppBundle\Entity\Prioridad $prioridadRel = null)
-    {
+    public function setPrioridadRel(\AppBundle\Entity\Prioridad $prioridadRel = null) {
         $this->prioridadRel = $prioridadRel;
 
         return $this;
@@ -714,8 +678,7 @@ class Incidencia {
      *
      * @return \AppBundle\Entity\Prioridad
      */
-    public function getPrioridadRel()
-    {
+    public function getPrioridadRel() {
         return $this->prioridadRel;
     }
 
@@ -726,8 +689,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setCategoriaRel(\AppBundle\Entity\Categoria $categoriaRel = null)
-    {
+    public function setCategoriaRel(\AppBundle\Entity\Categoria $categoriaRel = null) {
         $this->categoriaRel = $categoriaRel;
 
         return $this;
@@ -738,8 +700,7 @@ class Incidencia {
      *
      * @return \AppBundle\Entity\Categoria
      */
-    public function getCategoriaRel()
-    {
+    public function getCategoriaRel() {
         return $this->categoriaRel;
     }
 
@@ -750,8 +711,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setAreaRel(\AppBundle\Entity\Area $areaRel = null)
-    {
+    public function setAreaRel(\AppBundle\Entity\Area $areaRel = null) {
         $this->areaRel = $areaRel;
 
         return $this;
@@ -762,8 +722,7 @@ class Incidencia {
      *
      * @return \AppBundle\Entity\Area
      */
-    public function getAreaRel()
-    {
+    public function getAreaRel() {
         return $this->areaRel;
     }
 
@@ -774,8 +733,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setCargoRel(\AppBundle\Entity\Cargo $cargoRel = null)
-    {
+    public function setCargoRel(\AppBundle\Entity\Cargo $cargoRel = null) {
         $this->cargoRel = $cargoRel;
 
         return $this;
@@ -786,8 +744,7 @@ class Incidencia {
      *
      * @return \AppBundle\Entity\Cargo
      */
-    public function getCargoRel()
-    {
+    public function getCargoRel() {
         return $this->cargoRel;
     }
 
@@ -798,8 +755,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function addComentariosIncidenciaRel(\AppBundle\Entity\Comentario $comentariosIncidenciaRel)
-    {
+    public function addComentariosIncidenciaRel(\AppBundle\Entity\Comentario $comentariosIncidenciaRel) {
         $this->comentariosIncidenciaRel[] = $comentariosIncidenciaRel;
 
         return $this;
@@ -810,8 +766,7 @@ class Incidencia {
      *
      * @param \AppBundle\Entity\Comentario $comentariosIncidenciaRel
      */
-    public function removeComentariosIncidenciaRel(\AppBundle\Entity\Comentario $comentariosIncidenciaRel)
-    {
+    public function removeComentariosIncidenciaRel(\AppBundle\Entity\Comentario $comentariosIncidenciaRel) {
         $this->comentariosIncidenciaRel->removeElement($comentariosIncidenciaRel);
     }
 
@@ -820,8 +775,7 @@ class Incidencia {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getComentariosIncidenciaRel()
-    {
+    public function getComentariosIncidenciaRel() {
         return $this->comentariosIncidenciaRel;
     }
 
@@ -832,8 +786,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setTareaIncidenciaRel(\AppBundle\Entity\Tarea $tareaIncidenciaRel = null)
-    {
+    public function setTareaIncidenciaRel(\AppBundle\Entity\Tarea $tareaIncidenciaRel = null) {
         $this->tareaIncidenciaRel = $tareaIncidenciaRel;
 
         return $this;
@@ -844,8 +797,7 @@ class Incidencia {
      *
      * @return \AppBundle\Entity\Tarea
      */
-    public function getTareaIncidenciaRel()
-    {
+    public function getTareaIncidenciaRel() {
         return $this->tareaIncidenciaRel;
     }
 
@@ -856,8 +808,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setPruebaIncidenciaRel(\AppBundle\Entity\Prueba $pruebaIncidenciaRel = null)
-    {
+    public function setPruebaIncidenciaRel(\AppBundle\Entity\Prueba $pruebaIncidenciaRel = null) {
         $this->pruebaIncidenciaRel = $pruebaIncidenciaRel;
 
         return $this;
@@ -868,8 +819,32 @@ class Incidencia {
      *
      * @return \AppBundle\Entity\Prueba
      */
-    public function getPruebaIncidenciaRel()
-    {
+    public function getPruebaIncidenciaRel() {
         return $this->pruebaIncidenciaRel;
+    }
+
+
+    /**
+     * Set descripcionDesarrollo
+     *
+     * @param string $descripcionDesarrollo
+     *
+     * @return Incidencia
+     */
+    public function setDescripcionDesarrollo($descripcionDesarrollo)
+    {
+        $this->descripcionDesarrollo = $descripcionDesarrollo;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcionDesarrollo
+     *
+     * @return string
+     */
+    public function getDescripcionDesarrollo()
+    {
+        return $this->descripcionDesarrollo;
     }
 }

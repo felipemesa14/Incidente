@@ -1,0 +1,122 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div class="row" style="margin-top:20px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                {{ form_start(form, { 'attr': {'class': 'form-horizontal', 'novalidate': 'novalidate'} })  }}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Detalle prueba</div>
+                    <div class="panel-body">
+                        <div class="box-body table-responsive no-padding">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <table width="100%" class="tamaño table table-condensed table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="active"><strong>CODIGO:</strong></td>
+                                            <td>{{arPrueba.codigoPruebaPk}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="active"><strong>CODIGO TAREA:</strong></td>
+                                            <td>{{arPrueba.codigoTareaFK | default('')}}</td>
+                                        </tr>                     
+                                        <tr>
+                                            <td class="active"><strong>CODIGO INCIDENCIA:</strong></td>
+                                            <td>{{arPrueba.codigoIncidenciaFk | default('')}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <table width="100%" class="tamaño table table-condensed table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="active" colspan="3"><strong>Usuario asignado:</strong></td>
+                                            <td colspan="3">{{arPrueba.usuarioAsignadoRel.username}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="active" colspan="3"><strong>Fecha:</strong></td>
+                                            <td colspan="3">{{arPrueba.fecha | date('d/m/Y H:i')}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <table width="100%" class="tamaño table table-condensed table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="active"><strong>Descripci&oacute;n:</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{arPrueba.descripcion}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="active"><strong>Soluci&oacute;n:</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{arPrueba.solucion}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Finalizar</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.estadoSolucionado) }}
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.estadoDevuelto) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label class="control-label">Solucion:</label>
+                                {{ form_widget(form.solucion,{'attr':{'class':'form-control input-sm','rows':'10','placeholder':'Registrar su solucion'}}) }}
+                            </div>
+                        </div>
+                            <div class="box-body table-responsive no-padding">
+                            <table id="example2" class="tamaño table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="active">Fecha</th>
+                                        <th class="active">Usuario</th>
+                                        <th class="active">Comentario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for arDetalleComentario in arDetalleComentario %}
+                                        <tr>
+                                            <td>{{arDetalleComentario.fechaRegistro| date('Y/m/d H:i')}}</td>
+                                            <td>{{arDetalleComentario.username}}</td>
+                                            <td>{{arDetalleComentario.comentario}}</td>
+                                        </tr>
+                                    {% endfor %}     
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label class="control-label">{{ form_label(form.comentario)}}</label>
+                                {{ form_widget(form.comentario,{'attr':{'class':'form-control input-sm','placeholder':'Registrar su comentario'}}) }}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary btn-sm'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <a href="{{path('prueba_lista')}}" class="btn btn-default btn-sm">Volver</a>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+

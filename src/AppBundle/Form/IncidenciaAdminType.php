@@ -52,6 +52,7 @@ class IncidenciaAdminType extends AbstractType {
                 ->add('solucion', TextareaType::class, array('required' => false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
+                ->add('descripcionDesarrollo', TextareaType::class)
                 ->add('guardar', SubmitType::class, array('label' => 'Guardar'))
                 ->add('guardarTarea', SubmitType::class, array('label' => 'Enlazar a tareas'));
     }

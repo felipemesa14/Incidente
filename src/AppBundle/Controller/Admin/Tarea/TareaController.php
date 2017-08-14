@@ -68,15 +68,21 @@ class TareaController extends Controller {
         $em = $this->getDoctrine()->getManager();
         if ($codigoTarea != 0) {
             $arTarea = $em->getRepository('AppBundle:Tarea')->find($codigoTarea);
+            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($arTarea->getCodigoIncidenciaFk());
         } else {
             $arTarea = new \AppBundle\Entity\Tarea();
+            $arIncidencia = null;
         }
+        
         $form = $this->createForm(TareaType::class, $arTarea);
         $form->handleRequest($request);
         //Validar el formulario para realizar el envio y almcenamiento de los datos
         if ($form->isSubmitted() && $form->isValid()) {
             $arTarea = $form->getData();
             $em->persist($arTarea);
+            if ($arIncidencia) {
+                $arIncidencia->setUsuarioAsignado($arTarea->getUsuarioAsignadoRel()->getUsername());
+            }
             $em->flush();
             $this->enviarCorreo($arTarea);
             return $this->redirectToRoute('tarea_lista');
@@ -92,6 +98,7 @@ class TareaController extends Controller {
         $arComentario = new \AppBundle\Entity\Comentario();
         $arTarea = $em->getRepository('AppBundle:Tarea')->find($codigoTarea);
         $arPrueba = $em->getRepository('AppBundle:Prueba')->findOneBy(array('codigoTareaFk' => $codigoTarea));
+
         $arUsuario = $this->getUser();
         $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoTareaFk' => $codigoTarea));
         $form = $this->createForm(TareaDetalleType::class, $arTarea);
@@ -114,11 +121,12 @@ class TareaController extends Controller {
                 $arPrueba->setTareaRel($arTarea);
                 $arPrueba->setDescripcion($arTarea->getDescripcion());
                 $arPrueba->setSolucion($arTarea->getComentario());
+                $arPrueba->setEstadoDevuelto(0);
                 $arPrueba->setEstadoPrueba(1);
                 $em->persist($arPrueba);
             }
             $em->flush();
-            return $this->redirectToRoute('tarea_detalle',array('codigoTarea'=>$codigoTarea));
+            return $this->redirectToRoute('tarea_lista');
         }
         $formComentario = $this->createForm(ComentarioType::class, $arComentario);
         $formComentario->handleRequest($request);
@@ -130,7 +138,7 @@ class TareaController extends Controller {
             $arComentario->setUsername($arUsuario->getUsername());
             $em->persist($arComentario);
             $em->flush();
-            return $this->redirectToRoute('tarea_detalle',array('codigoTarea'=>$codigoTarea));
+            return $this->redirectToRoute('tarea_detalle', array('codigoTarea' => $codigoTarea));
         }
         return $this->render('AppBundle:Admin/Tarea:detalle.html.twig', array('arTarea' => $arTarea,
                     'arDetalleComentario' => $arDetalleComentario,
