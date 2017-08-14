@@ -66,14 +66,16 @@ class TareaController extends Controller {
      */
     public function nuevoAction(Request $request, $codigoTarea) {
         $em = $this->getDoctrine()->getManager();
+        $arIncidencia = null;
         if ($codigoTarea != 0) {
             $arTarea = $em->getRepository('AppBundle:Tarea')->find($codigoTarea);
-            $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($arTarea->getCodigoIncidenciaFk());
+            if ($arTarea->getCodigoIncidenciaFk()) {
+                $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($arTarea->getCodigoIncidenciaFk());
+            }
         } else {
             $arTarea = new \AppBundle\Entity\Tarea();
-            $arIncidencia = null;
         }
-        
+
         $form = $this->createForm(TareaType::class, $arTarea);
         $form->handleRequest($request);
         //Validar el formulario para realizar el envio y almcenamiento de los datos
