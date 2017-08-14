@@ -18,7 +18,7 @@ class IncidenciaRepository extends \Doctrine\ORM\EntityRepository {
         if ($strCodigoCategoria != "") {
             $dql .= " AND i.codigoCategoriaFk = " . $strCodigoCategoria;
         }
-        if ($estadoAtendido != 2) {
+        if ($estadoAtendido != 2 && $estadoAtendido != "") {
             $dql .= " AND i.estadoAtendido = " . $estadoAtendido;
         }
         $dql .= " ORDER BY i.fechaRegistro DESC";
