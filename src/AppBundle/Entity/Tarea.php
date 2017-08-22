@@ -87,14 +87,14 @@ class Tarea {
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=1000)
+     * @ORM\Column(name="descripcion", type="text")
      */
     private $descripcion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="comentario", type="string", length=1000, nullable=true)
+     * @ORM\Column(name="comentario", type="text", nullable=true)
      */
     private $comentario;
 
