@@ -12,7 +12,8 @@
                             <table id="lista" class="tamaño table table-striped table-condensed table-hover table-bordered">
                                 <thead>
                                     <tr class="primary">
-                                        <th class="active">Id</th>
+                                        <th class="active">Codigo</th>
+                                        <th class="active">Codigo incidencia</th>
                                         <th class="active">Descripcion</th>
                                         <th class="active">Prioridad</th>
                                         <th class="active">Tipo</th>
@@ -30,6 +31,7 @@
                                     {% for arTarea in arTarea %}
                                         <tr>
                                             <td>{{ arTarea.codigoTareaPk }}</td>
+                                            <td>{{ arTarea.codigoIncidenciaFk }}</td>
                                             <td>{{ arTarea.descripcion}}</td>
                                             <td>{{ arTarea.prioridadRel.nombre }}</td>
                                             <td>{{ arTarea.tipoTareaRel.nombre}}</td>
