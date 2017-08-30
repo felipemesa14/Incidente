@@ -12,6 +12,7 @@ use AppBundle\Form\IncidenciaAdminType;
 use AppBundle\Form\ComentarioType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -189,7 +190,7 @@ class CasoController extends Controller {
         $session = new session;
         $em = $this->getDoctrine()->getManager();
         $this->strDqlLista = $em->getRepository('AppBundle:Incidencia')->listaDql(
-                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'),$session->get('filtroEstadoAtendido'));
+                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'),$session->get('filtroEstadoAtendido'),$session->get('filtroCodigoIncidencia'));
     }
 
     private function filtrar($form) {
@@ -203,11 +204,18 @@ class CasoController extends Controller {
         if ($form->get('categoriaRel')->getData()) {
             $codigoCategoria = $form->get('categoriaRel')->getData()->getCodigoCategoriaPk();
         }
+        $codigoIdIncidencia = 0;
+        if($form->get('codigoIncidencia')->getData()){
+            $codigoIdIncidencia = $form->get('codigoIncidencia')->getData();
+        }
+        
+        $session->set('filtroCodigoIncidencia', $codigoIdIncidencia);
         $session->set('filtroCodigoCategoria', $codigoCategoria);
         $session->set('filtroEstadoAtendido', $form->get('estadoAtendido')->getData());
     }
 
     private function formularioFiltro() {
+        
         $em = $this->getDoctrine()->getManager();
         $session = new session;
         $arrayPropiedadesClientes = array(
@@ -223,6 +231,7 @@ class CasoController extends Controller {
             'data' => "",
             'label' => "Cliente"
         );
+            
         $arrayPropiedadesCategoria = array(
             'class' => 'AppBundle:Categoria',
             'query_builder' => function (EntityRepository $er) {
@@ -250,7 +259,8 @@ class CasoController extends Controller {
                         'TODOS' => '2',
                         'No' => '0',
                         'Si' => '1',
-            )))
+                )))
+                ->add('codigoIncidencia', NumberType::class,array('label'=>'Codigo','data'=>$session->get('filtroCodigoIncidencia')))
                 ->add('clienteRel', EntityType::class, $arrayPropiedadesClientes)
                 ->add('categoriaRel', EntityType::class, $arrayPropiedadesCategoria)
                 ->add('BtnFiltrar', SubmitType::class, array('label' => 'Filtrar'))
