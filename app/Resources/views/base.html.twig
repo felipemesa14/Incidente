@@ -23,8 +23,9 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Incidencia
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('caso_admin_lista') }}">Lista</a></li>
-                                <li><a href="{{ path('caso_admin_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a></li>
+                                <li><a href="{{ path('caso_admin_lista_pendientes') }}">Pendientes</a></li>
+                                <li><a href="{{ path('caso_admin_lista_solucionados') }}">Solucionados</a></li>
+                                {#<li><a href="{{ path('caso_admin_nuevo',{'codigoIncidencia':0}) }}">Nuevo</a></li>#}
                             </ul>
                         </li>
                         <li class="dropdown">
