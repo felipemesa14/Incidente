@@ -160,16 +160,22 @@ class CasoController extends Controller {
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $arComentario = $form->getData();
-            $arComentario->setIncidenciaRel($arIncidencia);
-            $arComentario->setFechaRegistro(new \DateTime('now'));
-            $arComentario->setUsername($arUsuario->getUsername());
-            $em->persist($arComentario);
-            $em->flush();
-            if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
-                $correoEnviar = $arIncidencia->getEmail();
-                $this->enviarCorreo($arIncidencia, $correoEnviar, $arComentario);
+            if($form->get('comentario')->getData())
+            {
+                $arComentario->setIncidenciaRel($arIncidencia);
+                $arComentario->setFechaRegistro(new \DateTime('now'));
+                $arComentario->setUsername($arUsuario->getUsername());
+                $em->persist($arComentario);
+                $em->flush();
+                if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
+                    $correoEnviar = $arIncidencia->getEmail();
+                    $this->enviarCorreo($arIncidencia, $correoEnviar, $arComentario);
+                }
             }
-            return $this->redirectToRoute('caso_admin_detalle', array('codigoIncidencia' => $codigoIncidencia));
+            else
+            {
+                return $this->redirectToRoute('caso_admin_detalle', array('codigoIncidencia' => $codigoIncidencia));
+            }
         }
         //Crear vista detalle del incidente
         return $this->render('AppBundle:Admin/Caso:detalle.html.twig', array(
