@@ -40,7 +40,7 @@ class IncidenciaAdminType extends AbstractType {
                                 ->orderBy('at.codigoTemaPk', 'ASC');
                     },
                     'choice_label' => function ($tema) {
-                        return $tema->getModuloRel()->getNombre() . ' - '.$tema->getFuncionRel()->getNombre().' - '. $tema->getNombre();
+                        return $tema->getModuloRel()->getNombre() . ' - '.$tema->getFuncionRel()->getNombre().' - '.$tema->getGrupoRel()->getNombre().' - '. $tema->getNombre();
                     },'required'=>false))
                 ->add('estadoSolucionado', ChoiceType::class, array(
                     'choices' => array(
