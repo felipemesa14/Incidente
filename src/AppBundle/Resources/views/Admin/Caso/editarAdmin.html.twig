@@ -65,7 +65,11 @@
                         </div>
                         <div class="text-danger">{{ form_errors(form)}}</div>
                         <div class="modal-footer">
-                            <a href="{{path('admin_index')}}" class="btn btn-default btn-sm">Cancelar</a>
+                            {% if form.solucion != null %}
+                                <a href="{{path('caso_admin_lista_solucionados')}}" class="btn btn-default btn-sm">Cancelar</a>
+                            {% else %}
+                                <a href="{{path('caso_admin_lista_pendientes')}}" class="btn btn-default btn-sm">Cancelar</a>
+                            {% endif %}
                             {{ form_widget(form.guardarTarea, { 'attr': {'class': 'btn btn-default btn-sm'} }) }}
                             {{form_widget(form.guardar,{'attr':{'class':'btn btn-primary btn-sm'} }) }}
                         </div>
