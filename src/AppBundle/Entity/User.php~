@@ -82,7 +82,12 @@ class User implements UserInterface {
     protected $tareasUsuarioAsignadoRel;
     
     /**
-     * @ORM\OneToMany(targetEntity="Tarea", mappedBy="usuarioAsignadoRel")
+     * @ORM\OneToMany(targetEntity="Prueba", mappedBy="usuarioAsignadoRel")
+     */
+    protected $pruebasUsuarioAsignadoRel;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Nota", mappedBy="usuarioAsignadoRel")
      */
     protected $notasUsuarioAsignadoRel;
     
@@ -392,5 +397,39 @@ class User implements UserInterface {
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Add pruebasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel
+     *
+     * @return User
+     */
+    public function addPruebasUsuarioAsignadoRel(\AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel)
+    {
+        $this->pruebasUsuarioAsignadoRel[] = $pruebasUsuarioAsignadoRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove pruebasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel
+     */
+    public function removePruebasUsuarioAsignadoRel(\AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel)
+    {
+        $this->pruebasUsuarioAsignadoRel->removeElement($pruebasUsuarioAsignadoRel);
+    }
+
+    /**
+     * Get pruebasUsuarioAsignadoRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPruebasUsuarioAsignadoRel()
+    {
+        return $this->pruebasUsuarioAsignadoRel;
     }
 }

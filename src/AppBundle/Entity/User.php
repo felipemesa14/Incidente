@@ -398,4 +398,38 @@ class User implements UserInterface {
     {
         return $this->email;
     }
+
+    /**
+     * Add pruebasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel
+     *
+     * @return User
+     */
+    public function addPruebasUsuarioAsignadoRel(\AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel)
+    {
+        $this->pruebasUsuarioAsignadoRel[] = $pruebasUsuarioAsignadoRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove pruebasUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel
+     */
+    public function removePruebasUsuarioAsignadoRel(\AppBundle\Entity\Prueba $pruebasUsuarioAsignadoRel)
+    {
+        $this->pruebasUsuarioAsignadoRel->removeElement($pruebasUsuarioAsignadoRel);
+    }
+
+    /**
+     * Get pruebasUsuarioAsignadoRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPruebasUsuarioAsignadoRel()
+    {
+        return $this->pruebasUsuarioAsignadoRel;
+    }
 }
