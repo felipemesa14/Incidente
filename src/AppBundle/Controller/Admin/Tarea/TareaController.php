@@ -125,7 +125,7 @@ class TareaController extends Controller {
                 $arPrueba->setSolucion($arTarea->getComentario());
                 $arPrueba->setEstadoDevuelto(0);
                 $arPrueba->setEstadoPrueba(1);
-                $em->persist($arPrueba);
+                $em->persist($arPrueba); 
             }
             $em->flush();
             return $this->redirectToRoute('tarea_lista');
@@ -133,13 +133,16 @@ class TareaController extends Controller {
         $formComentario = $this->createForm(ComentarioType::class, $arComentario);
         $formComentario->handleRequest($request);
         if ($formComentario->isSubmitted() && $formComentario->isValid()) {
-            $arComentario = $formComentario->getData();
-            $arComentario->setTareaRel($arTarea);
-            $arComentario->setPruebaRel($arPrueba);
-            $arComentario->setFechaRegistro(new \DateTime('now'));
-            $arComentario->setUsername($arUsuario->getUsername());
-            $em->persist($arComentario);
-            $em->flush();
+            if($formComentario->get('comentario')->getData())
+            {
+                $arComentario = $formComentario->getData();
+                $arComentario->setTareaRel($arTarea);
+                $arComentario->setPruebaRel($arPrueba);
+                $arComentario->setFechaRegistro(new \DateTime('now'));
+                $arComentario->setUsername($arUsuario->getUsername());
+                $em->persist($arComentario);
+                $em->flush();
+            }
             return $this->redirectToRoute('tarea_detalle', array('codigoTarea' => $codigoTarea));
         }
         return $this->render('AppBundle:Admin/Tarea:detalle.html.twig', array('arTarea' => $arTarea,
