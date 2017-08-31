@@ -32,23 +32,30 @@ class IncidenciaAdminType extends AbstractType {
                                 ->orderBy('c.nombre', 'ASC');
                     },
                     'choice_label' => 'nombre'))
+                ->add('temaRel', EntityType::class, array(
+                    'placeholder'=>'',
+                    'class' => 'AppBundle:AyTema',
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('at')
+                                ->orderBy('at.codigoTemaPk', 'ASC');
+                    },
+                    'choice_label' => function ($tema) {
+                        return $tema->getModuloRel()->getNombre() . ' - '.$tema->getFuncionRel()->getNombre().' - '.$tema->getGrupoRel()->getNombre().' - '. $tema->getNombre();
+                    },'required'=>false))
                 ->add('estadoSolucionado', ChoiceType::class, array(
                     'choices' => array(
                         'No' => '0',
-                        'Si' => '1',
-            )))
-                ->add('estadoAtendido', ChoiceType::class, array(
-                    'choices' => array(
-                        'No' => '0',
-                        'Si' => '1',
-            )))
+                        'Si' => '1',)))
                 ->add('usuarioAsignado', ChoiceType::class, array(
                     'choices' => array(
                         'Juan Felipe Tangarife' => 'Felipe',
                         'Juan Felipe Mesa Ocampo' => 'Juan',
                         'Sebastian Orozco' => 'Sebastian',
-                        'Mario Estrada' => 'Mario',
-            )))
+                        'Mario Estrada' => 'Mario',)))
+                ->add('estadoAtendido', ChoiceType::class, array(
+                    'choices' => array(
+                        'No' => '0',
+                        'Si' => '1',)))
                 ->add('solucion', TextareaType::class, array('required' => false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)

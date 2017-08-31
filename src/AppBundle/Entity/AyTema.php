@@ -11,8 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="ay_tema")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AyTemaRepository")
  */
-class AyTema
-{
+class AyTema {
+
     /**
      * @var int
      *
@@ -57,35 +57,35 @@ class AyTema
      * @ORM\Column(name="orden", type="integer", nullable=true)
      */
     private $orden;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="descripcion", type="string", length=500, nullable=true)
      */
     private $descripcion;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="contenido", type="string", length=100000, nullable=true)
      */
     private $contenido;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="AyModulo", inversedBy="temasModuloRel")
      * @ORM\JoinColumn(name="codigo_modulo_fk", referencedColumnName="codigo_modulo_pk")
      * @Assert\NotNull(message="Seleccione un elemento")
      */
     protected $moduloRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="AyFuncion", inversedBy="temasFuncionRel")
      * @ORM\JoinColumn(name="codigo_funcion_fk", referencedColumnName="codigo_funcion_pk")
      * @Assert\NotNull(message="Seleccione un elemento")
      */
     protected $funcionRel;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="AyGrupo", inversedBy="temasGrupoRel")
      * @ORM\JoinColumn(name="codigo_grupo_fk", referencedColumnName="codigo_grupo_pk")
@@ -93,14 +93,17 @@ class AyTema
      */
     protected $grupoRel;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="temaRel")
+     */
+    protected $incidenciasTemaRel;
 
     /**
      * Get codigoTemaPk
      *
      * @return integer
      */
-    public function getCodigoTemaPk()
-    {
+    public function getCodigoTemaPk() {
         return $this->codigoTemaPk;
     }
 
@@ -111,8 +114,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setCodigoModuloFk($codigoModuloFk)
-    {
+    public function setCodigoModuloFk($codigoModuloFk) {
         $this->codigoModuloFk = $codigoModuloFk;
 
         return $this;
@@ -123,8 +125,7 @@ class AyTema
      *
      * @return integer
      */
-    public function getCodigoModuloFk()
-    {
+    public function getCodigoModuloFk() {
         return $this->codigoModuloFk;
     }
 
@@ -135,8 +136,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setCodigoFuncionFk($codigoFuncionFk)
-    {
+    public function setCodigoFuncionFk($codigoFuncionFk) {
         $this->codigoFuncionFk = $codigoFuncionFk;
 
         return $this;
@@ -147,8 +147,7 @@ class AyTema
      *
      * @return integer
      */
-    public function getCodigoFuncionFk()
-    {
+    public function getCodigoFuncionFk() {
         return $this->codigoFuncionFk;
     }
 
@@ -159,8 +158,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setCodigoGrupoFk($codigoGrupoFk)
-    {
+    public function setCodigoGrupoFk($codigoGrupoFk) {
         $this->codigoGrupoFk = $codigoGrupoFk;
 
         return $this;
@@ -171,8 +169,7 @@ class AyTema
      *
      * @return integer
      */
-    public function getCodigoGrupoFk()
-    {
+    public function getCodigoGrupoFk() {
         return $this->codigoGrupoFk;
     }
 
@@ -183,8 +180,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
 
         return $this;
@@ -195,8 +191,7 @@ class AyTema
      *
      * @return string
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -207,8 +202,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setOrden($orden)
-    {
+    public function setOrden($orden) {
         $this->orden = $orden;
 
         return $this;
@@ -219,8 +213,7 @@ class AyTema
      *
      * @return integer
      */
-    public function getOrden()
-    {
+    public function getOrden() {
         return $this->orden;
     }
 
@@ -231,8 +224,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setModuloRel(\AppBundle\Entity\AyModulo $moduloRel = null)
-    {
+    public function setModuloRel(\AppBundle\Entity\AyModulo $moduloRel = null) {
         $this->moduloRel = $moduloRel;
 
         return $this;
@@ -243,8 +235,7 @@ class AyTema
      *
      * @return \AppBundle\Entity\AyModulo
      */
-    public function getModuloRel()
-    {
+    public function getModuloRel() {
         return $this->moduloRel;
     }
 
@@ -255,8 +246,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setFuncionRel(\AppBundle\Entity\AyFuncion $funcionRel = null)
-    {
+    public function setFuncionRel(\AppBundle\Entity\AyFuncion $funcionRel = null) {
         $this->funcionRel = $funcionRel;
 
         return $this;
@@ -267,8 +257,7 @@ class AyTema
      *
      * @return \AppBundle\Entity\AyFuncion
      */
-    public function getFuncionRel()
-    {
+    public function getFuncionRel() {
         return $this->funcionRel;
     }
 
@@ -279,8 +268,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setGrupoRel(\AppBundle\Entity\AyGrupo $grupoRel = null)
-    {
+    public function setGrupoRel(\AppBundle\Entity\AyGrupo $grupoRel = null) {
         $this->grupoRel = $grupoRel;
 
         return $this;
@@ -291,8 +279,7 @@ class AyTema
      *
      * @return \AppBundle\Entity\AyGrupo
      */
-    public function getGrupoRel()
-    {
+    public function getGrupoRel() {
         return $this->grupoRel;
     }
 
@@ -303,8 +290,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setDescripcion($descripcion)
-    {
+    public function setDescripcion($descripcion) {
         $this->descripcion = $descripcion;
 
         return $this;
@@ -315,8 +301,7 @@ class AyTema
      *
      * @return string
      */
-    public function getDescripcion()
-    {
+    public function getDescripcion() {
         return $this->descripcion;
     }
 
@@ -327,8 +312,7 @@ class AyTema
      *
      * @return AyTema
      */
-    public function setContenido($contenido)
-    {
+    public function setContenido($contenido) {
         $this->contenido = $contenido;
 
         return $this;
@@ -339,8 +323,49 @@ class AyTema
      *
      * @return string
      */
-    public function getContenido()
-    {
+    public function getContenido() {
         return $this->contenido;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->incidenciasTemaRel = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add incidenciasTemaRel
+     *
+     * @param \AppBundle\Entity\Incidencia $incidenciasTemaRel
+     *
+     * @return AyTema
+     */
+    public function addIncidenciasTemaRel(\AppBundle\Entity\Incidencia $incidenciasTemaRel)
+    {
+        $this->incidenciasTemaRel[] = $incidenciasTemaRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove incidenciasTemaRel
+     *
+     * @param \AppBundle\Entity\Incidencia $incidenciasTemaRel
+     */
+    public function removeIncidenciasTemaRel(\AppBundle\Entity\Incidencia $incidenciasTemaRel)
+    {
+        $this->incidenciasTemaRel->removeElement($incidenciasTemaRel);
+    }
+
+    /**
+     * Get incidenciasTemaRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIncidenciasTemaRel()
+    {
+        return $this->incidenciasTemaRel;
     }
 }

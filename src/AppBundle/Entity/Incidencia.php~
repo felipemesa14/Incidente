@@ -57,6 +57,13 @@ class Incidencia {
     private $codigoCargoFk;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="codigo_tema_fk", type="integer", nullable=true)
+     */
+    private $codigoTemaFk;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=1000)
@@ -188,6 +195,12 @@ class Incidencia {
      * @ORM\JoinColumn(name="codigo_cargo_fk", referencedColumnName="codigo_cargo_pk")
      */
     protected $cargoRel;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AyTema", inversedBy="incidenciasTemaRel")
+     * @ORM\JoinColumn(name="codigo_tema_fk", referencedColumnName="codigo_tema_pk")
+     */
+    protected $temaRel;
 
     /**
      * @ORM\OneToMany(targetEntity="Comentario", mappedBy="incidenciaRel")
@@ -823,7 +836,6 @@ class Incidencia {
         return $this->pruebaIncidenciaRel;
     }
 
-
     /**
      * Set descripcionDesarrollo
      *
@@ -831,8 +843,7 @@ class Incidencia {
      *
      * @return Incidencia
      */
-    public function setDescripcionDesarrollo($descripcionDesarrollo)
-    {
+    public function setDescripcionDesarrollo($descripcionDesarrollo) {
         $this->descripcionDesarrollo = $descripcionDesarrollo;
 
         return $this;
@@ -843,8 +854,56 @@ class Incidencia {
      *
      * @return string
      */
-    public function getDescripcionDesarrollo()
-    {
+    public function getDescripcionDesarrollo() {
         return $this->descripcionDesarrollo;
+    }
+
+
+    /**
+     * Set codigoTemaFk
+     *
+     * @param integer $codigoTemaFk
+     *
+     * @return Incidencia
+     */
+    public function setCodigoTemaFk($codigoTemaFk)
+    {
+        $this->codigoTemaFk = $codigoTemaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoTemaFk
+     *
+     * @return integer
+     */
+    public function getCodigoTemaFk()
+    {
+        return $this->codigoTemaFk;
+    }
+
+    /**
+     * Set temaRel
+     *
+     * @param \AppBundle\Entity\AyTema $temaRel
+     *
+     * @return Incidencia
+     */
+    public function setTemaRel(\AppBundle\Entity\AyTema $temaRel = null)
+    {
+        $this->temaRel = $temaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get temaRel
+     *
+     * @return \AppBundle\Entity\AyTema
+     */
+    public function getTemaRel()
+    {
+        return $this->temaRel;
     }
 }
