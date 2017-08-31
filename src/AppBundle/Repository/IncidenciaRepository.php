@@ -10,7 +10,7 @@ namespace AppBundle\Repository;
  */
 class IncidenciaRepository extends \Doctrine\ORM\EntityRepository {
 
-    public function listaDql($strCodigoCliente = "",$strCodigoCategoria = "", $estadoAtendido = "",$idIncidencia ="") {
+    public function listaDql($strCodigoCliente = "",$strCodigoCategoria = "",$idIncidencia ="") {
         $dql = "SELECT i FROM AppBundle:Incidencia i WHERE i.estadoSolucionado = 0";
         if ($strCodigoCliente != "") {
             $dql .= " AND i.codigoClienteFk = " . $strCodigoCliente;
@@ -18,8 +18,20 @@ class IncidenciaRepository extends \Doctrine\ORM\EntityRepository {
         if ($strCodigoCategoria != "") {
             $dql .= " AND i.codigoCategoriaFk = " . $strCodigoCategoria;
         }
-        if ($estadoAtendido != 2 && $estadoAtendido != "") {
-            $dql .= " AND i.estadoAtendido = " . $estadoAtendido;
+        if ($idIncidencia != 0) {
+            $dql .= " AND i.codigoIncidenciaPk = " . $idIncidencia;
+        }
+        $dql .= " ORDER BY i.fechaRegistro DESC";
+        return $dql;
+    }
+    
+    public function listaSolucionadosDql($strCodigoCliente = "",$strCodigoCategoria = "",$idIncidencia ="") {
+        $dql = "SELECT i FROM AppBundle:Incidencia i WHERE i.estadoSolucionado = 1";
+        if ($strCodigoCliente != "") {
+            $dql .= " AND i.codigoClienteFk = " . $strCodigoCliente;
+        }
+        if ($strCodigoCategoria != "") {
+            $dql .= " AND i.codigoCategoriaFk = " . $strCodigoCategoria;
         }
         if ($idIncidencia != 0) {
             $dql .= " AND i.codigoIncidenciaPk = " . $idIncidencia;

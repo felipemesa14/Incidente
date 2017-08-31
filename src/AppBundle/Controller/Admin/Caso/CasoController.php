@@ -21,30 +21,49 @@ class CasoController extends Controller {
     var $strDqlLista = "";
 
     /**
-     * @Route("admin/caso/lista", name="caso_admin_lista")
+     * @Route("admin/caso/lista_pendientes", name="caso_admin_lista_pendientes")
      */
-    public function listaAction(Request $request) {
+    public function listaPendientesAction(Request $request) {
         $mensaje = '';
         $paginator = $this->get('knp_paginator');
         $em = $this->getDoctrine()->getManager();
-        $form = $this->formularioFiltro();
+        $form = $this->formularioPendienteFiltro();
         $form->handleRequest($request);
-        $this->lista();
+        $this->listaPendientes();
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->get('BtnEliminar')->isClicked()) {
                 $arrSeleccionados = $request->request->get('ChkSeleccionar');
                 $em->getRepository('AppBundle:Incidencia')->eliminarIncidente($arrSeleccionados);
             }
             if ($form->get('BtnFiltrar')->isClicked()) {
-                $this->filtrar($form);
-                $this->lista();
+                $this->filtrarPen($form);
+                $this->listaPendientes();
             }
         }
         $arIncidencia = $paginator->paginate($em->createQuery($this->strDqlLista), $request->query->get('page', 1), 20);
-        $arIncidenciaSolucionados = $paginator->paginate($em->getRepository('AppBundle:Incidencia')
-                        ->findBy(array('estadoSolucionado' => 1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
-        return $this->render('AppBundle:Admin/Caso:lista.html.twig', array(
+        return $this->render('AppBundle:Admin/Caso:listaPendientes.html.twig', array(
                     'arIncidencia' => $arIncidencia,
+                    'mensaje' => $mensaje,
+                    'form' => $form->createView()));
+    }
+    /**
+     * @Route("admin/caso/lista_solucionados", name="caso_admin_lista_solucionados")
+     */
+    public function listaSolucionadosAction(Request $request) {
+        $mensaje = '';
+        $paginator = $this->get('knp_paginator');
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->formularioSolucionadosFiltro();
+        $form->handleRequest($request);
+        $this->listaSolucionados();
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('BtnFiltrar')->isClicked()) {
+                $this->filtrarSol($form);
+                $this->listaSolucionados();
+            }
+        }
+        $arIncidenciaSolucionados = $paginator->paginate($em->createQuery($this->strDqlLista), $request->query->get('page', 1), 20);
+        return $this->render('AppBundle:Admin/Caso:listaSolucionados.html.twig', array(
                     'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
@@ -186,14 +205,21 @@ class CasoController extends Controller {
         $this->get('mailer')->send($message);
     }
 
-    private function lista() {
+    private function listaPendientes() {
         $session = new session;
         $em = $this->getDoctrine()->getManager();
         $this->strDqlLista = $em->getRepository('AppBundle:Incidencia')->listaDql(
-                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'),$session->get('filtroEstadoAtendido'),$session->get('filtroCodigoIncidencia'));
+                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'),$session->get('filtroCodigoIncidenciaPen'));
+    }
+    
+    private function listaSolucionados() {
+        $session = new session;
+        $em = $this->getDoctrine()->getManager();
+        $this->strDqlLista = $em->getRepository('AppBundle:Incidencia')->listaSolucionadosDql(
+                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'),$session->get('filtroCodigoIncidenciaSol'));
     }
 
-    private function filtrar($form) {
+    private function filtrarPen($form) {
         $session = new session;
         $codigoCliente = '';
         if ($form->get('clienteRel')->getData()) {
@@ -204,17 +230,34 @@ class CasoController extends Controller {
         if ($form->get('categoriaRel')->getData()) {
             $codigoCategoria = $form->get('categoriaRel')->getData()->getCodigoCategoriaPk();
         }
-        $codigoIdIncidencia = 0;
-        if($form->get('codigoIncidencia')->getData()){
-            $codigoIdIncidencia = $form->get('codigoIncidencia')->getData();
+        $codigoIdIncidenciaPen = 0;
+        if($form->get('codigoIncidenciaPen')->getData()){
+            $codigoIdIncidenciaPen = $form->get('codigoIncidenciaPen')->getData();
+        }
+        $session->set('filtroCodigoIncidenciaPen', $codigoIdIncidenciaPen);
+        $session->set('filtroCodigoCategoria', $codigoCategoria);
+    }
+    private function filtrarSol($form) {
+        $session = new session;
+        $codigoCliente = '';
+        if ($form->get('clienteRel')->getData()) {
+            $codigoCliente = $form->get('clienteRel')->getData()->getCodigoClientePk();
+        }
+        $session->set('filtroCodigoCliente', $codigoCliente);
+        $codigoCategoria = '';
+        if ($form->get('categoriaRel')->getData()) {
+            $codigoCategoria = $form->get('categoriaRel')->getData()->getCodigoCategoriaPk();
+        }
+        $codigoIdIncidenciaSol = 0;
+        if($form->get('codigoIncidenciaSol')->getData()){
+            $codigoIdIncidenciaSol = $form->get('codigoIncidenciaSol')->getData();
         }
         
-        $session->set('filtroCodigoIncidencia', $codigoIdIncidencia);
+        
+        $session->set('filtroCodigoIncidenciaSol', $codigoIdIncidenciaSol);
         $session->set('filtroCodigoCategoria', $codigoCategoria);
-        $session->set('filtroEstadoAtendido', $form->get('estadoAtendido')->getData());
     }
-
-    private function formularioFiltro() {
+    private function formularioPendienteFiltro() {
         
         $em = $this->getDoctrine()->getManager();
         $session = new session;
@@ -254,17 +297,58 @@ class CasoController extends Controller {
         }
 
         $form = $this->createFormBuilder()
-                ->add('estadoAtendido', ChoiceType::class, array('label'=>'Atendido',
-                    'choices' => array(
-                        'TODOS' => '2',
-                        'No' => '0',
-                        'Si' => '1',
-                )))
-                ->add('codigoIncidencia', NumberType::class,array('label'=>'Codigo','data'=>$session->get('filtroCodigoIncidencia')))
+                ->add('codigoIncidenciaPen', NumberType::class,array('label'=>'Codigo','data'=>$session->get('filtroCodigoIncidenciaPen')))
                 ->add('clienteRel', EntityType::class, $arrayPropiedadesClientes)
                 ->add('categoriaRel', EntityType::class, $arrayPropiedadesCategoria)
                 ->add('BtnFiltrar', SubmitType::class, array('label' => 'Filtrar'))
                 ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar',))
+                ->getForm();
+        return $form;
+    }
+    private function formularioSolucionadosFiltro() {
+        
+        $em = $this->getDoctrine()->getManager();
+        $session = new session;
+        $arrayPropiedadesClientes = array(
+            'class' => 'AppBundle:Cliente',
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('c')
+                                ->orderBy('c.nombre', 'ASC');
+            },
+            'choice_label' => 'nombre',
+            'required' => false,
+            'empty_data' => "",
+            'placeholder' => "TODOS",
+            'data' => "",
+            'label' => "Cliente"
+        );
+            
+        $arrayPropiedadesCategoria = array(
+            'class' => 'AppBundle:Categoria',
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('c')
+                                ->orderBy('c.nombre', 'ASC');
+            },
+            'choice_label' => 'nombre',
+            'required' => false,
+            'empty_data' => "",
+            'placeholder' => "TODOS",
+            'data' => "",
+            'label' => "Categoria"
+        );
+        if ($session->get('filtroCodigoCliente')) {
+            $arrayPropiedadesClientes['data'] = $em->getReference("AppBundle:Cliente", $session->get('filtroCodigoCliente'));
+        }
+
+        if ($session->get('filtroCodigoCategoria')) {
+            $arrayPropiedadesCategoria['data'] = $em->getReference("AppBundle:Categoria", $session->get('filtroCodigoCategoria'));
+        }
+
+        $form = $this->createFormBuilder()
+                ->add('codigoIncidenciaSol', NumberType::class,array('label'=>'Codigo','data'=>$session->get('filtroCodigoIncidenciaSol')))
+                ->add('clienteRel', EntityType::class, $arrayPropiedadesClientes)
+                ->add('categoriaRel', EntityType::class, $arrayPropiedadesCategoria)
+                ->add('BtnFiltrar', SubmitType::class, array('label' => 'Filtrar'))
                 ->getForm();
         return $form;
     }
