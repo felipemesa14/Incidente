@@ -141,7 +141,7 @@ class CasoController extends Controller {
                 }
             }
             $em->flush();
-            return $this->redirectToRoute('caso_admin_lista');
+            return $this->redirectToRoute('admin_index');
         }
         return $this->render('AppBundle:Admin/Caso:editarAdmin.html.twig', array('form' => $form->createView()));
     }
