@@ -33,25 +33,29 @@ class IncidenciaAdminType extends AbstractType {
                     },
                     'choice_label' => 'nombre'))
                 ->add('temaRel', EntityType::class, array(
-                    'placeholder'=>'',
+                    'placeholder' => '',
                     'class' => 'AppBundle:AyTema',
                     'query_builder' => function (EntityRepository $er) {
                         return $er->createQueryBuilder('at')
                                 ->orderBy('at.codigoTemaPk', 'ASC');
                     },
                     'choice_label' => function ($tema) {
-                        return $tema->getModuloRel()->getNombre() . ' - '.$tema->getFuncionRel()->getNombre().' - '.$tema->getGrupoRel()->getNombre().' - '. $tema->getNombre();
-                    },'required'=>false))
+                        return $tema->getModuloRel()->getNombre() . ' - ' . $tema->getFuncionRel()->getNombre() . ' - ' . $tema->getGrupoRel()->getNombre() . ' - ' . $tema->getNombre();
+                    }, 'required' => false))
                 ->add('estadoSolucionado', ChoiceType::class, array(
                     'choices' => array(
                         'No' => '0',
                         'Si' => '1',)))
                 ->add('usuarioAsignado', ChoiceType::class, array(
                     'choices' => array(
+                        null => '',
                         'Juan Felipe Tangarife' => 'Felipe',
+                        'Sebastian Orozco Florez' => 'Sebastian',
+                        'Andres Camilo Acevedo Cartagena' => 'Andres',
+                        'Jorge Alejandro Quiroz Serna' => 'Alejandro',
                         'Juan Felipe Mesa Ocampo' => 'Juan',
-                        'Sebastian Orozco' => 'Sebastian',
-                        'Mario Estrada' => 'Mario',)))
+                        'Mario Estrada' => 'Mario',),
+                    'required' => false))
                 ->add('estadoAtendido', ChoiceType::class, array(
                     'choices' => array(
                         'No' => '0',
@@ -59,7 +63,7 @@ class IncidenciaAdminType extends AbstractType {
                 ->add('solucion', TextareaType::class, array('required' => false))
                 ->add('titulo', TextType::class)
                 ->add('descripcion', TextareaType::class)
-                ->add('descripcionDesarrollo', TextareaType::class)
+                ->add('descripcionDesarrollo', TextareaType::class, array('required' => false))
                 ->add('guardar', SubmitType::class, array('label' => 'Guardar'))
                 ->add('guardarTarea', SubmitType::class, array('label' => 'Enlazar a tareas'));
     }

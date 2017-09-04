@@ -46,6 +46,7 @@ class CasoController extends Controller {
                     'mensaje' => $mensaje,
                     'form' => $form->createView()));
     }
+
     /**
      * @Route("admin/caso/lista_solucionados", name="caso_admin_lista_solucionados")
      */
@@ -97,7 +98,11 @@ class CasoController extends Controller {
                 //$correoEnviar = array('felipemesa14@gmail.com');
                 $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
-            return $this->redirectToRoute('caso_admin_lista');
+            if ($arIncidencia->getEstadoSolucionado()) {
+                return $this->redirectToRoute('caso_admin_lista_pendientes');
+            } else {
+                return $this->redirectToRoute('caso_admin_lista_solucionados');
+            }
         }
         return $this->render('AppBundle:Admin/Caso:nuevo.html.twig', array('form' => $form->createView()));
     }
@@ -141,12 +146,15 @@ class CasoController extends Controller {
                 }
             }
             $em->flush();
-            return $this->redirectToRoute('admin_index');
+            if ($arIncidencia->getEstadoSolucionado()) {
+                return $this->redirectToRoute('caso_admin_lista_pendientes');
+            } else {
+                return $this->redirectToRoute('caso_admin_lista_solucionados');
+            }
         }
-        return $this->render('AppBundle:Admin/Caso:editarAdmin.html.twig', 
-                array(
-                'form' => $form->createView(),
-                'arIncidencia' => $arIncidencia));
+        return $this->render('AppBundle:Admin/Caso:editarAdmin.html.twig', array(
+                    'form' => $form->createView(),
+                    'arIncidencia' => $arIncidencia));
     }
 
     /**
@@ -163,8 +171,7 @@ class CasoController extends Controller {
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $arComentario = $form->getData();
-            if($form->get('comentario')->getData())
-            {
+            if ($form->get('comentario')->getData()) {
                 $arComentario->setIncidenciaRel($arIncidencia);
                 $arComentario->setFechaRegistro(new \DateTime('now'));
                 $arComentario->setUsername($arUsuario->getUsername());
@@ -174,9 +181,7 @@ class CasoController extends Controller {
                     $correoEnviar = $arIncidencia->getEmail();
                     $this->enviarCorreo($arIncidencia, $correoEnviar, $arComentario);
                 }
-            }
-            else
-            {
+            } else {
                 return $this->redirectToRoute('caso_admin_detalle', array('codigoIncidencia' => $codigoIncidencia));
             }
         }
@@ -218,14 +223,14 @@ class CasoController extends Controller {
         $session = new session;
         $em = $this->getDoctrine()->getManager();
         $this->strDqlLista = $em->getRepository('AppBundle:Incidencia')->listaDql(
-                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'),$session->get('filtroCodigoIncidenciaPen'));
+                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'), $session->get('filtroCodigoIncidenciaPen'));
     }
-    
+
     private function listaSolucionados() {
         $session = new session;
         $em = $this->getDoctrine()->getManager();
         $this->strDqlLista = $em->getRepository('AppBundle:Incidencia')->listaSolucionadosDql(
-                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'),$session->get('filtroCodigoIncidenciaSol'));
+                $session->get('filtroCodigoCliente'), $session->get('filtroCodigoCategoria'), $session->get('filtroCodigoIncidenciaSol'));
     }
 
     private function filtrarPen($form) {
@@ -240,12 +245,13 @@ class CasoController extends Controller {
             $codigoCategoria = $form->get('categoriaRel')->getData()->getCodigoCategoriaPk();
         }
         $codigoIdIncidenciaPen = 0;
-        if($form->get('codigoIncidenciaPen')->getData()){
+        if ($form->get('codigoIncidenciaPen')->getData()) {
             $codigoIdIncidenciaPen = $form->get('codigoIncidenciaPen')->getData();
         }
         $session->set('filtroCodigoIncidenciaPen', $codigoIdIncidenciaPen);
         $session->set('filtroCodigoCategoria', $codigoCategoria);
     }
+
     private function filtrarSol($form) {
         $session = new session;
         $codigoCliente = '';
@@ -258,16 +264,17 @@ class CasoController extends Controller {
             $codigoCategoria = $form->get('categoriaRel')->getData()->getCodigoCategoriaPk();
         }
         $codigoIdIncidenciaSol = 0;
-        if($form->get('codigoIncidenciaSol')->getData()){
+        if ($form->get('codigoIncidenciaSol')->getData()) {
             $codigoIdIncidenciaSol = $form->get('codigoIncidenciaSol')->getData();
         }
-        
-        
+
+
         $session->set('filtroCodigoIncidenciaSol', $codigoIdIncidenciaSol);
         $session->set('filtroCodigoCategoria', $codigoCategoria);
     }
+
     private function formularioPendienteFiltro() {
-        
+
         $em = $this->getDoctrine()->getManager();
         $session = new session;
         $arrayPropiedadesClientes = array(
@@ -283,7 +290,7 @@ class CasoController extends Controller {
             'data' => "",
             'label' => "Cliente"
         );
-            
+
         $arrayPropiedadesCategoria = array(
             'class' => 'AppBundle:Categoria',
             'query_builder' => function (EntityRepository $er) {
@@ -306,7 +313,7 @@ class CasoController extends Controller {
         }
 
         $form = $this->createFormBuilder()
-                ->add('codigoIncidenciaPen', NumberType::class,array('label'=>'Codigo','data'=>$session->get('filtroCodigoIncidenciaPen')))
+                ->add('codigoIncidenciaPen', NumberType::class, array('label' => 'Codigo', 'data' => $session->get('filtroCodigoIncidenciaPen')))
                 ->add('clienteRel', EntityType::class, $arrayPropiedadesClientes)
                 ->add('categoriaRel', EntityType::class, $arrayPropiedadesCategoria)
                 ->add('BtnFiltrar', SubmitType::class, array('label' => 'Filtrar'))
@@ -314,8 +321,9 @@ class CasoController extends Controller {
                 ->getForm();
         return $form;
     }
+
     private function formularioSolucionadosFiltro() {
-        
+
         $em = $this->getDoctrine()->getManager();
         $session = new session;
         $arrayPropiedadesClientes = array(
@@ -331,7 +339,7 @@ class CasoController extends Controller {
             'data' => "",
             'label' => "Cliente"
         );
-            
+
         $arrayPropiedadesCategoria = array(
             'class' => 'AppBundle:Categoria',
             'query_builder' => function (EntityRepository $er) {
@@ -354,7 +362,7 @@ class CasoController extends Controller {
         }
 
         $form = $this->createFormBuilder()
-                ->add('codigoIncidenciaSol', NumberType::class,array('label'=>'Codigo','data'=>$session->get('filtroCodigoIncidenciaSol')))
+                ->add('codigoIncidenciaSol', NumberType::class, array('label' => 'Codigo', 'data' => $session->get('filtroCodigoIncidenciaSol')))
                 ->add('clienteRel', EntityType::class, $arrayPropiedadesClientes)
                 ->add('categoriaRel', EntityType::class, $arrayPropiedadesCategoria)
                 ->add('BtnFiltrar', SubmitType::class, array('label' => 'Filtrar'))
