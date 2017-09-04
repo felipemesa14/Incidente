@@ -99,9 +99,9 @@ class CasoController extends Controller {
                 $this->enviarCorreo($arIncidencia, $correoEnviar, '');
             }
             if ($arIncidencia->getEstadoSolucionado()) {
-                return $this->redirectToRoute('caso_admin_lista_pendientes');
-            } else {
                 return $this->redirectToRoute('caso_admin_lista_solucionados');
+            } else {
+                return $this->redirectToRoute('caso_admin_lista_pendientes');
             }
         }
         return $this->render('AppBundle:Admin/Caso:nuevo.html.twig', array('form' => $form->createView()));
@@ -147,9 +147,9 @@ class CasoController extends Controller {
             }
             $em->flush();
             if ($arIncidencia->getEstadoSolucionado()) {
-                return $this->redirectToRoute('caso_admin_lista_pendientes');
-            } else {
                 return $this->redirectToRoute('caso_admin_lista_solucionados');
+            } else {
+                return $this->redirectToRoute('caso_admin_lista_pendientes');
             }
         }
         return $this->render('AppBundle:Admin/Caso:editarAdmin.html.twig', array(
