@@ -65,6 +65,10 @@ class Cliente
      * @ORM\OneToMany(targetEntity="User", mappedBy="clienteRel")
      */
     protected $usuariosClienteRel; 
+    /**
+     * @ORM\OneToMany(targetEntity="Llamada", mappedBy="clienteRel")
+     */
+    protected $llamadaClienteRel; 
 
     /**
      * Constructor
@@ -271,5 +275,39 @@ class Cliente
     public function getUsuariosClienteRel()
     {
         return $this->usuariosClienteRel;
+    }
+
+    /**
+     * Add llamadaClienteRel
+     *
+     * @param \AppBundle\Entity\Llamada $llamadaClienteRel
+     *
+     * @return Cliente
+     */
+    public function addLlamadaClienteRel(\AppBundle\Entity\Llamada $llamadaClienteRel)
+    {
+        $this->llamadaClienteRel[] = $llamadaClienteRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove llamadaClienteRel
+     *
+     * @param \AppBundle\Entity\Llamada $llamadaClienteRel
+     */
+    public function removeLlamadaClienteRel(\AppBundle\Entity\Llamada $llamadaClienteRel)
+    {
+        $this->llamadaClienteRel->removeElement($llamadaClienteRel);
+    }
+
+    /**
+     * Get llamadaClienteRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLlamadaClienteRel()
+    {
+        return $this->llamadaClienteRel;
     }
 }

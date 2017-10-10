@@ -91,6 +91,11 @@ class User implements UserInterface {
      */
     protected $notasUsuarioAsignadoRel;
     
+    /**
+     * @ORM\OneToMany(targetEntity="Llamada", mappedBy="usuarioAsignadoRel")
+     */
+    protected $llamadaUsuarioAsignadoRel;
+    
 
     /**
      * Get codigoUsuarioPk
@@ -431,5 +436,39 @@ class User implements UserInterface {
     public function getPruebasUsuarioAsignadoRel()
     {
         return $this->pruebasUsuarioAsignadoRel;
+    }
+
+    /**
+     * Add llamadaUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Llamada $llamadaUsuarioAsignadoRel
+     *
+     * @return User
+     */
+    public function addLlamadaUsuarioAsignadoRel(\AppBundle\Entity\Llamada $llamadaUsuarioAsignadoRel)
+    {
+        $this->llamadaUsuarioAsignadoRel[] = $llamadaUsuarioAsignadoRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove llamadaUsuarioAsignadoRel
+     *
+     * @param \AppBundle\Entity\Llamada $llamadaUsuarioAsignadoRel
+     */
+    public function removeLlamadaUsuarioAsignadoRel(\AppBundle\Entity\Llamada $llamadaUsuarioAsignadoRel)
+    {
+        $this->llamadaUsuarioAsignadoRel->removeElement($llamadaUsuarioAsignadoRel);
+    }
+
+    /**
+     * Get llamadaUsuarioAsignadoRel
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLlamadaUsuarioAsignadoRel()
+    {
+        return $this->llamadaUsuarioAsignadoRel;
     }
 }
