@@ -25,6 +25,7 @@
                                         <th class="active"></th>
                                         <th class="active"></th>
                                         <th class="active"></th>
+                                        <th class="active"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,9 +46,14 @@
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar">    
                                                 </a>
                                             </td>
-                                            <td>
+                                            <td style="text-align: center">
                                                 <a href="{{ path('tarea_detalle',{'codigoTarea':arTarea.codigoTareaPk}) }}">
                                                     <img src="{{ asset('imagenes/bootstrap/glyphicons_152_new_window.png') }}" width=20 height=20 title="Detalle">
+                                                </a>
+                                            </td>
+                                            <td style="text-align: center">
+                                                <a href="{{ path('caso_admin_detalle2',{'codigoIncidencia':arTarea.codigoIncidenciaFk}) }}">
+                                                    <img src="{{ asset('imagenes/bootstrap/glyphicons_196_circle_exclamation_mark.png') }}" width=20 height=20 title="Incidencia">
                                                 </a>
                                             </td>
                                             <td style="text-align: center">

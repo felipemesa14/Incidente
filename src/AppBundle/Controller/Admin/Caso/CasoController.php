@@ -192,6 +192,42 @@ class CasoController extends Controller {
                     'arDetalleComentario' => $arDetalleComentario
         ));
     }
+    
+    /**
+     * @Route("admin/caso/detalle2/{codigoIncidencia}", name="caso_admin_detalle2")
+     */
+    public function detalle2Action(Request $request, $codigoIncidencia) {
+        $em = $this->getDoctrine()->getManager();
+        $arUsuario = $this->getUser();
+        $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
+        $arDetalleComentario = $em->getRepository('AppBundle:Comentario')->findBy(array('codigoIncidenciaFk' => $codigoIncidencia));
+        //Crear formulario de comentarios
+        $arComentario = new \AppBundle\Entity\Comentario();
+        $form = $this->createForm(ComentarioType::class, $arComentario);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $arComentario = $form->getData();
+            if ($form->get('comentario')->getData()) {
+                $arComentario->setIncidenciaRel($arIncidencia);
+                $arComentario->setFechaRegistro(new \DateTime('now'));
+                $arComentario->setUsername($arUsuario->getUsername());
+                $em->persist($arComentario);
+                $em->flush();
+                if ($arUsuario->getRolRel()->getNombre() == "ROLE_ADMIN") {
+                    $correoEnviar = $arIncidencia->getEmail();
+                    $this->enviarCorreo($arIncidencia, $correoEnviar, $arComentario);
+                }
+            } else {
+                return $this->redirectToRoute('caso_admin_detalle', array('codigoIncidencia' => $codigoIncidencia));
+            }
+        }
+        //Crear vista detalle del incidente
+        return $this->render('AppBundle:Admin/Caso:detalle2.html.twig', array(
+                    'arIncidencia' => $arIncidencia,
+                    'form' => $form->createView(),
+                    'arDetalleComentario' => $arDetalleComentario
+        ));
+    }
 
     /**
      * @Route("admin/caso/detalle/descargar/adjunto/{codigoIncidencia}", name="caso_admin_detalle_descargar_adjunto")
