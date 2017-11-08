@@ -29,6 +29,16 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Telefono:</strong></div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                {{ form_widget(form.telefono,{'attr':{'class':'form-control input-sm','required':'required'}}) }}
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Extension:</strong></div>
+                            <div class="col-lg-3">
+                                {{ form_widget(form.extension,{'attr':{'required':'required'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Descripcion:</strong></div>
                             <div class="col-md-9">
                                 {{ form_widget(form.descripcion,{'attr':{'class':'form-control input-sm'}}) }}
@@ -50,10 +60,15 @@
                                 <th class="active">ID</th>
                                 <th class="active">CLIENTE</th>
                                 <th class="active">CONTACTO</th>
+                                <th class="active">TELEFONO</th>
+                                <th class="active">EXT</th>
                                 <th class="active">DESCRIPCION</th>
                                 <th class="active">FECHA</th>
                                 <th class="active">HORA</th>
+                                <th class="active">REGISTRO</th>
                                 <th class="active">ATENDIO</th>
+                                <th class="active">ESTADO</th>
+                                <th class="active"></th>
                                 <th class="active"></th>
                                 <th class="active"></th>
                             </tr>
@@ -64,10 +79,30 @@
                                 <td>{{ arLlamada.codigoLlamadaPk }}</td>
                                 <td>{{ arLlamada.clienteRel.nombre }}</td>
                                 <td>{{ arLlamada.contacto }}</td>
+                                <td>{{ arLlamada.telefono }}</td>
+                                <td>{{ arLlamada.extension }}</td>
                                 <td>{{ arLlamada.descripcion }}</td>
                                 <td>{{ arLlamada.fecha | date('Y-m-d')}}</td>
                                 <td>{{ arLlamada.hora |date ('h:i:s A') }}</td>
                                 <td>{{ arLlamada.usuarioAsignadoRel.username }}</td>
+                                <td>{% if arLlamada.estado == true %}
+                                        {{ arLlamada.soluciono }}
+                                    {% else %}
+                                        PENDIENTE
+                                    {% endif %}
+                                </td>
+                                    {% if arLlamada.estado == true %}
+                                        <td bgcolor="#90EE90">SOLUCIONADO</td>
+                                    {% else %}
+                                        <td bgcolor="#F08080">PENDIENTE</td>
+                                    {% endif %}
+                                <td>
+                                    {% if arLlamada.estado == false %} 
+                                        <a href="{{ path('llamada_solucionar', {'codigoLlamada': arLlamada.codigoLlamadaPk }) }}" >
+                                            <img src="{{ asset('imagenes/bootstrap/glyphicons_198_ok.png') }}" width=20 height=20 title="Solucionar">
+                                        </a>
+                                    {% endif %}
+                                </td>
                                 <td>
                                     <a href="javascript:abrirVentana3('{{ path('llamada_editar', {'codigoLlamada': arLlamada.codigoLlamadaPk }) }}', 'Editar llamada', 450, 1000)" >
                                         <img src="{{ asset('imagenes/bootstrap/glyphicons_151_edit.png') }}" width=20 height=20 title="Editar el registro">

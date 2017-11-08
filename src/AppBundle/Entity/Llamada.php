@@ -40,7 +40,31 @@ class Llamada
      *
      * @ORM\Column(name="contacto", type="string", length=255, nullable=true)
      */
-    private $contacto;
+    private $contacto;  
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="integer", length=255, nullable=true)
+     */
+    private $telefono;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="integer", length=255, nullable=true)
+     */
+    private $extension;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="boolean", nullable=true)
+     */
+    private $estado = false ;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="soluciono", type="string", length=255, nullable=true)
+     */
+    private $soluciono;
 
     /**
      * @var \DateTime
@@ -155,6 +179,102 @@ class Llamada
     public function getContacto()
     {
         return $this->contacto;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param integer $telefono
+     *
+     * @return Llamada
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return integer
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set extension
+     *
+     * @param integer $extension
+     *
+     * @return Llamada
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Get extension
+     *
+     * @return integer
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param boolean $estado
+     *
+     * @return Llamada
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return boolean
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set soluciono
+     *
+     * @param string $soluciono
+     *
+     * @return Llamada
+     */
+    public function setSoluciono($soluciono)
+    {
+        $this->soluciono = $soluciono;
+
+        return $this;
+    }
+
+    /**
+     * Get soluciono
+     *
+     * @return string
+     */
+    public function getSoluciono()
+    {
+        return $this->soluciono;
     }
 
     /**

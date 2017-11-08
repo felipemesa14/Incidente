@@ -39,7 +39,9 @@ class LlamadaController extends Controller {
                 }
             }
         }
-        $arLlamadas = $em->getRepository('AppBundle:Llamada')->findAll();
+        $dql = $em->getRepository('AppBundle:Llamada')->listaDql();
+        $query = $em->CreateQuery($dql);
+        $arLlamadas = $query->getResult();
         return $this->render('AppBundle:Admin/Llamada:lista.html.twig', array('arLlamadas' => $arLlamadas,
                     'form' => $form->createView()));
     }
@@ -64,5 +66,19 @@ class LlamadaController extends Controller {
         }
         return $this->render('AppBundle:Admin/Llamada:editar.html.twig', array('arLlamada' => $arLlamada,
                     'form' => $form->createView()));
+    }
+    
+    /**
+     * @Route("admin/llamada/solucionar/{codigoLlamada}", name="llamada_solucionar")
+     */
+    public function solucionarAction(Request $request,$codigoLlamada) {
+        $arUsuario = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $arLlamada = new \AppBundle\Entity\Llamada();
+        $arLlamada = $em->getRepository('AppBundle:Llamada')->find($codigoLlamada);
+        $arLlamada->setEstado(true);
+        $arLlamada->setSoluciono($arUsuario->getUserName());
+        $em->flush();
+        return $this->redirectToRoute('llamada_lista');
     }
 }

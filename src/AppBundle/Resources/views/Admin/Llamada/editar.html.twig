@@ -28,6 +28,17 @@
                                 {{ form_widget(form.hora,{'attr':{'required':'required'}}) }}
                             </div>
                         </div>
+                            
+                        <div class="form-group">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Telefono:</strong></div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                {{ form_widget(form.telefono,{'attr':{'class':'form-control input-sm','required':'required'}}) }}
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Extension:</strong></div>
+                            <div class="col-md-3">
+                                {{ form_widget(form.extension,{'attr':{'required':'required'}}) }}
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label"><strong>Descripcion:</strong></div>
                             <div class="col-md-9">

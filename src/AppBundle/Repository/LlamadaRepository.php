@@ -10,4 +10,9 @@ namespace AppBundle\Repository;
  */
 class LlamadaRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function listaDql() {
+        $dql = "SELECT i FROM AppBundle:Llamada i WHERE i.codigoLlamadaPk <> 0";
+        $dql .= " ORDER BY i.codigoLlamadaPk DESC";
+        return $dql;
+    }
 }

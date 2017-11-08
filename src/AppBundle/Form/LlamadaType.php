@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -30,6 +31,8 @@ class LlamadaType extends AbstractType {
                 ->add('contacto', TextType::class, array('required'=> True))
                 ->add('fecha', DateType::class, array('required'=> True))
                 ->add('hora', TimeType::class, array('required'=> True))
+                ->add('extension', IntegerType::class, array('required'=> True))
+                ->add('telefono', IntegerType::class, array('required'=> True))
                 ->add('descripcion', TextareaType::class, array('required'=> True,'attr'=>array('rows'=> 4)))
                 ->add('guardar', SubmitType::class)
                 ->add('eliminar', SubmitType::class);
