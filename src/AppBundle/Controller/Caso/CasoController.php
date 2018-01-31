@@ -72,10 +72,11 @@ class CasoController extends Controller
     public function nuevoAction(Request $request, $codigoIncidencia)
     {
         //Crear formulario para el registro de caso
+        $nombreArchivo = "";
         $em = $this->getDoctrine()->getManager();
         if ($codigoIncidencia != 0) {
             $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
-
+            $nombreArchivo = $arIncidencia->getAdjunto();
         } else {
             $arIncidencia = new \AppBundle\Entity\Incidencia();
             $arUsuario = $this->getUser();
@@ -106,7 +107,9 @@ class CasoController extends Controller
             }
             return $this->redirectToRoute('caso_lista');
         }
-        return $this->render('AppBundle:Caso:nuevo.html.twig', array('form' => $form->createView()));
+        return $this->render('AppBundle:Caso:nuevo.html.twig',
+            array('archivoAdjunto' => $nombreArchivo,
+            'form' => $form->createView()));
     }
 
     /**

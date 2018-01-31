@@ -59,6 +59,10 @@
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                         {{ form_widget(form.image) }}
+                                        <br/>
+                                        {% if archivoAdjunto  != null %}
+                                            <cite>Archivo actual: <mark style="background-color: #adadad;">{{ archivoAdjunto }}</mark></cite>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <div class="form-group">
