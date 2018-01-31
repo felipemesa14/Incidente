@@ -92,9 +92,10 @@ class CasoController extends Controller
             $objArchivo = $form->get('image')->getData();
             if ($objArchivo != NULL) {
                 $strNombreArchivo = $objArchivo->getClientOriginalName();
-                $form->get('adjunto')->getData()->move('/var/www/html/recursos/web/incidente/', $strNombreArchivo);
+                $form->get('image')->getData()->move('/var/www/html/recursos/web/incidente/', $strNombreArchivo);
                 $arIncidencia->setAdjunto($strNombreArchivo);
-                $file = new File('/var/www/html/recursos/web/incidente/' . $arIncidencia->getAdjunto());
+                $file = new File();
+                $file = '/var/www/html/recursos/web/incidente/' . $arIncidencia->getAdjunto();
                 $arIncidencia->setImage($file);
             }
             $em->persist($arIncidencia);
