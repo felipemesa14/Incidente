@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Incidencia
@@ -158,6 +160,11 @@ class Incidencia {
      * @ORM\Column(name="adjunto", type="string", length=250, nullable=true)
      */
     private $adjunto;
+
+    /**
+     * @Assert\File(maxSize="10M")
+     */
+    private $image;
 
     /**
      * @var int
@@ -905,5 +912,21 @@ class Incidencia {
     public function getTemaRel()
     {
         return $this->temaRel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 }

@@ -10,20 +10,23 @@ use AppBundle\Form\IncidenciaAdminType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\File;
 
-class CasoController extends Controller {
+class CasoController extends Controller
+{
 
     /**
      * @Route("caso/lista", name="caso_lista")
      */
-    public function listaAction(Request $request) {
+    public function listaAction(Request $request)
+    {
         $mensaje = '';
         $paginator = $this->get('knp_paginator');
         $arUsuario = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createFormBuilder()
-                ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
-                ->getForm();
+            ->add('BtnEliminar', SubmitType::class, array('label' => 'Eliminar'))
+            ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if ($form->get('BtnEliminar')->isClicked()) {
@@ -53,24 +56,26 @@ class CasoController extends Controller {
             return $this->redirectToRoute('admin_index');
         } else {
             $arIncidencia = $paginator->paginate($em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername(),
-                        'estadoSolucionado' => 0), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
+                'estadoSolucionado' => 0), array('fechaRegistro' => 'DESC')), $request->query->get('page', 1), 20);
             $arIncidenciaSolucionados = $paginator->paginate($em->getRepository('AppBundle:Incidencia')->findBy(array('usuario' => $arUsuario->getUsername(),
-                        'estadoSolucionado' => 1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
+                'estadoSolucionado' => 1), array('fechaSolucion' => 'DESC')), $request->query->get('page', 1), 20);
         }
         return $this->render('AppBundle:Caso:lista.html.twig', array('arIncidencia' => $arIncidencia,
-                    'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
-                    'mensaje' => $mensaje,
-                    'form' => $form->createView()));
+            'arIncidenciaSolucionado' => $arIncidenciaSolucionados,
+            'mensaje' => $mensaje,
+            'form' => $form->createView()));
     }
 
     /**
      * @Route("caso/nuevo/{codigoIncidencia}", name="caso_nuevo")
      */
-    public function nuevoAction(Request $request, $codigoIncidencia) {
+    public function nuevoAction(Request $request, $codigoIncidencia)
+    {
         //Crear formulario para el registro de caso
         $em = $this->getDoctrine()->getManager();
         if ($codigoIncidencia != 0) {
             $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
+
         } else {
             $arIncidencia = new \AppBundle\Entity\Incidencia();
             $arUsuario = $this->getUser();
@@ -84,11 +89,13 @@ class CasoController extends Controller {
         //Validar el formulario para realizar el envio y almcenamiento de los datos
         if ($form->isSubmitted() && $form->isValid()) {
             $arIncidencia = $form->getData();
-            $objArchivo = $form->get('adjunto')->getData();
+            $objArchivo = $form->get('image')->getData();
             if ($objArchivo != NULL) {
                 $strNombreArchivo = $objArchivo->getClientOriginalName();
                 $form->get('adjunto')->getData()->move('/var/www/html/recursos/web/incidente/', $strNombreArchivo);
                 $arIncidencia->setAdjunto($strNombreArchivo);
+                $file = new File('/var/www/html/recursos/web/incidente/' . $arIncidencia->getAdjunto());
+                $arIncidencia->setImage($file);
             }
             $em->persist($arIncidencia);
             $em->flush();
@@ -104,7 +111,8 @@ class CasoController extends Controller {
     /**
      * @Route("caso/editarAdmin/{codigoIncidencia}", name="caso_editar")
      */
-    public function editarAdminAction(Request $request, $codigoIncidencia) {
+    public function editarAdminAction(Request $request, $codigoIncidencia)
+    {
         //Crear formulario para el registro de caso
         $em = $this->getDoctrine()->getManager();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
@@ -128,7 +136,8 @@ class CasoController extends Controller {
     /**
      * @Route("caso/detalle/{codigoIncidencia}", name="caso_detalle")
      */
-    public function detalleAction(Request $request, $codigoIncidencia) {
+    public function detalleAction(Request $request, $codigoIncidencia)
+    {
         $em = $this->getDoctrine()->getManager();
         $arUsuario = $this->getUser();
         $arIncidencia = $em->getRepository('AppBundle:Incidencia')->find($codigoIncidencia);
@@ -136,15 +145,15 @@ class CasoController extends Controller {
         //Crear formulario de comentarios
 
         $form = $this->createFormBuilder()
-                ->add('estadoSolucionado', ChoiceType::class, array(
-                    'data' => $arIncidencia->getEstadoSolucionado(),
-                    'choices' => array(
-                        'No' => '0',
-                        'Si' => '1',
-            )))
-                ->add('comentario', TextareaType::class, array('required' => false))
-                ->add('BtnGuardar', SubmitType::class, array('label' => 'Guardar'))
-                ->getForm();
+            ->add('estadoSolucionado', ChoiceType::class, array(
+                'data' => $arIncidencia->getEstadoSolucionado(),
+                'choices' => array(
+                    'No' => '0',
+                    'Si' => '1',
+                )))
+            ->add('comentario', TextareaType::class, array('required' => false))
+            ->add('BtnGuardar', SubmitType::class, array('label' => 'Guardar'))
+            ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $comentario = $form->get('comentario')->getData();
@@ -167,18 +176,19 @@ class CasoController extends Controller {
         }
         //Crear vista detalle del incidente
         return $this->render('AppBundle:Caso:detalle.html.twig', array(
-                    'arIncidencia' => $arIncidencia,
-                    'form' => $form->createView(),
-                    'arDetalleComentario' => $arDetalleComentario
+            'arIncidencia' => $arIncidencia,
+            'form' => $form->createView(),
+            'arDetalleComentario' => $arDetalleComentario
         ));
     }
 
-    private function enviarCorreo($arIncidencia, $correoEnviar, $arDetalleComentario) {
+    private function enviarCorreo($arIncidencia, $correoEnviar, $arDetalleComentario)
+    {
         $message = \Swift_Message::newInstance()
-                ->setSubject('Soga soporte')
-                ->setFrom('sogainformacion@gmail.com')
-                ->setTo($correoEnviar)
-                ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia, 'arDetalleComentario' => $arDetalleComentario)), 'text/html');
+            ->setSubject('Soga soporte')
+            ->setFrom('sogainformacion@gmail.com')
+            ->setTo($correoEnviar)
+            ->setBody($this->renderView('AppBundle:Email:nuevo.html.twig', array('arIncidencia' => $arIncidencia, 'arDetalleComentario' => $arDetalleComentario)), 'text/html');
         $this->get('mailer')->send($message);
     }
 
